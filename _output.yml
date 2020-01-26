@@ -1,0 +1,52 @@
+bookdown::gitbook:
+  css: [css/style.css, css/toc2.css] 
+  config:
+    toc:
+      collapse: subsection
+      before: |
+        <li><a href="./">Guía para el análisis de datos espaciales en agricultura</a></li>
+      after: |
+        <li><a href="https://www.agro.unc.edu.ar/~estadisticaaplicada" target="blank">Estadística Aplicada</a></li>
+#    edit:
+#      link: https://github.com/PPaccioretti/PROTRI2018/edit/master/%s
+#      text: "Edit"
+    sharing: null
+  includes:
+    in_header: codigos/ga.html
+    after_body: codigos/after-body.html    
+    download: ["pdf", "epub"]
+    citation_package: none # needs to be "none" in order to use the csl file
+    pandoc_args: [ "--csl", "./csl/apa-no-ampersand.csl" ] # specifies the csl file to be used
+#bookdown::html_chapters:
+#  css: [style.css, css/toc2.css] 
+bookdown::pdf_book:
+  includes:
+    in_header: latex/preamble.tex
+    before_body: latex/before_body.tex
+    after_body: latex/after_body.tex
+  keep_tex: yes
+  dev: "cairo_pdf"
+#  latex_engine: xelatex
+  template: null
+  # pandoc_args: --top-level-division=chapter
+  toc_depth: 3
+  toc_unnumbered: no
+  toc_appendix: yes
+  quote_footer: ["\\VA{", "}{}"]
+  highlight: pygments # code highlighting
+  # citation_package: natbib
+  citation_package: none # needs to be "none" in order to use the csl file
+  pandoc_args: [ "--csl", "./csl/apa-no-ampersand.csl", "--top-level-division=chapter" ] # specifies the csl file to be used
+bookdown::epub_book: 
+  default
+
+bookdown::word_document2: 
+#  default
+  pandoc_args: [
+    "--csl", "./csl/apa-no-ampersand.csl"
+#    "--bibliography", "./bib/packages.bib",
+#    "--bibliography", "./bib/thesis.bib",
+#    #"--reference-doc", "./assets/2018-05-17-aim1-draft.docx",
+#    "--filter", "pandoc-citeproc"
+#    #"--filter", "./assets/fix-apa-ampersands.py"
+  ]

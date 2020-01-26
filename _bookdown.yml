@@ -1,0 +1,24 @@
+book_filename: "PROTRI2018-VariabilidadEspacial"
+#new_session: yes
+before_chapter_script: ["codigos/before_script.R"]
+delete_merged_file: true
+language:
+  label:
+    fig: 'Figura '
+    tab: 'Tabla '
+    eq: 'Ecuación '
+    thm: 'Teorema '
+    lem: 'Lema '
+    def: 'Definición '
+    cor: 'Corolario '
+    prp: 'Proposición '
+    exm: 'Ejemplo '
+    exr: 'Ejercicio '
+    proof: 'Demostración. '
+    remark: 'Nota: '
+    solution: 'Solución. '
+  ui:
+    edit: "Editar"
+    chapter_name: "Sección "
+    appendix_name: "Anexo - "
+

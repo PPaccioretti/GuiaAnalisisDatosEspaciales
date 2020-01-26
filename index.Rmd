@@ -1,0 +1,65 @@
+--- 
+title: 'Guía para el análisis de datos espaciales. Aplicaciones en agricultura' 
+author: 
+- Mariano Córdoba
+- Pablo Paccioretti
+- Franca Giannini Kurina
+- Cecilia Bruno
+- Mónica Balzarini
+documentclass: krantz
+fontsize: 11pt
+papersize: b5
+geometry: "left=3.6cm, right=3.6cm, top=3cm, bottom=3cm"
+linestretch: 1.1
+toc_depth: 3
+secnumdepth: 2
+lof: FALSE
+lot: FALSE
+colorlinks: yes
+graphics: yes
+monofontoptions: "Scale=0.8"
+always_allow_html: true
+site: bookdown::bookdown_site
+bibliography: [packages.bib, book.bib]
+# biblio-style: apalike
+link-citations: yes
+language: es
+description: "DISEMINACIÓN CIENTÍFICA Y TRASNFERENCIA DE RESULTADOS DE INVESTIGACIÓN, PROMOVIDAS POR EL MINISTERIO DE CIENCIA Y TECNOLOGÍA DE LA PROVINCIA DE CÓRDOBA."
+---
+
+# Prólogo {-}
+
+En las últimas décadas se ha impulsado el desarrollo y la utilización de nuevas tecnologías que permiten capturar datos espaciales, *i.e.* datos de una variable regionalizada o asociados a una localización en el espacio. 
+
+La infraestructura de datos espaciales es cada vez mayor en tamaño y calidad, especialmente la asociada a la generación de datos que provienen de sensores ya sea remotos o proximales. Los volúmenes de datos espaciales no sólo son vastos y variados, sino que también, en la mayoría de los escenarios, son accesibles. Estos datos generan nuevas oportunidades para la investigación en agricultura.
+
+La variabilidad en los procesos aleatorios que generan datos espaciales se modela con diversas herramientas de la Estadística Espacial y se representa gráficamente en mapas de variabilidad espacial donde puede observarse cómo cambian los valores de una o más variables aleatorias según su posición en el espacio.
+
+Aún cuando se estudian dominios espaciales continuos con alta densidad de datos, usualmente no existen observaciones de la variable de interés para todos las localizaciones o sitios del espacio analizado; así se hace necesario obtener predicciones espaciales, *i.e.* predecir el valor de la variable en sitios sin datos. Con grillas de predicción densa, es posible obtener mapas de contorno casi continuos espacialmente.
+
+Con varias variables para cada sitio, una de ellas interpretada como resultante de un proceso y otras como explicativas o potenciales predictores, es posible obtener predicciones espaciales a partir de modelos que consideran la correlación espacial de los datos. Los modelos pueden estimarse tanto en un marco teórico frecuentista [@Cressie_Wikle_2015; @Schabenberger_Gotway_2005] como desde el marco teórico bayesiano [@Correa_Morales_Causil_Javier_2018]. También, desde la Ciencia de Datos con base computacional, se encuentran disponibles algoritmos de aprendizaje automático que incorporan la espacialidad en el análisis de datos [@Li_Heap_Potter_Daniell_2011].
+
+En esta guía se ilustra el manejo y procesamiento de datos espaciales con distintos métodos estadísticos y su aplicación en agricultura. El texto está organizado en tres partes; la primera contiene bases conceptuales para el análisis de datos georreferenciados provenientes de procesos espaciales continuos. La segunda, la implementación de protocolos de análisis completos sobre datos distribuidos a escala fina en el espacio, con códigos de programa listos para ejecutar en el software estadístico R [@R_Core_Team_2019] y en el software *InfoStat* [@Di_Rienzo_Casanoves_Balzarini_Gonzalez_Tablada_Robledo_2019]. La tercera parte del texto ilustra la implementación del manejo y análisis de datos distribuidos a escala regional con códigos en R. La versión digital de este libro puede obtenerse desde www.agro.unc.edu.ar/~estadisticaaplicada donde también se encuentran los códigos de programación y los datos usados en este texto.
+
+
+```{r index-1, echo=FALSE}
+# is_on_travis = identical(Sys.getenv("TRAVIS"), "true")
+is_online = curl::has_internet()
+is_html = knitr::is_html_output()
+```
+
+```{asis index-2, echo=is_html}
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br /> Esta obra está bajo una Licencia <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"> Creative Commons Atribución – No Comercial – Sin Obra Derivada 4.0 Internacional.</a>.
+
+```
+
+
+\mainmatter
+
+
+```{r include=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown', 'sf', 'e1071'
+), 'packages.bib')
+```
