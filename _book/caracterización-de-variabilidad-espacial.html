@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Sección 2 Caracterización de variabilidad espacial | Guía para el análisis de datos espaciales. Aplicaciones en agricultura</title>
+  <meta name="description" content="DISEMINACIÓN CIENTÍFICA Y TRASNFERENCIA DE RESULTADOS DE INVESTIGACIÓN, PROMOVIDAS POR EL MINISTERIO DE CIENCIA Y TECNOLOGÍA DE LA PROVINCIA DE CÓRDOBA." />
+  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Sección 2 Caracterización de variabilidad espacial | Guía para el análisis de datos espaciales. Aplicaciones en agricultura" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="DISEMINACIÓN CIENTÍFICA Y TRASNFERENCIA DE RESULTADOS DE INVESTIGACIÓN, PROMOVIDAS POR EL MINISTERIO DE CIENCIA Y TECNOLOGÍA DE LA PROVINCIA DE CÓRDOBA." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Sección 2 Caracterización de variabilidad espacial | Guía para el análisis de datos espaciales. Aplicaciones en agricultura" />
+  
+  <meta name="twitter:description" content="DISEMINACIÓN CIENTÍFICA Y TRASNFERENCIA DE RESULTADOS DE INVESTIGACIÓN, PROMOVIDAS POR EL MINISTERIO DE CIENCIA Y TECNOLOGÍA DE LA PROVINCIA DE CÓRDOBA." />
+  
+
+<meta name="author" content="Mariano Córdoba" />
+<meta name="author" content="Pablo Paccioretti" />
+<meta name="author" content="Franca Giannini Kurina" />
+<meta name="author" content="Cecilia Bruno" />
+<meta name="author" content="Mónica Balzarini" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="manejo-de-datos-espaciales.html"/>
+<link rel="next" href="caracterización-de-variabilidad-espacial-con-múltiples-capas-de-datos.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-154490537-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="stylesheet" href="css/toc2.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Guía para el análisis de datos espaciales en agricultura</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prólogo</a></li>
+<li class="part"><span><b>I Aproximaciones metodológicas</b></span></li>
+<li class="chapter" data-level="1" data-path="manejo-de-datos-espaciales.html"><a href="manejo-de-datos-espaciales.html"><i class="fa fa-check"></i><b>1</b> Manejo de datos espaciales</a><ul>
+<li class="chapter" data-level="1.1" data-path="manejo-de-datos-espaciales.html"><a href="manejo-de-datos-espaciales.html#transformación-y-conversión-de-coordenadas"><i class="fa fa-check"></i><b>1.1</b> Transformación y conversión de coordenadas</a></li>
+<li class="chapter" data-level="1.2" data-path="manejo-de-datos-espaciales.html"><a href="manejo-de-datos-espaciales.html#manipulación-de-múltiples-capas-de-datos"><i class="fa fa-check"></i><b>1.2</b> Manipulación de múltiples capas de datos</a></li>
+<li class="chapter" data-level="1.3" data-path="manejo-de-datos-espaciales.html"><a href="manejo-de-datos-espaciales.html#depuración-de-datos"><i class="fa fa-check"></i><b>1.3</b> Depuración de datos</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="caracterización-de-variabilidad-espacial.html"><a href="caracterización-de-variabilidad-espacial.html"><i class="fa fa-check"></i><b>2</b> Caracterización de variabilidad espacial</a><ul>
+<li class="chapter" data-level="2.1" data-path="caracterización-de-variabilidad-espacial.html"><a href="caracterización-de-variabilidad-espacial.html#semivariogramas"><i class="fa fa-check"></i><b>2.1</b> Semivariogramas</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="caracterización-de-variabilidad-espacial.html"><a href="caracterización-de-variabilidad-espacial.html#ajuste-de-semivariogramas"><i class="fa fa-check"></i><b>2.1.1</b> Ajuste de semivariogramas</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="caracterización-de-variabilidad-espacial.html"><a href="caracterización-de-variabilidad-espacial.html#correlación-espacial-bivariada"><i class="fa fa-check"></i><b>2.2</b> Correlación espacial bivariada</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="caracterización-de-variabilidad-espacial.html"><a href="caracterización-de-variabilidad-espacial.html#coeficiente-de-correlación"><i class="fa fa-check"></i><b>2.2.1</b> Coeficiente de correlación</a></li>
+<li class="chapter" data-level="2.2.2" data-path="caracterización-de-variabilidad-espacial.html"><a href="caracterización-de-variabilidad-espacial.html#coeficiente-de-co-dispersión"><i class="fa fa-check"></i><b>2.2.2</b> Coeficiente de co-dispersión</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="caracterización-de-variabilidad-espacial.html"><a href="caracterización-de-variabilidad-espacial.html#interpolación-kriging"><i class="fa fa-check"></i><b>2.3</b> Interpolación Kriging</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="caracterización-de-variabilidad-espacial.html"><a href="caracterización-de-variabilidad-espacial.html#kriging-ordinario"><i class="fa fa-check"></i><b>2.3.1</b> Kriging ordinario</a></li>
+<li class="chapter" data-level="2.3.2" data-path="caracterización-de-variabilidad-espacial.html"><a href="caracterización-de-variabilidad-espacial.html#kriging-en-bloques"><i class="fa fa-check"></i><b>2.3.2</b> Kriging en bloques</a></li>
+<li class="chapter" data-level="2.3.3" data-path="caracterización-de-variabilidad-espacial.html"><a href="caracterización-de-variabilidad-espacial.html#kriging-local"><i class="fa fa-check"></i><b>2.3.3</b> Kriging local</a></li>
+<li class="chapter" data-level="2.3.4" data-path="caracterización-de-variabilidad-espacial.html"><a href="caracterización-de-variabilidad-espacial.html#kriging-universal"><i class="fa fa-check"></i><b>2.3.4</b> Kriging universal</a></li>
+<li class="chapter" data-level="2.3.5" data-path="caracterización-de-variabilidad-espacial.html"><a href="caracterización-de-variabilidad-espacial.html#validación-cruzada"><i class="fa fa-check"></i><b>2.3.5</b> Validación cruzada</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="caracterización-de-variabilidad-espacial-con-múltiples-capas-de-datos.html"><a href="caracterización-de-variabilidad-espacial-con-múltiples-capas-de-datos.html"><i class="fa fa-check"></i><b>3</b> Caracterización de variabilidad espacial con múltiples capas de datos</a><ul>
+<li class="chapter" data-level="3.1" data-path="caracterización-de-variabilidad-espacial-con-múltiples-capas-de-datos.html"><a href="caracterización-de-variabilidad-espacial-con-múltiples-capas-de-datos.html#análisis-de-componentes-principales"><i class="fa fa-check"></i><b>3.1</b> Análisis de componentes principales</a></li>
+<li class="chapter" data-level="3.2" data-path="caracterización-de-variabilidad-espacial-con-múltiples-capas-de-datos.html"><a href="caracterización-de-variabilidad-espacial-con-múltiples-capas-de-datos.html#análisis-de-conglomerados"><i class="fa fa-check"></i><b>3.2</b> Análisis de conglomerados</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="predicción-con-múltiples-capas-de-datos.html"><a href="predicción-con-múltiples-capas-de-datos.html"><i class="fa fa-check"></i><b>4</b> Predicción con múltiples capas de datos</a><ul>
+<li class="chapter" data-level="4.1" data-path="predicción-con-múltiples-capas-de-datos.html"><a href="predicción-con-múltiples-capas-de-datos.html#regresión-con-errores-correlacionados-espacialmente-vía-reml"><i class="fa fa-check"></i><b>4.1</b> Regresión con errores correlacionados espacialmente vía REML</a></li>
+<li class="chapter" data-level="4.2" data-path="predicción-con-múltiples-capas-de-datos.html"><a href="predicción-con-múltiples-capas-de-datos.html#regresión-con-efectos-aleatorios-de-sitio-vía-inla"><i class="fa fa-check"></i><b>4.2</b> Regresión con efectos aleatorios de sitio vía INLA</a></li>
+<li class="chapter" data-level="4.3" data-path="predicción-con-múltiples-capas-de-datos.html"><a href="predicción-con-múltiples-capas-de-datos.html#regresión-vía-modelos-basados-en-árbol"><i class="fa fa-check"></i><b>4.3</b> Regresión vía modelos basados en árbol</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="predicción-con-múltiples-capas-de-datos.html"><a href="predicción-con-múltiples-capas-de-datos.html#bosques-aleatorios"><i class="fa fa-check"></i><b>4.3.1</b> Bosques aleatorios</a></li>
+<li class="chapter" data-level="4.3.2" data-path="predicción-con-múltiples-capas-de-datos.html"><a href="predicción-con-múltiples-capas-de-datos.html#árboles-de-regresión-generalizados"><i class="fa fa-check"></i><b>4.3.2</b> Árboles de regresión generalizados</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II Análisis de datos a escala fina</b></span></li>
+<li class="chapter" data-level="5" data-path="implementación-con-r.html"><a href="implementación-con-r.html"><i class="fa fa-check"></i><b>5</b> Implementación con R</a><ul>
+<li class="chapter" data-level="5.1" data-path="implementación-con-r.html"><a href="implementación-con-r.html#conversión-de-coordenadas-espaciales"><i class="fa fa-check"></i><b>5.1</b> Conversión de coordenadas espaciales</a></li>
+<li class="chapter" data-level="5.2" data-path="implementación-con-r.html"><a href="implementación-con-r.html#eliminación-de-outliers-e-inliers"><i class="fa fa-check"></i><b>5.2</b> Eliminación de <em>outliers</em> e <em>inliers</em></a></li>
+<li class="chapter" data-level="5.3" data-path="implementación-con-r.html"><a href="implementación-con-r.html#detección-de-tendencias-espaciales"><i class="fa fa-check"></i><b>5.3</b> Detección de tendencias espaciales</a></li>
+<li class="chapter" data-level="5.4" data-path="implementación-con-r.html"><a href="implementación-con-r.html#cálculo-del-índice-de-moran"><i class="fa fa-check"></i><b>5.4</b> Cálculo del índice de Moran</a></li>
+<li class="chapter" data-level="5.5" data-path="implementación-con-r.html"><a href="implementación-con-r.html#análisis-basado-en-semivariogramas"><i class="fa fa-check"></i><b>5.5</b> Análisis basado en semivariogramas</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="implementación-con-r.html"><a href="implementación-con-r.html#mapeo-de-la-variabilidad-espacial"><i class="fa fa-check"></i><b>5.5.1</b> Mapeo de la variabilidad espacial</a></li>
+<li class="chapter" data-level="5.5.2" data-path="implementación-con-r.html"><a href="implementación-con-r.html#validación-cruzada-1"><i class="fa fa-check"></i><b>5.5.2</b> Validación cruzada</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="implementación-con-r.html"><a href="implementación-con-r.html#caracterización-de-variabilidad-espacial-con-múltiples-capas-de-datos-1"><i class="fa fa-check"></i><b>5.6</b> Caracterización de variabilidad espacial con múltiples capas de datos</a><ul>
+<li class="chapter" data-level="5.6.1" data-path="implementación-con-r.html"><a href="implementación-con-r.html#análisis-de-componentes-principales-1"><i class="fa fa-check"></i><b>5.6.1</b> Análisis de componentes principales</a></li>
+<li class="chapter" data-level="5.6.2" data-path="implementación-con-r.html"><a href="implementación-con-r.html#análisis-de-conglomerados-1"><i class="fa fa-check"></i><b>5.6.2</b> Análisis de conglomerados</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="implementación-con-r.html"><a href="implementación-con-r.html#predicción-con-múltiples-capas-de-datos-1"><i class="fa fa-check"></i><b>5.7</b> Predicción con múltiples capas de datos</a><ul>
+<li class="chapter" data-level="5.7.1" data-path="implementación-con-r.html"><a href="implementación-con-r.html#kriging-con-deriva-externa"><i class="fa fa-check"></i><b>5.7.1</b> Kriging con deriva externa</a></li>
+<li class="chapter" data-level="5.7.2" data-path="implementación-con-r.html"><a href="implementación-con-r.html#kriging-desde-modelo-de-regresión"><i class="fa fa-check"></i><b>5.7.2</b> Kriging desde modelo de regresión</a></li>
+<li class="chapter" data-level="5.7.3" data-path="implementación-con-r.html"><a href="implementación-con-r.html#árboles-aleatorios"><i class="fa fa-check"></i><b>5.7.3</b> Árboles aleatorios</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html"><i class="fa fa-check"></i><b>6</b> Implementación con InfoStat</a><ul>
+<li class="chapter" data-level="6.1" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html#conversión-de-coordenadas-espaciales-1"><i class="fa fa-check"></i><b>6.1</b> Conversión de coordenadas espaciales</a></li>
+<li class="chapter" data-level="6.2" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html#eliminación-de-outliers-e-inliers-1"><i class="fa fa-check"></i><b>6.2</b> Eliminación de <em>outliers</em> e <em>inliers</em></a></li>
+<li class="chapter" data-level="6.3" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html#detección-de-tendencias-espaciales-1"><i class="fa fa-check"></i><b>6.3</b> Detección de tendencias espaciales</a></li>
+<li class="chapter" data-level="6.4" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html#cálculo-del-índice-de-moran-1"><i class="fa fa-check"></i><b>6.4</b> Cálculo del índice de Moran</a></li>
+<li class="chapter" data-level="6.5" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html#análisis-basado-en-semivariogramas-1"><i class="fa fa-check"></i><b>6.5</b> Análisis basado en semivariogramas</a><ul>
+<li class="chapter" data-level="6.5.1" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html#mapeo-de-variabilidad-espacial"><i class="fa fa-check"></i><b>6.5.1</b> Mapeo de variabilidad espacial</a></li>
+<li class="chapter" data-level="6.5.2" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html#validación-cruzada-2"><i class="fa fa-check"></i><b>6.5.2</b> Validación cruzada</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html#caracterización-de-variabilidad-espacial-con-múltiples-capas-de-datos-2"><i class="fa fa-check"></i><b>6.6</b> Caracterización de variabilidad espacial con múltiples capas de datos</a><ul>
+<li class="chapter" data-level="6.6.1" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html#análisis-de-componentes-principales-2"><i class="fa fa-check"></i><b>6.6.1</b> Análisis de componentes principales</a></li>
+<li class="chapter" data-level="6.6.2" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html#análisis-de-conglomerados-2"><i class="fa fa-check"></i><b>6.6.2</b> Análisis de conglomerados</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html#predicción-con-múltiples-capas-de-datos-2"><i class="fa fa-check"></i><b>6.7</b> Predicción con múltiples capas de datos</a><ul>
+<li class="chapter" data-level="6.7.1" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html#kriging-con-deriva-externa-1"><i class="fa fa-check"></i><b>6.7.1</b> Kriging con deriva externa</a></li>
+<li class="chapter" data-level="6.7.2" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html#kriging-desde-modelo-de-regresión-1"><i class="fa fa-check"></i><b>6.7.2</b> Kriging desde modelo de regresión</a></li>
+<li class="chapter" data-level="6.7.3" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html#árboles-aleatorios-1"><i class="fa fa-check"></i><b>6.7.3</b> Árboles aleatorios</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>III Análisis de datos a escala regional</b></span></li>
+<li class="chapter" data-level="7" data-path="bases-de-datos-regionales.html"><a href="bases-de-datos-regionales.html"><i class="fa fa-check"></i><b>7</b> Bases de datos regionales</a><ul>
+<li class="chapter" data-level="7.1" data-path="bases-de-datos-regionales.html"><a href="bases-de-datos-regionales.html#manejo-de-datos-espaciales-1"><i class="fa fa-check"></i><b>7.1</b> Manejo de datos espaciales</a></li>
+<li class="chapter" data-level="7.2" data-path="bases-de-datos-regionales.html"><a href="bases-de-datos-regionales.html#confección-de-grillas-de-predicción"><i class="fa fa-check"></i><b>7.2</b> Confección de grillas de predicción</a></li>
+<li class="chapter" data-level="7.3" data-path="bases-de-datos-regionales.html"><a href="bases-de-datos-regionales.html#agregado-de-capas-de-información"><i class="fa fa-check"></i><b>7.3</b> Agregado de capas de información</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="predicción-con-múltiples-capas-de-datos-3.html"><a href="predicción-con-múltiples-capas-de-datos-3.html"><i class="fa fa-check"></i><b>8</b> Predicción con múltiples capas de datos</a><ul>
+<li class="chapter" data-level="8.1" data-path="predicción-con-múltiples-capas-de-datos-3.html"><a href="predicción-con-múltiples-capas-de-datos-3.html#regresión-con-errores-correlacionados-espacialmente-vía-reml-1"><i class="fa fa-check"></i><b>8.1</b> Regresión con errores correlacionados espacialmente vía REML</a></li>
+<li class="chapter" data-level="8.2" data-path="predicción-con-múltiples-capas-de-datos-3.html"><a href="predicción-con-múltiples-capas-de-datos-3.html#regresión-con-efectos-aleatorios-de-sitio-vía-inla-1"><i class="fa fa-check"></i><b>8.2</b> Regresión con efectos aleatorios de sitio vía INLA</a></li>
+<li class="chapter" data-level="8.3" data-path="predicción-con-múltiples-capas-de-datos-3.html"><a href="predicción-con-múltiples-capas-de-datos-3.html#regresión-vía-modelos-basados-en-árbol-1"><i class="fa fa-check"></i><b>8.3</b> Regresión vía modelos basados en árbol</a></li>
+</ul></li>
+<li class="appendix"><span><b>Introducción a R</b></span></li>
+<li class="chapter" data-level="A" data-path="herramientas-de-software.html"><a href="herramientas-de-software.html"><i class="fa fa-check"></i><b>A</b> Herramientas de software</a><ul>
+<li class="chapter" data-level="A.1" data-path="herramientas-de-software.html"><a href="herramientas-de-software.html#introducción-al-manejo-de-datos-espaciales-con-r"><i class="fa fa-check"></i><b>A.1</b> Introducción al manejo de datos espaciales con R</a></li>
+<li class="chapter" data-level="A.2" data-path="herramientas-de-software.html"><a href="herramientas-de-software.html#intérprete-de-r-en-infostat"><i class="fa fa-check"></i><b>A.2</b> Intérprete de R en InfoStat</a></li>
+<li class="chapter" data-level="A.3" data-path="herramientas-de-software.html"><a href="herramientas-de-software.html#rstudio"><i class="fa fa-check"></i><b>A.3</b> RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="referencias.html"><a href="referencias.html"><i class="fa fa-check"></i>Referencias</a></li>
+<li class="divider"></li>
+<li><a href="https://www.agro.unc.edu.ar/~estadisticaaplicada" target="blank">Estadística Aplicada</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Guía para el análisis de datos espaciales. Aplicaciones en agricultura</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="caracterización-de-variabilidad-espacial" class="section level1">
+<h1><span class="header-section-number">Sección 2</span> Caracterización de variabilidad espacial</h1>
+<p>Denotamos el proceso espacial en <span class="math inline">\(d\)</span> dimensiones como: <span class="math inline">\({Z(s): s\in\ D\subset R^d}\)</span> donde <span class="math inline">\(Z\)</span> denota el atributo que observamos, <span class="math inline">\(s\)</span> es la ubicación en la cual <span class="math inline">\(Z\)</span> es observada y es un vector de coordenadas de dimensiones <span class="math inline">\(n\times2\)</span> y <span class="math inline">\(D\)</span> es el dominio. Los procesos espaciales que se abordarán en este libro son procesos bidimensionales, <span class="math inline">\(d=2\)</span> y <span class="math inline">\(s=x,y \prime\)</span> son tratadas como coordenadas cartesianas. Cuando la <span class="math inline">\(d\)</span> es mayor a 1, el proceso estocástico subyacente es definido como un campo aleatorio.</p>
+<p>La colección de n observaciones georreferenciadas que conforman un conjunto de datos espaciales deben entenderse como una muestra de tamaño uno de una distribución n-dimensional. En este caso la <span class="math inline">\(E\left[Z(s)\right]=\mu(s)\)</span> representa el promedio del atributo en la ubicación <span class="math inline">\(s\)</span> sobre la distribución de una posible realización. Si quisiéramos determinar el valor esperado para un sitio no observado, para <span class="math inline">\(s_0\)</span>, sería necesario repetir las observaciones en ese punto, pero usualmente solo se tiene una observación por sitio. Sólo se puede hacer inferencia basada en una muestra de tamaño uno, bajo condiciones de estacionaridad, es decir cuando la esperanza es la misma en todos los puntos. Por ello, un supuesto importante para el análisis de los datos espaciales será el de estacionaridad. Bajo estas condiciones la variabilidad espacial podrá ser caracterizada a través de funciones basadas solo en varianzas y covarianzas o autocorrelaciones en los datos espaciales.</p>
+<p>La autocorrelación espacial mide la correlación lineal entre los valores de una variable aleatoria y los de otra construida a partir del rezago de la primera. Puede interpretarse como medida de la coincidencia de valores similares de una variable en espacios geográficos cercanos, es decir, la variable tiende a asumir valores similares en unidades geográficamente cercanas. Mediado por la distancia, queremos saber qué tan semejante o diferente es el valor de la variable “consigo misma”. Luego, para una variable espacialmente autocorrelacionada, los valores observados en el espacio no serán aleatorios, sino que estarán espacialmente relacionados.</p>
+<p>La autocorrelación puede ser global o local. El primer tipo considera los valores de todas las observaciones, mientras el segundo solo los valores de las observaciones de un sitio respecto a los de observaciones vecinas. En ambos casos, la autocorrelación espacial puede ser medida en términos de su intensidad; una autocorrelación espacial fuerte significa que los valores del atributo de las unidades de observación geográfica vecinas muy parecidos o predecibles desde el valor del sitio, el caso contrario se produce cuando la distribución en sitios vecinos refleja un patrón aleatorio. El análisis de autocorrelación espacial requiere contar con una medida de correlación lineal apropiada para medir grados de semejanza entre las observaciones en un sitio y en su entorno.</p>
+<p>Los índices de autocorrelación espacial expresan de manera formal el grado de correlación lineal entre las variables aleatorias representadas funcionalmente por el vector de valores observados y el vector de medias ponderadas espacialmente en las unidades vecinas, llamado el vector con <em>lag espacial</em>. El cálculo de estos índices en un espacio continuo requiere la definición de una matriz de ponderación espacial. Ésta puede tener elementos binarios para indicar cuáles son las observaciones que pertenecen al vecindario de cada dato, <em>i.e.</em> las observaciones “conectadas” con cada dato.</p>
+<p>También puede tener como elementos, los valores de un coeficiente de continuidad que mide el grado de conexión entre un par de datos. El elemento <span class="math inline">\(w_{ij}\)</span> de la matriz de ponderaciones <span class="math inline">\(W\)</span>, es el peso aplicado a la comparación de las observaciones en la posición <span class="math inline">\(i\)</span> y la posición <span class="math inline">\(j\)</span>. Usualmente se utilizan redes de conexión que derivan en un matriz de pesos espaciales. La red de vecindarios también puede ser definida considerando puntos vecinos a aquellos contiguos ubicados entre un límite inferior y superior, previamente preestablecido. Cuando las entidades se encuentran distribuidas en forma homogénea en el espacio, suele recomendarse la red de conexión obtenida por el método de triangulación de Delaunay Las redes de conexión también pueden ser adaptadas manualmente pudiéndose excluir contactos entre sitios cercanos o incluir relaciones entre sitios lejanos.</p>
+<p>Por ejemplo, el índice de autocorrelación espacial de Geary (GI), expresa la magnitud de las desviaciones entre observaciones en diferentes localizaciones. Siendo <span class="math inline">\(w..\)</span> la suma de todos los pesos, la expresión del índice es:</p>
+<p><span class="math display">\[GI=\frac{(n-1)\sum_{i}\sum_{j}{w_{ij}(Z(s_i)\ -\ Z(s_j))^2}}{2w..\sum_{i}{(Z(s_i)-\bar{z})}^2}\]</span></p>
+<p>El valor de GI se encuentra en el intervalo [0,2]. Si no hay autocorrelación espacial, el valor esperado de GI es 1. Valores del índice entre 1 y 2 indican autocorrelación espacial negativa, y entre 0 y 1 autocorrelación espacial positiva. Este índice se relaciona inversamente con el índice MI, es decir valores más cercanos a 0 sugieren autocorrelaciones positivas más fuerte. GI es más sensible a pequeñas diferencias entre posiciones vecinas que el IM. Los índices de autocorrelación espacial local son calculados para cada sitio y usan solo ponderadores para las distancias entre las observaciones de ese sitio y las restantes. El índice LM fue descripto anteriormente para ejemplificar su uso en la detección de <em>outliers</em>. Otro índice de autocorrelación espacial local es el índice de Getis Ord (GO) el que se calcula como la suma de los valores observados para la <span class="math inline">\(j-ésima\)</span> variable en el vecindario centrado del <span class="math inline">\(i-ésimo\)</span> píxel, en relación con la suma de todas las observaciones. Su expresión estandarizada es:</p>
+<p><span class="math display">\[{GO}_i=\frac{\sum_{i=1}^{m}{w_{i,i^\prime}{Z(s}_{i^\prime})-\bar{Z}\sum_{i=1}^{m}w_{i,i^\prime}}}{S\sqrt{\frac{m\sum_{i=1}^{m}{w_{i\neq i^\prime}^2-\left(\sum_{i=1}^{m}w_{i\neq i^\prime}\right)^2}}{n-1}}}\]</span></p>
+<p>donde <span class="math inline">\(w_i\)</span> representa pesos espaciales en un vecindario del <span class="math inline">\(i-ésimo\)</span> píxel de tamaño <span class="math inline">\(m\)</span>. Valores positivos de GO indican grupos locales de valores altos para la variable alrededor de la <span class="math inline">\(i-ésima\)</span> ubicación, mientras que valores negativos indican grupos locales de valores bajos alrededor de la <span class="math inline">\(i-ésima\)</span> ubicación. Para evaluar la significancia estadística de estos índices es posible utilizar procedimientos del tipo Monte Carlo <span class="citation">(Babai <a href="#ref-Babai_1979">1979</a>)</span>. Las ubicaciones son permutadas en el espacio para obtener la distribución del índice bajo la hipótesis nula de distribución aleatoria.</p>
+<div id="semivariogramas" class="section level2">
+<h2><span class="header-section-number">2.1</span> Semivariogramas</h2>
+<p>La dependencia espacial o autocorrelación espacial, puede modelarse mediante un semivariograma. Esta función permite analizar la estructura y la naturaleza de la dependencia espacial en un conjunto de observaciones geo-referenciadas. El proceso espacial puede ser representado por el siguiente modelo estadístico:</p>
+<p><span class="math display">\[Z\left(s\right)=\mu+\varepsilon\left(s\right)\]</span></p>
+<p>donde <span class="math inline">\(\mu\)</span> es la media del proceso y <span class="math inline">\(\varepsilon\left(s\right)\)</span> es un término de error aleatorio con media cero y covarianza <span class="math inline">\(C(h)\)</span>, donde <span class="math inline">\(h\)</span> es el <em>lag</em> o separación en el espacio entre dos sitios particulares. Un campo aleatorio <span class="math inline">\({Z(s):\ s\in\ D\subset R^d}\)</span> es estrictamente estacionario si la distribución espacial es invariante bajo traslación de las coordenadas a través de todo el dominio (estacionaridad en sentido fuerte). La estacionaridad de segundo orden, o estacionaridad en sentido débil, se produce cuando <span class="math inline">\(E\left[Z\left(s\right)\right]=\mu\left(s\right)\)</span> y <span class="math inline">\(Cov\big[Z(s),Z(s+h)\big]=C(h)\)</span>. Es decir, en un campo aleatorio estacionario de segundo orden, la media es constante y la covarianza entre observaciones sobre diferentes posiciones, es función de la separación espacial entre los sitios en las que son tomadas, <span class="math inline">\(C(h)\)</span> es la función de covarianza del proceso espacial. La estacionaridad de primero orden implica la estacionaridad de segundo orden, pero la inversa no es cierta.</p>
+<p>Dado que <span class="math inline">\(C(h)\)</span> no depende del valor de las coordenadas y <span class="math inline">\(Cov\big[Z(s),Z(s+0)\big]= Var \big[Z(s)\big]=C\)</span>, en procesos estacionarios de segundo orden, la variabilidad es la misma en todas partes, <em>i.e.</em> <span class="math inline">\(Var [Z(s)]=\sigma^2\)</span> no es una función de la ubicación espacial. En síntesis, un proceso espacial estacionario de segundo orden tiene media y varianza constantes y la función de covarianza no depende en absoluto de las coordenadas. A <span class="math inline">\(C\left(h\right)\)</span> también se la conoce como función de autocovarianza y depende de la escala en la cual <span class="math inline">\(Z\)</span> fue medida. Resulta más conveniente y fácil de interpretar si se la hace adimensional convirtiéndola en autocorrelación <span class="math inline">\(\rho\left(h\right)=\frac{C(h)}{C}\)</span>. La función <span class="math inline">\(\rho\left(h\right)\)</span> se denomina correlograma del proceso espacial.</p>
+<p>Aún si <span class="math inline">\(Z(h)\)</span> no es estacionaria de segundo orden, el incremento <span class="math inline">\(Z(s)-Z(s+h)\)</span> puede serlo. Un proceso que tiene esta característica se dice que tiene estacionaridad intrínseca. Esto se produce si <span class="math inline">\(E\big[(Z(s)\big]=\mu\)</span> y <span class="math inline">\(\frac{1}{2}Var\big[Z(s)-Z(s+h)\big]=\gamma(h)\)</span>.</p>
+<p>La función <span class="math inline">\(\gamma(h)\)</span> es llamada semivariograma del proceso espacial. La clase de procesos intrínsecamente estacionario es más grande que la clase de procesos estacionarios de segundo orden Notar que un proceso espacial que presenta estacionaridad intrínseca no es necesariamente estacionario de segundo orden. En condiciones de estacionaridad de segundo orden la función de covarianza es el semivariograma.</p>
+<p>Un proceso que parece estacionario en una escala podría no serlo a otra escala (<em>i.e.</em> presentar una tendencia o un componente sistemático). En el modelo, <span class="math inline">\(\mu\)</span> será remplazado por <span class="math inline">\(\mu(s)\)</span>, <em>i.e.</em> término de tendencia determinístico para el sitio <span class="math inline">\(s\)</span>. El semivariograma, en estos casos se calcula sobre los residuos del modelo. El semivariograma, puede interpretarse como función de la varianza de la diferencia entre las observaciones. Si el semivariograma es sólo una función de la distancia entre observaciones, entonces es conocido como semivariograma isotrópico, <em>i.e.</em> no depende de la dirección. El semivariograma y covariograma son parámetros del proceso espacial y juegan un rol crítico en los métodos geoestadísticos de análisis de datos espaciales.</p>
+<p>Un primer paso para caracterizar la variación espacial en un dominio continuo es construir un semivariograma experimental o empírico. Una fórmula usual para computar semivariogramas, es conocida como estimador de los momentos de Matheron</p>
+<p><span class="math display">\[\hat{\gamma}(h)=\frac{1}{2 m (h)}\sum_{i=1}^{m(h)} \Big\{Z(s_i)-Z(s_i+h) \Big\}^2\]</span></p>
+<p>donde <span class="math inline">\(m(h)\)</span> es el número de pares de puntos separados por la particular distancia <span class="math inline">\(h\)</span>. El otro estimador ampliamente usado es el estimador de Cressie- Hawkins o estimador robusto cuya fórmula se expresa como</p>
+<p><span class="math display">\[2 \widetilde{\gamma}(h)= \frac{\Big[ \frac{1}{m(h)} \sum_{i=1}^{m(h)} \Big| Z(s_i) - Z(s_i + h) \Big| ^\frac{1}{2}  \Big] ^4}{0,457 + \frac{0,494}{m(h)} + \frac{0,045}{m^2(h)}}\]</span></p>
+<p>Este estimador puede ser menos sesgado que <span class="math inline">\(\hat{\gamma}(h)\)</span> cuando la varianza residual es relativamente pequeña siendo también menos sensible a la presencia de valores externos. El estimador muestra típicamente menor variación en distancias pequeñas y también resulta en valores generalmente más pequeños que el estimador de los momentos de Matheron. Computando cualquiera de los dos estimadores, para las distancias <span class="math inline">\(h\)</span>, obtenemos un conjunto ordenado de semivarianzas. Tales semivarianzas graficadas en función h constituye el semivariograma empírico o experimental.</p>
+<p>Los parámetros de un semivariograma son: la varianza nugget o simplemente nugget <span class="math inline">\((C_0)\)</span>, la varianza estructural o sill parcial <span class="math inline">\((C)\)</span> y el rango <span class="math inline">\((R)\)</span>. La asíntota es llamada la meseta del semivariograma o <span class="math inline">\(C\)</span> y el lag o distancia <span class="math inline">\(h^\ast\)</span> en el cual la meseta es alcanzada se denomina <span class="math inline">\(R\)</span> o rango. Observaciones <span class="math inline">\(Z(s_i)\)</span> y <span class="math inline">\(Z(s_j)\)</span> para las cuales <span class="math inline">\(|| Z(s_i) - Z(s_j)|| \geq h^\ast\)</span> son espacialmente independientes. Si el semivariograma alcanza la meseta asintóticamente, se define el rango práctico <span class="math inline">\((R_P)\)</span> como la distancia en el cual la semivarianza alcanza el 95% de la varianza umbral o total.</p>
+<div class="figure" style="text-align: center"><span id="fig:semivariogramasej"></span>
+<img src="figuras/semivEmpTeo.png" alt="a) Semivariograma empírico. b) Semivariograma teórico, modelo esférico. Se representan los tres parámetros que lo definen: rango, sill y efecto pepita o nugget." width="\linewidth" />
+<p class="caption">
+Figura 2.1: a) Semivariograma empírico. b) Semivariograma teórico, modelo esférico. Se representan los tres parámetros que lo definen: rango, sill y efecto pepita o nugget.
+</p>
+</div>
+<p>En la práctica el semivariograma empírico <span class="math inline">\(\hat{\gamma}(h)\)</span> puede no pasar a través del origen. La ordenada al origen del semivariograma representa a <span class="math inline">\(C_{0}\)</span>, por lo tanto <span class="math inline">\(C_0=\lim_{h\rightarrow0}{g(h)}\neq0\)</span>. Este parámetro representa la suma de errores aleatorios o no estructurados espacialmente, así como errores asociados con la variabilidad espacial a escalas más finas que la usada para realizar las mediciones. Un alto valor de <span class="math inline">\(C_0\)</span> indica que la mayoría de la variación espacial no es explicada por el semivariograma. La varianza umbral o sill se obtiene sumando las varianzas antes mencionadas (<span class="math inline">\(C_0+C\)</span>) y es la varianza de observaciones independientes, es decir observaciones que fueron tomadas a mayor distancia que <span class="math inline">\(R\)</span>.</p>
+<p>Un semivariograma se define como anisotrópico si cambia en alguna forma respecto a la dirección que se considere. Si el semivariograma no solo depende de la longitud del vector h sino también de la dirección del vector entonces el semivariograma es anisotrópico. En los casos isotrópicos, los contornos de isocorrelación son esféricos, mientras que en el caso que haya anisotropía los contornos de isocorrelación son elípticos. Se reconocen dos tipos de anisotropía: anisotropía geométrica y anisotropía zonal. Anisotropía geométrica ocurre cuando el rango del semivariograma cambia en las distintas direcciones, pero no la varianza sill, por lo tanto, la correlación es más fuerte en una dirección que en otra. Anisotropía zonal existe cuando la varianza estructural del semivariograma cambia con la dirección. Anisotropía geométrica significa que la correlación es más fuerte en una dirección que en otra.</p>
+<p>Una forma en que la anisotropía geométrica puede ser identificada es graficando un semivariograma experimental direccional. Diferencias en el semivariograma muestral usando diferentes ángulos al computarlo, es indicador de anisotropía. La anisotropía geométrica puede ser modelada cambiando el modelo de semivariograma por un proceso isotrópico transformando las coordenadas. Los modelos teóricos de semivariograma más usados en predicción espacial están basados son isotrópicos, por lo que es necesario una corrección en casos de anisotropía para poder utilizar la metodología clásica de predicción en geoestadística. El radio de anisotropía, es decir, el cociente entre los rangos de la dirección de máximo y mínima variación es usada para mesurar anisotropía. Algunos autores consideran que existe anisotropía significativa si el radio de anisotropía es mayor a 2,5.</p>
+<div class="figure" style="text-align: center"><span id="fig:modeloIsoAniso"></span>
+<img src="figuras/modeloIsoAniso.png" alt="a) Modelo isotrópico. b) Modelo anisotrópico, con ángulo de anisotropía de 45º y un radio de anisotropía de 0,5." width="\linewidth" />
+<p class="caption">
+Figura 2.2: a) Modelo isotrópico. b) Modelo anisotrópico, con ángulo de anisotropía de 45º y un radio de anisotropía de 0,5.
+</p>
+</div>
+<p>En los procesos espaciales continuos, caracterizados por semivariogramas suelen obtenerse medidas del grado de estructuración espacial. Una de éstas es la varianza estructural relativa (RSV):</p>
+<p><span class="math display">\[RSV=\Bigg(\frac{C}{C+C_0}\Bigg)\times100\%\]</span></p>
+<p>Un valor alto de RSV indica que las predicciones geoestadísticas serán más eficientes que aquellas obtenidas con métodos de predicción que ignoran la información espacial. Un valor alto de RSV también indica una continuidad mayor del proceso espacial. <span class="citation">Zimback (<a href="#ref-Zimback_2001">2001</a>)</span> establece que el grado de dependencia espacial puede ser clasificado como: <span class="math inline">\(RSV \leq 25\%\)</span> bajo, <span class="math inline">\(RSV\)</span> entre <span class="math inline">\(25\%\)</span> y <span class="math inline">\(75\%\)</span> medio y <span class="math inline">\(RSV \geq 75\%\)</span> alto. También se puede calcular el cociente <span class="math inline">\(\frac{C_0}{C_0+C}\)</span> y en función de éste hablar de estructura espacial fuerte cuando el cociente es: <span class="math inline">\(\leq 25\%\)</span>, intermedia si el mismo se encuentra entre 25% y 75% y débil si el mismo es mayor al 75%.</p>
+<div id="ajuste-de-semivariogramas" class="section level3">
+<h3><span class="header-section-number">2.1.1</span> Ajuste de semivariogramas</h3>
+<p>El semivariograma empírico <span class="math inline">\(\hat{\gamma}(h)\)</span>, es un estimador insesgado de <span class="math inline">\(\gamma(h)\)</span>, pero provee solo estimaciones para un conjunto finito de distancias. Para obtener estimaciones de <span class="math inline">\(\gamma(h)\)</span>, para cualquier lag, al semivariograma empírico se le ajusta un modelo teórico. El análisis geoestadístico sigue entonces estos dos pasos: 1) obtención del semivariograma empírico y 2) ajuste de un modelo teórico de semivariograma al semivariograma empírico.</p>
+<p>Las funciones que sirven como modelos teóricos de semivariograma deben ser condicionalmente definidas positivas. Existen varios modelos teóricos para funciones semivariogramas, entre los que se encuentran el modelo nugget, el lineal, el esférico, el gaussiano y el exponencial (Figura <a href="caracterización-de-variabilidad-espacial.html#fig:figSemivariogramas">2.3</a>). El semivariograma de un proceso de ruido blanco (modelo nugget), donde los valores <span class="math inline">\(Z\left(s\right)\)</span> se comportan como muestras aleatorias, todas con igual media y varianza sin correlación entre ellas. Este modelo suele ajustar el semivariograma empírico cuando la menor distancia de muestreo en los datos es mayor que el rango del proceso espacial.</p>
+<div class="figure" style="text-align: center"><span id="fig:figSemivariogramas"></span>
+<img src="figuras/Semivariogramas.jpg" alt="Funciones de semivariograma para el modelo exponencial, esférico y gaussiano. $C_0$=2, $C$=10 y $R$=200" width="\linewidth" />
+<p class="caption">
+Figura 2.3: Funciones de semivariograma para el modelo exponencial, esférico y gaussiano. <span class="math inline">\(C_0\)</span>=2, <span class="math inline">\(C\)</span>=10 y <span class="math inline">\(R\)</span>=200
+</p>
+</div>
+<p>El modelo esférico es uno de los más populares entre los modelos de semivariograma. Tiene dos características principales: un comportamiento lineal cerca del origen y el hecho de que a la distancia <span class="math inline">\(R\)</span> el semivariograma encuentra la meseta y después de esta se mantiene llano. El modelo exponencial se aproxima a la meseta del semivariograma asintóticamente cuando <span class="math inline">\(\parallel h \parallel\to\infty\)</span>. En la parametrización mostrada en la Figura <a href="caracterización-de-variabilidad-espacial.html#fig:figSemivariogramas">2.3</a>, el parámetro <span class="math inline">\(R\)</span> es el rango práctico del semivariograma. Frecuentemente el modelo puede encontrarse en una parametrización donde el exponente es <span class="math inline">\(-\parallel h \parallel / R\)</span>. Entonces el <span class="math inline">\(R_p\)</span> corresponde a <span class="math inline">\(3R\)</span>. Para el mismo rango y meseta de un modelo esférico, el modelo exponencial alcanza el rango más rápidamente, es decir, a menor distancia que el modelo esférico. El modelo gaussiano exhibe un comportamiento cuadrático cerca del origen y produce una correlación de corto rango que son las más altas que para cualquier modelo estacionario de segundo grado con el mismo rango práctico. Además, es el más continuo cerca del origen de los considerados aquí. En la parametrización el rango práctico es <span class="math inline">\(\sqrt{3R}\)</span>.</p>
+<p>Es importante notar que, si se realiza un análisis basado en semivariogramas y se pretende comparar los parámetros de los semivariogramas obtenidos bajo distintas condiciones, la utilización de modelos teóricos diferentes resulta poco útil. Hay que tener en cuenta que, por ejemplo, los rangos del modelo esférico y el exponencial no son directamente comparables. El modelo esférico es el único que tiene un umbral verdadero, ya que tanto el modelo exponencial como el gaussiano alcanzan el umbral de forma asintótica, o lo que es lo mismo, no lo alcanzan nunca y el modelo lineal no tiene umbral. En consecuencia, los rangos no son directamente equivalentes entre modelos. En este caso, es más conveniente elegir un único modelo para realizar comparaciones de procesos espaciales.</p>
+<p>Los modelos de semivariograma son no lineales a excepción del modelo nugget. Por ello, para la estimación de parámetros estas funciones se usan métodos basados en aproximaciones numéricas. El método de ajuste por mínimos cuadrados ponderados (WLS) es común en la práctica. Para ello, se elige una función y valores iniciales de los parámetros basados en la observación del semivariogramas empírico. El tamaño del conjunto de datos a partir del cual el modelo de semivariograma es ajustado depende del número de <em>lags</em> que se elija. Los valores de las clases de <em>lag</em> en las cuál el número de pares no es mayor a 30 debieran ser removidos si se ajusta el semivariograma por mínimos cuadrados. Journel y Huijbregts 1978 recomiendan solo usar <em>lags</em> menores a la mitad del máximo <em>lag</em> en el conjunto de datos. La distribución de los puntos en el espacio determinará para qué <em>lags</em> esto es posible.</p>
+</div>
+</div>
+<div id="correlación-espacial-bivariada" class="section level2">
+<h2><span class="header-section-number">2.2</span> Correlación espacial bivariada</h2>
+<div id="coeficiente-de-correlación" class="section level3">
+<h3><span class="header-section-number">2.2.1</span> Coeficiente de correlación</h3>
+<p>El coeficiente de correlación lineal de Pearson (<span class="math inline">\(r\)</span>) es una medida de la magnitud de la correlación lineal entre dos variables. Para calcularlo se supone que se tiene una muestra aleatoria de unidades de análisis donde se han registrado simultáneamente dos variables. El intervalo de confianza para <span class="math inline">\(r\)</span> y el valor <span class="math inline">\(p\)</span> usados para decidir si la correlación poblacional entre ambas variables es cero o distinta de cero, dependen del tamaño de la muestra <span class="math inline">\(n\)</span>. El tamaño de la muestra es el número de unidades de análisis independientes.</p>
+<p>Cuando las variables en estudio exhiben autocorrelación espacial, las observaciones de cada una de éstas estarán correlacionadas dentro de un determinado vecindario, es decir, no serán independientes entre sí. Luego, en el caso de datos espaciales, se viola la suposición de observaciones independientes para la prueba de significancia <span class="math inline">\(r\)</span>. Una propuesta para contemplar las correlaciones generadas por patrones espaciales es calcular el coeficiente de correlación haciendo un ajuste para determinar el número de observaciones independientes (tamaño de muestra efectivo) para acompañar la inferencia necesaria.</p>
+<p>El coeficiente de correlación modificado <span class="citation">(Clifford, Richardson, and Hemon <a href="#ref-Clifford_Richardson_Hemon_1989">1989</a>; Dutilleul et al. <a href="#ref-Dutilleul_Clifford_Richardson_Hemon_1993">1993</a>)</span>, permite evaluar correlación entre dos variables espacializadas en el mismo dominio espacial. La prueba se basa en la modificación de las varianzas y los grados de libertad de la prueba <span class="math inline">\(t\)</span> estándar usada para evaluar significancia del coeficiente de correlación de Pearson y requiere de la estimación del tamaño efectivo de la muestra.</p>
+<p>Considerando <span class="math inline">\(A \subset D\)</span> un grupo de <span class="math inline">\(n\)</span> sitios <span class="math inline">\(A={s_1, s_2,…,s_n}\)</span>, se supone que <span class="math inline">\(Z=Z(s_1), Z(s_2),…, Z(s_n)\)</span> y <span class="math inline">\(Y= Y(s_1), Y(s_2),…,Y(s_n)\)</span> con media constante y matriz de varianzas y covarianzas <span class="math inline">\(\Sigma_Z\)</span> y <span class="math inline">\(\Sigma_Y\)</span>. Se divide <span class="math inline">\(D\)</span> en los estratos <span class="math inline">\(D_0, D_1, D_2,…\)</span>. Entonces <span class="math inline">\(Cov(Z(s_i),Z(s_j))= C_Z(k)\)</span> y <span class="math inline">\(Cov\big(Y(s_i),Y(s_j)\big)= C_Y(k)\)</span>, con <span class="math inline">\(s_i, s_j \in D_k\)</span>, para <span class="math inline">\(k= 0,1,…\)</span> <span class="citation">(Clifford, Richardson, and Hemon <a href="#ref-Clifford_Richardson_Hemon_1989">1989</a>)</span> sugieren como estimador de <span class="math inline">\(\hat{C}_Y(h)\)</span></p>
+<p><span class="math display">\[ \hat{C}_Y(h) = \frac{\sum_{s_i,s_j \in A_k}{\big( Y(s_i) - \overline{Y} \big) \big( Y(s_j) - \overline{Y} \big)}} {n_k} \]</span></p>
+<p>donde <span class="math inline">\(n_k\)</span> es la cardinalidad de <span class="math inline">\(D_k\)</span> y y similaridad para <span class="math inline">\(C_Z(k)\)</span>. Luego, <span class="citation">Clifford, Richardson, and Hemon (<a href="#ref-Clifford_Richardson_Hemon_1989">1989</a>)</span> sugirió utilizar <span class="math inline">\(n^{-2}\sum_h{n_h\hat{C}_Z(h) \hat{C}_Y(h)}\)</span>
+Como un estimador de la varianza condicional de <span class="math inline">\(s_{ZY}=n^{-1} \sum_D{ \big(Z(s)-\overline{Z} \big) \big(Y(s)-\overline{Y} \big) }\)</span>. Como resultado se obtiene la prueba <span class="math inline">\(t\)</span> modificada basada en el estadístico <span class="math inline">\(W\)</span></p>
+<p><span class="math display">\[W=n \; s_{ZY} \Big( \sum_h{n_h \hat{C}_Z(h) \hat{C}_Y(h)} \Big)^{-2}\]</span></p>
+<p>El cual a partir de una serie de aproximaciones a la varianza del coeficiente de correlación de Pearson (<span class="math inline">\(\sigma_r^2\)</span>) entre los procesos <span class="math inline">\(Z(s)\)</span> e <span class="math inline">\(Y(s)\)</span> se puede escribir de la siguiente manera <span class="math inline">\(W=(\hat{M}-1)^{1/2}r\)</span>, <span class="math inline">\(\hat{M} = 1 + {\hat{\sigma}}_r^{-2}\)</span> y <span class="math inline">\(\hat{\sigma}_r^2 = \frac{\sum_h{n_h \hat{C}_Z(h) \hat{C}_Y(h)}} {n^2 s_Z^2 s_Y^2}\)</span>.</p>
+<p>Se define <span class="math inline">\(W\)</span> como una prueba t modificada con <span class="math inline">\(\hat{M}-2\)</span> grados de libertad, donde <span class="math inline">\(\hat{M}\)</span> es el tamaño de muestra efectivo asumiendo bajo hipótesis nula la no correlación entre <span class="math inline">\(Z(s)\)</span> e <span class="math inline">\(Y(s)\)</span>. Cuando se presenta una estructura de correlación espacial positiva, generalmente <span class="math inline">\(\hat{M} &lt; n\)</span>, si existe estructura de autocorrelación negativa se espera que <span class="math inline">\(\hat{M} &gt; n\)</span>.</p>
+</div>
+<div id="coeficiente-de-co-dispersión" class="section level3">
+<h3><span class="header-section-number">2.2.2</span> Coeficiente de co-dispersión</h3>
+<p>Otra forma usada en estadística espacial para explorar patrones de correlaciones o covariaciones entre dos variables espacializadas, es el coeficiente de co-dispersión, que cuantifica la correlación entre dos procesos espaciales para un lag espacial particular sobre un espacio bidimensional. Para dos procesos espaciales intrínsecamente estacionarios <span class="math inline">\({Z(s):s\in D\subset R^2}\)</span> y <span class="math inline">\({Y(s):s\in D\subset R^2}\)</span> definidos en una parte de la región <span class="math inline">\(D\subset R^2\)</span>, el coeficiente de co-dispersión es definido como:</p>
+<p><span class="math display">\[\rho_{ZY}(h)= \frac{E \Big[ \big(Z(s+h)-Z(s) \big) \big(Y(s+h)-Y(s) \big) \Big]}{\sqrt{E \big[Z(s+h)-Z(s) \big]^2 E \big[Y(s+h)-Y(s) \big]^2}}\]</span></p>
+<p>La estructura de <span class="math inline">\(\rho_{ZY}\)</span> es computacionalmente similar al coeficiente de correlación de Pearson. Al igual que ese coeficiente, <span class="math inline">\(\rho_{ZY}(h)\)</span>, donde los límites superior e inferior definen una asociación espacial negativa o positiva perfecta, respectivamente. Sin embardo, a diferencia del coeficiente de correlación de Pearson, <span class="math inline">\(\rho_{ZY}\)</span> depende del lag <span class="math inline">\(h\)</span>, que enfatiza la idea de que la correlación espacial es un valor asociado con una distancia en el plano. El cálculo de la correlación se realiza para diferentes distancias y direcciones en el espacio. Cuando el coeficiente de co-dispersión se calcula para muchas direcciones, es útil mostrar esos valores en un solo gráfico. <span class="citation">Vallejos et al. (<a href="#ref-Vallejos2015">2015</a>)</span> proponen el mapa de co-dispersión para resumir en un plano los valores de los coeficientes de co-dispersión obtenidos para distintos <em>lag</em> espaciales (direcciones y distancias). El gráfico resume la información sobre la correlación entre dos procesos espaciales en forma radial sobre un plano que circunscribe los coeficientes en una semiesfera de radio no mayor al rango del proceso espacial <a href="caracterización-de-variabilidad-espacial.html#fig:figGrafCoDisp">2.4</a>. En general las correlaciones espaciales que se observan desde un gráfico de co-dispersión permanecen ocultas en el análisis exploratorio usual y pueden ser distintas a las correlaciones lineales de Pearson no restringidas espacialmente. El gráfico de co-dispersión no debe ser confundido con un mapeo de la co-dispersión de las variables en el espacio de interés. No captura similitudes relacionadas con los patrones o formas que están presentes en los procesos espaciales, sino que captura la dependencia espacial entre los procesos para una distancia h. Los ejes del gráfico de co-dispersión hacen referencia a los <em>lag</em> y direcciones y no a las coordenadas de los sitios muestrales originales.</p>
+<div class="figure" style="text-align: center"><span id="fig:figGrafCoDisp"></span>
+<img src="figuras/codispersion.jpg" alt="Gráfico de co-dispersión mostrando la correlación espacial entre dos variables para varios lag espaciales." width="\linewidth" />
+<p class="caption">
+Figura 2.4: Gráfico de co-dispersión mostrando la correlación espacial entre dos variables para varios lag espaciales.
+</p>
+</div>
+</div>
+</div>
+<div id="interpolación-kriging" class="section level2">
+<h2><span class="header-section-number">2.3</span> Interpolación Kriging</h2>
+<p>La predicción espacial, es decir la predicción de valores de la variable en sitios del campo espacial donde no existen observaciones, usualmente se hace por el método kriging basándose en el semivariograma ajustado. Kriging proporciona el mejor estimador lineal insesgado del valor esperado para el sitio y un error de estimación conocido como varianza kriging. Esta varianza depende del modelo de semivariograma ajustado y de la ubicación en el espacio de los datos observados ya que son los datos observados en distintos sitios los que proveen información para aproximar el valor en el sitio sin dato. Las interpolaciones basadas en semivariograma, se denominan geoestadísticas y tienen ciertas ventajas respecto a interpolaciones determinísticas, como las obtenidas por el método IDW que se basa en las distancias geométricas entre los sitios con datos y el sitio a interpolar. Las observaciones que participan en la predicción se ponderan de forma distinta según la distancia estadística a la que se encuentran.</p>
+<p>Los parámetros del semivariograma son los que gobiernan la asignación de los pesos o ponderaciones de las observaciones vecinas al sitio al cual se le asignará la predicción. El parámetro <em>nugget</em> es determinante en la asignación de pesos. si la varianza del error es muy alta, todas las observaciones tenderán a tener el mismo peso en la interpolación. Por el contrario, si la varianza del error es baja, los coeficientes de ponderación serán distintos. Si el rango aumenta, cada punto tendrá mayor peso en la interpolación de otras observaciones. Entre los métodos de interpolación geoestadísticos que utilizan todos los datos simultáneamente se destacan los métodos de kriging ordinario, simple y universal. En el kriging ordinario la media de la variable es estimada localmente. En caso de conocer la media poblacional de la variable, hecho que raramente ocurre, se utiliza el kriging simple. En el kriging universal se estima también la influencia de una tendencia espacial de los datos. La predicción asignada a los puntos incógnita puede realizarse de manera puntual (kriging puntual) o definiendo bloques (kriging en bloques) <span class="citation">(Schabenberger and Gotway <a href="#ref-Schabenberger_Gotway_2005">2005</a>; Webster and Oliver <a href="#ref-Webster_Oliver_2007">2007</a>)</span>.</p>
+<div id="kriging-ordinario" class="section level3">
+<h3><span class="header-section-number">2.3.1</span> Kriging ordinario</h3>
+<p>El kriging ordinario supone que la variación es aleatoria, que existe dependencia espacial y que el proceso espacial subyacente es intrínsecamente estacionario con media constante y varianza que depende solo de la separación en distancia entre los sitios y no de su posición. La predicción kriging resulta de una combinación lineal de los datos observados. Supongamos que los valores de <span class="math inline">\(Z\)</span>, han sido muestreados en los puntos <span class="math inline">\(s_1{,s}_2,\ldots,s_n\)</span>, para generar N datos <span class="math inline">\(z(s_i),\ i=1,\ 2,\ldots, N\)</span>. Para el caso del kriging ordinario puntual se predice <span class="math inline">\(Z\)</span> en cualquier nuevo punto <span class="math inline">\(s_0\)</span> mediante:</p>
+<p><span class="math display">\[\hat{Z}(s_0)=\sum_{i=1}^{N}{w_iz(s_i)}\]</span></p>
+<p>donde <span class="math inline">\(w\)</span> son los pesos asignados a cada observación. Para asegurar que la estimación del valor esperado para el sitio sea insesgada y de mínima varianza, los pesos son dado de manera que:</p>
+<p><span class="math display">\[\sum_{i = 1}^{N}{w_i=1}\]</span></p>
+<p><span class="math display">\[E\big[\hat{Z}(s_0)-z(s_0)\big]=0\]</span></p>
+<p><span class="math display">\[\begin{align*}
+Var\big[\hat{Z}(s_0) \big] &amp; = E\big[\hat{Z}(s_0) - z(s_0)^2 \big] \\&amp;= 2\sum_{i=1}^{N}{w_i\gamma(s_i-s_0)-\sum_{i=1}^{N}\sum_{j=1}^{N}{w_iw_j\gamma(s_i-s_j)}}
+\end{align*}\]</span></p>
+<p>donde la cantidad <span class="math inline">\(\gamma(s_i - s_0)\)</span> es la semivarianza de <span class="math inline">\(Z\)</span> entre el punto de muestreo <span class="math inline">\(i\)</span> y el punto objetivo <span class="math inline">\(x_0\)</span> y <span class="math inline">\(\gamma(s_i - s_j)\)</span> es la semivariancia entre los puntos de muestreo <span class="math inline">\(i\)</span> y <span class="math inline">\(j\)</span>. Las semivarianzas se derivan del modelo teórico de semivariograma, debido a que no hay existen valores de semivarianzas entre los sitios con datos y los sitios objetivos donde no existen valores observados. Si un sitio objetivo también es un punto de muestreo, el kriging puntual devuelve el valor observado en ese sitio y la varianza de estimación es cero. El kriging puntual es un interpolador exacto en este sentido. El siguiente paso en kriging es encontrar los pesos que minimizan la varianza de la predicción sujeto a la restricción de que la suman de los pesos se igual a 1.</p>
+<p><span class="math display">\[\sum_{i=1}^{N}w_i\gamma(s_i-s_0)+\psi(s_0)=\gamma(s_j-s_0) \forall j\]</span></p>
+<p>La cantidad <span class="math inline">\(\psi (s_0)\)</span> es el multiplicador de Lagrange introducido para lograr la minimización. La solución de las ecuaciones de kriging proporciona los pesos para las ponderaciones y la varianza de predicción se obtiene de la siguiente forma:</p>
+<p><span class="math display">\[\sigma^2(s_0)=\sum_{i=1}^{N}{w_i\gamma(}s_i-s_0)+\ \psi(s_0)\]</span></p>
+</div>
+<div id="kriging-en-bloques" class="section level3">
+<h3><span class="header-section-number">2.3.2</span> Kriging en bloques</h3>
+<p>El kriging en bloques consiste en estimar directamente el valor promedio de la variable sobre un soporte mayor que el soporte de los datos (bloque). Intuitivamente, la idea es calcular mediante kriging puntual los valores en todos los puntos de una superficie o bloque y usar la media de las predicciones como estimador del valor esperado para el sitio. La estimación para cualquier bloque sigue siendo un promedio ponderado de los datos, <span class="math inline">\(z\ (s_1),\ z\ (s_2),\ ...,\ z\ (s_N)\)</span>:</p>
+<p><span class="math display">\[\hat{Z}(B)=\sum_{i=1}^{N}{w_iz(s_i)}\]</span></p>
+<p>Los factores de ponderación se obtienen nuevamente para minimizar la varianza del error y para obtener un estimador insesgado de la media. La grilla de predicción sobre la que se construye el mapa de variabilidad espacial presenta una dimensión menor que la de los bloques, asegurándose la obtención de un mapa más suavizado respecto al obtenido con kriging puntual. El kriging en bloques ha mostrado ser efectivo a la hora de reducir errores que pueden trasladarse en los mapas como consecuencia de inexactitudes de datos puntuales.</p>
+</div>
+<div id="kriging-local" class="section level3">
+<h3><span class="header-section-number">2.3.3</span> Kriging local</h3>
+<p>Hemos dicho que los pesos de las observaciones en la predicción geoestadística son funciones de las semivarianzas entre las observaciones en sitios en el vecindario, <span class="math inline">\(\gamma(s_i-s_j)\)</span>, y entre cada punto de muestreo y el punto a predecir, <span class="math inline">\(\gamma(s_i-s_0)\)</span>. En general solo los puntos cercanos al punto a predecir tienen un peso significativo. Cuando la relación nugget:sill es pequeña el interpolador kriging es visto como un predictor local, donde para la predicción de <span class="math inline">\(Z(s_0)\)</span> participarán sólo datos de puntos dentro de la proximidad de <span class="math inline">\(s_0\)</span> (<em>kriging neighborhood</em> o kriging local). El kriging local esencialmente asigna pesos <span class="math inline">\(w(s_0)=0\)</span> para todos los puntos <span class="math inline">\(s_i\)</span> fuera de la zona en la que se quiere predecir. Por otra parte, esto permite que podemos aceptar el supuesto de estacionariedad local (o cuasi estacionariedad), es decir se puede restringir el supuesto de estacionariedad de la media a los vecindarios del kriging. Lo que sucede en distancias mayores a las del vecindario del sitio no será de importancia para la predicción en el sitio. La predicción y varianza kriging dependen principalmente de la parte del semivariograma cercana al origen, por ello es de importancia modelar bien el semivariograma en estos lugares, <em>i.e.</em> dar más peso a las semivarianzas experimentales cercanas al origen. No hay reglas para definir el vecindario para implementar el kriging local, aunque cuando el nugget es relativamente bajo se pude definir un radio de vecindad cercano al rango o rango práctico del modelo de semivariograma ajustado. Cuando el efecto nugget es importante el radio de vecindad debería ser mayor al rango ya que es probable que puntos más distantes tengan aún peso significativo. Otra alternativa para definir el vecindario se basa en términos de un número mínimo y máximo de datos cercanos al punto a predecir. Algunos autores recomiendan utilizar un mínimo de 7 vecinos y un máximo de 20.</p>
+</div>
+<div id="kriging-universal" class="section level3">
+<h3><span class="header-section-number">2.3.4</span> Kriging universal</h3>
+<p>La suposición de estacionariedad intrínseca no se cumple cuando existen tendencias geográficas pronunciada de naturaleza sistemática y no aleatoria. La tendencia puede ser regional, es decir, una variación sistemática en toda la región de interés o local de un punto a otro dentro de la región estudiada. La existencia de tendencias puede ser explorada graficando los datos de la variable analizada en función a la variable que se supone genera la tendencia espacial. La tendencia también se manifiesta en los semivariogramas experimentales con un incremento de la semivarianza con la distancia que no tiene límites. Si hay tendencia, entonces <span class="math inline">\(\mu\)</span> ya no es constante, sino que depende de s. Además, el semivariograma experimental de los datos ya no estima el semivariograma de los errores aleatorios, <span class="math inline">\(\varepsilon(s)\)</span>. Se necesita estimar el semivariograma de <span class="math inline">\(\varepsilon(s) = Z (s) - \mu(s)\)</span>. Cuando este variograma es el input del kriging, el proceso de interpolación se conoce como “kriging universal” y la predicción se obtiene como:</p>
+<p><span class="math display">\[\hat{Z}(s_0)=\sum_{i=1}^{N}{w_i \; f_kz(s_i)}\]</span></p>
+<p>donde <span class="math inline">\(f_k\)</span> es función de las coordenadas espaciales.</p>
+</div>
+<div id="validación-cruzada" class="section level3">
+<h3><span class="header-section-number">2.3.5</span> Validación cruzada</h3>
+<p>La predicción implica asignar nuevos valores de las variables respuesta a contextos o escenarios que no corresponden al conjunto de escenarios medidos, es decir no se trata de aquellos sitios que utilizaron para realizar la predicción espacial. Entre las alternativas para estimar la exactitud de la predicción existen las técnicas de validación cruzada o técnicas de partición del conjunto de datos en datos de calibración y datos de validación <span class="citation">(Efron and Hastie <a href="#ref-Efron_Hastie_2016">2016</a>)</span>. Es necesario identificar un grupo de observaciones sobre las que se ajustará el modelo o el método que permite predecir, usualmente llamado datos de calibración, y otro grupo que se usará para validar, llamado datos de validación. El modelo (semivariograma teórico) se ajusta sobre el conjunto de datos de entrenamiento y posteriormente se usa para la predicción de interés, con observaciones del subconjunto de validación. Seguidamente, los valores observados del conjunto de validación se comparar con los valores predichos por el modelo. Usualmente el proceso se repite cruzando el rol de los subconjuntos de datos, es decir el que era de validación pasa a ser de calibración y viceversa.</p>
+<p>Sin embargo, otras estrategias pueden ser usadas para la selección de los datos de entrenamiento y validación. Una es particionar en forma aleatoria los datos en ambos conjuntos. Otro tipo de validación cruzada es dejando uno fuera (<em>Leave-One-Out</em>) donde se utiliza una sola observación para conformar el subconjunto de validación y se deja al resto como subconjunto de entrenamiento. El modelo se ajusta utilizando las <span class="math inline">\(n – 1\)</span> observaciones de entrenamiento y se obtiene una predicción para la observación excluida. Este proceso se repite <span class="math inline">\(n\)</span> veces. Otro tipo de validación cruzada es <span class="math inline">\(k-fold\)</span>, donde las observaciones se dividen aleatoriamente en <span class="math inline">\(k\)</span> grupos de aproximadamente igual tamaño. Uno de los <span class="math inline">\(k\)</span> grupos se emplea como subconjunto de validación, mientras que el resto de los grupos se emplean para entrenar el modelo. El proceso de validación cruzada es repetido durante k iteraciones, con cada uno de los subconjuntos de datos de prueba. Un valor común de <span class="math inline">\(k\)</span> que puede dar buenos resultados en cuanto al equilibrio sesgo-varianza para estimar el error de predicción es <span class="math inline">\(k=10\)</span>. Si el modelo tuvo un buen desempeño, los residuos de la validación cruzada serán pequeños, su media será cercana a cero y no presentarán estructura.</p>
+<p>En la evaluación de modelos geoestadísticos, los valores predichos de kriging <span class="math inline">\(\hat{Z}(s_i)\)</span> se comparan con los observados <span class="math inline">\(z(s_i)\)</span>, y se calcula una medida resumen que caracteriza el resultado de la comparación. Algunas de estas medidas resumen son:</p>
+<p>Error medio</p>
+<p><span class="math display">\[ME=\frac{1}{N}\sum_{i=1}^{N}\big\{z(s_i)-\hat{Z}(s_i)\big\}\]</span></p>
+<p>donde <span class="math inline">\(N\)</span> es el número de observaciones, <span class="math inline">\(z(s_i)\)</span> es el valor verdadero en <span class="math inline">\(s_i\)</span> y <span class="math inline">\(\hat{Z}(s_i)\)</span> es el valor predicho en ese punto.</p>
+<p>Error cuadrático medio (Mean Square Error, MSE):</p>
+<p><span class="math display">\[MSE=\frac{1}{N}\sum_{i=1}^{N}{\big\{z(s_i)-\hat{Z}(s_i)\big\}^2}\]</span></p>
+<p>Raíz del error cuadrático medio:</p>
+<p><span class="math display">\[RMSE=\frac{1}{N}\sqrt{\sum_{i=1}^{N}\big\{z(s_i)-\hat{Z}(s_i)\big\}^2}\]</span></p>
+<p>Media del cociente del error cuadrático (Mean Squared Deviation Ratio, MSDR):</p>
+<p><span class="math display">\[MSDR=\frac{1}{N} \sum_{i=1}^{N}\frac{ \big\{ z(s_i) - \hat{Z}(s_i) \big\}^2} {\hat{\sigma}^2(s_i)}\]</span></p>
+<p>donde <span class="math inline">\(\hat{\sigma}^2(s_i)\)</span> es la varianza de la predicción kriging en el punto <span class="math inline">\(s_i\)</span>.</p>
+<p>Para el caso de datos espaciales, no solo es necesario disponer de una medida de error de predicción global, sino que también hay que evaluar del error de la predicción en cada sitio específico, <em>i.e.</em> dimensionar el error puntual de la predicción espacial.</p>
+</div>
+</div>
+</div>
+<h3>Referencias</h3>
+<div id="refs" class="references">
+<div id="ref-Babai_1979">
+<p>Babai, László. 1979. “Monte-Carlo Algorithms in Graph Isomorphism Testing.” <em>Université Tde Montréal Technical Report, DMS</em>, nos. 79–10.</p>
+</div>
+<div id="ref-Clifford_Richardson_Hemon_1989">
+<p>Clifford, Peter, Sylvia Richardson, and Denis Hemon. 1989. “Assessing the Significance of the Correlation Between Two Spatial Processes.” <em>Biometrics</em> 45 (1): 123–34. <a href="https://doi.org/10.2307/2532039">https://doi.org/10.2307/2532039</a>.</p>
+</div>
+<div id="ref-Dutilleul_Clifford_Richardson_Hemon_1993">
+<p>Dutilleul, Pierre, Peter Clifford, Sylvia Richardson, and Denis Hemon. 1993. “Modifying the t Test for Assessing the Correlation Between Two Spatial Processes.” <em>Biometrics</em> 49 (1). JSTOR: 305. <a href="https://doi.org/10.2307/2532625">https://doi.org/10.2307/2532625</a>.</p>
+</div>
+<div id="ref-Efron_Hastie_2016">
+<p>Efron, Bradley, and Trevor Hastie. 2016. <em>Computer Age Statistical Inference: Algorithms, Evidence, and Data Science</em>. <em>Computer Age Statistical Inference: Algorithms, Evidence, and Data Science</em>. <a href="https://doi.org/10.1017/CBO9781316576533">https://doi.org/10.1017/CBO9781316576533</a>.</p>
+</div>
+<div id="ref-Schabenberger_Gotway_2005">
+<p>Schabenberger, Oliver, and Carol A Gotway. 2005. <em>Statistical Methods for Spatial Data Analysis</em>. CRC press.</p>
+</div>
+<div id="ref-Vallejos2015">
+<p>Vallejos, Ronny, Adriana Mallea, Myriam Herrera, and Silvia Ojeda. 2015. “A Multivariate Geostatistical Approach for Landscape Classification from Remotely Sensed Image Data.” <em>Stochastic Environmental Research and Risk Assessment</em> 29 (2): 369–78. <a href="https://doi.org/10.1007/s00477-014-0884-5">https://doi.org/10.1007/s00477-014-0884-5</a>.</p>
+</div>
+<div id="ref-Webster_Oliver_2007">
+<p>Webster, Richard, and Margaret A Oliver. 2007. <em>Geostatistics for Environmental Scientists</em>. <em>Vadose Zone Journal</em>. Vol. 1. 2. John Wiley &amp; Sons. <a href="https://doi.org/10.2136/vzj2002.0321">https://doi.org/10.2136/vzj2002.0321</a>.</p>
+</div>
+<div id="ref-Zimback_2001">
+<p>Zimback, C R L. 2001. “Análise Espacial de Atributos Químicos de Solos Para Fins de Mapeamento Da Fertilidade Do Solo. 2001. 114 F.” Tese (Livre-Docência)–Faculdade de Ciências Agronômicas, Universidade ….</p>
+</div>
+</div>
+<script>
+/*
+Sorts the references alphabetically.
+Modified from code by Yvonne Aburrow.
+*/
+$(function(){
+    var elems = $('#refs').children('div').remove();
+    elems.sort(function (a, b) {
+        return $(b).children('p').html().toUpperCase() > $(a).children('p').html().toUpperCase() ? -1 : 1;
+    });
+    $('#refs').append(elems);
+})
+</script>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="manejo-de-datos-espaciales.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="caracterización-de-variabilidad-espacial-con-múltiples-capas-de-datos.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": null,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["PROTRI2018-VariabilidadEspacial.pdf", "PROTRI2018-VariabilidadEspacial.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

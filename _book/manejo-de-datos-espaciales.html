@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Sección 1 Manejo de datos espaciales | Guía para el análisis de datos espaciales. Aplicaciones en agricultura</title>
+  <meta name="description" content="DISEMINACIÓN CIENTÍFICA Y TRASNFERENCIA DE RESULTADOS DE INVESTIGACIÓN, PROMOVIDAS POR EL MINISTERIO DE CIENCIA Y TECNOLOGÍA DE LA PROVINCIA DE CÓRDOBA." />
+  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Sección 1 Manejo de datos espaciales | Guía para el análisis de datos espaciales. Aplicaciones en agricultura" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="DISEMINACIÓN CIENTÍFICA Y TRASNFERENCIA DE RESULTADOS DE INVESTIGACIÓN, PROMOVIDAS POR EL MINISTERIO DE CIENCIA Y TECNOLOGÍA DE LA PROVINCIA DE CÓRDOBA." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Sección 1 Manejo de datos espaciales | Guía para el análisis de datos espaciales. Aplicaciones en agricultura" />
+  
+  <meta name="twitter:description" content="DISEMINACIÓN CIENTÍFICA Y TRASNFERENCIA DE RESULTADOS DE INVESTIGACIÓN, PROMOVIDAS POR EL MINISTERIO DE CIENCIA Y TECNOLOGÍA DE LA PROVINCIA DE CÓRDOBA." />
+  
+
+<meta name="author" content="Mariano Córdoba" />
+<meta name="author" content="Pablo Paccioretti" />
+<meta name="author" content="Franca Giannini Kurina" />
+<meta name="author" content="Cecilia Bruno" />
+<meta name="author" content="Mónica Balzarini" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="caracterización-de-variabilidad-espacial.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-154490537-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="stylesheet" href="css/toc2.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Guía para el análisis de datos espaciales en agricultura</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prólogo</a></li>
+<li class="part"><span><b>I Aproximaciones metodológicas</b></span></li>
+<li class="chapter" data-level="1" data-path="manejo-de-datos-espaciales.html"><a href="manejo-de-datos-espaciales.html"><i class="fa fa-check"></i><b>1</b> Manejo de datos espaciales</a><ul>
+<li class="chapter" data-level="1.1" data-path="manejo-de-datos-espaciales.html"><a href="manejo-de-datos-espaciales.html#transformación-y-conversión-de-coordenadas"><i class="fa fa-check"></i><b>1.1</b> Transformación y conversión de coordenadas</a></li>
+<li class="chapter" data-level="1.2" data-path="manejo-de-datos-espaciales.html"><a href="manejo-de-datos-espaciales.html#manipulación-de-múltiples-capas-de-datos"><i class="fa fa-check"></i><b>1.2</b> Manipulación de múltiples capas de datos</a></li>
+<li class="chapter" data-level="1.3" data-path="manejo-de-datos-espaciales.html"><a href="manejo-de-datos-espaciales.html#depuración-de-datos"><i class="fa fa-check"></i><b>1.3</b> Depuración de datos</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="caracterización-de-variabilidad-espacial.html"><a href="caracterización-de-variabilidad-espacial.html"><i class="fa fa-check"></i><b>2</b> Caracterización de variabilidad espacial</a><ul>
+<li class="chapter" data-level="2.1" data-path="caracterización-de-variabilidad-espacial.html"><a href="caracterización-de-variabilidad-espacial.html#semivariogramas"><i class="fa fa-check"></i><b>2.1</b> Semivariogramas</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="caracterización-de-variabilidad-espacial.html"><a href="caracterización-de-variabilidad-espacial.html#ajuste-de-semivariogramas"><i class="fa fa-check"></i><b>2.1.1</b> Ajuste de semivariogramas</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="caracterización-de-variabilidad-espacial.html"><a href="caracterización-de-variabilidad-espacial.html#correlación-espacial-bivariada"><i class="fa fa-check"></i><b>2.2</b> Correlación espacial bivariada</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="caracterización-de-variabilidad-espacial.html"><a href="caracterización-de-variabilidad-espacial.html#coeficiente-de-correlación"><i class="fa fa-check"></i><b>2.2.1</b> Coeficiente de correlación</a></li>
+<li class="chapter" data-level="2.2.2" data-path="caracterización-de-variabilidad-espacial.html"><a href="caracterización-de-variabilidad-espacial.html#coeficiente-de-co-dispersión"><i class="fa fa-check"></i><b>2.2.2</b> Coeficiente de co-dispersión</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="caracterización-de-variabilidad-espacial.html"><a href="caracterización-de-variabilidad-espacial.html#interpolación-kriging"><i class="fa fa-check"></i><b>2.3</b> Interpolación Kriging</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="caracterización-de-variabilidad-espacial.html"><a href="caracterización-de-variabilidad-espacial.html#kriging-ordinario"><i class="fa fa-check"></i><b>2.3.1</b> Kriging ordinario</a></li>
+<li class="chapter" data-level="2.3.2" data-path="caracterización-de-variabilidad-espacial.html"><a href="caracterización-de-variabilidad-espacial.html#kriging-en-bloques"><i class="fa fa-check"></i><b>2.3.2</b> Kriging en bloques</a></li>
+<li class="chapter" data-level="2.3.3" data-path="caracterización-de-variabilidad-espacial.html"><a href="caracterización-de-variabilidad-espacial.html#kriging-local"><i class="fa fa-check"></i><b>2.3.3</b> Kriging local</a></li>
+<li class="chapter" data-level="2.3.4" data-path="caracterización-de-variabilidad-espacial.html"><a href="caracterización-de-variabilidad-espacial.html#kriging-universal"><i class="fa fa-check"></i><b>2.3.4</b> Kriging universal</a></li>
+<li class="chapter" data-level="2.3.5" data-path="caracterización-de-variabilidad-espacial.html"><a href="caracterización-de-variabilidad-espacial.html#validación-cruzada"><i class="fa fa-check"></i><b>2.3.5</b> Validación cruzada</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="caracterización-de-variabilidad-espacial-con-múltiples-capas-de-datos.html"><a href="caracterización-de-variabilidad-espacial-con-múltiples-capas-de-datos.html"><i class="fa fa-check"></i><b>3</b> Caracterización de variabilidad espacial con múltiples capas de datos</a><ul>
+<li class="chapter" data-level="3.1" data-path="caracterización-de-variabilidad-espacial-con-múltiples-capas-de-datos.html"><a href="caracterización-de-variabilidad-espacial-con-múltiples-capas-de-datos.html#análisis-de-componentes-principales"><i class="fa fa-check"></i><b>3.1</b> Análisis de componentes principales</a></li>
+<li class="chapter" data-level="3.2" data-path="caracterización-de-variabilidad-espacial-con-múltiples-capas-de-datos.html"><a href="caracterización-de-variabilidad-espacial-con-múltiples-capas-de-datos.html#análisis-de-conglomerados"><i class="fa fa-check"></i><b>3.2</b> Análisis de conglomerados</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="predicción-con-múltiples-capas-de-datos.html"><a href="predicción-con-múltiples-capas-de-datos.html"><i class="fa fa-check"></i><b>4</b> Predicción con múltiples capas de datos</a><ul>
+<li class="chapter" data-level="4.1" data-path="predicción-con-múltiples-capas-de-datos.html"><a href="predicción-con-múltiples-capas-de-datos.html#regresión-con-errores-correlacionados-espacialmente-vía-reml"><i class="fa fa-check"></i><b>4.1</b> Regresión con errores correlacionados espacialmente vía REML</a></li>
+<li class="chapter" data-level="4.2" data-path="predicción-con-múltiples-capas-de-datos.html"><a href="predicción-con-múltiples-capas-de-datos.html#regresión-con-efectos-aleatorios-de-sitio-vía-inla"><i class="fa fa-check"></i><b>4.2</b> Regresión con efectos aleatorios de sitio vía INLA</a></li>
+<li class="chapter" data-level="4.3" data-path="predicción-con-múltiples-capas-de-datos.html"><a href="predicción-con-múltiples-capas-de-datos.html#regresión-vía-modelos-basados-en-árbol"><i class="fa fa-check"></i><b>4.3</b> Regresión vía modelos basados en árbol</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="predicción-con-múltiples-capas-de-datos.html"><a href="predicción-con-múltiples-capas-de-datos.html#bosques-aleatorios"><i class="fa fa-check"></i><b>4.3.1</b> Bosques aleatorios</a></li>
+<li class="chapter" data-level="4.3.2" data-path="predicción-con-múltiples-capas-de-datos.html"><a href="predicción-con-múltiples-capas-de-datos.html#árboles-de-regresión-generalizados"><i class="fa fa-check"></i><b>4.3.2</b> Árboles de regresión generalizados</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II Análisis de datos a escala fina</b></span></li>
+<li class="chapter" data-level="5" data-path="implementación-con-r.html"><a href="implementación-con-r.html"><i class="fa fa-check"></i><b>5</b> Implementación con R</a><ul>
+<li class="chapter" data-level="5.1" data-path="implementación-con-r.html"><a href="implementación-con-r.html#conversión-de-coordenadas-espaciales"><i class="fa fa-check"></i><b>5.1</b> Conversión de coordenadas espaciales</a></li>
+<li class="chapter" data-level="5.2" data-path="implementación-con-r.html"><a href="implementación-con-r.html#eliminación-de-outliers-e-inliers"><i class="fa fa-check"></i><b>5.2</b> Eliminación de <em>outliers</em> e <em>inliers</em></a></li>
+<li class="chapter" data-level="5.3" data-path="implementación-con-r.html"><a href="implementación-con-r.html#detección-de-tendencias-espaciales"><i class="fa fa-check"></i><b>5.3</b> Detección de tendencias espaciales</a></li>
+<li class="chapter" data-level="5.4" data-path="implementación-con-r.html"><a href="implementación-con-r.html#cálculo-del-índice-de-moran"><i class="fa fa-check"></i><b>5.4</b> Cálculo del índice de Moran</a></li>
+<li class="chapter" data-level="5.5" data-path="implementación-con-r.html"><a href="implementación-con-r.html#análisis-basado-en-semivariogramas"><i class="fa fa-check"></i><b>5.5</b> Análisis basado en semivariogramas</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="implementación-con-r.html"><a href="implementación-con-r.html#mapeo-de-la-variabilidad-espacial"><i class="fa fa-check"></i><b>5.5.1</b> Mapeo de la variabilidad espacial</a></li>
+<li class="chapter" data-level="5.5.2" data-path="implementación-con-r.html"><a href="implementación-con-r.html#validación-cruzada-1"><i class="fa fa-check"></i><b>5.5.2</b> Validación cruzada</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="implementación-con-r.html"><a href="implementación-con-r.html#caracterización-de-variabilidad-espacial-con-múltiples-capas-de-datos-1"><i class="fa fa-check"></i><b>5.6</b> Caracterización de variabilidad espacial con múltiples capas de datos</a><ul>
+<li class="chapter" data-level="5.6.1" data-path="implementación-con-r.html"><a href="implementación-con-r.html#análisis-de-componentes-principales-1"><i class="fa fa-check"></i><b>5.6.1</b> Análisis de componentes principales</a></li>
+<li class="chapter" data-level="5.6.2" data-path="implementación-con-r.html"><a href="implementación-con-r.html#análisis-de-conglomerados-1"><i class="fa fa-check"></i><b>5.6.2</b> Análisis de conglomerados</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="implementación-con-r.html"><a href="implementación-con-r.html#predicción-con-múltiples-capas-de-datos-1"><i class="fa fa-check"></i><b>5.7</b> Predicción con múltiples capas de datos</a><ul>
+<li class="chapter" data-level="5.7.1" data-path="implementación-con-r.html"><a href="implementación-con-r.html#kriging-con-deriva-externa"><i class="fa fa-check"></i><b>5.7.1</b> Kriging con deriva externa</a></li>
+<li class="chapter" data-level="5.7.2" data-path="implementación-con-r.html"><a href="implementación-con-r.html#kriging-desde-modelo-de-regresión"><i class="fa fa-check"></i><b>5.7.2</b> Kriging desde modelo de regresión</a></li>
+<li class="chapter" data-level="5.7.3" data-path="implementación-con-r.html"><a href="implementación-con-r.html#árboles-aleatorios"><i class="fa fa-check"></i><b>5.7.3</b> Árboles aleatorios</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html"><i class="fa fa-check"></i><b>6</b> Implementación con InfoStat</a><ul>
+<li class="chapter" data-level="6.1" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html#conversión-de-coordenadas-espaciales-1"><i class="fa fa-check"></i><b>6.1</b> Conversión de coordenadas espaciales</a></li>
+<li class="chapter" data-level="6.2" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html#eliminación-de-outliers-e-inliers-1"><i class="fa fa-check"></i><b>6.2</b> Eliminación de <em>outliers</em> e <em>inliers</em></a></li>
+<li class="chapter" data-level="6.3" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html#detección-de-tendencias-espaciales-1"><i class="fa fa-check"></i><b>6.3</b> Detección de tendencias espaciales</a></li>
+<li class="chapter" data-level="6.4" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html#cálculo-del-índice-de-moran-1"><i class="fa fa-check"></i><b>6.4</b> Cálculo del índice de Moran</a></li>
+<li class="chapter" data-level="6.5" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html#análisis-basado-en-semivariogramas-1"><i class="fa fa-check"></i><b>6.5</b> Análisis basado en semivariogramas</a><ul>
+<li class="chapter" data-level="6.5.1" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html#mapeo-de-variabilidad-espacial"><i class="fa fa-check"></i><b>6.5.1</b> Mapeo de variabilidad espacial</a></li>
+<li class="chapter" data-level="6.5.2" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html#validación-cruzada-2"><i class="fa fa-check"></i><b>6.5.2</b> Validación cruzada</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html#caracterización-de-variabilidad-espacial-con-múltiples-capas-de-datos-2"><i class="fa fa-check"></i><b>6.6</b> Caracterización de variabilidad espacial con múltiples capas de datos</a><ul>
+<li class="chapter" data-level="6.6.1" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html#análisis-de-componentes-principales-2"><i class="fa fa-check"></i><b>6.6.1</b> Análisis de componentes principales</a></li>
+<li class="chapter" data-level="6.6.2" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html#análisis-de-conglomerados-2"><i class="fa fa-check"></i><b>6.6.2</b> Análisis de conglomerados</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html#predicción-con-múltiples-capas-de-datos-2"><i class="fa fa-check"></i><b>6.7</b> Predicción con múltiples capas de datos</a><ul>
+<li class="chapter" data-level="6.7.1" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html#kriging-con-deriva-externa-1"><i class="fa fa-check"></i><b>6.7.1</b> Kriging con deriva externa</a></li>
+<li class="chapter" data-level="6.7.2" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html#kriging-desde-modelo-de-regresión-1"><i class="fa fa-check"></i><b>6.7.2</b> Kriging desde modelo de regresión</a></li>
+<li class="chapter" data-level="6.7.3" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html#árboles-aleatorios-1"><i class="fa fa-check"></i><b>6.7.3</b> Árboles aleatorios</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>III Análisis de datos a escala regional</b></span></li>
+<li class="chapter" data-level="7" data-path="bases-de-datos-regionales.html"><a href="bases-de-datos-regionales.html"><i class="fa fa-check"></i><b>7</b> Bases de datos regionales</a><ul>
+<li class="chapter" data-level="7.1" data-path="bases-de-datos-regionales.html"><a href="bases-de-datos-regionales.html#manejo-de-datos-espaciales-1"><i class="fa fa-check"></i><b>7.1</b> Manejo de datos espaciales</a></li>
+<li class="chapter" data-level="7.2" data-path="bases-de-datos-regionales.html"><a href="bases-de-datos-regionales.html#confección-de-grillas-de-predicción"><i class="fa fa-check"></i><b>7.2</b> Confección de grillas de predicción</a></li>
+<li class="chapter" data-level="7.3" data-path="bases-de-datos-regionales.html"><a href="bases-de-datos-regionales.html#agregado-de-capas-de-información"><i class="fa fa-check"></i><b>7.3</b> Agregado de capas de información</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="predicción-con-múltiples-capas-de-datos-3.html"><a href="predicción-con-múltiples-capas-de-datos-3.html"><i class="fa fa-check"></i><b>8</b> Predicción con múltiples capas de datos</a><ul>
+<li class="chapter" data-level="8.1" data-path="predicción-con-múltiples-capas-de-datos-3.html"><a href="predicción-con-múltiples-capas-de-datos-3.html#regresión-con-errores-correlacionados-espacialmente-vía-reml-1"><i class="fa fa-check"></i><b>8.1</b> Regresión con errores correlacionados espacialmente vía REML</a></li>
+<li class="chapter" data-level="8.2" data-path="predicción-con-múltiples-capas-de-datos-3.html"><a href="predicción-con-múltiples-capas-de-datos-3.html#regresión-con-efectos-aleatorios-de-sitio-vía-inla-1"><i class="fa fa-check"></i><b>8.2</b> Regresión con efectos aleatorios de sitio vía INLA</a></li>
+<li class="chapter" data-level="8.3" data-path="predicción-con-múltiples-capas-de-datos-3.html"><a href="predicción-con-múltiples-capas-de-datos-3.html#regresión-vía-modelos-basados-en-árbol-1"><i class="fa fa-check"></i><b>8.3</b> Regresión vía modelos basados en árbol</a></li>
+</ul></li>
+<li class="appendix"><span><b>Introducción a R</b></span></li>
+<li class="chapter" data-level="A" data-path="herramientas-de-software.html"><a href="herramientas-de-software.html"><i class="fa fa-check"></i><b>A</b> Herramientas de software</a><ul>
+<li class="chapter" data-level="A.1" data-path="herramientas-de-software.html"><a href="herramientas-de-software.html#introducción-al-manejo-de-datos-espaciales-con-r"><i class="fa fa-check"></i><b>A.1</b> Introducción al manejo de datos espaciales con R</a></li>
+<li class="chapter" data-level="A.2" data-path="herramientas-de-software.html"><a href="herramientas-de-software.html#intérprete-de-r-en-infostat"><i class="fa fa-check"></i><b>A.2</b> Intérprete de R en InfoStat</a></li>
+<li class="chapter" data-level="A.3" data-path="herramientas-de-software.html"><a href="herramientas-de-software.html#rstudio"><i class="fa fa-check"></i><b>A.3</b> RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="referencias.html"><a href="referencias.html"><i class="fa fa-check"></i>Referencias</a></li>
+<li class="divider"></li>
+<li><a href="https://www.agro.unc.edu.ar/~estadisticaaplicada" target="blank">Estadística Aplicada</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Guía para el análisis de datos espaciales. Aplicaciones en agricultura</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="manejo-de-datos-espaciales" class="section level1">
+<h1><span class="header-section-number">Sección 1</span> Manejo de datos espaciales</h1>
+<p>Cuando los datos georreferenciados se representan en fotografías, imágenes o mapas es posible visualizar patrones espaciales, <em>i.e.</em> estructuraciones de los datos en el espacio. Los datos espaciales involucran, no solo la realización (valor) de una variable, sino también las coordenadas geográficas que posicionan el dato en el dominio espacial. Las coordenadas pueden ser uni, bi o tridimensionales y expresarse según distintos sistemas. Los tipos de datos espaciales usados son: datos geoestadísticos, datos regionales (látices) y patrones de puntos. Los primeros son datos de dominio continuo, es decir, supone que entre dos sitios pueden existir infinitos datos. Se refiere a continuidad en la estructura espacial del proceso aleatorio espacial subyacente a partir del cual se han generado las observaciones que se tienen. A causa de la continuidad del dominio espacial, los datos geoestadísticos también se llaman “datos espaciales con variación continua”. La continuidad se asocia entonces con el proceso aleatorio subyacente y no con el atributo medido (que la variable sea de naturaleza continua o discreta no determina si los datos son geoestadísticos o no). Los datos regionales o de áreas son aquellos donde el dominio es fijo y conformado por un conjunto discreto de áreas, superficies o polígonos. Los datos del tipo patrones de puntos son aquellos que provienen de un proceso puntual aleatorio conformado por los puntos o sitios donde ocurren los eventos.</p>
+<p>En el trabajo con datos espaciales puede ser necesario realizar preprocesamientos previos al análisis estadístico. Es menester realizar la lectura de la o las capas de información (variables), proveer una descripción estadística de los datos y mapear o visualizar los datos en el espacio, eliminar valores atípicos. También puede requerirse la expresión del conjunto de variables en un mismo sistema de información geográfica o la necesidad de interpolar las variables de interés a una misma identidad espacial. Para el tratamiento de datos espaciales hay que considerar el formato de la información espacial (ráster o vectorial) y las particularidades del sistema de referencia.</p>
+<p>La tecnología de sistematización para información georreferenciada más conocida es la de los Sistemas de Información Geográfica (SIG). Actualmente, éstos abarcan un complejo de sistemas de bases de datos, programas de escritorio, lenguajes de programación, dispositivos gráficos, aplicaciones web y servidores. En un SIG, los datos de cada variable pueden manejarse como capas de información, y diversas técnicas de análisis de datos pueden aplicarse simultáneamente en todas las capas de manera independiente o integrándolas en un único análisis multivariado. Las capas pueden estar correlacionadas entre sí, los datos dentro de cada capa pueden presentar estructura de correlación espacial. Los Sistemas de Información Geográfica (SIG) ofrecen funciones para crear, integrar, transformar, visualizar y analizar de manera exploratoria estas capas de datos espaciales. Los SIG más avanzados también disponen de funciones que generan interfase con softwares estadísticos ampliando así la capacidad para la modelación conjunta de varias capas de información.</p>
+<div id="transformación-y-conversión-de-coordenadas" class="section level2">
+<h2><span class="header-section-number">1.1</span> Transformación y conversión de coordenadas</h2>
+<p>Para localizar el sitio (coordenadas) con el cual se asocia un dato espacial, se necesita un sistema de referencia. Existen dos tipos de coordenadas, cartesianas y geográficas. Las coordenadas cartesianas se miden desde el centro de la tierra, mientras que las geográficas desde una superficie de referencia o <em>datum</em>. Para Sudamérica el <em>datum</em> comúnmente utilizado es WGS84 (<em>World Geodetic System 84</em>). Éste es el <em>datum</em> estándar por defecto para coordenadas en los dispositivos GPS comerciales. Para combinar capas de información o para realizar otros procesamientos de datos espaciales es necesario conocer el <em>datum</em> y frecuentemente transformar o convertir las coordenadas. Transformar implica pasar de un sistema de referencia a otro (cambiar el <em>datum</em>), mientras que cuando se convierten coordenadas no se cambia de <em>datum</em>.</p>
+<p>Por una cuestión de practicidad, es usual proyectar el sistema de coordenadas geográficas (expresados en grados, minutos y segundos) a un sistema de coordenadas cartesianas, como por ejemplo el sistema de proyección UTM (<em>Universal Transverse Mercator</em>). Esta operación permite que las distancias entre los sitios desde donde se leen los datos se expresen como distancias absolutas (metros) en vez de distancias relativas (grados). Por ello, un paso inicial en el análisis de datos espaciales es convertir las coordenadas geográficas en coordenadas cartesianas (UTM). La mayoría del software SIG tiene la capacidad para realizar la transformación o conversión de coordenadas.</p>
+</div>
+<div id="manipulación-de-múltiples-capas-de-datos" class="section level2">
+<h2><span class="header-section-number">1.2</span> Manipulación de múltiples capas de datos</h2>
+<p>Cuando se recolectan datos de más de una variable georreferencia (múltiples capas de datos especializados) es poco probable que se registre la misma ubicación para cada variable o tiempo de medición. Por ejemplo, rara vez las mediciones de propiedades del suelo y los índices derivados de imágenes satelitales de cultivos no son obtenidas exactamente para la misma localización y frecuentemente existen capas de datos en distintas escalas. Esta variabilidad en las coordenadas espaciales dificulta la fusión de datos para realizar análisis estadísticos multivariados, <em>i.e.</em> análisis que contemplen simultáneamente las distintas capas de datos.</p>
+<p>Se necesita organizar los datos en una grilla común a todas las capas, de manera que cada celda de la grilla cuente con la información de su ubicación espacial y cada una de las variables medidas. Existen diversas alternativas metodológicas para crear este tipo de grillas. Una de ellas consiste en generar una grilla regular de una determinada dimensión la cual se interseca con cada una de las variables medidas. Luego los valores de cada capa son asignados al nodo de la celda más cercana al punto medido. Cuando se tiene más de un dato de una variable para el mismo nodo, se suele calcular una medida de posición como la media o mediana de los datos e inclusive en algunos casos puede ser de interés tomar una medida de variabilidad como el desvió estándar o coeficiente de variación de los datos que comparten la celda. Otra alternativa metodológica es generar la grilla regular y utilizar la información recolectada para realizar una interpolación espacial en sitios no medidos y así obtener una predicción espacial de la variable de interés en cada celda de la grilla. Este proceso se realiza para cada una de las variables medidas empleando la misma grilla. Diversos métodos de interpolación pueden ser usados, uno frecuente es la interpolación kriging.</p>
+<p>El espaciado de la grilla debe reflejar el nivel de detalle requerido y la capacidad de procesamiento computacional. Por ejemplo, en aplicaciones de agricultura de precisión (escala de lote) puede utilizase una grilla de celdas cuadradas de 5 m × 5 m que se aproxima a la mitad del ancho operativo básico de muchas maquinarias. Esto genera unos 400 puntos de grilla por hectárea. Con lotes grandes puede ser conveniente utilizar una cuadricula de 10 m × 10 m para superar problemas computacionales y al mismo tiempo mantener una resolución de mapa adecuada para la visualización y análisis de los patrones espaciales.</p>
+<p>La normalización de los datos es otra práctica comúnmente usada en el manejo de múltiples capas de datos. Con esta técnica se busca ajustar los valores de variables no conmensurables, incluso medidos en diferentes escalas a una escala común. La normalización puede realizarse en base a la media de cada capa o variable y expresar la unidad como un porcentaje (%) de la media. La normalización también suele realizarse utilizando el máximo de la capa como referente o calculando la diferencia de la variable respecto al valor mínimo y dividiendo por el rango. Finalmente, cabe citar a la estandarización (sustracción de la media y división por el desvío estándar) como una transformación usual para expresar variables un conjunto de variables no conmensurables en un conjunto de variables normal estándar.</p>
+<p>Un paso importante en el análisis exploratorio de datos geoestadísticos es explorar la distribución de la variable. Para ello, puede realizarse una estadística descriptiva que incluye la elaboración de gráficos de distribución de frecuencias y medidas resumen (media, mediana y coeficiente de asimetría) de la variable en análisis. Cuando el método de análisis supone distribución normal de los datos, estas medidas exploratorias pueden ayudar a verificar el cumplimiento de los supuestos. Se considera que una distribución de frecuencias es simétrica y está próxima a la de una variable normal cuando la media y la mediana son prácticamente iguales y el coeficiente de asimetría es inferior a 1. La distribución de la variable también provee información para la depuración de datos raros.</p>
+</div>
+<div id="depuración-de-datos" class="section level2">
+<h2><span class="header-section-number">1.3</span> Depuración de datos</h2>
+<p>Los <em>outliers</em>, datos raros o atípicos, son observaciones con valores que se encuentran fuera del patrón general o distribución del conjunto de datos. La eliminación de los <em>outliers</em> es fundamental en el análisis de datos espaciales ya que las varianzas espaciales son muy sensibles a la presencia de datos raros. Los <em>outliers</em> deben eliminarse cuando el conjunto de datos no se limita dentro del rango de variación esperable con valores máximos y mínimos derivados de conocimiento previo sobre la distribución de la variable. También pueden eliminarse desde un criterio estadístico, cuando luego de calcular la media y la desviación estándar (SD), se identifican los valores que se encuentran fuera de la media <span class="math inline">\(\pm\)</span> 3 SD. Según conocimiento teórico, el 89% de los datos de una variable debieran encontrarse entre la media <span class="math inline">\(\pm\)</span> 3 SD cualquiera sea la distribución de la variable. Es recomendable, antes de la eliminación de los <em>outliers</em>, graficarlos utilizando coordenadas espaciales para visualizar su localización. De esta manera será posible identificar si los datos seleccionados para ser eliminados se relacionan con algún patrón sistemático o se corresponden a errores aleatorios.</p>
+<p>Al eliminar los <em>outliers</em> globales se eliminan los extremos del conjunto de datos, pero no los extremos locales (<em>outliers</em> espaciales). Los <em>outliers</em> espaciales, conocidos también como <em>inliers</em>, son datos que difieren significativamente de su vecindario, pero se sitúan dentro del rango general de variación del conjunto de datos. Existen estadísticos para identificar <em>inliers</em>, tal es el caso del índice autocorrelación espacial local de Moran (LM) <span class="citation">(Anselin <a href="#ref-Anselin_1995">1995</a>)</span>. Dado un grupo de datos que pertenecen a diferentes vecindarios, el LM es aplicado a cada dato individualmente y da idea del grado de similitud o diferencia entre el valor de una observación respecto al valor de sus vecinos. La fórmula del índice de autocorrelación espacial local de Moran es la siguiente:</p>
+<p><span class="math display">\[{LM}_i=\frac{n\ (Z(s_i)-\bar{z})}{(n-1)s^2}\sum_{j=1}^{n}\left[w_{ij}\left(Z(s_j)-\bar{z}\right)\right]\]</span></p>
+<p>donde <span class="math inline">\(Z(s_i)\)</span> es el valor de la variable z en la posición <span class="math inline">\(i\)</span>; <span class="math inline">\(\bar{z}\)</span> y <span class="math inline">\(s^2\)</span> son la media y varianza muestral de <span class="math inline">\(z\)</span>, respectivamente; <span class="math inline">\(Z(s_j)\)</span> es el valor de la variable <span class="math inline">\(z\)</span> en todos los otros sitios (donde <span class="math inline">\(j\neq i\)</span>); <span class="math inline">\(w_{ij}\)</span> es el peso espacial entre las ubicaciones <span class="math inline">\(i\)</span> y <span class="math inline">\(j\)</span>.</p>
+<p>Para el cálculo del Índice de Moran se debe identificar el vecindario de cada dato, es decir el dominio donde existen datos que pueden ser interpretados como vecinos espaciales y que serán usados como referencia para decidir si el dato correspondiente es o no diferente a sus vecinos. Los vecindarios se definen a través de redes de conexión las que si bien pueden ser de distintos tipos pueden expresarse en el formato de una matriz de ponderación espacial <span class="math inline">\(W\)</span>. Cuando <span class="math inline">\(W\)</span> es binaria, <em>i.e.</em> compuesta por ceros y unos, se indica con 1 si la posición <span class="math inline">\(j\)</span> se considera vecina a la posición <span class="math inline">\(i\)</span>. Otra posibilidad para construir la matriz de ponderaciones espaciales es usando uná función de la distancia <span class="math inline">\(d\)</span> (usualmente distancia Euclídea) entre los sitios <span class="math inline">\(i\)</span>, <span class="math inline">\(j\)</span> como elemento de <span class="math inline">\(W\)</span>. Una función de amplio uso es la inversa de la distancia, es decir: <span class="math inline">\(w_{ij}=1/d_{ij}\)</span>. Así, valores muy cercanos en el espacio tendrán mayor ponderación. Existen diferentes opciones para definir el tamaño y la forma de los vecindarios de un dato espacial.</p>
+<p>El índice de Moran local esta estandarizado por lo que su nivel de significación puede ser evaluado en base a una distribución normal estándar. Los valores positivos del LM se corresponden con agrupamiento espacial de valores similares ya sean altos o bajos (autocorrelación positiva), mientras que un valor de LM negativo indica un agrupamiento de valores diferentes, por ejemplo, un sitio con valor bajo de la variable se encuentra rodeado de vecinos con valores altos (autocorrelación negativa).</p>
+<p>Para determinar la significancia estadística de LM, se calcula el <em>valor-p</em> asociado a la prueba de hipótesis que establece que la correlación de la información de un sitio con la de sus vecinos es nula. El <em>valor-p</em> para un índice determinado debe ser lo suficientemente pequeño para considerar el valor en cuestión como un <em>outlier</em> espacial o <em>inlier</em> (rechazar la hipótesis nula). Dado que se realiza una prueba de hipótesis para cada uno de los puntos espaciales, se recomienda el ajuste de los <em>valores-p</em> por el criterio de Bonferroni.</p>
+<p>Para visualizar el índice LM se puede representar en un diagrama de dispersión la similitud de cada valor observado respecto a las observaciones vecinas. Usualmente en el eje horizontal se expresan los valores de las observaciones mientras que en el vertical se representa el retardo espacial de la variable. Adicionalmente, se puede ajustar y añadir a este diagrama modelos de regresión lineal y estadísticos de influencia para identificar sitios con datos raros.</p>
+</div>
+</div>
+<h3>Referencias</h3>
+<div id="refs" class="references">
+<div id="ref-Anselin_1995">
+<p>Anselin, Luc. 1995. “Local Indicators of Spatial Association—Lisa.” <em>Geographical Analysis</em> 27 (2). Wiley Online Library: 93–115.</p>
+</div>
+</div>
+<script>
+/*
+Sorts the references alphabetically.
+Modified from code by Yvonne Aburrow.
+*/
+$(function(){
+    var elems = $('#refs').children('div').remove();
+    elems.sort(function (a, b) {
+        return $(b).children('p').html().toUpperCase() > $(a).children('p').html().toUpperCase() ? -1 : 1;
+    });
+    $('#refs').append(elems);
+})
+</script>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="caracterización-de-variabilidad-espacial.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": null,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["PROTRI2018-VariabilidadEspacial.pdf", "PROTRI2018-VariabilidadEspacial.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

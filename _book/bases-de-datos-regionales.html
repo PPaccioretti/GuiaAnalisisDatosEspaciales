@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Sección 7 Bases de datos regionales | Guía para el análisis de datos espaciales. Aplicaciones en agricultura</title>
+  <meta name="description" content="DISEMINACIÓN CIENTÍFICA Y TRASNFERENCIA DE RESULTADOS DE INVESTIGACIÓN, PROMOVIDAS POR EL MINISTERIO DE CIENCIA Y TECNOLOGÍA DE LA PROVINCIA DE CÓRDOBA." />
+  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Sección 7 Bases de datos regionales | Guía para el análisis de datos espaciales. Aplicaciones en agricultura" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="DISEMINACIÓN CIENTÍFICA Y TRASNFERENCIA DE RESULTADOS DE INVESTIGACIÓN, PROMOVIDAS POR EL MINISTERIO DE CIENCIA Y TECNOLOGÍA DE LA PROVINCIA DE CÓRDOBA." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Sección 7 Bases de datos regionales | Guía para el análisis de datos espaciales. Aplicaciones en agricultura" />
+  
+  <meta name="twitter:description" content="DISEMINACIÓN CIENTÍFICA Y TRASNFERENCIA DE RESULTADOS DE INVESTIGACIÓN, PROMOVIDAS POR EL MINISTERIO DE CIENCIA Y TECNOLOGÍA DE LA PROVINCIA DE CÓRDOBA." />
+  
+
+<meta name="author" content="Mariano Córdoba" />
+<meta name="author" content="Pablo Paccioretti" />
+<meta name="author" content="Franca Giannini Kurina" />
+<meta name="author" content="Cecilia Bruno" />
+<meta name="author" content="Mónica Balzarini" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="implementación-con-infostat.html"/>
+<link rel="next" href="predicción-con-múltiples-capas-de-datos-3.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-154490537-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="stylesheet" href="css/toc2.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Guía para el análisis de datos espaciales en agricultura</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prólogo</a></li>
+<li class="part"><span><b>I Aproximaciones metodológicas</b></span></li>
+<li class="chapter" data-level="1" data-path="manejo-de-datos-espaciales.html"><a href="manejo-de-datos-espaciales.html"><i class="fa fa-check"></i><b>1</b> Manejo de datos espaciales</a><ul>
+<li class="chapter" data-level="1.1" data-path="manejo-de-datos-espaciales.html"><a href="manejo-de-datos-espaciales.html#transformación-y-conversión-de-coordenadas"><i class="fa fa-check"></i><b>1.1</b> Transformación y conversión de coordenadas</a></li>
+<li class="chapter" data-level="1.2" data-path="manejo-de-datos-espaciales.html"><a href="manejo-de-datos-espaciales.html#manipulación-de-múltiples-capas-de-datos"><i class="fa fa-check"></i><b>1.2</b> Manipulación de múltiples capas de datos</a></li>
+<li class="chapter" data-level="1.3" data-path="manejo-de-datos-espaciales.html"><a href="manejo-de-datos-espaciales.html#depuración-de-datos"><i class="fa fa-check"></i><b>1.3</b> Depuración de datos</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="caracterización-de-variabilidad-espacial.html"><a href="caracterización-de-variabilidad-espacial.html"><i class="fa fa-check"></i><b>2</b> Caracterización de variabilidad espacial</a><ul>
+<li class="chapter" data-level="2.1" data-path="caracterización-de-variabilidad-espacial.html"><a href="caracterización-de-variabilidad-espacial.html#semivariogramas"><i class="fa fa-check"></i><b>2.1</b> Semivariogramas</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="caracterización-de-variabilidad-espacial.html"><a href="caracterización-de-variabilidad-espacial.html#ajuste-de-semivariogramas"><i class="fa fa-check"></i><b>2.1.1</b> Ajuste de semivariogramas</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="caracterización-de-variabilidad-espacial.html"><a href="caracterización-de-variabilidad-espacial.html#correlación-espacial-bivariada"><i class="fa fa-check"></i><b>2.2</b> Correlación espacial bivariada</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="caracterización-de-variabilidad-espacial.html"><a href="caracterización-de-variabilidad-espacial.html#coeficiente-de-correlación"><i class="fa fa-check"></i><b>2.2.1</b> Coeficiente de correlación</a></li>
+<li class="chapter" data-level="2.2.2" data-path="caracterización-de-variabilidad-espacial.html"><a href="caracterización-de-variabilidad-espacial.html#coeficiente-de-co-dispersión"><i class="fa fa-check"></i><b>2.2.2</b> Coeficiente de co-dispersión</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="caracterización-de-variabilidad-espacial.html"><a href="caracterización-de-variabilidad-espacial.html#interpolación-kriging"><i class="fa fa-check"></i><b>2.3</b> Interpolación Kriging</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="caracterización-de-variabilidad-espacial.html"><a href="caracterización-de-variabilidad-espacial.html#kriging-ordinario"><i class="fa fa-check"></i><b>2.3.1</b> Kriging ordinario</a></li>
+<li class="chapter" data-level="2.3.2" data-path="caracterización-de-variabilidad-espacial.html"><a href="caracterización-de-variabilidad-espacial.html#kriging-en-bloques"><i class="fa fa-check"></i><b>2.3.2</b> Kriging en bloques</a></li>
+<li class="chapter" data-level="2.3.3" data-path="caracterización-de-variabilidad-espacial.html"><a href="caracterización-de-variabilidad-espacial.html#kriging-local"><i class="fa fa-check"></i><b>2.3.3</b> Kriging local</a></li>
+<li class="chapter" data-level="2.3.4" data-path="caracterización-de-variabilidad-espacial.html"><a href="caracterización-de-variabilidad-espacial.html#kriging-universal"><i class="fa fa-check"></i><b>2.3.4</b> Kriging universal</a></li>
+<li class="chapter" data-level="2.3.5" data-path="caracterización-de-variabilidad-espacial.html"><a href="caracterización-de-variabilidad-espacial.html#validación-cruzada"><i class="fa fa-check"></i><b>2.3.5</b> Validación cruzada</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="caracterización-de-variabilidad-espacial-con-múltiples-capas-de-datos.html"><a href="caracterización-de-variabilidad-espacial-con-múltiples-capas-de-datos.html"><i class="fa fa-check"></i><b>3</b> Caracterización de variabilidad espacial con múltiples capas de datos</a><ul>
+<li class="chapter" data-level="3.1" data-path="caracterización-de-variabilidad-espacial-con-múltiples-capas-de-datos.html"><a href="caracterización-de-variabilidad-espacial-con-múltiples-capas-de-datos.html#análisis-de-componentes-principales"><i class="fa fa-check"></i><b>3.1</b> Análisis de componentes principales</a></li>
+<li class="chapter" data-level="3.2" data-path="caracterización-de-variabilidad-espacial-con-múltiples-capas-de-datos.html"><a href="caracterización-de-variabilidad-espacial-con-múltiples-capas-de-datos.html#análisis-de-conglomerados"><i class="fa fa-check"></i><b>3.2</b> Análisis de conglomerados</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="predicción-con-múltiples-capas-de-datos.html"><a href="predicción-con-múltiples-capas-de-datos.html"><i class="fa fa-check"></i><b>4</b> Predicción con múltiples capas de datos</a><ul>
+<li class="chapter" data-level="4.1" data-path="predicción-con-múltiples-capas-de-datos.html"><a href="predicción-con-múltiples-capas-de-datos.html#regresión-con-errores-correlacionados-espacialmente-vía-reml"><i class="fa fa-check"></i><b>4.1</b> Regresión con errores correlacionados espacialmente vía REML</a></li>
+<li class="chapter" data-level="4.2" data-path="predicción-con-múltiples-capas-de-datos.html"><a href="predicción-con-múltiples-capas-de-datos.html#regresión-con-efectos-aleatorios-de-sitio-vía-inla"><i class="fa fa-check"></i><b>4.2</b> Regresión con efectos aleatorios de sitio vía INLA</a></li>
+<li class="chapter" data-level="4.3" data-path="predicción-con-múltiples-capas-de-datos.html"><a href="predicción-con-múltiples-capas-de-datos.html#regresión-vía-modelos-basados-en-árbol"><i class="fa fa-check"></i><b>4.3</b> Regresión vía modelos basados en árbol</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="predicción-con-múltiples-capas-de-datos.html"><a href="predicción-con-múltiples-capas-de-datos.html#bosques-aleatorios"><i class="fa fa-check"></i><b>4.3.1</b> Bosques aleatorios</a></li>
+<li class="chapter" data-level="4.3.2" data-path="predicción-con-múltiples-capas-de-datos.html"><a href="predicción-con-múltiples-capas-de-datos.html#árboles-de-regresión-generalizados"><i class="fa fa-check"></i><b>4.3.2</b> Árboles de regresión generalizados</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II Análisis de datos a escala fina</b></span></li>
+<li class="chapter" data-level="5" data-path="implementación-con-r.html"><a href="implementación-con-r.html"><i class="fa fa-check"></i><b>5</b> Implementación con R</a><ul>
+<li class="chapter" data-level="5.1" data-path="implementación-con-r.html"><a href="implementación-con-r.html#conversión-de-coordenadas-espaciales"><i class="fa fa-check"></i><b>5.1</b> Conversión de coordenadas espaciales</a></li>
+<li class="chapter" data-level="5.2" data-path="implementación-con-r.html"><a href="implementación-con-r.html#eliminación-de-outliers-e-inliers"><i class="fa fa-check"></i><b>5.2</b> Eliminación de <em>outliers</em> e <em>inliers</em></a></li>
+<li class="chapter" data-level="5.3" data-path="implementación-con-r.html"><a href="implementación-con-r.html#detección-de-tendencias-espaciales"><i class="fa fa-check"></i><b>5.3</b> Detección de tendencias espaciales</a></li>
+<li class="chapter" data-level="5.4" data-path="implementación-con-r.html"><a href="implementación-con-r.html#cálculo-del-índice-de-moran"><i class="fa fa-check"></i><b>5.4</b> Cálculo del índice de Moran</a></li>
+<li class="chapter" data-level="5.5" data-path="implementación-con-r.html"><a href="implementación-con-r.html#análisis-basado-en-semivariogramas"><i class="fa fa-check"></i><b>5.5</b> Análisis basado en semivariogramas</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="implementación-con-r.html"><a href="implementación-con-r.html#mapeo-de-la-variabilidad-espacial"><i class="fa fa-check"></i><b>5.5.1</b> Mapeo de la variabilidad espacial</a></li>
+<li class="chapter" data-level="5.5.2" data-path="implementación-con-r.html"><a href="implementación-con-r.html#validación-cruzada-1"><i class="fa fa-check"></i><b>5.5.2</b> Validación cruzada</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="implementación-con-r.html"><a href="implementación-con-r.html#caracterización-de-variabilidad-espacial-con-múltiples-capas-de-datos-1"><i class="fa fa-check"></i><b>5.6</b> Caracterización de variabilidad espacial con múltiples capas de datos</a><ul>
+<li class="chapter" data-level="5.6.1" data-path="implementación-con-r.html"><a href="implementación-con-r.html#análisis-de-componentes-principales-1"><i class="fa fa-check"></i><b>5.6.1</b> Análisis de componentes principales</a></li>
+<li class="chapter" data-level="5.6.2" data-path="implementación-con-r.html"><a href="implementación-con-r.html#análisis-de-conglomerados-1"><i class="fa fa-check"></i><b>5.6.2</b> Análisis de conglomerados</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="implementación-con-r.html"><a href="implementación-con-r.html#predicción-con-múltiples-capas-de-datos-1"><i class="fa fa-check"></i><b>5.7</b> Predicción con múltiples capas de datos</a><ul>
+<li class="chapter" data-level="5.7.1" data-path="implementación-con-r.html"><a href="implementación-con-r.html#kriging-con-deriva-externa"><i class="fa fa-check"></i><b>5.7.1</b> Kriging con deriva externa</a></li>
+<li class="chapter" data-level="5.7.2" data-path="implementación-con-r.html"><a href="implementación-con-r.html#kriging-desde-modelo-de-regresión"><i class="fa fa-check"></i><b>5.7.2</b> Kriging desde modelo de regresión</a></li>
+<li class="chapter" data-level="5.7.3" data-path="implementación-con-r.html"><a href="implementación-con-r.html#árboles-aleatorios"><i class="fa fa-check"></i><b>5.7.3</b> Árboles aleatorios</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html"><i class="fa fa-check"></i><b>6</b> Implementación con InfoStat</a><ul>
+<li class="chapter" data-level="6.1" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html#conversión-de-coordenadas-espaciales-1"><i class="fa fa-check"></i><b>6.1</b> Conversión de coordenadas espaciales</a></li>
+<li class="chapter" data-level="6.2" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html#eliminación-de-outliers-e-inliers-1"><i class="fa fa-check"></i><b>6.2</b> Eliminación de <em>outliers</em> e <em>inliers</em></a></li>
+<li class="chapter" data-level="6.3" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html#detección-de-tendencias-espaciales-1"><i class="fa fa-check"></i><b>6.3</b> Detección de tendencias espaciales</a></li>
+<li class="chapter" data-level="6.4" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html#cálculo-del-índice-de-moran-1"><i class="fa fa-check"></i><b>6.4</b> Cálculo del índice de Moran</a></li>
+<li class="chapter" data-level="6.5" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html#análisis-basado-en-semivariogramas-1"><i class="fa fa-check"></i><b>6.5</b> Análisis basado en semivariogramas</a><ul>
+<li class="chapter" data-level="6.5.1" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html#mapeo-de-variabilidad-espacial"><i class="fa fa-check"></i><b>6.5.1</b> Mapeo de variabilidad espacial</a></li>
+<li class="chapter" data-level="6.5.2" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html#validación-cruzada-2"><i class="fa fa-check"></i><b>6.5.2</b> Validación cruzada</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html#caracterización-de-variabilidad-espacial-con-múltiples-capas-de-datos-2"><i class="fa fa-check"></i><b>6.6</b> Caracterización de variabilidad espacial con múltiples capas de datos</a><ul>
+<li class="chapter" data-level="6.6.1" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html#análisis-de-componentes-principales-2"><i class="fa fa-check"></i><b>6.6.1</b> Análisis de componentes principales</a></li>
+<li class="chapter" data-level="6.6.2" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html#análisis-de-conglomerados-2"><i class="fa fa-check"></i><b>6.6.2</b> Análisis de conglomerados</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html#predicción-con-múltiples-capas-de-datos-2"><i class="fa fa-check"></i><b>6.7</b> Predicción con múltiples capas de datos</a><ul>
+<li class="chapter" data-level="6.7.1" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html#kriging-con-deriva-externa-1"><i class="fa fa-check"></i><b>6.7.1</b> Kriging con deriva externa</a></li>
+<li class="chapter" data-level="6.7.2" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html#kriging-desde-modelo-de-regresión-1"><i class="fa fa-check"></i><b>6.7.2</b> Kriging desde modelo de regresión</a></li>
+<li class="chapter" data-level="6.7.3" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html#árboles-aleatorios-1"><i class="fa fa-check"></i><b>6.7.3</b> Árboles aleatorios</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>III Análisis de datos a escala regional</b></span></li>
+<li class="chapter" data-level="7" data-path="bases-de-datos-regionales.html"><a href="bases-de-datos-regionales.html"><i class="fa fa-check"></i><b>7</b> Bases de datos regionales</a><ul>
+<li class="chapter" data-level="7.1" data-path="bases-de-datos-regionales.html"><a href="bases-de-datos-regionales.html#manejo-de-datos-espaciales-1"><i class="fa fa-check"></i><b>7.1</b> Manejo de datos espaciales</a></li>
+<li class="chapter" data-level="7.2" data-path="bases-de-datos-regionales.html"><a href="bases-de-datos-regionales.html#confección-de-grillas-de-predicción"><i class="fa fa-check"></i><b>7.2</b> Confección de grillas de predicción</a></li>
+<li class="chapter" data-level="7.3" data-path="bases-de-datos-regionales.html"><a href="bases-de-datos-regionales.html#agregado-de-capas-de-información"><i class="fa fa-check"></i><b>7.3</b> Agregado de capas de información</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="predicción-con-múltiples-capas-de-datos-3.html"><a href="predicción-con-múltiples-capas-de-datos-3.html"><i class="fa fa-check"></i><b>8</b> Predicción con múltiples capas de datos</a><ul>
+<li class="chapter" data-level="8.1" data-path="predicción-con-múltiples-capas-de-datos-3.html"><a href="predicción-con-múltiples-capas-de-datos-3.html#regresión-con-errores-correlacionados-espacialmente-vía-reml-1"><i class="fa fa-check"></i><b>8.1</b> Regresión con errores correlacionados espacialmente vía REML</a></li>
+<li class="chapter" data-level="8.2" data-path="predicción-con-múltiples-capas-de-datos-3.html"><a href="predicción-con-múltiples-capas-de-datos-3.html#regresión-con-efectos-aleatorios-de-sitio-vía-inla-1"><i class="fa fa-check"></i><b>8.2</b> Regresión con efectos aleatorios de sitio vía INLA</a></li>
+<li class="chapter" data-level="8.3" data-path="predicción-con-múltiples-capas-de-datos-3.html"><a href="predicción-con-múltiples-capas-de-datos-3.html#regresión-vía-modelos-basados-en-árbol-1"><i class="fa fa-check"></i><b>8.3</b> Regresión vía modelos basados en árbol</a></li>
+</ul></li>
+<li class="appendix"><span><b>Introducción a R</b></span></li>
+<li class="chapter" data-level="A" data-path="herramientas-de-software.html"><a href="herramientas-de-software.html"><i class="fa fa-check"></i><b>A</b> Herramientas de software</a><ul>
+<li class="chapter" data-level="A.1" data-path="herramientas-de-software.html"><a href="herramientas-de-software.html#introducción-al-manejo-de-datos-espaciales-con-r"><i class="fa fa-check"></i><b>A.1</b> Introducción al manejo de datos espaciales con R</a></li>
+<li class="chapter" data-level="A.2" data-path="herramientas-de-software.html"><a href="herramientas-de-software.html#intérprete-de-r-en-infostat"><i class="fa fa-check"></i><b>A.2</b> Intérprete de R en InfoStat</a></li>
+<li class="chapter" data-level="A.3" data-path="herramientas-de-software.html"><a href="herramientas-de-software.html#rstudio"><i class="fa fa-check"></i><b>A.3</b> RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="referencias.html"><a href="referencias.html"><i class="fa fa-check"></i>Referencias</a></li>
+<li class="divider"></li>
+<li><a href="https://www.agro.unc.edu.ar/~estadisticaaplicada" target="blank">Estadística Aplicada</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Guía para el análisis de datos espaciales. Aplicaciones en agricultura</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="bases-de-datos-regionales" class="section level1">
+<h1><span class="header-section-number">Sección 7</span> Bases de datos regionales</h1>
+<p>Muchos procesos aleatorios varían de manera continua en el espacio a escala regional. Entonces, es de interés predecir el comportamiento de una variable en referencia a su ubicación geográfica. En algunas situaciones además de la distribución en el espacio otras capas de información (covariables de sitio) pueden ser usadas para mejorar la predicción en un sitio específico. En esta parte se ilustran el manejo de datos espaciales para la predicción a escala regional de una variable a partir de múltiples capas de información y la construcción de un modelo de predicción espacial vía estrategias metodológicas alternativas: regresión múltiple vía REML, regresión múltiple vía INLA y regresión no lineal vía modelo basado en árbol.</p>
+<p>Como ejemplo se utiliza la base de datos <strong>suelos_cba.txt</strong>. Esta es una parte del SIG de los suelos del horizonte superficial de la provincia Córdoba <span class="citation">(Hang et al. <a href="#ref-Hang2015">2015</a>)</span>, que contiene 350 sitios caracterizados por múltiples variables edáficas que describen los primeros 15 cm de profundidad. Las variables presentes en <strong>suelos_cba.txt</strong> son: COS (Carbono Orgánico de Suelo, g/kg) arcilla (%), pH, elevación (m.s.n.m.), twi (Índice Topográfico de Humedad). El objetivo del análisis es ajustar modelos que expliquen la variabilidad espacial de COS en función de las restantes variables en la base de datos.</p>
+<p>Para seguir la ilustración, cargar los paquetes específicos de R que albergan las funciones que se utilizarán tanto para el manejo como para la modelación.</p>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb98-1" data-line-number="1"><span class="kw">library</span>(sf)</a>
+<a class="sourceLine" id="cb98-2" data-line-number="2"><span class="kw">library</span>(raster)</a>
+<a class="sourceLine" id="cb98-3" data-line-number="3"><span class="kw">library</span>(tmap)</a>
+<a class="sourceLine" id="cb98-4" data-line-number="4"><span class="kw">library</span>(nlme)</a>
+<a class="sourceLine" id="cb98-5" data-line-number="5"><span class="kw">library</span>(INLA)</a>
+<a class="sourceLine" id="cb98-6" data-line-number="6"><span class="kw">library</span>(caret)</a>
+<a class="sourceLine" id="cb98-7" data-line-number="7"><span class="kw">library</span>(gstat)</a></code></pre></div>
+<div id="manejo-de-datos-espaciales-1" class="section level2">
+<h2><span class="header-section-number">7.1</span> Manejo de datos espaciales</h2>
+<p>Mediante la función <code>read.table()</code> se lee un archivo de texto que se guarda como un objeto denominado <code>suelos</code>, en el cual las columnas están separadas por tabuladores y la primera fila contiene los nombres de columnas. Mediante la función <code>head()</code> se visualizan las primeras filas del objeto <code>suelos</code> donde se observa que la primera columna corresponde a una identificación, las siguientes dos son las coordenadas X e Y las cuales corresponden al sistema de proyección UTM faja 20. Las columnas siguientes contienen las variables en estudio.</p>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb99-1" data-line-number="1">suelos &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;datos/suelos_cba.txt&quot;</span>, </a>
+<a class="sourceLine" id="cb99-2" data-line-number="2">                     <span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb99-3" data-line-number="3"><span class="kw">head</span>(suelos)</a>
+<a class="sourceLine" id="cb99-4" data-line-number="4"><span class="co">#&gt; ID_2 X Y elevacion twi arcilla pH COS</span></a>
+<a class="sourceLine" id="cb99-5" data-line-number="5"><span class="co">#&gt; 1 2 603164 6576899 100 135 30,8 6,6 26,0</span></a>
+<a class="sourceLine" id="cb99-6" data-line-number="6"><span class="co">#&gt; 2 3 596537 6390518 87 133 24,0 7,4 17,3</span></a>
+<a class="sourceLine" id="cb99-7" data-line-number="7"><span class="co">#&gt; [ reached &#39;max&#39;</span></a>
+<a class="sourceLine" id="cb99-8" data-line-number="8">    <span class="op">/</span><span class="st"> </span><span class="kw">getOption</span>(<span class="st">&quot;max.print&quot;</span>) <span class="op">--</span></a>
+<a class="sourceLine" id="cb99-9" data-line-number="9">omitted <span class="dv">4</span> rows ]</a></code></pre></div>
+<p>Para transformar este objeto en uno de clase espacial, se utilizará la función <code>st_as_sf()</code>, especificando que las coordenadas X e Y, se encuentra en las columnas “X” e “Y”, respectivamente. Todos los sistemas de coordenadas tienen asociados un código que los identifica y que a través del cual, se pueden conocer los parámetros asociados al mismo, este código se llama EPSG por su acrónimo en inglés. El código EPSG del sistema de referencia y proyección de la base de datos es 32720. El objeto <code>suelos_sf</code>, ahora es un objeto espacial de clase <code>sf</code>, donde cada observación corresponde a cada sitio de muestreo. Se muestra el sistema de referencia y proyección de las coordenadas y el tipo de geometría.</p>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb100-1" data-line-number="1">suelos_sf &lt;-<span class="st"> </span><span class="kw">st_as_sf</span>(suelos, </a>
+<a class="sourceLine" id="cb100-2" data-line-number="2">                      <span class="dt">coords =</span> <span class="kw">c</span>(<span class="st">&quot;X&quot;</span>, <span class="st">&quot;Y&quot;</span>), </a>
+<a class="sourceLine" id="cb100-3" data-line-number="3">                      <span class="dt">crs =</span> <span class="dv">32720</span>)</a>
+<a class="sourceLine" id="cb100-4" data-line-number="4">suelos_sf</a>
+<a class="sourceLine" id="cb100-5" data-line-number="5"><span class="co">#&gt; Simple feature collection with 350 features</span></a>
+<a class="sourceLine" id="cb100-6" data-line-number="6">and <span class="dv">6</span> fields</a>
+<a class="sourceLine" id="cb100-7" data-line-number="7"><span class="co">#&gt; geometry type: POINT</span></a>
+<a class="sourceLine" id="cb100-8" data-line-number="8"><span class="co">#&gt; dimension: XY</span></a>
+<a class="sourceLine" id="cb100-9" data-line-number="9"><span class="co">#&gt; bbox: xmin: 236000 ymin: 6130000 xmax:</span></a>
+<a class="sourceLine" id="cb100-10" data-line-number="10"><span class="dv">603000</span> ymax<span class="op">:</span><span class="st"> </span><span class="dv">6720000</span></a>
+<a class="sourceLine" id="cb100-11" data-line-number="11"><span class="co">#&gt; epsg (SRID): 32720</span></a>
+<a class="sourceLine" id="cb100-12" data-line-number="12"><span class="co">#&gt; proj4string: </span></a>
+<a class="sourceLine" id="cb100-13" data-line-number="13">    <span class="op">+</span><span class="st"> </span>proj=utm </a>
+<a class="sourceLine" id="cb100-14" data-line-number="14">    <span class="op">+</span><span class="st"> </span>zone=<span class="dv">20</span> </a>
+<a class="sourceLine" id="cb100-15" data-line-number="15">    <span class="op">+</span><span class="st"> </span>south</a>
+<a class="sourceLine" id="cb100-16" data-line-number="16"><span class="op">+</span>datum=WGS84 <span class="op">+</span>units=m <span class="op">+</span>no_defs</a>
+<a class="sourceLine" id="cb100-17" data-line-number="17"><span class="co">#&gt; First 3 features:</span></a>
+<a class="sourceLine" id="cb100-18" data-line-number="18"><span class="co">#&gt; ID_2 elevacion twi arcilla pH COS geometry</span></a>
+<a class="sourceLine" id="cb100-19" data-line-number="19"><span class="co">#&gt; 1 2 100 135 30,8 6,6 26,0 POINT (603164</span></a>
+<a class="sourceLine" id="cb100-20" data-line-number="20"><span class="dv">6576899</span><span class="er">)</span></a>
+<a class="sourceLine" id="cb100-21" data-line-number="21"><span class="co">#&gt; 2 3 87 133 24,0 7,4 17,3 POINT (596537</span></a>
+<a class="sourceLine" id="cb100-22" data-line-number="22"><span class="dv">6390518</span><span class="er">)</span></a>
+<a class="sourceLine" id="cb100-23" data-line-number="23"><span class="co">#&gt; [ reached &#39;max&#39;</span></a>
+<a class="sourceLine" id="cb100-24" data-line-number="24">    <span class="op">/</span><span class="st"> </span><span class="kw">getOption</span>(<span class="st">&quot;max.print&quot;</span>) <span class="op">--</span></a>
+<a class="sourceLine" id="cb100-25" data-line-number="25">omitted <span class="dv">1</span> rows ]</a></code></pre></div>
+<p>Para explorar los datos se usa el paquete <code>tmap</code> que permite realizar gráficos estáticos o dinámicos. Con la opción dinámica, se puede interactuar con el gráfico de manera análoga a un SIG. Para cada gráfico, se comienza utilizando la función <code>tm_shape()</code> especificando el objeto a graficar. Cada observación se grafica un punto mediante la función <code>tm_dots()</code>, cada nivel se agrega mediante el símbolo <code>+</code>.</p>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb101-1" data-line-number="1"><span class="kw">tm_shape</span>(suelos_sf) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb101-2" data-line-number="2"><span class="st">  </span><span class="kw">tm_dots</span>()</a></code></pre></div>
+<p><img src="figuras/figLibro/unnamed-chunk-157-1.png" width="\linewidth" style="display: block; margin: auto;" /></p>
+<p>Para agregar latitud y longitud a esta figura se realiza una reproyección. En la función <code>tm_shape()</code> se especifica el nuevo sistema de coordenadas con el que se desea graficar (argumento <code>projection</code>). Se agregar el nivel <code>tm_grid()</code> para visualizar una grilla que contiene las coordenadas latitud y longitud.</p>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb102-1" data-line-number="1"><span class="kw">tm_shape</span>(suelos_sf, <span class="dt">projection =</span> <span class="dv">4326</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb102-2" data-line-number="2"><span class="st">  </span><span class="kw">tm_grid</span>(<span class="dt">col=</span><span class="st">&quot;grey90&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb102-3" data-line-number="3"><span class="st">  </span><span class="kw">tm_dots</span>()</a></code></pre></div>
+<p><img src="figuras/figLibro/unnamed-chunk-158-1.png" width="\linewidth" style="display: block; margin: auto;" /></p>
+<p>Cualquiera de estos gráficos se puede convertir en un gráfico dinámico mediante la función <code>tmap_mode()</code> especificando como argumento <code>&quot;view&quot;</code>. Para continuar con gráficos estáticos se debe especificar <code>&quot;plot&quot;</code> como argumento de esta función. Mediante la función <code>tm_basemap()</code>, se pueden incorporar distintas capas base. Las opciones disponibles para las capas base se pueden ver mediante el comando <code>names(leaflet::providers)</code>.</p>
+<p>Cualquiera de estos gráficos se puede convertir en un gráfico dinámico utilizando la función <code>tmap_mode()</code> especificando como argumento <code>&quot;view&quot;</code>. Para continuar con gráficos estáticos se debe especificar <code>&quot;plot&quot;</code> como argumento de esta función. Mediante la función <code>tm_basemap()</code>, se pueden incorporar distintas capas base (capas de fondo que ayudan a visualizar). Las opciones disponibles para las capas base se pueden ver mediante el comando <code>names(leaflet::providers)</code>.</p>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb103-1" data-line-number="1"></a>
+<a class="sourceLine" id="cb103-2" data-line-number="2"><span class="kw">tmap_mode</span>(<span class="st">&quot;view&quot;</span>)</a>
+<a class="sourceLine" id="cb103-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb103-4" data-line-number="4"><span class="kw">tm_shape</span>(suelos_sf) <span class="op">+</span></a>
+<a class="sourceLine" id="cb103-5" data-line-number="5"><span class="st">  </span><span class="kw">tm_dots</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb103-6" data-line-number="6"><span class="st">  </span><span class="kw">tm_basemap</span>(<span class="st">&quot;Esri.WorldImagery&quot;</span>, <span class="st">&quot;OpenTopoMap&quot;</span>)</a></code></pre></div>
+<p><img src="figuras/suelossftmap.png" width="\linewidth" style="display: block; margin: auto;" /></p>
+</div>
+<div id="confección-de-grillas-de-predicción" class="section level2">
+<h2><span class="header-section-number">7.2</span> Confección de grillas de predicción</h2>
+<p>Para generar esta grilla es necesario definir una resolución espacial en el área de interés. Para este ejemplo, se utiliza un archivo vectorial, <strong>limites_cba.shp</strong>, el cual define el límite del territorio sobre el que se desea predecir.</p>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb104-1" data-line-number="1">limites_cba &lt;-<span class="st"> </span><span class="kw">st_read</span>(<span class="st">&quot;datos/limites_cba.shp&quot;</span>,</a>
+<a class="sourceLine" id="cb104-2" data-line-number="2">                       <span class="dt">quiet =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb104-3" data-line-number="3">limites_cba &lt;-<span class="st"> </span><span class="kw">st_transform</span>(limites_cba, </a>
+<a class="sourceLine" id="cb104-4" data-line-number="4">                            <span class="dt">crs =</span> <span class="dv">32720</span>)</a></code></pre></div>
+<p>La función <code>st_make_grid()</code> genera una grilla rectangular conteniendo el área del objeto <code>limites_cba</code>. Para definir la resolución espacial de la grilla se utiliza el argumento <code>cellsize</code> definiendo un tamaño de grilla en relación con la unidad de medida del sistema de coordenadas, en este caso 10000 metros, dado que está en UTM.</p>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb105-1" data-line-number="1">grilla_base &lt;-<span class="st"> </span><span class="kw">st_make_grid</span>(limites_cba, </a>
+<a class="sourceLine" id="cb105-2" data-line-number="2">                            <span class="dt">cellsize =</span> <span class="dv">10000</span>)</a>
+<a class="sourceLine" id="cb105-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb105-4" data-line-number="4"><span class="kw">tm_shape</span>(grilla_base) <span class="op">+</span></a>
+<a class="sourceLine" id="cb105-5" data-line-number="5"><span class="st">  </span><span class="kw">tm_borders</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb105-6" data-line-number="6"><span class="st">  </span><span class="kw">tm_shape</span>(limites_cba) <span class="op">+</span></a>
+<a class="sourceLine" id="cb105-7" data-line-number="7"><span class="st">  </span><span class="kw">tm_borders</span>(<span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</a></code></pre></div>
+<p><img src="figuras/figLibro/unnamed-chunk-162-1.png" width="\linewidth" style="display: block; margin: auto;" /></p>
+<p>Dado que la grilla es rectangular, es necesario cortarla según los límites. Para esto se realiza una intersección entre los límites y la grilla utilizando la función <code>st_intersection()</code>.</p>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb106-1" data-line-number="1">grilla_pred &lt;-<span class="st"> </span><span class="kw">st_intersection</span>(limites_cba,</a>
+<a class="sourceLine" id="cb106-2" data-line-number="2">                               grilla_base)</a>
+<a class="sourceLine" id="cb106-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb106-4" data-line-number="4"><span class="kw">tm_shape</span>(grilla_pred) <span class="op">+</span></a>
+<a class="sourceLine" id="cb106-5" data-line-number="5"><span class="st">  </span><span class="kw">tm_borders</span>()</a></code></pre></div>
+<p><img src="figuras/figLibro/unnamed-chunk-163-1.png" width="\linewidth" style="display: block; margin: auto;" /></p>
+<p>Los algoritmos de predicción implementados trabajan prediciendo sitios puntuales, por lo cual, a partir de la grilla, es necesario generar una grilla de puntos. Una alternativa es utilizar la función <code>st_centroid()</code> para obtener el centroide de cada celda.</p>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb107-1" data-line-number="1">centroide_pred &lt;-<span class="st"> </span><span class="kw">st_centroid</span>(grilla_pred)</a>
+<a class="sourceLine" id="cb107-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb107-3" data-line-number="3"><span class="kw">tm_shape</span>(centroide_pred) <span class="op">+</span></a>
+<a class="sourceLine" id="cb107-4" data-line-number="4"><span class="st">  </span><span class="kw">tm_dots</span>()</a></code></pre></div>
+<p><img src="figuras/figLibro/unnamed-chunk-164-1.png" width="\linewidth" style="display: block; margin: auto;" /></p>
+</div>
+<div id="agregado-de-capas-de-información" class="section level2">
+<h2><span class="header-section-number">7.3</span> Agregado de capas de información</h2>
+<p>Se presenta los comandos necesarios para combinar múltiples capas de información en un mismo objeto. Las variables elevación y twi son extraídas desde modelos digitales de elevación, que se encuentran en formato raster. El paquete <code>raster</code> de R es específico para lectura y manipulación de este tipo de archivos. Para leer un archivo de este formato, se puede utilizar la función <code>raster()</code> mientras que para reproyectar se utiliza la función <code>projectRaster()</code>. El archivo <strong>elevacion.tif</strong> contiene datos de elevación para la provincia de Córdoba. Cuando se imprime el objeto, se muestra la cantidad de pixeles por fila, columna, pixeles totales, la resolución espacial, las coordenadas extremas en latitud y longitud, el sistema de coordenadas de referencia, los valores mínimo y máximo de la variable observada.</p>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb108-1" data-line-number="1">elevacion &lt;-<span class="st"> </span><span class="kw">raster</span>(<span class="st">&quot;datos/elevacion.tif&quot;</span>)</a>
+<a class="sourceLine" id="cb108-2" data-line-number="2">elevacion &lt;-</a>
+<a class="sourceLine" id="cb108-3" data-line-number="3"><span class="st">  </span><span class="kw">projectRaster</span>(elevacion, </a>
+<a class="sourceLine" id="cb108-4" data-line-number="4">                <span class="dt">crs =</span> <span class="st">&quot;+proj=utm +zone=20 +south </span></a>
+<a class="sourceLine" id="cb108-5" data-line-number="5"><span class="st">                +datum=WGS84 +units=m +no_defs&quot;</span>)</a>
+<a class="sourceLine" id="cb108-6" data-line-number="6">elevacion</a>
+<a class="sourceLine" id="cb108-7" data-line-number="7"><span class="co">#&gt; class : RasterLayer</span></a>
+<a class="sourceLine" id="cb108-8" data-line-number="8"><span class="co">#&gt; dimensions : 2867, 2373, 6803391 (nrow,</span></a>
+<a class="sourceLine" id="cb108-9" data-line-number="9">ncol, ncell<span class="er">)</span></a>
+<a class="sourceLine" id="cb108-10" data-line-number="10"><span class="co">#&gt; resolution : 196, 231 (x, y)</span></a>
+<a class="sourceLine" id="cb108-11" data-line-number="11"><span class="co">#&gt; extent : 195205, 660313, 6099410, 6761687</span></a>
+<a class="sourceLine" id="cb108-12" data-line-number="12">(xmin, xmax, ymin, ymax)</a>
+<a class="sourceLine" id="cb108-13" data-line-number="13"><span class="co">#&gt; crs : +proj=utm +zone=20 +south +datum=WGS84</span></a>
+<a class="sourceLine" id="cb108-14" data-line-number="14"><span class="op">+</span>units=m <span class="op">+</span>no_defs <span class="op">+</span>ellps=WGS84 <span class="op">+</span>towgs84=<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span></a>
+<a class="sourceLine" id="cb108-15" data-line-number="15"><span class="co">#&gt; source : memory</span></a>
+<a class="sourceLine" id="cb108-16" data-line-number="16"><span class="co">#&gt; names : elevacion</span></a>
+<a class="sourceLine" id="cb108-17" data-line-number="17"><span class="co">#&gt; values : 38,6, 2746 (min, max)</span></a></code></pre></div>
+<p>Para obtener en los sitios de predicción el valor de la variable del objeto raster, se utiliza la función <code>extract()</code> definiendo como argumento el nombre del objeto raster y el nombre del objeto vectorial que contiene los sitios. Estos valores extraídos se adicionan en una columna llamada <code>elevacion</code> dentro del objeto <code>centroide_pred</code> utilizando el símbolo <code>$</code>.</p>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb109-1" data-line-number="1">centroide_pred<span class="op">$</span>elevacion &lt;-</a>
+<a class="sourceLine" id="cb109-2" data-line-number="2"><span class="st">  </span>raster<span class="op">::</span><span class="kw">extract</span>(elevacion, centroide_pred)</a></code></pre></div>
+<p>El archivo <strong>twi.tif</strong> contiene valores de un índice topográfico de humedad también generado a partir de datos provenientes de un modelo digital de elevación..</p>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb110-1" data-line-number="1">twi &lt;-<span class="st"> </span><span class="kw">raster</span>(<span class="st">&quot;datos/twi.tif&quot;</span>)</a>
+<a class="sourceLine" id="cb110-2" data-line-number="2">twi &lt;-</a>
+<a class="sourceLine" id="cb110-3" data-line-number="3"><span class="st">  </span><span class="kw">projectRaster</span>(twi, </a>
+<a class="sourceLine" id="cb110-4" data-line-number="4">                <span class="dt">crs =</span> <span class="st">&quot;+proj=utm +zone=20 +south</span></a>
+<a class="sourceLine" id="cb110-5" data-line-number="5"><span class="st">                +datum=WGS84 +units=m +no_defs&quot;</span>)</a>
+<a class="sourceLine" id="cb110-6" data-line-number="6">twi</a>
+<a class="sourceLine" id="cb110-7" data-line-number="7"><span class="co">#&gt; class : RasterLayer</span></a>
+<a class="sourceLine" id="cb110-8" data-line-number="8"><span class="co">#&gt; dimensions : 1438, 1189, 1709782 (nrow,</span></a>
+<a class="sourceLine" id="cb110-9" data-line-number="9">ncol, ncell<span class="er">)</span></a>
+<a class="sourceLine" id="cb110-10" data-line-number="10"><span class="co">#&gt; resolution : 393, 462 (x, y)</span></a>
+<a class="sourceLine" id="cb110-11" data-line-number="11"><span class="co">#&gt; extent : 194023, 661300, 6098486, 6762842</span></a>
+<a class="sourceLine" id="cb110-12" data-line-number="12">(xmin, xmax, ymin, ymax)</a>
+<a class="sourceLine" id="cb110-13" data-line-number="13"><span class="co">#&gt; crs : +proj=utm +zone=20 +south +datum=WGS84</span></a>
+<a class="sourceLine" id="cb110-14" data-line-number="14"><span class="op">+</span>units=m <span class="op">+</span>no_defs <span class="op">+</span>ellps=WGS84 <span class="op">+</span>towgs84=<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span></a>
+<a class="sourceLine" id="cb110-15" data-line-number="15"><span class="co">#&gt; source : memory</span></a>
+<a class="sourceLine" id="cb110-16" data-line-number="16"><span class="co">#&gt; names : twi</span></a>
+<a class="sourceLine" id="cb110-17" data-line-number="17"><span class="co">#&gt; values : 54, 138 (min, max)</span></a></code></pre></div>
+<p>Utilizando la función <code>extract()</code> se extrae los valores de TWI para cada sitio de la grilla de predicción.</p>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb111-1" data-line-number="1">centroide_pred<span class="op">$</span>twi &lt;-</a>
+<a class="sourceLine" id="cb111-2" data-line-number="2"><span class="st">  </span>raster<span class="op">::</span><span class="kw">extract</span>(twi, </a>
+<a class="sourceLine" id="cb111-3" data-line-number="3">                  centroide_pred)</a></code></pre></div>
+<p>Se adiciona a la grilla variables procedentes de otras fuentes (SIG de muestreo de suelo). Estos datos se encuentran en los archivos raster llamados <strong>arcilla.tif</strong> y <strong>pH.tif</strong>, respectivamente. Estos raster tienen la misma resolución espacial y extensión, por lo que es posible superponerlos en un mismo objeto mediante la función <code>stack()</code>.</p>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb112-1" data-line-number="1">arcilla &lt;-<span class="st"> </span><span class="kw">raster</span>(<span class="st">&quot;datos/arcilla.tif&quot;</span>)</a>
+<a class="sourceLine" id="cb112-2" data-line-number="2">pH &lt;-<span class="st"> </span><span class="kw">raster</span>(<span class="st">&quot;datos/pH.tif&quot;</span>)</a>
+<a class="sourceLine" id="cb112-3" data-line-number="3">edaf &lt;-<span class="st"> </span><span class="kw">stack</span>(pH, arcilla)</a>
+<a class="sourceLine" id="cb112-4" data-line-number="4"><span class="kw">projection</span>(edaf) &lt;-</a>
+<a class="sourceLine" id="cb112-5" data-line-number="5"><span class="st">  &quot;+proj=utm +zone=20 +south</span></a>
+<a class="sourceLine" id="cb112-6" data-line-number="6"><span class="st">   +datum=WGS84 +units=m +no_defs&quot;</span></a>
+<a class="sourceLine" id="cb112-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb112-8" data-line-number="8"><span class="kw">tm_shape</span>(edaf) <span class="op">+</span></a>
+<a class="sourceLine" id="cb112-9" data-line-number="9"><span class="st">  </span><span class="kw">tm_raster</span>()</a></code></pre></div>
+<p><img src="figuras/figLibro/unnamed-chunk-169-1.png" width="\linewidth" style="display: block; margin: auto;" /></p>
+<p>Se seleccionan los valores de los sitios utilizando la función <code>extract()</code>. Como los valores extraídos mediante la funcion desde un <em>stack</em> de rasters genera un objeto de tipo <code>data.frame</code> con tantas columnas como capas contenga ese raster, se adicionan al objeto <code>centroide_pred</code> mediante la función <code>cbind()</code>, la cual une columnas de igual número de filas. Ahora el objeto <code>cetroide_pred</code> contiene todos los sitios de predicción con las variables auxiliares adicionadas.</p>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb113-1" data-line-number="1">edaf_pred &lt;-<span class="st"> </span>raster<span class="op">::</span><span class="kw">extract</span>(edaf, </a>
+<a class="sourceLine" id="cb113-2" data-line-number="2">                             centroide_pred)</a>
+<a class="sourceLine" id="cb113-3" data-line-number="3">centroide_pred &lt;-<span class="st"> </span><span class="kw">cbind</span>(centroide_pred, </a>
+<a class="sourceLine" id="cb113-4" data-line-number="4">                        edaf_pred)</a>
+<a class="sourceLine" id="cb113-5" data-line-number="5">centroide_pred</a>
+<a class="sourceLine" id="cb113-6" data-line-number="6"><span class="co">#&gt; Simple feature collection with 1668 features</span></a>
+<a class="sourceLine" id="cb113-7" data-line-number="7">and <span class="dv">8</span> fields</a>
+<a class="sourceLine" id="cb113-8" data-line-number="8"><span class="co">#&gt; geometry type: POINT</span></a>
+<a class="sourceLine" id="cb113-9" data-line-number="9"><span class="co">#&gt; dimension: XY</span></a>
+<a class="sourceLine" id="cb113-10" data-line-number="10"><span class="co">#&gt; bbox: xmin: 239000 ymin: 6130000 xmax:</span></a>
+<a class="sourceLine" id="cb113-11" data-line-number="11"><span class="dv">615000</span> ymax<span class="op">:</span><span class="st"> </span><span class="dv">6730000</span></a>
+<a class="sourceLine" id="cb113-12" data-line-number="12"><span class="co">#&gt; epsg (SRID): 32720</span></a>
+<a class="sourceLine" id="cb113-13" data-line-number="13"><span class="co">#&gt; proj4string: </span></a>
+<a class="sourceLine" id="cb113-14" data-line-number="14">    <span class="op">+</span><span class="st"> </span>proj=utm </a>
+<a class="sourceLine" id="cb113-15" data-line-number="15">    <span class="op">+</span><span class="st"> </span>zone=<span class="dv">20</span> </a>
+<a class="sourceLine" id="cb113-16" data-line-number="16">    <span class="op">+</span><span class="st"> </span>south</a>
+<a class="sourceLine" id="cb113-17" data-line-number="17"><span class="op">+</span>datum=WGS84 <span class="op">+</span>units=m <span class="op">+</span>no_defs</a>
+<a class="sourceLine" id="cb113-18" data-line-number="18"><span class="co">#&gt; First 3 features:</span></a>
+<a class="sourceLine" id="cb113-19" data-line-number="19"><span class="co">#&gt; UNION JURISDICCI CAPITAL FUENTE elevacion</span></a>
+<a class="sourceLine" id="cb113-20" data-line-number="20">twi pH arcilla</a>
+<a class="sourceLine" id="cb113-21" data-line-number="21"><span class="co">#&gt; 1 -2,15e+09 CORDOBA CORDOBA IGN 275 118 6,39</span></a>
+<a class="sourceLine" id="cb113-22" data-line-number="22"><span class="dv">8</span>,<span class="dv">21</span></a>
+<a class="sourceLine" id="cb113-23" data-line-number="23"><span class="co">#&gt; geometry</span></a>
+<a class="sourceLine" id="cb113-24" data-line-number="24"><span class="co">#&gt; 1 POINT (310499 6129968)</span></a>
+<a class="sourceLine" id="cb113-25" data-line-number="25"><span class="co">#&gt; [ reached &#39;max&#39;</span></a>
+<a class="sourceLine" id="cb113-26" data-line-number="26">    <span class="op">/</span><span class="st"> </span><span class="kw">getOption</span>(<span class="st">&quot;max.print&quot;</span>) <span class="op">--</span></a>
+<a class="sourceLine" id="cb113-27" data-line-number="27">omitted <span class="dv">2</span> rows ]</a></code></pre></div>
+<p>Para identificar la variación de la variable de interés en un plano, se puede usar una escala de colores. La elección de la escala cambia según los colores y los puntos de corte (valores de la variable de interés en los cuales cambia el color). Para definirla algunas opciones automáticamente identifican los valores para categorizar y asignar un color. Por defecto, <code>tmap</code> categoriza los valores en intervalos fijos. Utilizando el argumento <code>style</code>, se puede modificar el método a utilizar. Las opciones <code>style = &quot;order&quot;</code> y <code>style = &quot;cont&quot;</code> permiten representar variables numéricas en un gradiente de color. La opción “order” realiza una escala en función del ranking de los valores, permitiendo una mejor visualización de variables asimétricas. Para la visualización de más de un mapa generado con <code>tmap</code> en un mismo gráfico, se puede utilizar la función <code>tmap_arrange()</code>, utilizando como argumento los mapas que se quieren visualizar. El argumento <code>sync = TRUE</code> permite la visualización interactiva con la navegación (zoom y movimiento) sincronizada en ambos mapas.</p>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb114-1" data-line-number="1">elevTm &lt;-<span class="st"> </span><span class="kw">tm_shape</span>(centroide_pred) <span class="op">+</span></a>
+<a class="sourceLine" id="cb114-2" data-line-number="2"><span class="st">  </span><span class="kw">tm_dots</span>(<span class="st">&quot;elevacion&quot;</span>, <span class="dt">style =</span> <span class="st">&quot;order&quot;</span>)</a>
+<a class="sourceLine" id="cb114-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb114-4" data-line-number="4">twiTm &lt;-<span class="st"> </span><span class="kw">tm_shape</span>(centroide_pred) <span class="op">+</span></a>
+<a class="sourceLine" id="cb114-5" data-line-number="5"><span class="st">  </span><span class="kw">tm_dots</span>(<span class="st">&quot;twi&quot;</span>, <span class="dt">style =</span> <span class="st">&quot;cont&quot;</span>)</a>
+<a class="sourceLine" id="cb114-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb114-7" data-line-number="7">pHTM &lt;-<span class="st"> </span><span class="kw">tm_shape</span>(centroide_pred) <span class="op">+</span></a>
+<a class="sourceLine" id="cb114-8" data-line-number="8"><span class="st">  </span><span class="kw">tm_dots</span>(<span class="st">&quot;pH&quot;</span>, <span class="dt">style =</span> <span class="st">&quot;cont&quot;</span>)</a>
+<a class="sourceLine" id="cb114-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb114-10" data-line-number="10">arcillaTm &lt;-<span class="st"> </span><span class="kw">tm_shape</span>(centroide_pred) <span class="op">+</span></a>
+<a class="sourceLine" id="cb114-11" data-line-number="11"><span class="st">  </span><span class="kw">tm_dots</span>(<span class="st">&quot;arcilla&quot;</span>, <span class="dt">style =</span> <span class="st">&quot;cont&quot;</span>)</a>
+<a class="sourceLine" id="cb114-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb114-13" data-line-number="13"><span class="kw">tmap_arrange</span>(elevTm, twiTm, pHTM, arcillaTm, </a>
+<a class="sourceLine" id="cb114-14" data-line-number="14">             <span class="dt">ncol =</span> <span class="dv">2</span>)</a></code></pre></div>
+<p><img src="figuras/figLibro/unnamed-chunk-171-1.png" width="\linewidth" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<h3>Referencias</h3>
+<div id="refs" class="references">
+<div id="ref-Hang2015">
+<p>Hang, Susana, Gustavo Negro, Alejandro Becerra, and Ariel Edgar Rampoldi. 2015. <em>Suelos de Córdoba: Variabilidad de las propiedades del horizonte superficial.</em> Córdoba: Jorge Omar Editorial.</p>
+</div>
+</div>
+<script>
+/*
+Sorts the references alphabetically.
+Modified from code by Yvonne Aburrow.
+*/
+$(function(){
+    var elems = $('#refs').children('div').remove();
+    elems.sort(function (a, b) {
+        return $(b).children('p').html().toUpperCase() > $(a).children('p').html().toUpperCase() ? -1 : 1;
+    });
+    $('#refs').append(elems);
+})
+</script>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="implementación-con-infostat.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="predicción-con-múltiples-capas-de-datos-3.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": null,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["PROTRI2018-VariabilidadEspacial.pdf", "PROTRI2018-VariabilidadEspacial.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

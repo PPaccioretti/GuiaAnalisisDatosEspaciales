@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Sección 3 Caracterización de variabilidad espacial con múltiples capas de datos | Guía para el análisis de datos espaciales. Aplicaciones en agricultura</title>
+  <meta name="description" content="DISEMINACIÓN CIENTÍFICA Y TRASNFERENCIA DE RESULTADOS DE INVESTIGACIÓN, PROMOVIDAS POR EL MINISTERIO DE CIENCIA Y TECNOLOGÍA DE LA PROVINCIA DE CÓRDOBA." />
+  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Sección 3 Caracterización de variabilidad espacial con múltiples capas de datos | Guía para el análisis de datos espaciales. Aplicaciones en agricultura" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="DISEMINACIÓN CIENTÍFICA Y TRASNFERENCIA DE RESULTADOS DE INVESTIGACIÓN, PROMOVIDAS POR EL MINISTERIO DE CIENCIA Y TECNOLOGÍA DE LA PROVINCIA DE CÓRDOBA." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Sección 3 Caracterización de variabilidad espacial con múltiples capas de datos | Guía para el análisis de datos espaciales. Aplicaciones en agricultura" />
+  
+  <meta name="twitter:description" content="DISEMINACIÓN CIENTÍFICA Y TRASNFERENCIA DE RESULTADOS DE INVESTIGACIÓN, PROMOVIDAS POR EL MINISTERIO DE CIENCIA Y TECNOLOGÍA DE LA PROVINCIA DE CÓRDOBA." />
+  
+
+<meta name="author" content="Mariano Córdoba" />
+<meta name="author" content="Pablo Paccioretti" />
+<meta name="author" content="Franca Giannini Kurina" />
+<meta name="author" content="Cecilia Bruno" />
+<meta name="author" content="Mónica Balzarini" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="caracterización-de-variabilidad-espacial.html"/>
+<link rel="next" href="predicción-con-múltiples-capas-de-datos.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-154490537-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="stylesheet" href="css/toc2.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Guía para el análisis de datos espaciales en agricultura</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prólogo</a></li>
+<li class="part"><span><b>I Aproximaciones metodológicas</b></span></li>
+<li class="chapter" data-level="1" data-path="manejo-de-datos-espaciales.html"><a href="manejo-de-datos-espaciales.html"><i class="fa fa-check"></i><b>1</b> Manejo de datos espaciales</a><ul>
+<li class="chapter" data-level="1.1" data-path="manejo-de-datos-espaciales.html"><a href="manejo-de-datos-espaciales.html#transformación-y-conversión-de-coordenadas"><i class="fa fa-check"></i><b>1.1</b> Transformación y conversión de coordenadas</a></li>
+<li class="chapter" data-level="1.2" data-path="manejo-de-datos-espaciales.html"><a href="manejo-de-datos-espaciales.html#manipulación-de-múltiples-capas-de-datos"><i class="fa fa-check"></i><b>1.2</b> Manipulación de múltiples capas de datos</a></li>
+<li class="chapter" data-level="1.3" data-path="manejo-de-datos-espaciales.html"><a href="manejo-de-datos-espaciales.html#depuración-de-datos"><i class="fa fa-check"></i><b>1.3</b> Depuración de datos</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="caracterización-de-variabilidad-espacial.html"><a href="caracterización-de-variabilidad-espacial.html"><i class="fa fa-check"></i><b>2</b> Caracterización de variabilidad espacial</a><ul>
+<li class="chapter" data-level="2.1" data-path="caracterización-de-variabilidad-espacial.html"><a href="caracterización-de-variabilidad-espacial.html#semivariogramas"><i class="fa fa-check"></i><b>2.1</b> Semivariogramas</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="caracterización-de-variabilidad-espacial.html"><a href="caracterización-de-variabilidad-espacial.html#ajuste-de-semivariogramas"><i class="fa fa-check"></i><b>2.1.1</b> Ajuste de semivariogramas</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="caracterización-de-variabilidad-espacial.html"><a href="caracterización-de-variabilidad-espacial.html#correlación-espacial-bivariada"><i class="fa fa-check"></i><b>2.2</b> Correlación espacial bivariada</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="caracterización-de-variabilidad-espacial.html"><a href="caracterización-de-variabilidad-espacial.html#coeficiente-de-correlación"><i class="fa fa-check"></i><b>2.2.1</b> Coeficiente de correlación</a></li>
+<li class="chapter" data-level="2.2.2" data-path="caracterización-de-variabilidad-espacial.html"><a href="caracterización-de-variabilidad-espacial.html#coeficiente-de-co-dispersión"><i class="fa fa-check"></i><b>2.2.2</b> Coeficiente de co-dispersión</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="caracterización-de-variabilidad-espacial.html"><a href="caracterización-de-variabilidad-espacial.html#interpolación-kriging"><i class="fa fa-check"></i><b>2.3</b> Interpolación Kriging</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="caracterización-de-variabilidad-espacial.html"><a href="caracterización-de-variabilidad-espacial.html#kriging-ordinario"><i class="fa fa-check"></i><b>2.3.1</b> Kriging ordinario</a></li>
+<li class="chapter" data-level="2.3.2" data-path="caracterización-de-variabilidad-espacial.html"><a href="caracterización-de-variabilidad-espacial.html#kriging-en-bloques"><i class="fa fa-check"></i><b>2.3.2</b> Kriging en bloques</a></li>
+<li class="chapter" data-level="2.3.3" data-path="caracterización-de-variabilidad-espacial.html"><a href="caracterización-de-variabilidad-espacial.html#kriging-local"><i class="fa fa-check"></i><b>2.3.3</b> Kriging local</a></li>
+<li class="chapter" data-level="2.3.4" data-path="caracterización-de-variabilidad-espacial.html"><a href="caracterización-de-variabilidad-espacial.html#kriging-universal"><i class="fa fa-check"></i><b>2.3.4</b> Kriging universal</a></li>
+<li class="chapter" data-level="2.3.5" data-path="caracterización-de-variabilidad-espacial.html"><a href="caracterización-de-variabilidad-espacial.html#validación-cruzada"><i class="fa fa-check"></i><b>2.3.5</b> Validación cruzada</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="caracterización-de-variabilidad-espacial-con-múltiples-capas-de-datos.html"><a href="caracterización-de-variabilidad-espacial-con-múltiples-capas-de-datos.html"><i class="fa fa-check"></i><b>3</b> Caracterización de variabilidad espacial con múltiples capas de datos</a><ul>
+<li class="chapter" data-level="3.1" data-path="caracterización-de-variabilidad-espacial-con-múltiples-capas-de-datos.html"><a href="caracterización-de-variabilidad-espacial-con-múltiples-capas-de-datos.html#análisis-de-componentes-principales"><i class="fa fa-check"></i><b>3.1</b> Análisis de componentes principales</a></li>
+<li class="chapter" data-level="3.2" data-path="caracterización-de-variabilidad-espacial-con-múltiples-capas-de-datos.html"><a href="caracterización-de-variabilidad-espacial-con-múltiples-capas-de-datos.html#análisis-de-conglomerados"><i class="fa fa-check"></i><b>3.2</b> Análisis de conglomerados</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="predicción-con-múltiples-capas-de-datos.html"><a href="predicción-con-múltiples-capas-de-datos.html"><i class="fa fa-check"></i><b>4</b> Predicción con múltiples capas de datos</a><ul>
+<li class="chapter" data-level="4.1" data-path="predicción-con-múltiples-capas-de-datos.html"><a href="predicción-con-múltiples-capas-de-datos.html#regresión-con-errores-correlacionados-espacialmente-vía-reml"><i class="fa fa-check"></i><b>4.1</b> Regresión con errores correlacionados espacialmente vía REML</a></li>
+<li class="chapter" data-level="4.2" data-path="predicción-con-múltiples-capas-de-datos.html"><a href="predicción-con-múltiples-capas-de-datos.html#regresión-con-efectos-aleatorios-de-sitio-vía-inla"><i class="fa fa-check"></i><b>4.2</b> Regresión con efectos aleatorios de sitio vía INLA</a></li>
+<li class="chapter" data-level="4.3" data-path="predicción-con-múltiples-capas-de-datos.html"><a href="predicción-con-múltiples-capas-de-datos.html#regresión-vía-modelos-basados-en-árbol"><i class="fa fa-check"></i><b>4.3</b> Regresión vía modelos basados en árbol</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="predicción-con-múltiples-capas-de-datos.html"><a href="predicción-con-múltiples-capas-de-datos.html#bosques-aleatorios"><i class="fa fa-check"></i><b>4.3.1</b> Bosques aleatorios</a></li>
+<li class="chapter" data-level="4.3.2" data-path="predicción-con-múltiples-capas-de-datos.html"><a href="predicción-con-múltiples-capas-de-datos.html#árboles-de-regresión-generalizados"><i class="fa fa-check"></i><b>4.3.2</b> Árboles de regresión generalizados</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II Análisis de datos a escala fina</b></span></li>
+<li class="chapter" data-level="5" data-path="implementación-con-r.html"><a href="implementación-con-r.html"><i class="fa fa-check"></i><b>5</b> Implementación con R</a><ul>
+<li class="chapter" data-level="5.1" data-path="implementación-con-r.html"><a href="implementación-con-r.html#conversión-de-coordenadas-espaciales"><i class="fa fa-check"></i><b>5.1</b> Conversión de coordenadas espaciales</a></li>
+<li class="chapter" data-level="5.2" data-path="implementación-con-r.html"><a href="implementación-con-r.html#eliminación-de-outliers-e-inliers"><i class="fa fa-check"></i><b>5.2</b> Eliminación de <em>outliers</em> e <em>inliers</em></a></li>
+<li class="chapter" data-level="5.3" data-path="implementación-con-r.html"><a href="implementación-con-r.html#detección-de-tendencias-espaciales"><i class="fa fa-check"></i><b>5.3</b> Detección de tendencias espaciales</a></li>
+<li class="chapter" data-level="5.4" data-path="implementación-con-r.html"><a href="implementación-con-r.html#cálculo-del-índice-de-moran"><i class="fa fa-check"></i><b>5.4</b> Cálculo del índice de Moran</a></li>
+<li class="chapter" data-level="5.5" data-path="implementación-con-r.html"><a href="implementación-con-r.html#análisis-basado-en-semivariogramas"><i class="fa fa-check"></i><b>5.5</b> Análisis basado en semivariogramas</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="implementación-con-r.html"><a href="implementación-con-r.html#mapeo-de-la-variabilidad-espacial"><i class="fa fa-check"></i><b>5.5.1</b> Mapeo de la variabilidad espacial</a></li>
+<li class="chapter" data-level="5.5.2" data-path="implementación-con-r.html"><a href="implementación-con-r.html#validación-cruzada-1"><i class="fa fa-check"></i><b>5.5.2</b> Validación cruzada</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="implementación-con-r.html"><a href="implementación-con-r.html#caracterización-de-variabilidad-espacial-con-múltiples-capas-de-datos-1"><i class="fa fa-check"></i><b>5.6</b> Caracterización de variabilidad espacial con múltiples capas de datos</a><ul>
+<li class="chapter" data-level="5.6.1" data-path="implementación-con-r.html"><a href="implementación-con-r.html#análisis-de-componentes-principales-1"><i class="fa fa-check"></i><b>5.6.1</b> Análisis de componentes principales</a></li>
+<li class="chapter" data-level="5.6.2" data-path="implementación-con-r.html"><a href="implementación-con-r.html#análisis-de-conglomerados-1"><i class="fa fa-check"></i><b>5.6.2</b> Análisis de conglomerados</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="implementación-con-r.html"><a href="implementación-con-r.html#predicción-con-múltiples-capas-de-datos-1"><i class="fa fa-check"></i><b>5.7</b> Predicción con múltiples capas de datos</a><ul>
+<li class="chapter" data-level="5.7.1" data-path="implementación-con-r.html"><a href="implementación-con-r.html#kriging-con-deriva-externa"><i class="fa fa-check"></i><b>5.7.1</b> Kriging con deriva externa</a></li>
+<li class="chapter" data-level="5.7.2" data-path="implementación-con-r.html"><a href="implementación-con-r.html#kriging-desde-modelo-de-regresión"><i class="fa fa-check"></i><b>5.7.2</b> Kriging desde modelo de regresión</a></li>
+<li class="chapter" data-level="5.7.3" data-path="implementación-con-r.html"><a href="implementación-con-r.html#árboles-aleatorios"><i class="fa fa-check"></i><b>5.7.3</b> Árboles aleatorios</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html"><i class="fa fa-check"></i><b>6</b> Implementación con InfoStat</a><ul>
+<li class="chapter" data-level="6.1" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html#conversión-de-coordenadas-espaciales-1"><i class="fa fa-check"></i><b>6.1</b> Conversión de coordenadas espaciales</a></li>
+<li class="chapter" data-level="6.2" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html#eliminación-de-outliers-e-inliers-1"><i class="fa fa-check"></i><b>6.2</b> Eliminación de <em>outliers</em> e <em>inliers</em></a></li>
+<li class="chapter" data-level="6.3" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html#detección-de-tendencias-espaciales-1"><i class="fa fa-check"></i><b>6.3</b> Detección de tendencias espaciales</a></li>
+<li class="chapter" data-level="6.4" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html#cálculo-del-índice-de-moran-1"><i class="fa fa-check"></i><b>6.4</b> Cálculo del índice de Moran</a></li>
+<li class="chapter" data-level="6.5" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html#análisis-basado-en-semivariogramas-1"><i class="fa fa-check"></i><b>6.5</b> Análisis basado en semivariogramas</a><ul>
+<li class="chapter" data-level="6.5.1" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html#mapeo-de-variabilidad-espacial"><i class="fa fa-check"></i><b>6.5.1</b> Mapeo de variabilidad espacial</a></li>
+<li class="chapter" data-level="6.5.2" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html#validación-cruzada-2"><i class="fa fa-check"></i><b>6.5.2</b> Validación cruzada</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html#caracterización-de-variabilidad-espacial-con-múltiples-capas-de-datos-2"><i class="fa fa-check"></i><b>6.6</b> Caracterización de variabilidad espacial con múltiples capas de datos</a><ul>
+<li class="chapter" data-level="6.6.1" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html#análisis-de-componentes-principales-2"><i class="fa fa-check"></i><b>6.6.1</b> Análisis de componentes principales</a></li>
+<li class="chapter" data-level="6.6.2" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html#análisis-de-conglomerados-2"><i class="fa fa-check"></i><b>6.6.2</b> Análisis de conglomerados</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html#predicción-con-múltiples-capas-de-datos-2"><i class="fa fa-check"></i><b>6.7</b> Predicción con múltiples capas de datos</a><ul>
+<li class="chapter" data-level="6.7.1" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html#kriging-con-deriva-externa-1"><i class="fa fa-check"></i><b>6.7.1</b> Kriging con deriva externa</a></li>
+<li class="chapter" data-level="6.7.2" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html#kriging-desde-modelo-de-regresión-1"><i class="fa fa-check"></i><b>6.7.2</b> Kriging desde modelo de regresión</a></li>
+<li class="chapter" data-level="6.7.3" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html#árboles-aleatorios-1"><i class="fa fa-check"></i><b>6.7.3</b> Árboles aleatorios</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>III Análisis de datos a escala regional</b></span></li>
+<li class="chapter" data-level="7" data-path="bases-de-datos-regionales.html"><a href="bases-de-datos-regionales.html"><i class="fa fa-check"></i><b>7</b> Bases de datos regionales</a><ul>
+<li class="chapter" data-level="7.1" data-path="bases-de-datos-regionales.html"><a href="bases-de-datos-regionales.html#manejo-de-datos-espaciales-1"><i class="fa fa-check"></i><b>7.1</b> Manejo de datos espaciales</a></li>
+<li class="chapter" data-level="7.2" data-path="bases-de-datos-regionales.html"><a href="bases-de-datos-regionales.html#confección-de-grillas-de-predicción"><i class="fa fa-check"></i><b>7.2</b> Confección de grillas de predicción</a></li>
+<li class="chapter" data-level="7.3" data-path="bases-de-datos-regionales.html"><a href="bases-de-datos-regionales.html#agregado-de-capas-de-información"><i class="fa fa-check"></i><b>7.3</b> Agregado de capas de información</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="predicción-con-múltiples-capas-de-datos-3.html"><a href="predicción-con-múltiples-capas-de-datos-3.html"><i class="fa fa-check"></i><b>8</b> Predicción con múltiples capas de datos</a><ul>
+<li class="chapter" data-level="8.1" data-path="predicción-con-múltiples-capas-de-datos-3.html"><a href="predicción-con-múltiples-capas-de-datos-3.html#regresión-con-errores-correlacionados-espacialmente-vía-reml-1"><i class="fa fa-check"></i><b>8.1</b> Regresión con errores correlacionados espacialmente vía REML</a></li>
+<li class="chapter" data-level="8.2" data-path="predicción-con-múltiples-capas-de-datos-3.html"><a href="predicción-con-múltiples-capas-de-datos-3.html#regresión-con-efectos-aleatorios-de-sitio-vía-inla-1"><i class="fa fa-check"></i><b>8.2</b> Regresión con efectos aleatorios de sitio vía INLA</a></li>
+<li class="chapter" data-level="8.3" data-path="predicción-con-múltiples-capas-de-datos-3.html"><a href="predicción-con-múltiples-capas-de-datos-3.html#regresión-vía-modelos-basados-en-árbol-1"><i class="fa fa-check"></i><b>8.3</b> Regresión vía modelos basados en árbol</a></li>
+</ul></li>
+<li class="appendix"><span><b>Introducción a R</b></span></li>
+<li class="chapter" data-level="A" data-path="herramientas-de-software.html"><a href="herramientas-de-software.html"><i class="fa fa-check"></i><b>A</b> Herramientas de software</a><ul>
+<li class="chapter" data-level="A.1" data-path="herramientas-de-software.html"><a href="herramientas-de-software.html#introducción-al-manejo-de-datos-espaciales-con-r"><i class="fa fa-check"></i><b>A.1</b> Introducción al manejo de datos espaciales con R</a></li>
+<li class="chapter" data-level="A.2" data-path="herramientas-de-software.html"><a href="herramientas-de-software.html#intérprete-de-r-en-infostat"><i class="fa fa-check"></i><b>A.2</b> Intérprete de R en InfoStat</a></li>
+<li class="chapter" data-level="A.3" data-path="herramientas-de-software.html"><a href="herramientas-de-software.html#rstudio"><i class="fa fa-check"></i><b>A.3</b> RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="referencias.html"><a href="referencias.html"><i class="fa fa-check"></i>Referencias</a></li>
+<li class="divider"></li>
+<li><a href="https://www.agro.unc.edu.ar/~estadisticaaplicada" target="blank">Estadística Aplicada</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Guía para el análisis de datos espaciales. Aplicaciones en agricultura</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="caracterización-de-variabilidad-espacial-con-múltiples-capas-de-datos" class="section level1">
+<h1><span class="header-section-number">Sección 3</span> Caracterización de variabilidad espacial con múltiples capas de datos</h1>
+<div id="análisis-de-componentes-principales" class="section level2">
+<h2><span class="header-section-number">3.1</span> Análisis de componentes principales</h2>
+<p>Diferentes objetivos pueden surgir cuando analizamos un conjunto de datos que además de ser espaciales o georreferenciados es multivariado (<em>i.e.</em> múltiples capas de información sobre el mismo dominio espacial o varias variables por sitio). Por un lado, se puede querer resumir la variabilidad de los sitios usando unas pocas variables sintéticas que representen bien la variabilidad en las variables originales. Por otro, se puede querer resumir patrones espaciales usando unas pocas variables sintéticas que combinan las múltiples capas de información considerando la correlación espacial subyacente. Una solución al primer problema es usar el Análisis de Componentes Principales (PCA <span class="citation">(Pearson <a href="#ref-F.R.S._1901">1901</a>)</span>). Mientras que el segundo objetivo puede ser abordado mediante el Análisis de Componentes Principales Espaciales propuesto por <span class="citation">(Dray, Saïd, and Débias <a href="#ref-Dray_Saïd_Débias_2008">2008</a>)</span>, también conocido como MULTISPATI-PCA. Éste se basa en el PCA, pero incorpora la restricción dada por los datos espaciales mediante el cálculo del índice de Moran antes de obtener las variables sintéticas o componentes principales (PC).
+Los datos multivariados son generalmente registrados en una matriz <span class="math inline">\(X\)</span> con <span class="math inline">\(n\)</span> filas (observaciones) y <span class="math inline">\(p\)</span> columnas (variables). El PCA permite identificar las variables que explican la mayor parte de la variabilidad total contenida en los datos, explorar las correlaciones entre variables y reducir la dimensión del análisis al combinar las variables originales en nuevas variables sintéticas. El PCA opera sobre la matriz de covarianza de las variables originales o de las variables estandarizadas con el fin de encontrar una base ortogonal de tal manera que el primer eje del nuevo espacio considera la dirección de mayor variación de los datos originales. La descomposición espectral de la matriz de covarianzas proporciona un conjunto de autovectores y sus correspondientes autovalores. Los autovectores contienen los coeficientes de ponderación para construir variables sintéticas como combinaciones lineales de las variables originales. Los coeficientes de cada variable en estas combinaciones lineales indican la importancia relativa de las variables para explicar la variabilidad entre las observaciones. Las combinaciones lineales obtenidas con PCA se llaman componentes principales (PC), son ortogonales y en conjunto explican la variabilidad de los datos originales. Existen tantas PC posibles de formar como columnas en la matriz <span class="math inline">\(X\)</span>. La primera componente (PC1) explica la mayor parte de la variación en el conjunto de datos y la segunda (PC2), la mayor parte de la variabilidad remanente o no explicada por la PC1, y así sucesivamente.</p>
+<p>Los resultados del PCA se pueden visualizar en un gráfico denominado Biplot <span class="citation">(Gabriel <a href="#ref-Gabriel_1971">1971</a>)</span> el cual permite representar en un plano óptimo para el estudio de variabilidad, las diferencias entre sitios, la correlación entre variables y las variables que mejor explican las principales componentes de variabilidad. La incorporación de la información geográfica o la característica espacial de los datos suele realizarse a posteriori del PCA mediante la asignación de los valores de las componentes a cada uno de los sitios georreferenciados o ajustando semivariogramas a las PC.</p>
+<p>El objetivo de MULTISPATI-PCA, otra forma de trabajar con datos espaciales, es encontrar variables sintéticas independientes que optimicen el producto de la varianza total y la autocorrelación espacial. Para delimitar los vecindarios, MULTISPATI-PCA utiliza una matriz de pesos espaciales determinando cuáles y cuántas observaciones cercanas a cada sitio deben ser consideradas para el cálculo del índice de autocorrelación espacial. Este análisis permite estudiar las relaciones entre las variables considerando su estructura espacial. Para la implementación del análisis es necesario primero definir cómo la información espacial será incorporada. En MULTISAPTI - PCA, la detección de la estructura espacial se realiza a través del índice de Moran. Es necesaria la construcción de una red de conexión (también llamada gráficos de vecinos) la cual usa un criterio objetivo para definir que entidades son vecinas y cuáles no. Existen diferentes opciones o alternativas metodológicas para definir los vecindarios que dependen de los diferentes tipos de arreglos espaciales presente en los datos. Para muestreos irregulares los vecindarios suelen definirse a partir de la red de conexión propuesta por Gabriel <span class="citation">(Gabriel and Sokal <a href="#ref-Gabriel_Sokal_1969">1969</a>)</span>, mediante la triangulación de Delaunay <span class="citation">(Lee and Schachter <a href="#ref-Lee_Schachter_1980">1980</a>)</span>. Otro método es el de los vecinos más cercanos <span class="citation">(Cover and Hart <a href="#ref-Cover_Hart_1967">1967</a>)</span> o el basado en la especificación de una distancia como radio del vecindario de cada sitio.</p>
+<p>Una vez que la red de conexión es definida, la información espacial es almacenada en una matriz de conexión binaria <span class="math inline">\(C\)</span> (en la cual <span class="math inline">\(c_{ij}=1\)</span> si las unidades espaciales <span class="math inline">\(i\)</span> y <span class="math inline">\(j\)</span> son vecinas o <span class="math inline">\(c_{ij}=0\)</span> en caso contrario), la cual es simétrica y tiene tantas filas y columnas como sitios. Esta matriz de conectividad <span class="math inline">\(C\)</span> en general es escalada para obtener la matriz de pesos espaciales (representación matemática de la disposición geográfica de los sitios en el dominio espacial). Los pesos espaciales reflejan a priori la ausencia <span class="math inline">\((w_{ij}=0)\)</span>, presencia <span class="math inline">\((w_{ij}=1)\)</span> o intensidad <span class="math inline">\((w_{ij}&gt;0)\)</span> de la relación espacial entre los sitios. Una vez que los pesos espaciales han sido definidos, el índice de autocorrelación de Moran es computado.</p>
+<p>El método MULTISPATI-PCA opera sobre la matriz <span class="math inline">\(\widetilde{X}=WX\)</span> que está compuesta por los promedios ponderados de los valores de los vecinos de cada sitio según indique la matriz de conexión espacial, esta matriz es llamada matriz lagged. Las dos matrices <span class="math inline">\(X\)</span> y <span class="math inline">\(\widetilde{X}\)</span> tienen las mismas cantidades de columnas (variables) y de filas (sitios). El análisis MULTISPATI-PCA consiste en analizar la correlación entre este par de matrices (<span class="math inline">\(\widetilde{X}\)</span> y <span class="math inline">\(X\)</span>) mediante un análisis de co-inercia <span class="citation">(Dray, Chessel, and Thioulouse <a href="#ref-Dray_Chessel_Thioulouse_2003">2003</a>)</span>. MULTISPATI-PCA maximiza el producto escalar entre una combinación lineal de las variables originales y una combinación lineal de variables <em>lagged</em>. La ventaja de MULTISPATI-PCA respecto al PCA es que las componentes principales espaciales del MULTISPATI-PCA (sPC) contemplan la autocorrelación espacial entre los sitios, maximizándola en las primeras componentes. Por lo tanto, las primeras sPC del MULTISPATI-PCA muestran fuertes estructuras espaciales o altos índices de autocorrelación y no sólo mayores varianzas como en el PCA clásico. El método MULTISPATI-PCA constituye una herramienta multivariada útil no sólo para mapear la variabilidad conjunta de múltiples capas de datos dentro del dominio espacial estudiado sino también para la delimitación de zonas o áreas homogéneas en sentido multivariado cuando las componentes espaciales se usan como inputs de algoritmos de clasificación.</p>
+</div>
+<div id="análisis-de-conglomerados" class="section level2">
+<h2><span class="header-section-number">3.2</span> Análisis de conglomerados</h2>
+<p>Los métodos multivariados, utilizados para la clasificación de sitios de un dominio espacial, suelen basarse en algoritmos de agrupamiento no supervisados como los algoritmos de conglomerados jerárquicos o en algoritmos de conglomerados no jerárquico como k-means o fuzzy k means. Contrariamente al algoritmo k-means u otros métodos determinísticos de agrupamiento en los que cada observación sólo puede pertenecer a un único clúster, los métodos de clasificación basados en la teoría difusa (como fuzzy k-means), permiten que cada observación pueda asignarse a más de un clúster, con diferentes grados de pertenencia para cada clúster. Aplicado a datos espaciales puede generar alta fragmentación ya que el algoritmo de agrupación no tiene en cuenta la información espacial asociada a cada observación. <span class="citation">Frogbrook and Oliver (<a href="#ref-Frogbrook_Oliver_2007">2007</a>)</span> y <span class="citation">Milne et al. (<a href="#ref-Milne_Webster_Ginsburg_Kindred_2012">2012</a>)</span> propusieron introducir la restricción espacial mediante la incorporación de nuevas variables asociadas a parámetros del variograma co-regionalizado o del variograma de la componente principal de las variables originales. <span class="citation">Córdoba et al. (<a href="#ref-Córdoba_Balzarini_Bruno_Costa_Balzarini_Costa_2012">2012</a>)</span> propusieron implementar fuzzy k means usando las componentes principales espaciales como variables de entrada para la clasificación con datos espaciales, logrando así disminuir la fragmentación e incrementar la contigüidad de los conglomerados espaciales. Otra alternativa, para delimitar conglomerados espaciales es aplicar filtros espaciales a la clasificación resultante de un método de clasificación estándar <span class="citation">(Galarza et al. <a href="#ref-Galarza_Mastaglia_Albornoz_Martınez_2013">2013</a>; Ping and Dobermann <a href="#ref-Ping_Dobermann_2003">2003</a>)</span>.</p>
+<p>En el método fuzzy k-means además de la matriz de datos <span class="math inline">\(X\)</span> se genera la matriz de pertenencia difusa <span class="math inline">\(U\)</span>, que contiene los valores o asignaciones parciales de cada una de las n observaciones en cada uno de los k clusters o conglomerados, con la restricción que se debe cumplir para cualquier <span class="math inline">\(i = 1,\ldots,n\)</span> y para cualquier <span class="math inline">\(j = 1,\ldots,k\)</span>:</p>
+<p><span class="math display">\[u_{ij}\in[0,1]\ \forall_i,_j\]</span></p>
+<p><span class="math display">\[\sum_{j=1}^{k}{u_{ij}=1,\ \forall_j}\]</span></p>
+<p>La partición difusa óptima de los datos es la que minimiza la función objetivo <span class="math inline">\(j_m\)</span> igual a la suma ponderada de las distancias cuadráticas entre las observaciones y los centroides de cada clúster que conforman la matriz <span class="math inline">\(V\)</span>:</p>
+<p><span class="math display">\[j_m(U,V)=\sum_{i=1}^{n}\sum_{j=1}^{k}(u_{ij})^m(d_{ij})^2\]</span></p>
+<p>donde <span class="math inline">\(m\)</span> es el coeficiente de ponderación difuso (<span class="math inline">\(1\le\ m\ &lt; \infty)\)</span> cuya función es controlar el grado de solapamiento que se establece entre los clusters y <span class="math inline">\({{(d}_{ij})}^2\)</span> es el cuadrado de la distancia en el espacio de los atributos entre el punto <span class="math inline">\(i\)</span> y la clase centroide <span class="math inline">\(j\)</span>. Distintas métricas de distancia pueden ser usadas. La distancia Euclídea se utiliza cuando las variables son independientes y de igual varianza. En caso contrario la distancia de Mahalanobis es usada. El algoritmo difuso <em>fuzzy k-means</em> utiliza un proceso iterativo que hace óptima la partición difusa de los datos <span class="math inline">\(X\)</span>. La estructura del algoritmo <span class="citation">(Bezdek et al. <a href="#ref-Bezdek_Coray_Gunderson_Watson_1981">1981</a>)</span> es la misma para cualquier conjunto de variables de entrada. Cuando el algoritmo ha asignado pesos o probabilidades de pertenencia a cada grupo para cada observación, se computaban una serie de índices para validar los distintos arreglos de conglomerados.</p>
+<p>Para evaluar la clasificación conseguida con un determinado número de grupos, existen diferentes índices como el coeficiente de partición (o fuzziness performance index-FPI, <span class="citation">(Bezdek et al. <a href="#ref-Bezdek_Coray_Gunderson_Watson_1981">1981</a>)</span>), el índice de entropía de la clasificación o <em>normalized classification entropy</em> (NCE, <span class="citation">(Bezdek et al. <a href="#ref-Bezdek_Coray_Gunderson_Watson_1981">1981</a>)</span>), el índice de Xie-Beni <span class="citation">(Xie and Beni <a href="#ref-Xie_Beni_1991">1991</a>)</span> y el de Fukuyama-Sugeno <span class="citation">(Fukuyama and Sugeno <a href="#ref-Fukuyama_Sugeno_1989">1989</a>)</span>, entre otros.</p>
+<p>El coeficiente de partición (CP) mide el grado de solapamiento (grado de fuzziness) entre los grupos formados. Se considera que mientras menos difusa es la partición, mejor es la clasificación. Por tanto, se prefiere la estructura con un número de conglomerados para la cual el coeficiente de partición es mayor. El máximo equivale a una clasificación en la que cada observación pertenece a un único clúster. El mínimo se da cuando cada observación pertenece, con la misma probabilidad, a cada clúster (mayor incertidumbre).</p>
+<p>Otro índice que se puede usar para decidir con cuantos conglomerados quedarse es el conocido como entropía de la partición (EP) que cuantifica el grado de desorganización de la clasificación. Para este índice los valores próximos a 0 son indicativos de una mejor clasificación, es decir, con mayor grado de organización o menos difusos. El índice de Xie-Beni (XB) evalúa el cociente entre las distancias intracluster e intercluster. Se prefieren particiones donde la distancia intra-cluster es mínima y la distancia inter-cluster máxima. El índice XB es considerado como una medida de compacidad. Un valor bajo de XB, representa una clasificación con grupos compactos y separables. Por consiguiente, la mejor partición se obtiene mediante la minimización de XB. El índice Fukuyama-Sugeno (FS) es función de la separación entre los centroides de los grupos y la media de todos los centroides. El mínimo de FS corresponde a una partición con clases compactas y separables. Es importante considerar que, para un conjunto de datos, los índices no son necesariamente consistentes entre sí sugiriendo diferentes números de clúster como partición óptima. Una propuesta es promediar el valor de estos índices normalizados por el máximo usando para CP su reciproco, <span class="math inline">\(CP^*=1/CP\)</span> , para que el valor mínimo en todos los índices represente la estructura optima.</p>
+</div>
+</div>
+<h3>Referencias</h3>
+<div id="refs" class="references">
+<div id="ref-Bezdek_Coray_Gunderson_Watson_1981">
+<p>Bezdek, James C, Chris Coray, Robert Gunderson, and James Watson. 1981. “Detection and Characterization of Cluster Substructure I. Linear Structure: Fuzzy c-Lines.” <em>SIAM Journal on Applied Mathematics</em> 40 (2). SIAM: 339–57.</p>
+</div>
+<div id="ref-Cover_Hart_1967">
+<p>Cover, Thomas, and Peter Hart. 1967. “Nearest Neighbor Pattern Classification.” <em>IEEE Transactions on Information Theory</em> 13 (1). IEEE: 21–27.</p>
+</div>
+<div id="ref-Córdoba_Balzarini_Bruno_Costa_Balzarini_Costa_2012">
+<p>Córdoba, Mariano, Cecilia Bruno, José Luis J.L. Costa, and Mónica Balzarini. 2012. “Principal Component Analysis with Georeferenced Data. An Application in Precision Agriculture.” <em>Rev. FCA UNCUYO</em> 44 (1): 27–39.</p>
+</div>
+<div id="ref-Dray_Chessel_Thioulouse_2003">
+<p>Dray, Stéphane, Daniel Chessel, and Jean Thioulouse. 2003. “Co‐inertia Analysis and the Linking of Ecological Data Tables.” <em>Ecology</em> 84 (11). Wiley Online Library: 3078–89.</p>
+</div>
+<div id="ref-Dray_Saïd_Débias_2008">
+<p>Dray, Stéphane, Sonia Saïd, and Françis Débias. 2008. “Spatial Ordination of Vegetation Data Using a Generalization of Wartenberg’s Multivariate Spatial Correlation.” <em>Journal of Vegetation Science</em> 19 (1). Wiley Online Library: 45–56.</p>
+</div>
+<div id="ref-Frogbrook_Oliver_2007">
+<p>Frogbrook, Z L, and M A Oliver. 2007. “Identifying Management Zones in Agricultural Fields Using Spatially Constrained Classification of Soil and Ancillary Data.” <em>Soil Use and Management</em> 23 (1): 40–51. <a href="https://doi.org/10.1111/j.1475-2743.2006.00065.x">https://doi.org/10.1111/j.1475-2743.2006.00065.x</a>.</p>
+</div>
+<div id="ref-Fukuyama_Sugeno_1989">
+<p>Fukuyama, Yoshiki, and M. Sugeno. 1989. “A New Method of Choosing the Number of Clusters for the Fuzzy c-Mean Method.” In <em>Proc. 5th Fuzzy Syst. Symp., 1989</em>, 247–50.</p>
+</div>
+<div id="ref-Gabriel_1971">
+<p>Gabriel, Karl Ruben. 1971. “The Biplot Graphic Display of Matrices with Application to Principal Component Analysis.” <em>Biometrika</em> 58 (3). Oxford University Press: 453–67.</p>
+</div>
+<div id="ref-Gabriel_Sokal_1969">
+<p>Gabriel, K Ruben, and Robert R Sokal. 1969. “A New Statistical Approach to Geographic Variation Analysis.” <em>Systematic Zoology</em> 18 (3). Society of Systematic Zoology: 259–78.</p>
+</div>
+<div id="ref-Galarza_Mastaglia_Albornoz_Martınez_2013">
+<p>Galarza, Romina, M Nicolás Mastaglia, Enrique M Albornoz, and César Martınez. 2013. “Identificación Automática de Zonas de Manejo En Lotes Productivos Agrıcolas.” In <em>V Congreso Argentino de Agroinformática (Cai) E 42da. JAIIO</em>.</p>
+</div>
+<div id="ref-Lee_Schachter_1980">
+<p>Lee, Der-Tsai, and Bruce J Schachter. 1980. “Two Algorithms for Constructing a Delaunay Triangulation.” <em>International Journal of Computer &amp; Information Sciences</em> 9 (3). Springer: 219–42.</p>
+</div>
+<div id="ref-Milne_Webster_Ginsburg_Kindred_2012">
+<p>Milne, A E, R Webster, D Ginsburg, and D Kindred. 2012. “Spatial Multivariate Classification of an Arable Field into Compact Management Zones Based on Past Crop Yields.” <em>Computers and Electronics in Agriculture</em> 80: 17–30. <a href="https://doi.org/10.1016/j.compag.2011.10.007">https://doi.org/10.1016/j.compag.2011.10.007</a>.</p>
+</div>
+<div id="ref-F.R.S._1901">
+<p>Pearson, Karl. 1901. “LIII. On Lines and Planes of Closest Fit to Systems of Points in Space.” <em>The London, Edinburgh, and Dublin Philosophical Magazine and Journal of Science</em> 2 (11). Taylor &amp; Francis: 559–72. <a href="https://doi.org/10.1080/14786440109462720">https://doi.org/10.1080/14786440109462720</a>.</p>
+</div>
+<div id="ref-Ping_Dobermann_2003">
+<p>Ping, J L, and A Dobermann. 2003. “Creating Spatially Contiguous Yield Classes for Site-Specific Management.” <em>Agronomy Journal</em> 95 (5): 1121. <a href="https://doi.org/10.2134/agronj2003.1121">https://doi.org/10.2134/agronj2003.1121</a>.</p>
+</div>
+<div id="ref-Xie_Beni_1991">
+<p>Xie, Xuanli Lisa, and Gerardo Beni. 1991. “A Validity Measure for Fuzzy Clustering.” <em>IEEE Transactions on Pattern Analysis &amp; Machine Intelligence</em> 13 (8). IEEE Computer Society: 841–47. <a href="https://doi.org/10.1109/34.85677">https://doi.org/10.1109/34.85677</a>.</p>
+</div>
+</div>
+<script>
+/*
+Sorts the references alphabetically.
+Modified from code by Yvonne Aburrow.
+*/
+$(function(){
+    var elems = $('#refs').children('div').remove();
+    elems.sort(function (a, b) {
+        return $(b).children('p').html().toUpperCase() > $(a).children('p').html().toUpperCase() ? -1 : 1;
+    });
+    $('#refs').append(elems);
+})
+</script>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="caracterización-de-variabilidad-espacial.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="predicción-con-múltiples-capas-de-datos.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": null,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["PROTRI2018-VariabilidadEspacial.pdf", "PROTRI2018-VariabilidadEspacial.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
