@@ -66,66 +66,41 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
-}
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {  }
-@media screen {
-a.sourceLine::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
 <link rel="stylesheet" href="css/style.css" type="text/css" />
@@ -265,10 +240,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Anselin, Luc. 1995. “Local Indicators of Spatial Association—Lisa.” <em>Geographical Analysis</em> 27 (2). Wiley Online Library: 93–115.</p>
 </div>
 <div>
-<p>Babai, László. 1979. “Monte-Carlo Algorithms in Graph Isomorphism Testing.” <em>Université Tde Montréal Technical Report, DMS</em>, nos. 79–10.</p>
+<p>Babai, László. 1979. “Monte-Carlo Algorithms in Graph Isomorphism Testing.” <em>Université Tde Montréal Technical Report, DMS</em>, no. 79–10.</p>
 </div>
 <div>
-<p>Bakka, Haakon, Håvard Rue, Geir Arne Fuglstad, Andrea Riebler, David Bolin, Janine Illian, Elias Krainski, Daniel Simpson, and Finn Lindgren. 2018. “Spatial Modeling with R-Inla: A Review.” <em>Wiley Interdisciplinary Reviews: Computational Statistics</em>, no. February: 1–24. <a href="https://doi.org/10.1002/wics.1443">https://doi.org/10.1002/wics.1443</a>.</p>
+<p>Bakka, Haakon, Håvard Rue, Geir Arne Fuglstad, Andrea Riebler, David Bolin, Janine Illian, Elias Krainski, Daniel Simpson, and Finn Lindgren. 2018. “Spatial Modeling with R-Inla: A Review.” <em>Wiley Interdisciplinary Reviews: Computational Statistics</em>, no. February: 1–24. doi:<a href="https://doi.org/10.1002/wics.1443">10.1002/wics.1443</a>.</p>
 </div>
 <div>
 <p>Balzarini, Mónica, R Macchiavelli, and Fernando Casanoves. 2004. “Aplicaciones de Modelos Mixtos En Agricultura Y Forestería.” <em>Curso de Capacitacion Centro Agronomico Tropical de Investigación Y Enseñanza-CATIE</em>.</p>
@@ -283,28 +258,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Breiman, Leo. 2001. “Random Forests.” <em>Machine Learning</em> 45 (1). Springer: 5–32.</p>
 </div>
 <div>
-<p>Breiman, Leo, Jerome H. Friedman, Richard A. Olshen, and Charles J. Stone. 2017. <em>Classification and Regression Trees</em>. <em>Classification and Regression Trees</em>. <a href="https://doi.org/10.1201/9781315139470">https://doi.org/10.1201/9781315139470</a>.</p>
+<p>Breiman, Leo, Jerome H. Friedman, Richard A. Olshen, and Charles J. Stone. 2017. <em>Classification and Regression Trees</em>. <em>Classification and Regression Trees</em>. doi:<a href="https://doi.org/10.1201/9781315139470">10.1201/9781315139470</a>.</p>
 </div>
 <div>
 <p>Brenning, Alexander. 2012. “Spatial Cross-Validation and Bootstrap for the Assessment of Prediction Rules in Remote Sensing: The R Package Sperrorest.” In <em>Geoscience and Remote Sensing Symposium (Igarss), 2012 Ieee International</em>, 5372–5. IEEE.</p>
 </div>
 <div>
-<p>Cameletti, Michela, Finn Lindgren, Daniel Simpson, and Håvard Rue. 2013. “Spatio-Temporal Modeling of Particulate Matter Concentration Through the Spde Approach.” <em>AStA Advances in Statistical Analysis</em> 97 (2): 109–31. <a href="https://doi.org/10.1007/s10182-012-0196-3">https://doi.org/10.1007/s10182-012-0196-3</a>.</p>
+<p>Cameletti, Michela, Finn Lindgren, Daniel Simpson, and Håvard Rue. 2013. “Spatio-Temporal Modeling of Particulate Matter Concentration Through the Spde Approach.” <em>AStA Advances in Statistical Analysis</em> 97 (2): 109–31. doi:<a href="https://doi.org/10.1007/s10182-012-0196-3">10.1007/s10182-012-0196-3</a>.</p>
 </div>
 <div>
-<p>Clifford, Peter, Sylvia Richardson, and Denis Hemon. 1989. “Assessing the Significance of the Correlation Between Two Spatial Processes.” <em>Biometrics</em> 45 (1): 123–34. <a href="https://doi.org/10.2307/2532039">https://doi.org/10.2307/2532039</a>.</p>
+<p>Clifford, Peter, Sylvia Richardson, and Denis Hemon. 1989. “Assessing the Significance of the Correlation Between Two Spatial Processes.” <em>Biometrics</em> 45 (1): 123–34. doi:<a href="https://doi.org/10.2307/2532039">10.2307/2532039</a>.</p>
+</div>
+<div>
+<p>Córdoba, Mariano, Cecilia Bruno, José Luis J.L. Costa, and Mónica Balzarini. 2012. “Principal Component Analysis with Georeferenced Data. an Application in Precision Agriculture.” <em>Rev. FCA UNCUYO</em> 44 (1): 27–39.</p>
+</div>
+<div>
+<p>Córdoba, Mariano, Cecilia Bruno, José Luis Costa, and Mónica Balzarini. 2013. “Subfield management class delineation using cluster analysis from spatial principal components of soil variables.” <em>Computers and Electronics in Agriculture</em> 97 (September). Elsevier: 6–14. doi:<a href="https://doi.org/10.1016/j.compag.2013.05.009">10.1016/j.compag.2013.05.009</a>.</p>
 </div>
 <div>
 <p>Correa Morales, Juan Carlos, Barrera Causil, and Carlos Javier. 2018. <em>Introducción a La Estadística Bayesiana: Notas de Clase</em>. Instituto Tecnológico Metropolitano.</p>
 </div>
 <div>
 <p>Cover, Thomas, and Peter Hart. 1967. “Nearest Neighbor Pattern Classification.” <em>IEEE Transactions on Information Theory</em> 13 (1). IEEE: 21–27.</p>
-</div>
-<div>
-<p>Córdoba, Mariano, Cecilia Bruno, José Luis Costa, and Mónica Balzarini. 2013. “Subfield management class delineation using cluster analysis from spatial principal components of soil variables.” <em>Computers and Electronics in Agriculture</em> 97 (September). Elsevier: 6–14. <a href="https://doi.org/10.1016/j.compag.2013.05.009">https://doi.org/10.1016/j.compag.2013.05.009</a>.</p>
-</div>
-<div>
-<p>Córdoba, Mariano, Cecilia Bruno, José Luis J.L. Costa, and Mónica Balzarini. 2012. “Principal Component Analysis with Georeferenced Data. An Application in Precision Agriculture.” <em>Rev. FCA UNCUYO</em> 44 (1): 27–39.</p>
 </div>
 <div>
 <p>Cressie, Noel, and Christopher K Wikle. 2015. <em>Statistics for Spatio-Temporal Data</em>. John Wiley &amp; Sons.</p>
@@ -319,40 +294,40 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Dray, Stéphane, Sonia Saïd, and Françis Débias. 2008. “Spatial Ordination of Vegetation Data Using a Generalization of Wartenberg’s Multivariate Spatial Correlation.” <em>Journal of Vegetation Science</em> 19 (1). Wiley Online Library: 45–56.</p>
 </div>
 <div>
-<p>Dutilleul, Pierre, Peter Clifford, Sylvia Richardson, and Denis Hemon. 1993. “Modifying the t Test for Assessing the Correlation Between Two Spatial Processes.” <em>Biometrics</em> 49 (1). JSTOR: 305. <a href="https://doi.org/10.2307/2532625">https://doi.org/10.2307/2532625</a>.</p>
+<p>Dutilleul, Pierre, Peter Clifford, Sylvia Richardson, and Denis Hemon. 1993. “Modifying the t Test for Assessing the Correlation Between Two Spatial Processes.” <em>Biometrics</em> 49 (1). JSTOR: 305. doi:<a href="https://doi.org/10.2307/2532625">10.2307/2532625</a>.</p>
 </div>
 <div>
-<p>Efron, Bradley, and Trevor Hastie. 2016. <em>Computer Age Statistical Inference: Algorithms, Evidence, and Data Science</em>. <em>Computer Age Statistical Inference: Algorithms, Evidence, and Data Science</em>. <a href="https://doi.org/10.1017/CBO9781316576533">https://doi.org/10.1017/CBO9781316576533</a>.</p>
+<p>Efron, Bradley, and Trevor Hastie. 2016. <em>Computer Age Statistical Inference: Algorithms, Evidence, and Data Science</em>. <em>Computer Age Statistical Inference: Algorithms, Evidence, and Data Science</em>. doi:<a href="https://doi.org/10.1017/CBO9781316576533">10.1017/CBO9781316576533</a>.</p>
 </div>
 <div>
 <p>Efron, Bradley, and Robert Tibshirani. 1997. “Improvements on Cross-Validation: The 632+ Bootstrap Method.” <em>Journal of the American Statistical Association</em> 92 (438). Taylor &amp; Francis: 548–60.</p>
 </div>
 <div>
-<p>Frogbrook, Z L, and M A Oliver. 2007. “Identifying Management Zones in Agricultural Fields Using Spatially Constrained Classification of Soil and Ancillary Data.” <em>Soil Use and Management</em> 23 (1): 40–51. <a href="https://doi.org/10.1111/j.1475-2743.2006.00065.x">https://doi.org/10.1111/j.1475-2743.2006.00065.x</a>.</p>
+<p>Frogbrook, Z L, and M A Oliver. 2007. “Identifying Management Zones in Agricultural Fields Using Spatially Constrained Classification of Soil and Ancillary Data.” <em>Soil Use and Management</em> 23 (1): 40–51. doi:<a href="https://doi.org/10.1111/j.1475-2743.2006.00065.x">10.1111/j.1475-2743.2006.00065.x</a>.</p>
 </div>
 <div>
 <p>Fukuyama, Yoshiki, and M. Sugeno. 1989. “A New Method of Choosing the Number of Clusters for the Fuzzy c-Mean Method.” In <em>Proc. 5th Fuzzy Syst. Symp., 1989</em>, 247–50.</p>
 </div>
 <div>
-<p>Gabriel, Karl Ruben. 1971. “The Biplot Graphic Display of Matrices with Application to Principal Component Analysis.” <em>Biometrika</em> 58 (3). Oxford University Press: 453–67.</p>
-</div>
-<div>
 <p>Gabriel, K Ruben, and Robert R Sokal. 1969. “A New Statistical Approach to Geographic Variation Analysis.” <em>Systematic Zoology</em> 18 (3). Society of Systematic Zoology: 259–78.</p>
 </div>
 <div>
-<p>Galarza, Romina, M Nicolás Mastaglia, Enrique M Albornoz, and César Martınez. 2013. “Identificación Automática de Zonas de Manejo En Lotes Productivos Agrıcolas.” In <em>V Congreso Argentino de Agroinformática (Cai) E 42da. JAIIO</em>.</p>
+<p>Gabriel, Karl Ruben. 1971. “The Biplot Graphic Display of Matrices with Application to Principal Component Analysis.” <em>Biometrika</em> 58 (3). Oxford University Press: 453–67.</p>
+</div>
+<div>
+<p>Galarza, Romina, M Nicolás Mastaglia, Enrique M Albornoz, and César Martınez. 2013. “Identificación Automática de Zonas de Manejo En Lotes Productivos Agrıcolas.” In <em>V Congreso Argentino de Agroinformática (Cai) E 42da. Jaiio</em>.</p>
 </div>
 <div>
 <p>Hang, Susana, Gustavo Negro, Alejandro Becerra, and Ariel Edgar Rampoldi. 2015. <em>Suelos de Córdoba: Variabilidad de las propiedades del horizonte superficial.</em> Córdoba: Jorge Omar Editorial.</p>
 </div>
 <div>
-<p>Hengl, Tomislav, Gerard B.M. Heuvelink, and David G. Rossiter. 2007. “About Regression-Kriging: From Equations to Case Studies.” <em>Computers and Geosciences</em> 33 (10): 1301–15. <a href="https://doi.org/10.1016/j.cageo.2007.05.001">https://doi.org/10.1016/j.cageo.2007.05.001</a>.</p>
+<p>Hengl, Tomislav, Gerard B.M. Heuvelink, and David G. Rossiter. 2007. “About Regression-Kriging: From Equations to Case Studies.” <em>Computers and Geosciences</em> 33 (10): 1301–15. doi:<a href="https://doi.org/10.1016/j.cageo.2007.05.001">10.1016/j.cageo.2007.05.001</a>.</p>
 </div>
 <div>
 <p>Ihaka, Ross, and Robert Gentleman. 1996. “R: A Language for Data Analysis and Graphics.” <em>Journal of Computational and Graphical Statistics</em> 5 (3). Taylor &amp; Francis Group: 299–314.</p>
 </div>
 <div>
-<p>Kanevski, Mikhail, Vadim Timonin, Alexi Pozdnukhov, and Gordon Ritter. 2009. <em>Machine Learning for Spatial Environmental Data: Theory, Applications, and Software</em>. <em>Ssrn</em>. EPFL press. <a href="https://doi.org/10.2139/ssrn.3015609">https://doi.org/10.2139/ssrn.3015609</a>.</p>
+<p>Kanevski, Mikhail, Vadim Timonin, Alexi Pozdnukhov, and Gordon Ritter. 2009. <em>Machine Learning for Spatial Environmental Data: Theory, Applications, and Software</em>. <em>Ssrn</em>. EPFL press. doi:<a href="https://doi.org/10.2139/ssrn.3015609">10.2139/ssrn.3015609</a>.</p>
 </div>
 <div>
 <p>Kuhn, Max, and Kjell Johnson. 2013. <em>Applied Predictive Modeling</em>. Vol. 26. Springer.</p>
@@ -364,13 +339,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Li, Jin, Andrew D Heap, Anna Potter, and James J Daniell. 2011. “Application of Machine Learning Methods to Spatial Interpolation of Environmental Variables.” <em>Environmental Modelling &amp; Software</em> 26 (12). Elsevier: 1647–59.</p>
 </div>
 <div>
-<p>Lindgren, Finn, and Håvard Rue. 2015. “Bayesian Spatial Modelling with R - Inla.” <em>Journal of Statistical Software</em> 63 (19). <a href="https://doi.org/10.18637/jss.v063.i19">https://doi.org/10.18637/jss.v063.i19</a>.</p>
+<p>Lindgren, Finn, and Håvard Rue. 2015. “Bayesian Spatial Modelling with R - Inla.” <em>Journal of Statistical Software</em> 63 (19). doi:<a href="https://doi.org/10.18637/jss.v063.i19">10.18637/jss.v063.i19</a>.</p>
 </div>
 <div>
-<p>Meyer, David, Evgenia Dimitriadou, Kurt Hornik, Andreas Weingessel, and Friedrich Leisch. 2019. <em>E1071: Misc Functions of the Department of Statistics, Probability Theory Group (Formerly: E1071), Tu Wien</em>. <a href="https://CRAN.R-project.org/package=e1071">https://CRAN.R-project.org/package=e1071</a>.</p>
+<p>Meyer, David, Evgenia Dimitriadou, Kurt Hornik, Andreas Weingessel, and Friedrich Leisch. 2019. <em>E1071: Misc Functions of the Department of Statistics, Probability Theory Group (Formerly: E1071), Tu Wien</em>. <a href="https://CRAN.R-project.org/package=e1071" class="uri">https://CRAN.R-project.org/package=e1071</a>.</p>
 </div>
 <div>
-<p>Milne, A E, R Webster, D Ginsburg, and D Kindred. 2012. “Spatial Multivariate Classification of an Arable Field into Compact Management Zones Based on Past Crop Yields.” <em>Computers and Electronics in Agriculture</em> 80: 17–30. <a href="https://doi.org/10.1016/j.compag.2011.10.007">https://doi.org/10.1016/j.compag.2011.10.007</a>.</p>
+<p>Milne, A E, R Webster, D Ginsburg, and D Kindred. 2012. “Spatial Multivariate Classification of an Arable Field into Compact Management Zones Based on Past Crop Yields.” <em>Computers and Electronics in Agriculture</em> 80: 17–30. doi:<a href="https://doi.org/10.1016/j.compag.2011.10.007">10.1016/j.compag.2011.10.007</a>.</p>
 </div>
 <div>
 <p>Morrell, Christopher H. 1998. “Likelihood Ratio Testing of Variance Components in the Linear Mixed-Effects Model Using Restricted Maximum Likelihood.” <em>Biometrics</em>. JSTOR, 1560–8.</p>
@@ -379,13 +354,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Patterson, H Desmond, and Robin Thompson. 1971. “Recovery of Inter-Block Information When Block Sizes Are Unequal.” <em>Biometrika</em> 58 (3). Oxford University Press: 545–54.</p>
 </div>
 <div>
-<p>Pearson, Karl. 1901. “LIII. On Lines and Planes of Closest Fit to Systems of Points in Space.” <em>The London, Edinburgh, and Dublin Philosophical Magazine and Journal of Science</em> 2 (11). Taylor &amp; Francis: 559–72. <a href="https://doi.org/10.1080/14786440109462720">https://doi.org/10.1080/14786440109462720</a>.</p>
+<p>Pearson, Karl. 1901. “LIII. on Lines and Planes of Closest Fit to Systems of Points in Space.” <em>The London, Edinburgh, and Dublin Philosophical Magazine and Journal of Science</em> 2 (11). Taylor &amp; Francis: 559–72. doi:<a href="https://doi.org/10.1080/14786440109462720">10.1080/14786440109462720</a>.</p>
 </div>
 <div>
-<p>Pejović, Milutin, Mladen Nikolić, Gerard B.M. Heuvelink, Tomislav Hengl, Milan Kilibarda, and Branislav Bajat. 2018. “Sparse Regression Interaction Models for Spatial Prediction of Soil Properties in 3D.” <em>Computers and Geosciences</em> 118. Elsevier Ltd: 1–13. <a href="https://doi.org/10.1016/j.cageo.2018.05.008">https://doi.org/10.1016/j.cageo.2018.05.008</a>.</p>
+<p>Pejović, Milutin, Mladen Nikolić, Gerard B.M. Heuvelink, Tomislav Hengl, Milan Kilibarda, and Branislav Bajat. 2018. “Sparse Regression Interaction Models for Spatial Prediction of Soil Properties in 3d.” <em>Computers and Geosciences</em> 118. Elsevier Ltd: 1–13. doi:<a href="https://doi.org/10.1016/j.cageo.2018.05.008">10.1016/j.cageo.2018.05.008</a>.</p>
 </div>
 <div>
-<p>Ping, J L, and A Dobermann. 2003. “Creating Spatially Contiguous Yield Classes for Site-Specific Management.” <em>Agronomy Journal</em> 95 (5): 1121. <a href="https://doi.org/10.2134/agronj2003.1121">https://doi.org/10.2134/agronj2003.1121</a>.</p>
+<p>Ping, J L, and A Dobermann. 2003. “Creating Spatially Contiguous Yield Classes for Site-Specific Management.” <em>Agronomy Journal</em> 95 (5): 1121. doi:<a href="https://doi.org/10.2134/agronj2003.1121">10.2134/agronj2003.1121</a>.</p>
 </div>
 <div>
 <p>Rue, Håvard, Sara Martino, and Nicolas Chopin. 2009. “Approximate Bayesian Inference for Latent Gaussian Models by Using Integrated Nested Laplace Approximations.” <em>Journal of the Royal Statistical Society: Series B (Statistical Methodology)</em> 71 (2). Wiley Online Library: 319–92.</p>
@@ -400,13 +375,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Team, RStudio. 2019. “RStudio: Integrated Development Environment for R.”</p>
 </div>
 <div>
-<p>Vallejos, Ronny, Adriana Mallea, Myriam Herrera, and Silvia Ojeda. 2015. “A Multivariate Geostatistical Approach for Landscape Classification from Remotely Sensed Image Data.” <em>Stochastic Environmental Research and Risk Assessment</em> 29 (2): 369–78. <a href="https://doi.org/10.1007/s00477-014-0884-5">https://doi.org/10.1007/s00477-014-0884-5</a>.</p>
+<p>Vallejos, Ronny, Adriana Mallea, Myriam Herrera, and Silvia Ojeda. 2015. “A Multivariate Geostatistical Approach for Landscape Classification from Remotely Sensed Image Data.” <em>Stochastic Environmental Research and Risk Assessment</em> 29 (2): 369–78. doi:<a href="https://doi.org/10.1007/s00477-014-0884-5">10.1007/s00477-014-0884-5</a>.</p>
 </div>
 <div>
-<p>Webster, Richard, and Margaret A Oliver. 2007. <em>Geostatistics for Environmental Scientists</em>. <em>Vadose Zone Journal</em>. Vol. 1. 2. John Wiley &amp; Sons. <a href="https://doi.org/10.2136/vzj2002.0321">https://doi.org/10.2136/vzj2002.0321</a>.</p>
+<p>Webster, Richard, and Margaret A Oliver. 2007. <em>Geostatistics for Environmental Scientists</em>. <em>Vadose Zone Journal</em>. Vol. 1. 2. John Wiley &amp; Sons. doi:<a href="https://doi.org/10.2136/vzj2002.0321">10.2136/vzj2002.0321</a>.</p>
 </div>
 <div>
-<p>Xie, Xuanli Lisa, and Gerardo Beni. 1991. “A Validity Measure for Fuzzy Clustering.” <em>IEEE Transactions on Pattern Analysis &amp; Machine Intelligence</em> 13 (8). IEEE Computer Society: 841–47. <a href="https://doi.org/10.1109/34.85677">https://doi.org/10.1109/34.85677</a>.</p>
+<p>Xie, Xuanli Lisa, and Gerardo Beni. 1991. “A Validity Measure for Fuzzy Clustering.” <em>IEEE Transactions on Pattern Analysis &amp; Machine Intelligence</em> 13 (8). IEEE Computer Society: 841–47. doi:<a href="https://doi.org/10.1109/34.85677">10.1109/34.85677</a>.</p>
 </div>
 <div>
 <p>Zimback, C R L. 2001. “Análise Espacial de Atributos Químicos de Solos Para Fins de Mapeamento Da Fertilidade Do Solo. 2001. 114 F.” Tese (Livre-Docência)–Faculdade de Ciências Agronômicas, Universidade ….</p>
@@ -478,7 +453,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "true";
+    var src = "";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))

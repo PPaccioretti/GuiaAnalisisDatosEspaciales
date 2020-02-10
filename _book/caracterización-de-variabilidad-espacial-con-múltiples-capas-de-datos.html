@@ -66,66 +66,41 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
-}
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {  }
-@media screen {
-a.sourceLine::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
 <link rel="stylesheet" href="css/style.css" type="text/css" />
@@ -261,8 +236,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Sección 3</span> Caracterización de variabilidad espacial con múltiples capas de datos</h1>
 <div id="análisis-de-componentes-principales" class="section level2">
 <h2><span class="header-section-number">3.1</span> Análisis de componentes principales</h2>
-<p>Diferentes objetivos pueden surgir cuando analizamos un conjunto de datos que además de ser espaciales o georreferenciados es multivariado (<em>i.e.</em> múltiples capas de información sobre el mismo dominio espacial o varias variables por sitio). Por un lado, se puede querer resumir la variabilidad de los sitios usando unas pocas variables sintéticas que representen bien la variabilidad en las variables originales. Por otro, se puede querer resumir patrones espaciales usando unas pocas variables sintéticas que combinan las múltiples capas de información considerando la correlación espacial subyacente. Una solución al primer problema es usar el Análisis de Componentes Principales (PCA <span class="citation">(Pearson <a href="#ref-F.R.S._1901">1901</a>)</span>). Mientras que el segundo objetivo puede ser abordado mediante el Análisis de Componentes Principales Espaciales propuesto por <span class="citation">(Dray, Saïd, and Débias <a href="#ref-Dray_Saïd_Débias_2008">2008</a>)</span>, también conocido como MULTISPATI-PCA. Éste se basa en el PCA, pero incorpora la restricción dada por los datos espaciales mediante el cálculo del índice de Moran antes de obtener las variables sintéticas o componentes principales (PC).
-Los datos multivariados son generalmente registrados en una matriz <span class="math inline">\(X\)</span> con <span class="math inline">\(n\)</span> filas (observaciones) y <span class="math inline">\(p\)</span> columnas (variables). El PCA permite identificar las variables que explican la mayor parte de la variabilidad total contenida en los datos, explorar las correlaciones entre variables y reducir la dimensión del análisis al combinar las variables originales en nuevas variables sintéticas. El PCA opera sobre la matriz de covarianza de las variables originales o de las variables estandarizadas con el fin de encontrar una base ortogonal de tal manera que el primer eje del nuevo espacio considera la dirección de mayor variación de los datos originales. La descomposición espectral de la matriz de covarianzas proporciona un conjunto de autovectores y sus correspondientes autovalores. Los autovectores contienen los coeficientes de ponderación para construir variables sintéticas como combinaciones lineales de las variables originales. Los coeficientes de cada variable en estas combinaciones lineales indican la importancia relativa de las variables para explicar la variabilidad entre las observaciones. Las combinaciones lineales obtenidas con PCA se llaman componentes principales (PC), son ortogonales y en conjunto explican la variabilidad de los datos originales. Existen tantas PC posibles de formar como columnas en la matriz <span class="math inline">\(X\)</span>. La primera componente (PC1) explica la mayor parte de la variación en el conjunto de datos y la segunda (PC2), la mayor parte de la variabilidad remanente o no explicada por la PC1, y así sucesivamente.</p>
+<p>Diferentes objetivos pueden surgir cuando analizamos un conjunto de datos que además de ser espaciales o georreferenciados es multivariado (<em>i.e.</em> múltiples capas de información sobre el mismo dominio espacial o varias variables por sitio). Por un lado, se puede querer resumir la variabilidad de los sitios usando unas pocas variables sintéticas que representen bien la variabilidad en las variables originales. Por otro, se puede querer resumir patrones espaciales usando unas pocas variables sintéticas que combinan las múltiples capas de información considerando la correlación espacial subyacente. Una solución al primer problema es usar el Análisis de Componentes Principales (PCA <span class="citation">(Pearson <a href="#ref-F.R.S._1901">1901</a>)</span>). Mientras que el segundo objetivo puede ser abordado mediante el Análisis de Componentes Principales Espaciales propuesto por <span class="citation">(Dray, Saïd, and Débias <a href="#ref-Dray_Saïd_Débias_2008">2008</a>)</span>, también conocido como MULTISPATI-PCA. Éste se basa en el PCA, pero incorpora la restricción dada por los datos espaciales mediante el cálculo del índice de Moran antes de obtener las variables sintéticas o componentes principales (PC). Los datos multivariados son generalmente registrados en una matriz <span class="math inline">\(X\)</span> con <span class="math inline">\(n\)</span> filas (observaciones) y <span class="math inline">\(p\)</span> columnas (variables). El PCA permite identificar las variables que explican la mayor parte de la variabilidad total contenida en los datos, explorar las correlaciones entre variables y reducir la dimensión del análisis al combinar las variables originales en nuevas variables sintéticas. El PCA opera sobre la matriz de covarianza de las variables originales o de las variables estandarizadas con el fin de encontrar una base ortogonal de tal manera que el primer eje del nuevo espacio considera la dirección de mayor variación de los datos originales. La descomposición espectral de la matriz de covarianzas proporciona un conjunto de autovectores y sus correspondientes autovalores. Los autovectores contienen los coeficientes de ponderación para construir variables sintéticas como combinaciones lineales de las variables originales. Los coeficientes de cada variable en estas combinaciones lineales indican la importancia relativa de las variables para explicar la variabilidad entre las observaciones. Las combinaciones lineales obtenidas con PCA se llaman componentes principales (PC), son ortogonales y en conjunto explican la variabilidad de los datos originales. Existen tantas PC posibles de formar como columnas en la matriz <span class="math inline">\(X\)</span>. La primera componente (PC1) explica la mayor parte de la variación en el conjunto de datos y la segunda (PC2), la mayor parte de la variabilidad remanente o no explicada por la PC1, y así sucesivamente.</p>
 <p>Los resultados del PCA se pueden visualizar en un gráfico denominado Biplot <span class="citation">(Gabriel <a href="#ref-Gabriel_1971">1971</a>)</span> el cual permite representar en un plano óptimo para el estudio de variabilidad, las diferencias entre sitios, la correlación entre variables y las variables que mejor explican las principales componentes de variabilidad. La incorporación de la información geográfica o la característica espacial de los datos suele realizarse a posteriori del PCA mediante la asignación de los valores de las componentes a cada uno de los sitios georreferenciados o ajustando semivariogramas a las PC.</p>
 <p>El objetivo de MULTISPATI-PCA, otra forma de trabajar con datos espaciales, es encontrar variables sintéticas independientes que optimicen el producto de la varianza total y la autocorrelación espacial. Para delimitar los vecindarios, MULTISPATI-PCA utiliza una matriz de pesos espaciales determinando cuáles y cuántas observaciones cercanas a cada sitio deben ser consideradas para el cálculo del índice de autocorrelación espacial. Este análisis permite estudiar las relaciones entre las variables considerando su estructura espacial. Para la implementación del análisis es necesario primero definir cómo la información espacial será incorporada. En MULTISAPTI - PCA, la detección de la estructura espacial se realiza a través del índice de Moran. Es necesaria la construcción de una red de conexión (también llamada gráficos de vecinos) la cual usa un criterio objetivo para definir que entidades son vecinas y cuáles no. Existen diferentes opciones o alternativas metodológicas para definir los vecindarios que dependen de los diferentes tipos de arreglos espaciales presente en los datos. Para muestreos irregulares los vecindarios suelen definirse a partir de la red de conexión propuesta por Gabriel <span class="citation">(Gabriel and Sokal <a href="#ref-Gabriel_Sokal_1969">1969</a>)</span>, mediante la triangulación de Delaunay <span class="citation">(Lee and Schachter <a href="#ref-Lee_Schachter_1980">1980</a>)</span>. Otro método es el de los vecinos más cercanos <span class="citation">(Cover and Hart <a href="#ref-Cover_Hart_1967">1967</a>)</span> o el basado en la especificación de una distancia como radio del vecindario de cada sitio.</p>
 <p>Una vez que la red de conexión es definida, la información espacial es almacenada en una matriz de conexión binaria <span class="math inline">\(C\)</span> (en la cual <span class="math inline">\(c_{ij}=1\)</span> si las unidades espaciales <span class="math inline">\(i\)</span> y <span class="math inline">\(j\)</span> son vecinas o <span class="math inline">\(c_{ij}=0\)</span> en caso contrario), la cual es simétrica y tiene tantas filas y columnas como sitios. Esta matriz de conectividad <span class="math inline">\(C\)</span> en general es escalada para obtener la matriz de pesos espaciales (representación matemática de la disposición geográfica de los sitios en el dominio espacial). Los pesos espaciales reflejan a priori la ausencia <span class="math inline">\((w_{ij}=0)\)</span>, presencia <span class="math inline">\((w_{ij}=1)\)</span> o intensidad <span class="math inline">\((w_{ij}&gt;0)\)</span> de la relación espacial entre los sitios. Una vez que los pesos espaciales han sido definidos, el índice de autocorrelación de Moran es computado.</p>
@@ -287,11 +261,11 @@ Los datos multivariados son generalmente registrados en una matriz <span class="
 <div id="ref-Bezdek_Coray_Gunderson_Watson_1981">
 <p>Bezdek, James C, Chris Coray, Robert Gunderson, and James Watson. 1981. “Detection and Characterization of Cluster Substructure I. Linear Structure: Fuzzy c-Lines.” <em>SIAM Journal on Applied Mathematics</em> 40 (2). SIAM: 339–57.</p>
 </div>
+<div id="ref-Córdoba_Balzarini_Bruno_Costa_Balzarini_Costa_2012">
+<p>Córdoba, Mariano, Cecilia Bruno, José Luis J.L. Costa, and Mónica Balzarini. 2012. “Principal Component Analysis with Georeferenced Data. an Application in Precision Agriculture.” <em>Rev. FCA UNCUYO</em> 44 (1): 27–39.</p>
+</div>
 <div id="ref-Cover_Hart_1967">
 <p>Cover, Thomas, and Peter Hart. 1967. “Nearest Neighbor Pattern Classification.” <em>IEEE Transactions on Information Theory</em> 13 (1). IEEE: 21–27.</p>
-</div>
-<div id="ref-Córdoba_Balzarini_Bruno_Costa_Balzarini_Costa_2012">
-<p>Córdoba, Mariano, Cecilia Bruno, José Luis J.L. Costa, and Mónica Balzarini. 2012. “Principal Component Analysis with Georeferenced Data. An Application in Precision Agriculture.” <em>Rev. FCA UNCUYO</em> 44 (1): 27–39.</p>
 </div>
 <div id="ref-Dray_Chessel_Thioulouse_2003">
 <p>Dray, Stéphane, Daniel Chessel, and Jean Thioulouse. 2003. “Co‐inertia Analysis and the Linking of Ecological Data Tables.” <em>Ecology</em> 84 (11). Wiley Online Library: 3078–89.</p>
@@ -300,34 +274,34 @@ Los datos multivariados son generalmente registrados en una matriz <span class="
 <p>Dray, Stéphane, Sonia Saïd, and Françis Débias. 2008. “Spatial Ordination of Vegetation Data Using a Generalization of Wartenberg’s Multivariate Spatial Correlation.” <em>Journal of Vegetation Science</em> 19 (1). Wiley Online Library: 45–56.</p>
 </div>
 <div id="ref-Frogbrook_Oliver_2007">
-<p>Frogbrook, Z L, and M A Oliver. 2007. “Identifying Management Zones in Agricultural Fields Using Spatially Constrained Classification of Soil and Ancillary Data.” <em>Soil Use and Management</em> 23 (1): 40–51. <a href="https://doi.org/10.1111/j.1475-2743.2006.00065.x">https://doi.org/10.1111/j.1475-2743.2006.00065.x</a>.</p>
+<p>Frogbrook, Z L, and M A Oliver. 2007. “Identifying Management Zones in Agricultural Fields Using Spatially Constrained Classification of Soil and Ancillary Data.” <em>Soil Use and Management</em> 23 (1): 40–51. doi:<a href="https://doi.org/10.1111/j.1475-2743.2006.00065.x">10.1111/j.1475-2743.2006.00065.x</a>.</p>
 </div>
 <div id="ref-Fukuyama_Sugeno_1989">
 <p>Fukuyama, Yoshiki, and M. Sugeno. 1989. “A New Method of Choosing the Number of Clusters for the Fuzzy c-Mean Method.” In <em>Proc. 5th Fuzzy Syst. Symp., 1989</em>, 247–50.</p>
 </div>
-<div id="ref-Gabriel_1971">
-<p>Gabriel, Karl Ruben. 1971. “The Biplot Graphic Display of Matrices with Application to Principal Component Analysis.” <em>Biometrika</em> 58 (3). Oxford University Press: 453–67.</p>
-</div>
 <div id="ref-Gabriel_Sokal_1969">
 <p>Gabriel, K Ruben, and Robert R Sokal. 1969. “A New Statistical Approach to Geographic Variation Analysis.” <em>Systematic Zoology</em> 18 (3). Society of Systematic Zoology: 259–78.</p>
 </div>
+<div id="ref-Gabriel_1971">
+<p>Gabriel, Karl Ruben. 1971. “The Biplot Graphic Display of Matrices with Application to Principal Component Analysis.” <em>Biometrika</em> 58 (3). Oxford University Press: 453–67.</p>
+</div>
 <div id="ref-Galarza_Mastaglia_Albornoz_Martınez_2013">
-<p>Galarza, Romina, M Nicolás Mastaglia, Enrique M Albornoz, and César Martınez. 2013. “Identificación Automática de Zonas de Manejo En Lotes Productivos Agrıcolas.” In <em>V Congreso Argentino de Agroinformática (Cai) E 42da. JAIIO</em>.</p>
+<p>Galarza, Romina, M Nicolás Mastaglia, Enrique M Albornoz, and César Martınez. 2013. “Identificación Automática de Zonas de Manejo En Lotes Productivos Agrıcolas.” In <em>V Congreso Argentino de Agroinformática (Cai) E 42da. Jaiio</em>.</p>
 </div>
 <div id="ref-Lee_Schachter_1980">
 <p>Lee, Der-Tsai, and Bruce J Schachter. 1980. “Two Algorithms for Constructing a Delaunay Triangulation.” <em>International Journal of Computer &amp; Information Sciences</em> 9 (3). Springer: 219–42.</p>
 </div>
 <div id="ref-Milne_Webster_Ginsburg_Kindred_2012">
-<p>Milne, A E, R Webster, D Ginsburg, and D Kindred. 2012. “Spatial Multivariate Classification of an Arable Field into Compact Management Zones Based on Past Crop Yields.” <em>Computers and Electronics in Agriculture</em> 80: 17–30. <a href="https://doi.org/10.1016/j.compag.2011.10.007">https://doi.org/10.1016/j.compag.2011.10.007</a>.</p>
+<p>Milne, A E, R Webster, D Ginsburg, and D Kindred. 2012. “Spatial Multivariate Classification of an Arable Field into Compact Management Zones Based on Past Crop Yields.” <em>Computers and Electronics in Agriculture</em> 80: 17–30. doi:<a href="https://doi.org/10.1016/j.compag.2011.10.007">10.1016/j.compag.2011.10.007</a>.</p>
 </div>
 <div id="ref-F.R.S._1901">
-<p>Pearson, Karl. 1901. “LIII. On Lines and Planes of Closest Fit to Systems of Points in Space.” <em>The London, Edinburgh, and Dublin Philosophical Magazine and Journal of Science</em> 2 (11). Taylor &amp; Francis: 559–72. <a href="https://doi.org/10.1080/14786440109462720">https://doi.org/10.1080/14786440109462720</a>.</p>
+<p>Pearson, Karl. 1901. “LIII. on Lines and Planes of Closest Fit to Systems of Points in Space.” <em>The London, Edinburgh, and Dublin Philosophical Magazine and Journal of Science</em> 2 (11). Taylor &amp; Francis: 559–72. doi:<a href="https://doi.org/10.1080/14786440109462720">10.1080/14786440109462720</a>.</p>
 </div>
 <div id="ref-Ping_Dobermann_2003">
-<p>Ping, J L, and A Dobermann. 2003. “Creating Spatially Contiguous Yield Classes for Site-Specific Management.” <em>Agronomy Journal</em> 95 (5): 1121. <a href="https://doi.org/10.2134/agronj2003.1121">https://doi.org/10.2134/agronj2003.1121</a>.</p>
+<p>Ping, J L, and A Dobermann. 2003. “Creating Spatially Contiguous Yield Classes for Site-Specific Management.” <em>Agronomy Journal</em> 95 (5): 1121. doi:<a href="https://doi.org/10.2134/agronj2003.1121">10.2134/agronj2003.1121</a>.</p>
 </div>
 <div id="ref-Xie_Beni_1991">
-<p>Xie, Xuanli Lisa, and Gerardo Beni. 1991. “A Validity Measure for Fuzzy Clustering.” <em>IEEE Transactions on Pattern Analysis &amp; Machine Intelligence</em> 13 (8). IEEE Computer Society: 841–47. <a href="https://doi.org/10.1109/34.85677">https://doi.org/10.1109/34.85677</a>.</p>
+<p>Xie, Xuanli Lisa, and Gerardo Beni. 1991. “A Validity Measure for Fuzzy Clustering.” <em>IEEE Transactions on Pattern Analysis &amp; Machine Intelligence</em> 13 (8). IEEE Computer Society: 841–47. doi:<a href="https://doi.org/10.1109/34.85677">10.1109/34.85677</a>.</p>
 </div>
 </div>
 <script>
@@ -395,7 +369,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "true";
+    var src = "";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))

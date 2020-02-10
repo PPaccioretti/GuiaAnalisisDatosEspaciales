@@ -5,7 +5,7 @@ El módulo "Estadística Espacial" de InfoStat permite realizar, a través de su
 
 ## Conversión de coordenadas espaciales
 
-Este menú permite la conversión entre distintos sistemas de coordenadas de referencias basándose en el uso de los códigos EPSG ( http://www.epsg.org/ ). El archivo de datos que se abre desde el menú Aplicaciones $\to$ Estadística Espacial $\to$ Transformación de Coordenadas $\to$ Datos de prueba. El archivo se denomina  **datosRinde.idb2** y contiene 9810 observaciones (registros o filas del archivo) sobre datos de rendimiento de trigo (Rinde, $t\ ha^{-1}$) de un lote agrícola que fueron recolectados con un monitor de rendimiento. Cada valor registrado posee su ubicación geográfica (x e y) en unidades grado decimal que son expresadas en longitud (x) y latitud (y).
+Este menú permite la conversión entre distintos sistemas de coordenadas de referencias basándose en el uso de los códigos EPSG (http://www.epsg.org/). El archivo de datos que se abre desde el menú Aplicaciones $\to$ Estadística Espacial $\to$ Transformación de Coordenadas $\to$ Datos de prueba. El archivo se denomina  **datosRinde.idb2** y contiene 9810 observaciones (registros o filas del archivo) sobre datos de rendimiento de trigo (Rinde, $t\ ha^{-1}$) de un lote agrícola que fueron recolectados con un monitor de rendimiento. Cada valor registrado posee su ubicación geográfica (x e y) en unidades grado decimal que son expresadas en longitud (x) y latitud (y).
 
 
 ```{r, echo = FALSE, purl=FALSE}

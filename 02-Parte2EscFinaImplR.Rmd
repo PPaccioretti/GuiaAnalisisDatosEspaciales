@@ -1114,12 +1114,12 @@ prediccionKED <-
   tm_dots("var1.pred", style = "cont",
           title = "Predicción KED")
 
-prediccionKED <-
+varianzaKED <-
   tm_shape(kriging_o) +
   tm_dots("var1.var", style = "cont",
           title = "Varianza KED") 
 
-tmap_arrange(prediccionKED, prediccionKED)
+tmap_arrange(prediccionKED, varianzaKED)
 ```
 
 

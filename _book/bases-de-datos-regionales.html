@@ -66,66 +66,41 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
-}
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {  }
-@media screen {
-a.sourceLine::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
 <link rel="stylesheet" href="css/style.css" type="text/css" />
@@ -262,199 +237,199 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Muchos procesos aleatorios varían de manera continua en el espacio a escala regional. Entonces, es de interés predecir el comportamiento de una variable en referencia a su ubicación geográfica. En algunas situaciones además de la distribución en el espacio otras capas de información (covariables de sitio) pueden ser usadas para mejorar la predicción en un sitio específico. En esta parte se ilustran el manejo de datos espaciales para la predicción a escala regional de una variable a partir de múltiples capas de información y la construcción de un modelo de predicción espacial vía estrategias metodológicas alternativas: regresión múltiple vía REML, regresión múltiple vía INLA y regresión no lineal vía modelo basado en árbol.</p>
 <p>Como ejemplo se utiliza la base de datos <strong>suelos_cba.txt</strong>. Esta es una parte del SIG de los suelos del horizonte superficial de la provincia Córdoba <span class="citation">(Hang et al. <a href="#ref-Hang2015">2015</a>)</span>, que contiene 350 sitios caracterizados por múltiples variables edáficas que describen los primeros 15 cm de profundidad. Las variables presentes en <strong>suelos_cba.txt</strong> son: COS (Carbono Orgánico de Suelo, g/kg) arcilla (%), pH, elevación (m.s.n.m.), twi (Índice Topográfico de Humedad). El objetivo del análisis es ajustar modelos que expliquen la variabilidad espacial de COS en función de las restantes variables en la base de datos.</p>
 <p>Para seguir la ilustración, cargar los paquetes específicos de R que albergan las funciones que se utilizarán tanto para el manejo como para la modelación.</p>
-<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb98-1" data-line-number="1"><span class="kw">library</span>(sf)</a>
-<a class="sourceLine" id="cb98-2" data-line-number="2"><span class="kw">library</span>(raster)</a>
-<a class="sourceLine" id="cb98-3" data-line-number="3"><span class="kw">library</span>(tmap)</a>
-<a class="sourceLine" id="cb98-4" data-line-number="4"><span class="kw">library</span>(nlme)</a>
-<a class="sourceLine" id="cb98-5" data-line-number="5"><span class="kw">library</span>(INLA)</a>
-<a class="sourceLine" id="cb98-6" data-line-number="6"><span class="kw">library</span>(caret)</a>
-<a class="sourceLine" id="cb98-7" data-line-number="7"><span class="kw">library</span>(gstat)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(sf)
+<span class="kw">library</span>(raster)
+<span class="kw">library</span>(tmap)
+<span class="kw">library</span>(nlme)
+<span class="kw">library</span>(INLA)
+<span class="kw">library</span>(caret)
+<span class="kw">library</span>(gstat)</code></pre></div>
 <div id="manejo-de-datos-espaciales-1" class="section level2">
 <h2><span class="header-section-number">7.1</span> Manejo de datos espaciales</h2>
 <p>Mediante la función <code>read.table()</code> se lee un archivo de texto que se guarda como un objeto denominado <code>suelos</code>, en el cual las columnas están separadas por tabuladores y la primera fila contiene los nombres de columnas. Mediante la función <code>head()</code> se visualizan las primeras filas del objeto <code>suelos</code> donde se observa que la primera columna corresponde a una identificación, las siguientes dos son las coordenadas X e Y las cuales corresponden al sistema de proyección UTM faja 20. Las columnas siguientes contienen las variables en estudio.</p>
-<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb99-1" data-line-number="1">suelos &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;datos/suelos_cba.txt&quot;</span>, </a>
-<a class="sourceLine" id="cb99-2" data-line-number="2">                     <span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb99-3" data-line-number="3"><span class="kw">head</span>(suelos)</a>
-<a class="sourceLine" id="cb99-4" data-line-number="4"><span class="co">#&gt; ID_2 X Y elevacion twi arcilla pH COS</span></a>
-<a class="sourceLine" id="cb99-5" data-line-number="5"><span class="co">#&gt; 1 2 603164 6576899 100 135 30,8 6,6 26,0</span></a>
-<a class="sourceLine" id="cb99-6" data-line-number="6"><span class="co">#&gt; 2 3 596537 6390518 87 133 24,0 7,4 17,3</span></a>
-<a class="sourceLine" id="cb99-7" data-line-number="7"><span class="co">#&gt; [ reached &#39;max&#39;</span></a>
-<a class="sourceLine" id="cb99-8" data-line-number="8">    <span class="op">/</span><span class="st"> </span><span class="kw">getOption</span>(<span class="st">&quot;max.print&quot;</span>) <span class="op">--</span></a>
-<a class="sourceLine" id="cb99-9" data-line-number="9">omitted <span class="dv">4</span> rows ]</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">suelos &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;datos/suelos_cba.txt&quot;</span>, 
+                     <span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>)
+<span class="kw">head</span>(suelos)
+<span class="co">#&gt; ID_2 X Y elevacion twi arcilla pH COS</span>
+<span class="co">#&gt; 1 2 603164 6576899 100 135 30,8 6,6 26,0</span>
+<span class="co">#&gt; 2 3 596537 6390518 87 133 24,0 7,4 17,3</span>
+<span class="co">#&gt; [ reached &#39;max&#39;</span>
+    <span class="op">/</span><span class="st"> </span><span class="kw">getOption</span>(<span class="st">&quot;max.print&quot;</span>) <span class="op">--</span>
+omitted <span class="dv">4</span> rows ]</code></pre></div>
 <p>Para transformar este objeto en uno de clase espacial, se utilizará la función <code>st_as_sf()</code>, especificando que las coordenadas X e Y, se encuentra en las columnas “X” e “Y”, respectivamente. Todos los sistemas de coordenadas tienen asociados un código que los identifica y que a través del cual, se pueden conocer los parámetros asociados al mismo, este código se llama EPSG por su acrónimo en inglés. El código EPSG del sistema de referencia y proyección de la base de datos es 32720. El objeto <code>suelos_sf</code>, ahora es un objeto espacial de clase <code>sf</code>, donde cada observación corresponde a cada sitio de muestreo. Se muestra el sistema de referencia y proyección de las coordenadas y el tipo de geometría.</p>
-<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb100-1" data-line-number="1">suelos_sf &lt;-<span class="st"> </span><span class="kw">st_as_sf</span>(suelos, </a>
-<a class="sourceLine" id="cb100-2" data-line-number="2">                      <span class="dt">coords =</span> <span class="kw">c</span>(<span class="st">&quot;X&quot;</span>, <span class="st">&quot;Y&quot;</span>), </a>
-<a class="sourceLine" id="cb100-3" data-line-number="3">                      <span class="dt">crs =</span> <span class="dv">32720</span>)</a>
-<a class="sourceLine" id="cb100-4" data-line-number="4">suelos_sf</a>
-<a class="sourceLine" id="cb100-5" data-line-number="5"><span class="co">#&gt; Simple feature collection with 350 features</span></a>
-<a class="sourceLine" id="cb100-6" data-line-number="6">and <span class="dv">6</span> fields</a>
-<a class="sourceLine" id="cb100-7" data-line-number="7"><span class="co">#&gt; geometry type: POINT</span></a>
-<a class="sourceLine" id="cb100-8" data-line-number="8"><span class="co">#&gt; dimension: XY</span></a>
-<a class="sourceLine" id="cb100-9" data-line-number="9"><span class="co">#&gt; bbox: xmin: 236000 ymin: 6130000 xmax:</span></a>
-<a class="sourceLine" id="cb100-10" data-line-number="10"><span class="dv">603000</span> ymax<span class="op">:</span><span class="st"> </span><span class="dv">6720000</span></a>
-<a class="sourceLine" id="cb100-11" data-line-number="11"><span class="co">#&gt; epsg (SRID): 32720</span></a>
-<a class="sourceLine" id="cb100-12" data-line-number="12"><span class="co">#&gt; proj4string: </span></a>
-<a class="sourceLine" id="cb100-13" data-line-number="13">    <span class="op">+</span><span class="st"> </span>proj=utm </a>
-<a class="sourceLine" id="cb100-14" data-line-number="14">    <span class="op">+</span><span class="st"> </span>zone=<span class="dv">20</span> </a>
-<a class="sourceLine" id="cb100-15" data-line-number="15">    <span class="op">+</span><span class="st"> </span>south</a>
-<a class="sourceLine" id="cb100-16" data-line-number="16"><span class="op">+</span>datum=WGS84 <span class="op">+</span>units=m <span class="op">+</span>no_defs</a>
-<a class="sourceLine" id="cb100-17" data-line-number="17"><span class="co">#&gt; First 3 features:</span></a>
-<a class="sourceLine" id="cb100-18" data-line-number="18"><span class="co">#&gt; ID_2 elevacion twi arcilla pH COS geometry</span></a>
-<a class="sourceLine" id="cb100-19" data-line-number="19"><span class="co">#&gt; 1 2 100 135 30,8 6,6 26,0 POINT (603164</span></a>
-<a class="sourceLine" id="cb100-20" data-line-number="20"><span class="dv">6576899</span><span class="er">)</span></a>
-<a class="sourceLine" id="cb100-21" data-line-number="21"><span class="co">#&gt; 2 3 87 133 24,0 7,4 17,3 POINT (596537</span></a>
-<a class="sourceLine" id="cb100-22" data-line-number="22"><span class="dv">6390518</span><span class="er">)</span></a>
-<a class="sourceLine" id="cb100-23" data-line-number="23"><span class="co">#&gt; [ reached &#39;max&#39;</span></a>
-<a class="sourceLine" id="cb100-24" data-line-number="24">    <span class="op">/</span><span class="st"> </span><span class="kw">getOption</span>(<span class="st">&quot;max.print&quot;</span>) <span class="op">--</span></a>
-<a class="sourceLine" id="cb100-25" data-line-number="25">omitted <span class="dv">1</span> rows ]</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">suelos_sf &lt;-<span class="st"> </span><span class="kw">st_as_sf</span>(suelos, 
+                      <span class="dt">coords =</span> <span class="kw">c</span>(<span class="st">&quot;X&quot;</span>, <span class="st">&quot;Y&quot;</span>), 
+                      <span class="dt">crs =</span> <span class="dv">32720</span>)
+suelos_sf
+<span class="co">#&gt; Simple feature collection with 350 features</span>
+and <span class="dv">6</span> fields
+<span class="co">#&gt; geometry type: POINT</span>
+<span class="co">#&gt; dimension: XY</span>
+<span class="co">#&gt; bbox: xmin: 236000 ymin: 6130000 xmax:</span>
+<span class="dv">603000</span> ymax<span class="op">:</span><span class="st"> </span><span class="dv">6720000</span>
+<span class="co">#&gt; epsg (SRID): 32720</span>
+<span class="co">#&gt; proj4string: </span>
+    <span class="op">+</span><span class="st"> </span>proj=utm 
+    <span class="op">+</span><span class="st"> </span>zone=<span class="dv">20</span> 
+    <span class="op">+</span><span class="st"> </span>south
+<span class="op">+</span>datum=WGS84 <span class="op">+</span>units=m <span class="op">+</span>no_defs
+<span class="co">#&gt; First 3 features:</span>
+<span class="co">#&gt; ID_2 elevacion twi arcilla pH COS geometry</span>
+<span class="co">#&gt; 1 2 100 135 30,8 6,6 26,0 POINT (603164</span>
+<span class="dv">6576899</span><span class="er">)</span>
+<span class="co">#&gt; 2 3 87 133 24,0 7,4 17,3 POINT (596537</span>
+<span class="dv">6390518</span><span class="er">)</span>
+<span class="co">#&gt; [ reached &#39;max&#39;</span>
+    <span class="op">/</span><span class="st"> </span><span class="kw">getOption</span>(<span class="st">&quot;max.print&quot;</span>) <span class="op">--</span>
+omitted <span class="dv">1</span> rows ]</code></pre></div>
 <p>Para explorar los datos se usa el paquete <code>tmap</code> que permite realizar gráficos estáticos o dinámicos. Con la opción dinámica, se puede interactuar con el gráfico de manera análoga a un SIG. Para cada gráfico, se comienza utilizando la función <code>tm_shape()</code> especificando el objeto a graficar. Cada observación se grafica un punto mediante la función <code>tm_dots()</code>, cada nivel se agrega mediante el símbolo <code>+</code>.</p>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb101-1" data-line-number="1"><span class="kw">tm_shape</span>(suelos_sf) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb101-2" data-line-number="2"><span class="st">  </span><span class="kw">tm_dots</span>()</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tm_shape</span>(suelos_sf) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">tm_dots</span>()</code></pre></div>
 <p><img src="figuras/figLibro/unnamed-chunk-157-1.png" width="\linewidth" style="display: block; margin: auto;" /></p>
 <p>Para agregar latitud y longitud a esta figura se realiza una reproyección. En la función <code>tm_shape()</code> se especifica el nuevo sistema de coordenadas con el que se desea graficar (argumento <code>projection</code>). Se agregar el nivel <code>tm_grid()</code> para visualizar una grilla que contiene las coordenadas latitud y longitud.</p>
-<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb102-1" data-line-number="1"><span class="kw">tm_shape</span>(suelos_sf, <span class="dt">projection =</span> <span class="dv">4326</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb102-2" data-line-number="2"><span class="st">  </span><span class="kw">tm_grid</span>(<span class="dt">col=</span><span class="st">&quot;grey90&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb102-3" data-line-number="3"><span class="st">  </span><span class="kw">tm_dots</span>()</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tm_shape</span>(suelos_sf, <span class="dt">projection =</span> <span class="dv">4326</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">tm_grid</span>(<span class="dt">col=</span><span class="st">&quot;grey90&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">tm_dots</span>()</code></pre></div>
 <p><img src="figuras/figLibro/unnamed-chunk-158-1.png" width="\linewidth" style="display: block; margin: auto;" /></p>
 <p>Cualquiera de estos gráficos se puede convertir en un gráfico dinámico mediante la función <code>tmap_mode()</code> especificando como argumento <code>&quot;view&quot;</code>. Para continuar con gráficos estáticos se debe especificar <code>&quot;plot&quot;</code> como argumento de esta función. Mediante la función <code>tm_basemap()</code>, se pueden incorporar distintas capas base. Las opciones disponibles para las capas base se pueden ver mediante el comando <code>names(leaflet::providers)</code>.</p>
 <p>Cualquiera de estos gráficos se puede convertir en un gráfico dinámico utilizando la función <code>tmap_mode()</code> especificando como argumento <code>&quot;view&quot;</code>. Para continuar con gráficos estáticos se debe especificar <code>&quot;plot&quot;</code> como argumento de esta función. Mediante la función <code>tm_basemap()</code>, se pueden incorporar distintas capas base (capas de fondo que ayudan a visualizar). Las opciones disponibles para las capas base se pueden ver mediante el comando <code>names(leaflet::providers)</code>.</p>
-<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb103-1" data-line-number="1"></a>
-<a class="sourceLine" id="cb103-2" data-line-number="2"><span class="kw">tmap_mode</span>(<span class="st">&quot;view&quot;</span>)</a>
-<a class="sourceLine" id="cb103-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb103-4" data-line-number="4"><span class="kw">tm_shape</span>(suelos_sf) <span class="op">+</span></a>
-<a class="sourceLine" id="cb103-5" data-line-number="5"><span class="st">  </span><span class="kw">tm_dots</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb103-6" data-line-number="6"><span class="st">  </span><span class="kw">tm_basemap</span>(<span class="st">&quot;Esri.WorldImagery&quot;</span>, <span class="st">&quot;OpenTopoMap&quot;</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">
+<span class="kw">tmap_mode</span>(<span class="st">&quot;view&quot;</span>)
+
+<span class="kw">tm_shape</span>(suelos_sf) <span class="op">+</span>
+<span class="st">  </span><span class="kw">tm_dots</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">tm_basemap</span>(<span class="st">&quot;Esri.WorldImagery&quot;</span>, <span class="st">&quot;OpenTopoMap&quot;</span>)</code></pre></div>
 <p><img src="figuras/suelossftmap.png" width="\linewidth" style="display: block; margin: auto;" /></p>
 </div>
 <div id="confección-de-grillas-de-predicción" class="section level2">
 <h2><span class="header-section-number">7.2</span> Confección de grillas de predicción</h2>
 <p>Para generar esta grilla es necesario definir una resolución espacial en el área de interés. Para este ejemplo, se utiliza un archivo vectorial, <strong>limites_cba.shp</strong>, el cual define el límite del territorio sobre el que se desea predecir.</p>
-<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb104-1" data-line-number="1">limites_cba &lt;-<span class="st"> </span><span class="kw">st_read</span>(<span class="st">&quot;datos/limites_cba.shp&quot;</span>,</a>
-<a class="sourceLine" id="cb104-2" data-line-number="2">                       <span class="dt">quiet =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb104-3" data-line-number="3">limites_cba &lt;-<span class="st"> </span><span class="kw">st_transform</span>(limites_cba, </a>
-<a class="sourceLine" id="cb104-4" data-line-number="4">                            <span class="dt">crs =</span> <span class="dv">32720</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">limites_cba &lt;-<span class="st"> </span><span class="kw">st_read</span>(<span class="st">&quot;datos/limites_cba.shp&quot;</span>,
+                       <span class="dt">quiet =</span> <span class="ot">TRUE</span>)
+limites_cba &lt;-<span class="st"> </span><span class="kw">st_transform</span>(limites_cba, 
+                            <span class="dt">crs =</span> <span class="dv">32720</span>)</code></pre></div>
 <p>La función <code>st_make_grid()</code> genera una grilla rectangular conteniendo el área del objeto <code>limites_cba</code>. Para definir la resolución espacial de la grilla se utiliza el argumento <code>cellsize</code> definiendo un tamaño de grilla en relación con la unidad de medida del sistema de coordenadas, en este caso 10000 metros, dado que está en UTM.</p>
-<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb105-1" data-line-number="1">grilla_base &lt;-<span class="st"> </span><span class="kw">st_make_grid</span>(limites_cba, </a>
-<a class="sourceLine" id="cb105-2" data-line-number="2">                            <span class="dt">cellsize =</span> <span class="dv">10000</span>)</a>
-<a class="sourceLine" id="cb105-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb105-4" data-line-number="4"><span class="kw">tm_shape</span>(grilla_base) <span class="op">+</span></a>
-<a class="sourceLine" id="cb105-5" data-line-number="5"><span class="st">  </span><span class="kw">tm_borders</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb105-6" data-line-number="6"><span class="st">  </span><span class="kw">tm_shape</span>(limites_cba) <span class="op">+</span></a>
-<a class="sourceLine" id="cb105-7" data-line-number="7"><span class="st">  </span><span class="kw">tm_borders</span>(<span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">grilla_base &lt;-<span class="st"> </span><span class="kw">st_make_grid</span>(limites_cba, 
+                            <span class="dt">cellsize =</span> <span class="dv">10000</span>)
+
+<span class="kw">tm_shape</span>(grilla_base) <span class="op">+</span>
+<span class="st">  </span><span class="kw">tm_borders</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">tm_shape</span>(limites_cba) <span class="op">+</span>
+<span class="st">  </span><span class="kw">tm_borders</span>(<span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</code></pre></div>
 <p><img src="figuras/figLibro/unnamed-chunk-162-1.png" width="\linewidth" style="display: block; margin: auto;" /></p>
 <p>Dado que la grilla es rectangular, es necesario cortarla según los límites. Para esto se realiza una intersección entre los límites y la grilla utilizando la función <code>st_intersection()</code>.</p>
-<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb106-1" data-line-number="1">grilla_pred &lt;-<span class="st"> </span><span class="kw">st_intersection</span>(limites_cba,</a>
-<a class="sourceLine" id="cb106-2" data-line-number="2">                               grilla_base)</a>
-<a class="sourceLine" id="cb106-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb106-4" data-line-number="4"><span class="kw">tm_shape</span>(grilla_pred) <span class="op">+</span></a>
-<a class="sourceLine" id="cb106-5" data-line-number="5"><span class="st">  </span><span class="kw">tm_borders</span>()</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">grilla_pred &lt;-<span class="st"> </span><span class="kw">st_intersection</span>(limites_cba,
+                               grilla_base)
+
+<span class="kw">tm_shape</span>(grilla_pred) <span class="op">+</span>
+<span class="st">  </span><span class="kw">tm_borders</span>()</code></pre></div>
 <p><img src="figuras/figLibro/unnamed-chunk-163-1.png" width="\linewidth" style="display: block; margin: auto;" /></p>
 <p>Los algoritmos de predicción implementados trabajan prediciendo sitios puntuales, por lo cual, a partir de la grilla, es necesario generar una grilla de puntos. Una alternativa es utilizar la función <code>st_centroid()</code> para obtener el centroide de cada celda.</p>
-<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb107-1" data-line-number="1">centroide_pred &lt;-<span class="st"> </span><span class="kw">st_centroid</span>(grilla_pred)</a>
-<a class="sourceLine" id="cb107-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb107-3" data-line-number="3"><span class="kw">tm_shape</span>(centroide_pred) <span class="op">+</span></a>
-<a class="sourceLine" id="cb107-4" data-line-number="4"><span class="st">  </span><span class="kw">tm_dots</span>()</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">centroide_pred &lt;-<span class="st"> </span><span class="kw">st_centroid</span>(grilla_pred)
+
+<span class="kw">tm_shape</span>(centroide_pred) <span class="op">+</span>
+<span class="st">  </span><span class="kw">tm_dots</span>()</code></pre></div>
 <p><img src="figuras/figLibro/unnamed-chunk-164-1.png" width="\linewidth" style="display: block; margin: auto;" /></p>
 </div>
 <div id="agregado-de-capas-de-información" class="section level2">
 <h2><span class="header-section-number">7.3</span> Agregado de capas de información</h2>
 <p>Se presenta los comandos necesarios para combinar múltiples capas de información en un mismo objeto. Las variables elevación y twi son extraídas desde modelos digitales de elevación, que se encuentran en formato raster. El paquete <code>raster</code> de R es específico para lectura y manipulación de este tipo de archivos. Para leer un archivo de este formato, se puede utilizar la función <code>raster()</code> mientras que para reproyectar se utiliza la función <code>projectRaster()</code>. El archivo <strong>elevacion.tif</strong> contiene datos de elevación para la provincia de Córdoba. Cuando se imprime el objeto, se muestra la cantidad de pixeles por fila, columna, pixeles totales, la resolución espacial, las coordenadas extremas en latitud y longitud, el sistema de coordenadas de referencia, los valores mínimo y máximo de la variable observada.</p>
-<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb108-1" data-line-number="1">elevacion &lt;-<span class="st"> </span><span class="kw">raster</span>(<span class="st">&quot;datos/elevacion.tif&quot;</span>)</a>
-<a class="sourceLine" id="cb108-2" data-line-number="2">elevacion &lt;-</a>
-<a class="sourceLine" id="cb108-3" data-line-number="3"><span class="st">  </span><span class="kw">projectRaster</span>(elevacion, </a>
-<a class="sourceLine" id="cb108-4" data-line-number="4">                <span class="dt">crs =</span> <span class="st">&quot;+proj=utm +zone=20 +south </span></a>
-<a class="sourceLine" id="cb108-5" data-line-number="5"><span class="st">                +datum=WGS84 +units=m +no_defs&quot;</span>)</a>
-<a class="sourceLine" id="cb108-6" data-line-number="6">elevacion</a>
-<a class="sourceLine" id="cb108-7" data-line-number="7"><span class="co">#&gt; class : RasterLayer</span></a>
-<a class="sourceLine" id="cb108-8" data-line-number="8"><span class="co">#&gt; dimensions : 2867, 2373, 6803391 (nrow,</span></a>
-<a class="sourceLine" id="cb108-9" data-line-number="9">ncol, ncell<span class="er">)</span></a>
-<a class="sourceLine" id="cb108-10" data-line-number="10"><span class="co">#&gt; resolution : 196, 231 (x, y)</span></a>
-<a class="sourceLine" id="cb108-11" data-line-number="11"><span class="co">#&gt; extent : 195205, 660313, 6099410, 6761687</span></a>
-<a class="sourceLine" id="cb108-12" data-line-number="12">(xmin, xmax, ymin, ymax)</a>
-<a class="sourceLine" id="cb108-13" data-line-number="13"><span class="co">#&gt; crs : +proj=utm +zone=20 +south +datum=WGS84</span></a>
-<a class="sourceLine" id="cb108-14" data-line-number="14"><span class="op">+</span>units=m <span class="op">+</span>no_defs <span class="op">+</span>ellps=WGS84 <span class="op">+</span>towgs84=<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span></a>
-<a class="sourceLine" id="cb108-15" data-line-number="15"><span class="co">#&gt; source : memory</span></a>
-<a class="sourceLine" id="cb108-16" data-line-number="16"><span class="co">#&gt; names : elevacion</span></a>
-<a class="sourceLine" id="cb108-17" data-line-number="17"><span class="co">#&gt; values : 38,6, 2746 (min, max)</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">elevacion &lt;-<span class="st"> </span><span class="kw">raster</span>(<span class="st">&quot;datos/elevacion.tif&quot;</span>)
+elevacion &lt;-
+<span class="st">  </span><span class="kw">projectRaster</span>(elevacion, 
+                <span class="dt">crs =</span> <span class="st">&quot;+proj=utm +zone=20 +south </span>
+<span class="st">                +datum=WGS84 +units=m +no_defs&quot;</span>)
+elevacion
+<span class="co">#&gt; class : RasterLayer</span>
+<span class="co">#&gt; dimensions : 2867, 2373, 6803391 (nrow,</span>
+ncol, ncell<span class="er">)</span>
+<span class="co">#&gt; resolution : 196, 231 (x, y)</span>
+<span class="co">#&gt; extent : 195205, 660313, 6099410, 6761687</span>
+(xmin, xmax, ymin, ymax)
+<span class="co">#&gt; crs : +proj=utm +zone=20 +south +datum=WGS84</span>
+<span class="op">+</span>units=m <span class="op">+</span>no_defs <span class="op">+</span>ellps=WGS84 <span class="op">+</span>towgs84=<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>
+<span class="co">#&gt; source : memory</span>
+<span class="co">#&gt; names : elevacion</span>
+<span class="co">#&gt; values : 38,6, 2746 (min, max)</span></code></pre></div>
 <p>Para obtener en los sitios de predicción el valor de la variable del objeto raster, se utiliza la función <code>extract()</code> definiendo como argumento el nombre del objeto raster y el nombre del objeto vectorial que contiene los sitios. Estos valores extraídos se adicionan en una columna llamada <code>elevacion</code> dentro del objeto <code>centroide_pred</code> utilizando el símbolo <code>$</code>.</p>
-<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb109-1" data-line-number="1">centroide_pred<span class="op">$</span>elevacion &lt;-</a>
-<a class="sourceLine" id="cb109-2" data-line-number="2"><span class="st">  </span>raster<span class="op">::</span><span class="kw">extract</span>(elevacion, centroide_pred)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">centroide_pred<span class="op">$</span>elevacion &lt;-
+<span class="st">  </span>raster<span class="op">::</span><span class="kw">extract</span>(elevacion, centroide_pred)</code></pre></div>
 <p>El archivo <strong>twi.tif</strong> contiene valores de un índice topográfico de humedad también generado a partir de datos provenientes de un modelo digital de elevación..</p>
-<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb110-1" data-line-number="1">twi &lt;-<span class="st"> </span><span class="kw">raster</span>(<span class="st">&quot;datos/twi.tif&quot;</span>)</a>
-<a class="sourceLine" id="cb110-2" data-line-number="2">twi &lt;-</a>
-<a class="sourceLine" id="cb110-3" data-line-number="3"><span class="st">  </span><span class="kw">projectRaster</span>(twi, </a>
-<a class="sourceLine" id="cb110-4" data-line-number="4">                <span class="dt">crs =</span> <span class="st">&quot;+proj=utm +zone=20 +south</span></a>
-<a class="sourceLine" id="cb110-5" data-line-number="5"><span class="st">                +datum=WGS84 +units=m +no_defs&quot;</span>)</a>
-<a class="sourceLine" id="cb110-6" data-line-number="6">twi</a>
-<a class="sourceLine" id="cb110-7" data-line-number="7"><span class="co">#&gt; class : RasterLayer</span></a>
-<a class="sourceLine" id="cb110-8" data-line-number="8"><span class="co">#&gt; dimensions : 1438, 1189, 1709782 (nrow,</span></a>
-<a class="sourceLine" id="cb110-9" data-line-number="9">ncol, ncell<span class="er">)</span></a>
-<a class="sourceLine" id="cb110-10" data-line-number="10"><span class="co">#&gt; resolution : 393, 462 (x, y)</span></a>
-<a class="sourceLine" id="cb110-11" data-line-number="11"><span class="co">#&gt; extent : 194023, 661300, 6098486, 6762842</span></a>
-<a class="sourceLine" id="cb110-12" data-line-number="12">(xmin, xmax, ymin, ymax)</a>
-<a class="sourceLine" id="cb110-13" data-line-number="13"><span class="co">#&gt; crs : +proj=utm +zone=20 +south +datum=WGS84</span></a>
-<a class="sourceLine" id="cb110-14" data-line-number="14"><span class="op">+</span>units=m <span class="op">+</span>no_defs <span class="op">+</span>ellps=WGS84 <span class="op">+</span>towgs84=<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span></a>
-<a class="sourceLine" id="cb110-15" data-line-number="15"><span class="co">#&gt; source : memory</span></a>
-<a class="sourceLine" id="cb110-16" data-line-number="16"><span class="co">#&gt; names : twi</span></a>
-<a class="sourceLine" id="cb110-17" data-line-number="17"><span class="co">#&gt; values : 54, 138 (min, max)</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">twi &lt;-<span class="st"> </span><span class="kw">raster</span>(<span class="st">&quot;datos/twi.tif&quot;</span>)
+twi &lt;-
+<span class="st">  </span><span class="kw">projectRaster</span>(twi, 
+                <span class="dt">crs =</span> <span class="st">&quot;+proj=utm +zone=20 +south</span>
+<span class="st">                +datum=WGS84 +units=m +no_defs&quot;</span>)
+twi
+<span class="co">#&gt; class : RasterLayer</span>
+<span class="co">#&gt; dimensions : 1438, 1189, 1709782 (nrow,</span>
+ncol, ncell<span class="er">)</span>
+<span class="co">#&gt; resolution : 393, 462 (x, y)</span>
+<span class="co">#&gt; extent : 194023, 661300, 6098486, 6762842</span>
+(xmin, xmax, ymin, ymax)
+<span class="co">#&gt; crs : +proj=utm +zone=20 +south +datum=WGS84</span>
+<span class="op">+</span>units=m <span class="op">+</span>no_defs <span class="op">+</span>ellps=WGS84 <span class="op">+</span>towgs84=<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>
+<span class="co">#&gt; source : memory</span>
+<span class="co">#&gt; names : twi</span>
+<span class="co">#&gt; values : 54, 138 (min, max)</span></code></pre></div>
 <p>Utilizando la función <code>extract()</code> se extrae los valores de TWI para cada sitio de la grilla de predicción.</p>
-<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb111-1" data-line-number="1">centroide_pred<span class="op">$</span>twi &lt;-</a>
-<a class="sourceLine" id="cb111-2" data-line-number="2"><span class="st">  </span>raster<span class="op">::</span><span class="kw">extract</span>(twi, </a>
-<a class="sourceLine" id="cb111-3" data-line-number="3">                  centroide_pred)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">centroide_pred<span class="op">$</span>twi &lt;-
+<span class="st">  </span>raster<span class="op">::</span><span class="kw">extract</span>(twi, 
+                  centroide_pred)</code></pre></div>
 <p>Se adiciona a la grilla variables procedentes de otras fuentes (SIG de muestreo de suelo). Estos datos se encuentran en los archivos raster llamados <strong>arcilla.tif</strong> y <strong>pH.tif</strong>, respectivamente. Estos raster tienen la misma resolución espacial y extensión, por lo que es posible superponerlos en un mismo objeto mediante la función <code>stack()</code>.</p>
-<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb112-1" data-line-number="1">arcilla &lt;-<span class="st"> </span><span class="kw">raster</span>(<span class="st">&quot;datos/arcilla.tif&quot;</span>)</a>
-<a class="sourceLine" id="cb112-2" data-line-number="2">pH &lt;-<span class="st"> </span><span class="kw">raster</span>(<span class="st">&quot;datos/pH.tif&quot;</span>)</a>
-<a class="sourceLine" id="cb112-3" data-line-number="3">edaf &lt;-<span class="st"> </span><span class="kw">stack</span>(pH, arcilla)</a>
-<a class="sourceLine" id="cb112-4" data-line-number="4"><span class="kw">projection</span>(edaf) &lt;-</a>
-<a class="sourceLine" id="cb112-5" data-line-number="5"><span class="st">  &quot;+proj=utm +zone=20 +south</span></a>
-<a class="sourceLine" id="cb112-6" data-line-number="6"><span class="st">   +datum=WGS84 +units=m +no_defs&quot;</span></a>
-<a class="sourceLine" id="cb112-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb112-8" data-line-number="8"><span class="kw">tm_shape</span>(edaf) <span class="op">+</span></a>
-<a class="sourceLine" id="cb112-9" data-line-number="9"><span class="st">  </span><span class="kw">tm_raster</span>()</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">arcilla &lt;-<span class="st"> </span><span class="kw">raster</span>(<span class="st">&quot;datos/arcilla.tif&quot;</span>)
+pH &lt;-<span class="st"> </span><span class="kw">raster</span>(<span class="st">&quot;datos/pH.tif&quot;</span>)
+edaf &lt;-<span class="st"> </span><span class="kw">stack</span>(pH, arcilla)
+<span class="kw">projection</span>(edaf) &lt;-
+<span class="st">  &quot;+proj=utm +zone=20 +south</span>
+<span class="st">   +datum=WGS84 +units=m +no_defs&quot;</span>
+
+<span class="kw">tm_shape</span>(edaf) <span class="op">+</span>
+<span class="st">  </span><span class="kw">tm_raster</span>()</code></pre></div>
 <p><img src="figuras/figLibro/unnamed-chunk-169-1.png" width="\linewidth" style="display: block; margin: auto;" /></p>
 <p>Se seleccionan los valores de los sitios utilizando la función <code>extract()</code>. Como los valores extraídos mediante la funcion desde un <em>stack</em> de rasters genera un objeto de tipo <code>data.frame</code> con tantas columnas como capas contenga ese raster, se adicionan al objeto <code>centroide_pred</code> mediante la función <code>cbind()</code>, la cual une columnas de igual número de filas. Ahora el objeto <code>cetroide_pred</code> contiene todos los sitios de predicción con las variables auxiliares adicionadas.</p>
-<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb113-1" data-line-number="1">edaf_pred &lt;-<span class="st"> </span>raster<span class="op">::</span><span class="kw">extract</span>(edaf, </a>
-<a class="sourceLine" id="cb113-2" data-line-number="2">                             centroide_pred)</a>
-<a class="sourceLine" id="cb113-3" data-line-number="3">centroide_pred &lt;-<span class="st"> </span><span class="kw">cbind</span>(centroide_pred, </a>
-<a class="sourceLine" id="cb113-4" data-line-number="4">                        edaf_pred)</a>
-<a class="sourceLine" id="cb113-5" data-line-number="5">centroide_pred</a>
-<a class="sourceLine" id="cb113-6" data-line-number="6"><span class="co">#&gt; Simple feature collection with 1668 features</span></a>
-<a class="sourceLine" id="cb113-7" data-line-number="7">and <span class="dv">8</span> fields</a>
-<a class="sourceLine" id="cb113-8" data-line-number="8"><span class="co">#&gt; geometry type: POINT</span></a>
-<a class="sourceLine" id="cb113-9" data-line-number="9"><span class="co">#&gt; dimension: XY</span></a>
-<a class="sourceLine" id="cb113-10" data-line-number="10"><span class="co">#&gt; bbox: xmin: 239000 ymin: 6130000 xmax:</span></a>
-<a class="sourceLine" id="cb113-11" data-line-number="11"><span class="dv">615000</span> ymax<span class="op">:</span><span class="st"> </span><span class="dv">6730000</span></a>
-<a class="sourceLine" id="cb113-12" data-line-number="12"><span class="co">#&gt; epsg (SRID): 32720</span></a>
-<a class="sourceLine" id="cb113-13" data-line-number="13"><span class="co">#&gt; proj4string: </span></a>
-<a class="sourceLine" id="cb113-14" data-line-number="14">    <span class="op">+</span><span class="st"> </span>proj=utm </a>
-<a class="sourceLine" id="cb113-15" data-line-number="15">    <span class="op">+</span><span class="st"> </span>zone=<span class="dv">20</span> </a>
-<a class="sourceLine" id="cb113-16" data-line-number="16">    <span class="op">+</span><span class="st"> </span>south</a>
-<a class="sourceLine" id="cb113-17" data-line-number="17"><span class="op">+</span>datum=WGS84 <span class="op">+</span>units=m <span class="op">+</span>no_defs</a>
-<a class="sourceLine" id="cb113-18" data-line-number="18"><span class="co">#&gt; First 3 features:</span></a>
-<a class="sourceLine" id="cb113-19" data-line-number="19"><span class="co">#&gt; UNION JURISDICCI CAPITAL FUENTE elevacion</span></a>
-<a class="sourceLine" id="cb113-20" data-line-number="20">twi pH arcilla</a>
-<a class="sourceLine" id="cb113-21" data-line-number="21"><span class="co">#&gt; 1 -2,15e+09 CORDOBA CORDOBA IGN 275 118 6,39</span></a>
-<a class="sourceLine" id="cb113-22" data-line-number="22"><span class="dv">8</span>,<span class="dv">21</span></a>
-<a class="sourceLine" id="cb113-23" data-line-number="23"><span class="co">#&gt; geometry</span></a>
-<a class="sourceLine" id="cb113-24" data-line-number="24"><span class="co">#&gt; 1 POINT (310499 6129968)</span></a>
-<a class="sourceLine" id="cb113-25" data-line-number="25"><span class="co">#&gt; [ reached &#39;max&#39;</span></a>
-<a class="sourceLine" id="cb113-26" data-line-number="26">    <span class="op">/</span><span class="st"> </span><span class="kw">getOption</span>(<span class="st">&quot;max.print&quot;</span>) <span class="op">--</span></a>
-<a class="sourceLine" id="cb113-27" data-line-number="27">omitted <span class="dv">2</span> rows ]</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">edaf_pred &lt;-<span class="st"> </span>raster<span class="op">::</span><span class="kw">extract</span>(edaf, 
+                             centroide_pred)
+centroide_pred &lt;-<span class="st"> </span><span class="kw">cbind</span>(centroide_pred, 
+                        edaf_pred)
+centroide_pred
+<span class="co">#&gt; Simple feature collection with 1668 features</span>
+and <span class="dv">8</span> fields
+<span class="co">#&gt; geometry type: POINT</span>
+<span class="co">#&gt; dimension: XY</span>
+<span class="co">#&gt; bbox: xmin: 239000 ymin: 6130000 xmax:</span>
+<span class="dv">615000</span> ymax<span class="op">:</span><span class="st"> </span><span class="dv">6730000</span>
+<span class="co">#&gt; epsg (SRID): 32720</span>
+<span class="co">#&gt; proj4string: </span>
+    <span class="op">+</span><span class="st"> </span>proj=utm 
+    <span class="op">+</span><span class="st"> </span>zone=<span class="dv">20</span> 
+    <span class="op">+</span><span class="st"> </span>south
+<span class="op">+</span>datum=WGS84 <span class="op">+</span>units=m <span class="op">+</span>no_defs
+<span class="co">#&gt; First 3 features:</span>
+<span class="co">#&gt; UNION JURISDICCI CAPITAL FUENTE elevacion</span>
+twi pH arcilla
+<span class="co">#&gt; 1 -2,15e+09 CORDOBA CORDOBA IGN 275 118 6,39</span>
+<span class="dv">8</span>,<span class="dv">21</span>
+<span class="co">#&gt; geometry</span>
+<span class="co">#&gt; 1 POINT (310499 6129968)</span>
+<span class="co">#&gt; [ reached &#39;max&#39;</span>
+    <span class="op">/</span><span class="st"> </span><span class="kw">getOption</span>(<span class="st">&quot;max.print&quot;</span>) <span class="op">--</span>
+omitted <span class="dv">2</span> rows ]</code></pre></div>
 <p>Para identificar la variación de la variable de interés en un plano, se puede usar una escala de colores. La elección de la escala cambia según los colores y los puntos de corte (valores de la variable de interés en los cuales cambia el color). Para definirla algunas opciones automáticamente identifican los valores para categorizar y asignar un color. Por defecto, <code>tmap</code> categoriza los valores en intervalos fijos. Utilizando el argumento <code>style</code>, se puede modificar el método a utilizar. Las opciones <code>style = &quot;order&quot;</code> y <code>style = &quot;cont&quot;</code> permiten representar variables numéricas en un gradiente de color. La opción “order” realiza una escala en función del ranking de los valores, permitiendo una mejor visualización de variables asimétricas. Para la visualización de más de un mapa generado con <code>tmap</code> en un mismo gráfico, se puede utilizar la función <code>tmap_arrange()</code>, utilizando como argumento los mapas que se quieren visualizar. El argumento <code>sync = TRUE</code> permite la visualización interactiva con la navegación (zoom y movimiento) sincronizada en ambos mapas.</p>
-<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb114-1" data-line-number="1">elevTm &lt;-<span class="st"> </span><span class="kw">tm_shape</span>(centroide_pred) <span class="op">+</span></a>
-<a class="sourceLine" id="cb114-2" data-line-number="2"><span class="st">  </span><span class="kw">tm_dots</span>(<span class="st">&quot;elevacion&quot;</span>, <span class="dt">style =</span> <span class="st">&quot;order&quot;</span>)</a>
-<a class="sourceLine" id="cb114-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb114-4" data-line-number="4">twiTm &lt;-<span class="st"> </span><span class="kw">tm_shape</span>(centroide_pred) <span class="op">+</span></a>
-<a class="sourceLine" id="cb114-5" data-line-number="5"><span class="st">  </span><span class="kw">tm_dots</span>(<span class="st">&quot;twi&quot;</span>, <span class="dt">style =</span> <span class="st">&quot;cont&quot;</span>)</a>
-<a class="sourceLine" id="cb114-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb114-7" data-line-number="7">pHTM &lt;-<span class="st"> </span><span class="kw">tm_shape</span>(centroide_pred) <span class="op">+</span></a>
-<a class="sourceLine" id="cb114-8" data-line-number="8"><span class="st">  </span><span class="kw">tm_dots</span>(<span class="st">&quot;pH&quot;</span>, <span class="dt">style =</span> <span class="st">&quot;cont&quot;</span>)</a>
-<a class="sourceLine" id="cb114-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb114-10" data-line-number="10">arcillaTm &lt;-<span class="st"> </span><span class="kw">tm_shape</span>(centroide_pred) <span class="op">+</span></a>
-<a class="sourceLine" id="cb114-11" data-line-number="11"><span class="st">  </span><span class="kw">tm_dots</span>(<span class="st">&quot;arcilla&quot;</span>, <span class="dt">style =</span> <span class="st">&quot;cont&quot;</span>)</a>
-<a class="sourceLine" id="cb114-12" data-line-number="12"></a>
-<a class="sourceLine" id="cb114-13" data-line-number="13"><span class="kw">tmap_arrange</span>(elevTm, twiTm, pHTM, arcillaTm, </a>
-<a class="sourceLine" id="cb114-14" data-line-number="14">             <span class="dt">ncol =</span> <span class="dv">2</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">elevTm &lt;-<span class="st"> </span><span class="kw">tm_shape</span>(centroide_pred) <span class="op">+</span>
+<span class="st">  </span><span class="kw">tm_dots</span>(<span class="st">&quot;elevacion&quot;</span>, <span class="dt">style =</span> <span class="st">&quot;order&quot;</span>)
+
+twiTm &lt;-<span class="st"> </span><span class="kw">tm_shape</span>(centroide_pred) <span class="op">+</span>
+<span class="st">  </span><span class="kw">tm_dots</span>(<span class="st">&quot;twi&quot;</span>, <span class="dt">style =</span> <span class="st">&quot;cont&quot;</span>)
+
+pHTM &lt;-<span class="st"> </span><span class="kw">tm_shape</span>(centroide_pred) <span class="op">+</span>
+<span class="st">  </span><span class="kw">tm_dots</span>(<span class="st">&quot;pH&quot;</span>, <span class="dt">style =</span> <span class="st">&quot;cont&quot;</span>)
+
+arcillaTm &lt;-<span class="st"> </span><span class="kw">tm_shape</span>(centroide_pred) <span class="op">+</span>
+<span class="st">  </span><span class="kw">tm_dots</span>(<span class="st">&quot;arcilla&quot;</span>, <span class="dt">style =</span> <span class="st">&quot;cont&quot;</span>)
+
+<span class="kw">tmap_arrange</span>(elevTm, twiTm, pHTM, arcillaTm, 
+             <span class="dt">ncol =</span> <span class="dv">2</span>)</code></pre></div>
 <p><img src="figuras/figLibro/unnamed-chunk-171-1.png" width="\linewidth" style="display: block; margin: auto;" /></p>
 </div>
 </div>
@@ -529,7 +504,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "true";
+    var src = "";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))

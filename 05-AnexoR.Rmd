@@ -1,6 +1,7 @@
+
 \cleardoublepage 
 
-# (APPENDIX) Introducción a R {-}
+#(APPENDIX) Introduccion a R {-}
 
 \setcounter{chapter}{0}
 
@@ -11,7 +12,7 @@ R [@R_Core_Team_2019] es un lenguaje de programación orientado a objetos [@Ihak
 
 ## Introducción al manejo de datos espaciales con R
 
-Numerosos paquetes para el manejo de datos espaciales se encuentran en repositorios digitales de R, ejemplos de ellos son `geoR`, `sp`, `gstat`, `rgdal`, `spdep`, `sf`, `stars` y `raster.` En los últimos años se han desarrollado paquetes especializados como `ggplot2`, `leaflet` y `tmap` que incrementaron considerablemente las capacidades para elaboración de gráficos y mapas, tanto estáticos como interactivos. La sintaxis de estos paquetes usa distintos niveles de información, *i.e.* individualmente se especifica cada nivel del gráfico y luego éstos se combinan para obtener el gráfico completo. Ejemplos de estos niveles son los datos, la estética, los objetos geométricos, las escalas, las particiones, entre otros. Es posible el análisis de datos espaciales utilizando R, sin necesidad de usar un software GIS.
+Numerosos paquetes para el manejo de datos espaciales se encuentran en repositorios digitales de R, ejemplos de ellos son `geoR`, `sp`, `gstat`, `rgdal`, `spdep`, `sf`, `stars` y `raster`. En los últimos años se han desarrollado paquetes especializados como `ggplot2`, `leaflet` y `tmap` que incrementaron considerablemente las capacidades para elaboración de gráficos y mapas, tanto estáticos como interactivos. La sintaxis de estos paquetes usa distintos niveles de información, *i.e.* individualmente se especifica cada nivel del gráfico y luego éstos se combinan para obtener el gráfico completo. Ejemplos de estos niveles son los datos, la estética, los objetos geométricos, las escalas, las particiones, entre otros. Es posible el análisis de datos espaciales utilizando R, sin necesidad de usar un software GIS.
 
 ## Intérprete de R en InfoStat
 
@@ -30,5 +31,3 @@ La interfaz de RStudio se divide en cuatro paneles, a su vez, cada panel puede c
 ```{r IDERStudio, purl=FALSE, echo=FALSE}
 knitr::include_graphics("figuras/IDERstudio.png")
 ```
-
-
