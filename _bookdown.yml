@@ -1,4 +1,5 @@
 book_filename: "PROTRI2018-VariabilidadEspacial"
+output_dir: "docs"
 #new_session: yes
 before_chapter_script: ["codigos/before_script.R"]
 delete_merged_file: true

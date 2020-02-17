@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Sección 4 Predicción con múltiples capas de datos | Guía para el análisis de datos espaciales. Aplicaciones en agricultura</title>
+  <meta name="description" content="DISEMINACIÓN CIENTÍFICA Y TRASNFERENCIA DE RESULTADOS DE INVESTIGACIÓN, PROMOVIDAS POR EL MINISTERIO DE CIENCIA Y TECNOLOGÍA DE LA PROVINCIA DE CÓRDOBA." />
+  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Sección 4 Predicción con múltiples capas de datos | Guía para el análisis de datos espaciales. Aplicaciones en agricultura" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="DISEMINACIÓN CIENTÍFICA Y TRASNFERENCIA DE RESULTADOS DE INVESTIGACIÓN, PROMOVIDAS POR EL MINISTERIO DE CIENCIA Y TECNOLOGÍA DE LA PROVINCIA DE CÓRDOBA." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Sección 4 Predicción con múltiples capas de datos | Guía para el análisis de datos espaciales. Aplicaciones en agricultura" />
+  
+  <meta name="twitter:description" content="DISEMINACIÓN CIENTÍFICA Y TRASNFERENCIA DE RESULTADOS DE INVESTIGACIÓN, PROMOVIDAS POR EL MINISTERIO DE CIENCIA Y TECNOLOGÍA DE LA PROVINCIA DE CÓRDOBA." />
+  
+
+<meta name="author" content="Mariano Córdoba" />
+<meta name="author" content="Pablo Paccioretti" />
+<meta name="author" content="Franca Giannini Kurina" />
+<meta name="author" content="Cecilia Bruno" />
+<meta name="author" content="Mónica Balzarini" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="caracterización-de-variabilidad-espacial-con-múltiples-capas-de-datos.html"/>
+<link rel="next" href="implementación-con-r.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-154490537-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="stylesheet" href="css/toc2.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Guía para el análisis de datos espaciales en agricultura</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prólogo</a></li>
+<li class="part"><span><b>I Aproximaciones metodológicas</b></span></li>
+<li class="chapter" data-level="1" data-path="manejo-de-datos-espaciales.html"><a href="manejo-de-datos-espaciales.html"><i class="fa fa-check"></i><b>1</b> Manejo de datos espaciales</a><ul>
+<li class="chapter" data-level="1.1" data-path="manejo-de-datos-espaciales.html"><a href="manejo-de-datos-espaciales.html#transformación-y-conversión-de-coordenadas"><i class="fa fa-check"></i><b>1.1</b> Transformación y conversión de coordenadas</a></li>
+<li class="chapter" data-level="1.2" data-path="manejo-de-datos-espaciales.html"><a href="manejo-de-datos-espaciales.html#manipulación-de-múltiples-capas-de-datos"><i class="fa fa-check"></i><b>1.2</b> Manipulación de múltiples capas de datos</a></li>
+<li class="chapter" data-level="1.3" data-path="manejo-de-datos-espaciales.html"><a href="manejo-de-datos-espaciales.html#depuración-de-datos"><i class="fa fa-check"></i><b>1.3</b> Depuración de datos</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="caracterización-de-variabilidad-espacial.html"><a href="caracterización-de-variabilidad-espacial.html"><i class="fa fa-check"></i><b>2</b> Caracterización de variabilidad espacial</a><ul>
+<li class="chapter" data-level="2.1" data-path="caracterización-de-variabilidad-espacial.html"><a href="caracterización-de-variabilidad-espacial.html#semivariogramas"><i class="fa fa-check"></i><b>2.1</b> Semivariogramas</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="caracterización-de-variabilidad-espacial.html"><a href="caracterización-de-variabilidad-espacial.html#ajuste-de-semivariogramas"><i class="fa fa-check"></i><b>2.1.1</b> Ajuste de semivariogramas</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="caracterización-de-variabilidad-espacial.html"><a href="caracterización-de-variabilidad-espacial.html#correlación-espacial-bivariada"><i class="fa fa-check"></i><b>2.2</b> Correlación espacial bivariada</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="caracterización-de-variabilidad-espacial.html"><a href="caracterización-de-variabilidad-espacial.html#coeficiente-de-correlación"><i class="fa fa-check"></i><b>2.2.1</b> Coeficiente de correlación</a></li>
+<li class="chapter" data-level="2.2.2" data-path="caracterización-de-variabilidad-espacial.html"><a href="caracterización-de-variabilidad-espacial.html#coeficiente-de-co-dispersión"><i class="fa fa-check"></i><b>2.2.2</b> Coeficiente de co-dispersión</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="caracterización-de-variabilidad-espacial.html"><a href="caracterización-de-variabilidad-espacial.html#interpolación-kriging"><i class="fa fa-check"></i><b>2.3</b> Interpolación Kriging</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="caracterización-de-variabilidad-espacial.html"><a href="caracterización-de-variabilidad-espacial.html#kriging-ordinario"><i class="fa fa-check"></i><b>2.3.1</b> Kriging ordinario</a></li>
+<li class="chapter" data-level="2.3.2" data-path="caracterización-de-variabilidad-espacial.html"><a href="caracterización-de-variabilidad-espacial.html#kriging-en-bloques"><i class="fa fa-check"></i><b>2.3.2</b> Kriging en bloques</a></li>
+<li class="chapter" data-level="2.3.3" data-path="caracterización-de-variabilidad-espacial.html"><a href="caracterización-de-variabilidad-espacial.html#kriging-local"><i class="fa fa-check"></i><b>2.3.3</b> Kriging local</a></li>
+<li class="chapter" data-level="2.3.4" data-path="caracterización-de-variabilidad-espacial.html"><a href="caracterización-de-variabilidad-espacial.html#kriging-universal"><i class="fa fa-check"></i><b>2.3.4</b> Kriging universal</a></li>
+<li class="chapter" data-level="2.3.5" data-path="caracterización-de-variabilidad-espacial.html"><a href="caracterización-de-variabilidad-espacial.html#validación-cruzada"><i class="fa fa-check"></i><b>2.3.5</b> Validación cruzada</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="caracterización-de-variabilidad-espacial-con-múltiples-capas-de-datos.html"><a href="caracterización-de-variabilidad-espacial-con-múltiples-capas-de-datos.html"><i class="fa fa-check"></i><b>3</b> Caracterización de variabilidad espacial con múltiples capas de datos</a><ul>
+<li class="chapter" data-level="3.1" data-path="caracterización-de-variabilidad-espacial-con-múltiples-capas-de-datos.html"><a href="caracterización-de-variabilidad-espacial-con-múltiples-capas-de-datos.html#análisis-de-componentes-principales"><i class="fa fa-check"></i><b>3.1</b> Análisis de componentes principales</a></li>
+<li class="chapter" data-level="3.2" data-path="caracterización-de-variabilidad-espacial-con-múltiples-capas-de-datos.html"><a href="caracterización-de-variabilidad-espacial-con-múltiples-capas-de-datos.html#análisis-de-conglomerados"><i class="fa fa-check"></i><b>3.2</b> Análisis de conglomerados</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="predicción-con-múltiples-capas-de-datos.html"><a href="predicción-con-múltiples-capas-de-datos.html"><i class="fa fa-check"></i><b>4</b> Predicción con múltiples capas de datos</a><ul>
+<li class="chapter" data-level="4.1" data-path="predicción-con-múltiples-capas-de-datos.html"><a href="predicción-con-múltiples-capas-de-datos.html#regresión-con-errores-correlacionados-espacialmente-vía-reml"><i class="fa fa-check"></i><b>4.1</b> Regresión con errores correlacionados espacialmente vía REML</a></li>
+<li class="chapter" data-level="4.2" data-path="predicción-con-múltiples-capas-de-datos.html"><a href="predicción-con-múltiples-capas-de-datos.html#regresión-con-efectos-aleatorios-de-sitio-vía-inla"><i class="fa fa-check"></i><b>4.2</b> Regresión con efectos aleatorios de sitio vía INLA</a></li>
+<li class="chapter" data-level="4.3" data-path="predicción-con-múltiples-capas-de-datos.html"><a href="predicción-con-múltiples-capas-de-datos.html#regresión-vía-modelos-basados-en-árbol"><i class="fa fa-check"></i><b>4.3</b> Regresión vía modelos basados en árbol</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="predicción-con-múltiples-capas-de-datos.html"><a href="predicción-con-múltiples-capas-de-datos.html#bosques-aleatorios"><i class="fa fa-check"></i><b>4.3.1</b> Bosques aleatorios</a></li>
+<li class="chapter" data-level="4.3.2" data-path="predicción-con-múltiples-capas-de-datos.html"><a href="predicción-con-múltiples-capas-de-datos.html#árboles-de-regresión-generalizados"><i class="fa fa-check"></i><b>4.3.2</b> Árboles de regresión generalizados</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II Análisis de datos a escala fina</b></span></li>
+<li class="chapter" data-level="5" data-path="implementación-con-r.html"><a href="implementación-con-r.html"><i class="fa fa-check"></i><b>5</b> Implementación con R</a><ul>
+<li class="chapter" data-level="5.1" data-path="implementación-con-r.html"><a href="implementación-con-r.html#conversión-de-coordenadas-espaciales"><i class="fa fa-check"></i><b>5.1</b> Conversión de coordenadas espaciales</a></li>
+<li class="chapter" data-level="5.2" data-path="implementación-con-r.html"><a href="implementación-con-r.html#eliminación-de-outliers-e-inliers"><i class="fa fa-check"></i><b>5.2</b> Eliminación de <em>outliers</em> e <em>inliers</em></a></li>
+<li class="chapter" data-level="5.3" data-path="implementación-con-r.html"><a href="implementación-con-r.html#detección-de-tendencias-espaciales"><i class="fa fa-check"></i><b>5.3</b> Detección de tendencias espaciales</a></li>
+<li class="chapter" data-level="5.4" data-path="implementación-con-r.html"><a href="implementación-con-r.html#cálculo-del-índice-de-moran"><i class="fa fa-check"></i><b>5.4</b> Cálculo del índice de Moran</a></li>
+<li class="chapter" data-level="5.5" data-path="implementación-con-r.html"><a href="implementación-con-r.html#análisis-basado-en-semivariogramas"><i class="fa fa-check"></i><b>5.5</b> Análisis basado en semivariogramas</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="implementación-con-r.html"><a href="implementación-con-r.html#mapeo-de-la-variabilidad-espacial"><i class="fa fa-check"></i><b>5.5.1</b> Mapeo de la variabilidad espacial</a></li>
+<li class="chapter" data-level="5.5.2" data-path="implementación-con-r.html"><a href="implementación-con-r.html#validación-cruzada-1"><i class="fa fa-check"></i><b>5.5.2</b> Validación cruzada</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="implementación-con-r.html"><a href="implementación-con-r.html#caracterización-de-variabilidad-espacial-con-múltiples-capas-de-datos-1"><i class="fa fa-check"></i><b>5.6</b> Caracterización de variabilidad espacial con múltiples capas de datos</a><ul>
+<li class="chapter" data-level="5.6.1" data-path="implementación-con-r.html"><a href="implementación-con-r.html#análisis-de-componentes-principales-1"><i class="fa fa-check"></i><b>5.6.1</b> Análisis de componentes principales</a></li>
+<li class="chapter" data-level="5.6.2" data-path="implementación-con-r.html"><a href="implementación-con-r.html#análisis-de-conglomerados-1"><i class="fa fa-check"></i><b>5.6.2</b> Análisis de conglomerados</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="implementación-con-r.html"><a href="implementación-con-r.html#predicción-con-múltiples-capas-de-datos-1"><i class="fa fa-check"></i><b>5.7</b> Predicción con múltiples capas de datos</a><ul>
+<li class="chapter" data-level="5.7.1" data-path="implementación-con-r.html"><a href="implementación-con-r.html#kriging-con-deriva-externa"><i class="fa fa-check"></i><b>5.7.1</b> Kriging con deriva externa</a></li>
+<li class="chapter" data-level="5.7.2" data-path="implementación-con-r.html"><a href="implementación-con-r.html#kriging-desde-modelo-de-regresión"><i class="fa fa-check"></i><b>5.7.2</b> Kriging desde modelo de regresión</a></li>
+<li class="chapter" data-level="5.7.3" data-path="implementación-con-r.html"><a href="implementación-con-r.html#árboles-aleatorios"><i class="fa fa-check"></i><b>5.7.3</b> Árboles aleatorios</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html"><i class="fa fa-check"></i><b>6</b> Implementación con InfoStat</a><ul>
+<li class="chapter" data-level="6.1" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html#conversión-de-coordenadas-espaciales-1"><i class="fa fa-check"></i><b>6.1</b> Conversión de coordenadas espaciales</a></li>
+<li class="chapter" data-level="6.2" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html#eliminación-de-outliers-e-inliers-1"><i class="fa fa-check"></i><b>6.2</b> Eliminación de <em>outliers</em> e <em>inliers</em></a></li>
+<li class="chapter" data-level="6.3" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html#detección-de-tendencias-espaciales-1"><i class="fa fa-check"></i><b>6.3</b> Detección de tendencias espaciales</a></li>
+<li class="chapter" data-level="6.4" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html#cálculo-del-índice-de-moran-1"><i class="fa fa-check"></i><b>6.4</b> Cálculo del índice de Moran</a></li>
+<li class="chapter" data-level="6.5" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html#análisis-basado-en-semivariogramas-1"><i class="fa fa-check"></i><b>6.5</b> Análisis basado en semivariogramas</a><ul>
+<li class="chapter" data-level="6.5.1" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html#mapeo-de-variabilidad-espacial"><i class="fa fa-check"></i><b>6.5.1</b> Mapeo de variabilidad espacial</a></li>
+<li class="chapter" data-level="6.5.2" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html#validación-cruzada-2"><i class="fa fa-check"></i><b>6.5.2</b> Validación cruzada</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html#caracterización-de-variabilidad-espacial-con-múltiples-capas-de-datos-2"><i class="fa fa-check"></i><b>6.6</b> Caracterización de variabilidad espacial con múltiples capas de datos</a><ul>
+<li class="chapter" data-level="6.6.1" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html#análisis-de-componentes-principales-2"><i class="fa fa-check"></i><b>6.6.1</b> Análisis de componentes principales</a></li>
+<li class="chapter" data-level="6.6.2" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html#análisis-de-conglomerados-2"><i class="fa fa-check"></i><b>6.6.2</b> Análisis de conglomerados</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html#predicción-con-múltiples-capas-de-datos-2"><i class="fa fa-check"></i><b>6.7</b> Predicción con múltiples capas de datos</a><ul>
+<li class="chapter" data-level="6.7.1" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html#kriging-con-deriva-externa-1"><i class="fa fa-check"></i><b>6.7.1</b> Kriging con deriva externa</a></li>
+<li class="chapter" data-level="6.7.2" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html#kriging-desde-modelo-de-regresión-1"><i class="fa fa-check"></i><b>6.7.2</b> Kriging desde modelo de regresión</a></li>
+<li class="chapter" data-level="6.7.3" data-path="implementación-con-infostat.html"><a href="implementación-con-infostat.html#árboles-aleatorios-1"><i class="fa fa-check"></i><b>6.7.3</b> Árboles aleatorios</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>III Análisis de datos a escala regional</b></span></li>
+<li class="chapter" data-level="7" data-path="bases-de-datos-regionales.html"><a href="bases-de-datos-regionales.html"><i class="fa fa-check"></i><b>7</b> Bases de datos regionales</a><ul>
+<li class="chapter" data-level="7.1" data-path="bases-de-datos-regionales.html"><a href="bases-de-datos-regionales.html#manejo-de-datos-espaciales-1"><i class="fa fa-check"></i><b>7.1</b> Manejo de datos espaciales</a></li>
+<li class="chapter" data-level="7.2" data-path="bases-de-datos-regionales.html"><a href="bases-de-datos-regionales.html#confección-de-grillas-de-predicción"><i class="fa fa-check"></i><b>7.2</b> Confección de grillas de predicción</a></li>
+<li class="chapter" data-level="7.3" data-path="bases-de-datos-regionales.html"><a href="bases-de-datos-regionales.html#agregado-de-capas-de-información"><i class="fa fa-check"></i><b>7.3</b> Agregado de capas de información</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="predicción-con-múltiples-capas-de-datos-3.html"><a href="predicción-con-múltiples-capas-de-datos-3.html"><i class="fa fa-check"></i><b>8</b> Predicción con múltiples capas de datos</a><ul>
+<li class="chapter" data-level="8.1" data-path="predicción-con-múltiples-capas-de-datos-3.html"><a href="predicción-con-múltiples-capas-de-datos-3.html#regresión-con-errores-correlacionados-espacialmente-vía-reml-1"><i class="fa fa-check"></i><b>8.1</b> Regresión con errores correlacionados espacialmente vía REML</a></li>
+<li class="chapter" data-level="8.2" data-path="predicción-con-múltiples-capas-de-datos-3.html"><a href="predicción-con-múltiples-capas-de-datos-3.html#regresión-con-efectos-aleatorios-de-sitio-vía-inla-1"><i class="fa fa-check"></i><b>8.2</b> Regresión con efectos aleatorios de sitio vía INLA</a></li>
+<li class="chapter" data-level="8.3" data-path="predicción-con-múltiples-capas-de-datos-3.html"><a href="predicción-con-múltiples-capas-de-datos-3.html#regresión-vía-modelos-basados-en-árbol-1"><i class="fa fa-check"></i><b>8.3</b> Regresión vía modelos basados en árbol</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="herramientas-de-software.html"><a href="herramientas-de-software.html"><i class="fa fa-check"></i><b>9</b> Herramientas de software</a><ul>
+<li class="chapter" data-level="9.1" data-path="herramientas-de-software.html"><a href="herramientas-de-software.html#introducción-al-manejo-de-datos-espaciales-con-r"><i class="fa fa-check"></i><b>9.1</b> Introducción al manejo de datos espaciales con R</a></li>
+<li class="chapter" data-level="9.2" data-path="herramientas-de-software.html"><a href="herramientas-de-software.html#intérprete-de-r-en-infostat"><i class="fa fa-check"></i><b>9.2</b> Intérprete de R en InfoStat</a></li>
+<li class="chapter" data-level="9.3" data-path="herramientas-de-software.html"><a href="herramientas-de-software.html#rstudio"><i class="fa fa-check"></i><b>9.3</b> RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="referencias.html"><a href="referencias.html"><i class="fa fa-check"></i>Referencias</a></li>
+<li class="divider"></li>
+<li><a href="https://www.agro.unc.edu.ar/~estadisticaaplicada" target="blank">Estadística Aplicada</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Guía para el análisis de datos espaciales. Aplicaciones en agricultura</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="predicción-con-múltiples-capas-de-datos" class="section level1">
+<h1><span class="header-section-number">Sección 4</span> Predicción con múltiples capas de datos</h1>
+<p>La predicción del valor de una variable en un sitio no observado, realizada por interpolación kriging local, se alimenta de datos de la misma variable que se quiere predecir, pero obtenidos en sitios del vecindario de aquel para el que se requiere la predicción. Aún cuando la predicción pueda ser óptima, resulta informativo conocer el impacto de otras variables (variables secundarias, auxiliares o explicativas) sobre la predicción.</p>
+<p>El método conocido como regresión kriging <span class="citation">(Hengl, Heuvelink, and Rossiter <a href="#ref-Hengl_Heuvelink_Rossiter_2007">2007</a>)</span> permite predecir o interpolar los valores de una variable en sitios no muestreados que se encuentran entre los sitios con observaciones a partir de capas de datos secundarios que actúan como variables predictoras. La incorporación de covariables de sitio puede mejor sustancialmente la predicción de una variable respuesta espacializada. Para tal fin es necesario el ajuste de un modelo de regresión múltiple que describe la relación entre la variable observada y las capas de variables predictoras. Luego de ajustar la regresión, se obtienen los residuos (diferencia entre valor observado y valor predicho por el modelo a partir de las variables secundarias) y se realiza una interpolación kriging sobre los residuos para contemplar la espacialidad que no se encuentra relacionada con las capas de información usadas en el ajuste previo. Finalmente, los resultados del ajuste de regresión y de la interpolación kriging son combinados para producir la predicción.</p>
+<p>Matemáticamente, esta interpolación es equivalente a la que hemos llamado kriging universal, ya que allí se realiza un ajuste de la variable de interés y las coordenadas espaciales (un tipo de variable auxiliar) cuyo impacto es descontado antes de realizar la interpolación espacial. Kriging desde modelo de regresión es también equivalente matemáticamente al método de interpolación conocido como kriging con deriva externa donde múltiples variables auxiliares son usadas como predictoras (covariables de sitio que son externas o distintas a las coordenadas espaciales) e intervienen directamente para resolver los pesos de la interpolación espacial.</p>
+<p>La predicción sitio-especifica de una variable respuesta en función de covariables de sitio puede realizarse también desde el marco teórico de los modelos lineales mixtos de covarianza residual <span class="citation">(Balzarini, Macchiavelli, and Casanoves <a href="#ref-Balzarini_Macchiavelli_Casanoves_2004">2004</a>)</span>. Es decir, ajustando un único modelo, donde la componente determinística es un modelo de regresión lineal múltiple que relaciona la respuesta con las covariables de sitio y las componentes sistemáticas (patrón espacial) y estocástica (variación sin estructura) de la variación espacial son expresadas conjuntamente en la matriz de varianza y covarianza de los términos de error (matriz de covarianza residual). Bajo este marco teórico, se utiliza máximo verosimilitud restringida o REML <span class="citation">(Patterson and Thompson <a href="#ref-Patterson_Thompson_1971">1971</a>)</span> para estimar el modelo predictivo. El modelo relaciona la variable de interés para el estudio de variación espacial con las variables explicativas también distribuidas espacialmente y contemple la dependencia espacial en las observaciones de la variable a predecir incorporando en la matriz de covarianza residual covariaciones derivadas de una función basada en la distancia que separa dichas observaciones en el espacio.</p>
+<p>La construcción de un modelo predictivo para datos espaciales también puede realizarse desde un marco teórico Bayesiano, donde sistemática relacionada con la media de la respuesta sigue siendo el modelo de regresión lineal múltiple, pero se incorporan parámetros aleatorios de sitio para modelar la componente sistemática de los datos espaciales, los cuales se predicen independientemente de la componente de error. Trabajar el efecto de sitio como aleatorio, junto a la suposición de procesos espaciales locales, ha permitido eficientizar la estimación en un único paso de modelos para datos espaciales. Bajo el marco teórico bayesiano y el supuesto de campo aleatorio gaussiano markoviano para el proceso espacial, la estimación por aproximación de Laplace anidada conocida como INLA (del término en inglés <em>Integrated Nested Laplace Aproximation</em>) es uno de los métodos elegidos para ajustar el modelo espacial <span class="citation">(Rue, Martino, and Chopin <a href="#ref-Rue_Martino_Chopin_2009">2009</a>)</span>.</p>
+<p>Alternativamente, la construcción del modelo predictivo espacial puede realizarse mediante métodos de aprendizaje automático, también bajo el concepto de ajustar un modelo para la componente determinística, obtener los residuos y modelar el proceso espacial en los residuos para finalmente combinar ambos resultados <span class="citation">(Li et al. <a href="#ref-Li_Heap_Potter_Daniell_2011">2011</a>)</span>. Los modelos basados en árboles de regresión <span class="citation">(Breiman et al. <a href="#ref-Breiman_Friedman_Olshen_Stone_2017">2017</a>)</span> son particularmente útiles para abordar la primera etapa, aquella donde la variable respuesta es relacionado con las múltiples covariables que definen capas de información espacial.</p>
+<p>Cualquiera sea la aproximación usada en la construcción del modelo para realizar la predicción espacial y posterior mapeo de la variable respuesta, para lograr buenos resultados se requiere hacer uso del criterio experto en la disciplina, realizar un adecuado preprocesamiento de los datos, identificar los predictores influyentes y validar el modelo estimado <span class="citation">(Kuhn and Johnson <a href="#ref-Kuhn_Johnson_2013">2013</a>)</span>.</p>
+<p>La validación cruzada es una técnica de amplio uso para evaluar el desempeño de modelos predictivos con múltiples capas de información. La forma más adecuada de muestrear para dividir el conjunto de datos en estudio y los criterios de validación es discutida <span class="citation">(Brenning <a href="#ref-Brenning_2012">2012</a>; Efron and Tibshirani <a href="#ref-Efron_Tibshirani_1997">1997</a>)</span>, pero como regla general se puede establecer que en cuanto menor es la proporción de datos que conforma el subconjunto de validación, menor capacidad de extrapolación tendrá el modelo ajustado y que éste no puede crecer indefinidamente ya que también se requiere buen tamaño del subconjunto de calibración para ajustar un buen modelo. El compromiso se relaja a medida que la base de datos observados es de mayor tamaño.</p>
+<p>Una medida comúnmente usada en la evaluación de modelos de regresión lineal estimados por mínimos cuadrados es el <span class="math inline">\(R^2\)</span> o coeficiente de determinación. Éste expresa la bondad del ajuste del modelo respecto a los datos observados más que la capacidad predictiva que interesa evaluar cuando el modelo es usado como predictor. Otras medidas de bondad de ajuste, como los criterios de información de Akaike y BIC usados para evaluar modelos lineales de covarianza residual estimados por métodos basados en la verosimilitud o DIC usado en contextos de ajustes de modelos bayesianos, permite calificar el ajuste del modelo a los datos observados, pero no su desempeño para predecir observaciones no realizadas. La validación cruzada es, por el contrario, una estrategia transversal a distintas aproximaciones metodológicas o marcos teóricos que provee información de la capacidad predictiva del modelo, y por tanto una medida de cómo podría funcionar en la interpolación espacial. No obstante, es de resaltar que un buen modelo predictivo debería representar también un buen ajuste de los datos de entrenamiento, y por ello métricas comunes de bondad de ajuste suelen ser usadas para una primera selección de modelos predictivos.</p>
+<div id="regresión-con-errores-correlacionados-espacialmente-vía-reml" class="section level2">
+<h2><span class="header-section-number">4.1</span> Regresión con errores correlacionados espacialmente vía REML</h2>
+<p>Se asume una relación lineal determinística entre la variable respuesta y las covariables espacializadas que se modela a través de coeficientes de regresión, y el proceso espacial subyacente en los datos se modela sobre los términos de error del modelo. Éstos, en lugar de considerarse independientes como en aproximaciones estadísticas clásicas, se suponen espacialmente correlacionados, <em>i.e.</em> con correlaciones entre pares de términos de error expresadas como función de la distancia que separa los sitios desde los que se obtuvieron las observaciones. La varianza residual del modelo mide la variabilidad no estructurada espacialmente y caracteriza la componente estocástica del modelo. Se ajusta un modelo directamente a los datos, y no a las semivarianzas como en la geoestadística clásica. La estructura de covariación espacial se define en función de la distancia entre las observaciones al igual que en la geoestadística, pero se estima simultáneamente con los parámetros del modelo de regresión, <em>i.e.</em> los coeficientes de regresión que interpretan como pendientes o cambios en la respuesta por unidad de cambio de la covariable de sitio.</p>
+<p>El modelo de regresión lineal múltiple con errores correlacionados espacialmente para una variable <span class="math inline">\(Y\)</span> asume la siguiente distribución para la <em>i-ésima</em> observación:</p>
+<p><span class="math display">\[Y_i\sim N \big(E(Y),V(Y) \big)\]</span></p>
+<p><span class="math display">\[Y_i=\beta_0+\sum_{j=1}^{p}{x_{ij}\beta_j}+\varepsilon_i\]</span></p>
+<p><span class="math display">\[\varepsilon(s_i)\sim N(0,\sigma^2)\]</span></p>
+<p><span class="math display">\[Cov(\varepsilon_i,\varepsilon_j)=\left\{\ \begin{array}{lcc}
+\sigma_s^2+\sigma_e^2\ &amp;\ si\ &amp;\ i=j
+\\\sigma_e^2\ f(d_{ij})\ &amp;\ si\ &amp;\ i\ \neq\ j
+\end{array}
+\right.\]</span></p>
+<p>donde <span class="math inline">\(\beta_0\)</span> es el intercepto; <span class="math inline">\(\beta_j\)</span> es el vector de efectos fijos para las variables regresoras <span class="math inline">\(x_j\)</span>; <span class="math inline">\(x_{ij}\)</span> la valuación de la covariable <span class="math inline">\(x_j\)</span> en el sitio <span class="math inline">\(i\)</span> y <span class="math inline">\(\varepsilon_i\)</span> es el término de error que se asume distribuido Normal con media 0 y varianza <span class="math inline">\(\sigma^2\)</span>. <span class="math inline">\(Cov(\varepsilon_i,\varepsilon_j)\)</span> es la covarianza de los errores de los sitios <span class="math inline">\(i\)</span> y <span class="math inline">\(j\)</span> determinada a partir de una función de covarianza espacial dependiente de la distancia <span class="math inline">\(d_{ij}\)</span> entre observaciones.</p>
+<p>La estimación REML es la elegida ya que ha demostrado que reduce el sesgo en las estimaciones de los parámetros de covarianza <span class="citation">(Morrell <a href="#ref-Morrell_1998">1998</a>)</span>. Si el proceso de ajuste se realiza en etapas, se recomienda postular un modelo saturado o con máximo número de covariables en primera instancia y sobre los residuos de este modelo, vía REML, estimar las varianzas y covarianzas en los datos. Seleccionado el modelo para la matriz de covarianza residual, se intentará reducir la componente determinística y en este momento, cuando se evalúan los coeficientes de regresión con un modelo de varianza-covarianza adecuado, se pude utilizar estimaciones máximum likelihood clásica (ML). El método de REML, ajusta los grados de libertad de los efectos fijos (estructura de medias) antes de estimar los componentes de varianza y por ello es preferido a ML al momento de identificar la matriz de covarianza residual más apropiada para modelar los términos de error. La correlación espacial en los errores podría explicarse con una función de correlación espacial exponencial, gaussiana, esférica o lineal, entre otras. Ellas expresan como la correlación entre dos observaciones decae con la interdistancia (usualmente Euclídea) entre los sitios desde los cuales se obtienen y consecuentemente la selección de un modelo de correlación espacial es equivalente a la selección de un modelo teórico para el ajuste de un semivariograma experimental de la geoestadística clásica. Los modelos de correlación espacial pueden contener o no el efecto nugget, <em>i.e.</em> una estimación de la varianza a una escala más fina que la de la grilla entre observaciones. Finalmente, el modelo para la matriz de covarianza residual puede ser homocedástico (<em>i.e.</em> con varianza residual única) o heterocedástico (<em>i.e.</em> con varianza residual diferente para distintos subgrupos de datos). Comúnmente se evalúan varios modelos alternativos para la matriz de covarianza residual y se selecciona aquel para cual el ajuste del modelo tenga un menor valor para los criterios de información penalizada como AIC y BIC.</p>
+</div>
+<div id="regresión-con-efectos-aleatorios-de-sitio-vía-inla" class="section level2">
+<h2><span class="header-section-number">4.2</span> Regresión con efectos aleatorios de sitio vía INLA</h2>
+<p>Los modelos lineales de covarianza residual pueden no ser eficientes para modelar procesos espaciales continuos que involucran matriz de covarianzas grandes y densas, por ejemplo, el modelado de correlaciones espaciales en un conjunto de datos con más de 10000 observaciones es computacionalmente intensivo y podría no ser logrado en computadores de escritorio actuales. Nuevas implementaciones de la regresión lineal múltiple para datos espaciales, desarrolladas en el marco teórico bayesiano, facilitan esta estimación</p>
+<p>En estadística bayesiana se considera que los parámetros del modelo son variables aleatorias y se calculan distribuciones de probabilidad para los parámetros de las cuales se deriva medidas de incertidumbre <span class="citation">(Correa Morales, Causil, and Javier <a href="#ref-Correa_Morales_Causil_Javier_2018">2018</a>)</span>. La información previa sobre los parámetros debe resumirse en distribuciones de probabilidad denominadas distribuciones a <em>priori</em>, a partir de las cuales se estima la distribución de probabilidad a <em>posteriori</em> dadas las observaciones. Estimaciones puntuales de los parámetros de interés se pueden obtener calculando medidas resumen de la distribución a posteriori, como la media o el modo, y se informan juntos a intervalos de credibilidad calculados desde percentiles de la distribución a <em>posteriori</em>. La credibilidad se interpreta como la probabilidad de que el valor estimado para el parámetro pertenezca al intervalo reportado, dado los datos observados.</p>
+<p>Los métodos de simulación por cadenas de Markov Monte Carlo (MCMC), han permitido resolver modelos complejos sin la necesidad de imponer estructuras que lo simplifiquen. Éstos han sido usados para la estimación de modelos con datos espaciales. Sin embargo, el método MCMC también conlleva desafíos computacionales. <span class="citation">Rue, Martino, and Chopin (<a href="#ref-Rue_Martino_Chopin_2009">2009</a>)</span> propusieron una alternativa para obtener la distribución a posteriori en contextos de datos espaciales a partir de aproximaciones basadas en el algoritmo INLA que bajo el supuesto de que la variación espacial subyacente se describe como un campo aleatorio gaussiano Markoviano simplifica las estimaciones de covarianzas espaciales en procesos espaciales continuos con una gran cantidad de observaciones. Sobre la base de las aproximaciones por INLA y la implementación de la alternativa en el lenguaje de programación R (R-INLA) se han popularizado las aplicaciones de la regresión bayesiana a datos espacial y espaciotemporales <span class="citation">(Cameletti et al. <a href="#ref-Cameletti_Lindgren_Simpson_Rue_2013">2013</a>)</span>. En este contexto es posible obtener la matriz de precisión de los efectos aleatorio de sitio utilizando aproximaciones por ecuaciones diferenciales parciales estocásticas (spde) <span class="citation">(Lindgren and Rue <a href="#ref-Lindgren_Rue_2015">2015</a>)</span>. Bajo este enfoque se construye una malla de predicción con unidades de celda triangulares que cubre todo el dominio espacial para el cual se requiere la predicción, cada vértice de los triángulos representa un nodo sobre el que se predice la variable respuesta por interpolación <span class="citation">(Blangiardo and Cameletti <a href="#ref-Blangiardo_Cameletti_2015">2015</a>)</span>. Es posible trabajar con dominios espaciales de límites y bordes complejos <span class="citation">(Bakka et al. <a href="#ref-Bakka_Rue_Fuglstad_Riebler_Bolin_Illian_Krainski_Simpson_Lindgren_2018">2018</a>)</span> y asignar medidas de incertidumbre de cada predicción puntual ya que lo que se obtiene del modelo bayesiano es la distribución a posteriori de los valores predichos para cada sitio más que un único valor de predicción.</p>
+<p>Bajo este enfoque el modelo de regresión bayesiana para una variable <span class="math inline">\(Y\)</span> asume la siguiente distribución para la i-ésima observación:</p>
+<p><span class="math display">\[Y_i\sim N(\eta_i,\sigma_e^2)\]</span></p>
+<p><span class="math display">\[\eta_i = \beta_0 + \sum_{j-1}^{p} {x_{ij}\beta_j}+ \xi(s_i)\]</span></p>
+<p>donde <span class="math inline">\(\beta_0\)</span> es el intercepto; <span class="math inline">\(\beta_j\)</span> es el vector de efectos fijos de las variables explicativas <span class="math inline">\(x_j\)</span>; <span class="math inline">\(x_{ij}\)</span> la valuación de la covariable <span class="math inline">\(x_j\)</span> en el sitio <span class="math inline">\(i\)</span> y <span class="math inline">\(\xi(s_i)\)</span> el efecto aleatorio de sitio que se asume una realización de un proceso gausiano markoviano latente <span class="math inline">\(\xi(s_i) \sim MVN(0,\Sigma)\)</span>, siendo <span class="math inline">\(\Sigma\)</span> la matriz de varianza y covarianza de los efectos de sitio definidos por la función de covariación espacial de Matérn (Matérn, 1986). En R-INLA la estimación de la inversa de <span class="math inline">\(\Sigma\)</span> (matriz de precisión) se resuelve eficientemente usando <code>spde</code>.</p>
+<p>Para estimar el modelo, es necesario obtener una representación de la estructura de dependencia desde una estructura de vecindario para datos continuos (malla). La malla se obtiene mediante triangulación de Delaunay restringida comenzando sobre la estructura base correspondiente a los vértices iniciales de las observaciones, luego se agregan o eliminan vértices adicionales para satisfacer las restricciones de la triangulación que se encuentran definidas por los siguientes parámetros: 1) <code>offset</code> define hasta qué punto se debe extender la malla hacia lo interno (es decir, dentro del área donde se pretende predecir) y hacia el exterior (es decir, fuera del área donde se pretende predecir); 2) <code>cutoff</code> define la distancia mínima entre vértices permitida; 3) <code>maximumedge</code> que refiere a la longitud máxima del borde de cada triángulo; 4) <code>minimumangle</code> o ángulo mínimo interior de cada triángulo. Construida la malla es necesario seleccionar un modelo de correlación espacial. En R-INLA con SPDE esta función se define parametrizando la función de correlación espacial de Matérn definiendo su parámetro <code>alpha</code> (variando entre 0 y 2). El valor por defecto de <code>alpha</code> es 2 y corresponde a una función de correlación espacial del tipo exponencial. La matriz de covarianza de los efectos aleatorios es una matriz rala dado el proceso espacial que se supone, y sus valores son aproximados por suavizado vía <code>spde</code>.</p>
+</div>
+<div id="regresión-vía-modelos-basados-en-árbol" class="section level2">
+<h2><span class="header-section-number">4.3</span> Regresión vía modelos basados en árbol</h2>
+<p>El término aprendizaje de máquina o aprendizaje automático corresponde a una rama de la inteligencia artificial que hace referencia a algoritmos o procedimientos de cálculo basados en intenso proceso computacional que “aprenden” de los datos intentando minimizar la intervención humana. Algunos se basan en particiones binarias recurrentes de los datos y evaluaciones de éstas hasta identificar la mejor para explicar variabilidad en la variable respuesta. Los árboles de clasificación y regresión (algoritmos CART) <span class="citation">(Breiman <a href="#ref-Breiman_2001">2001</a>)</span> se utilizan con fines predictivos y son particularmente útiles para interpretar relaciones (no necesariamente lineales) en contextos de regresión múltiple con variables explicativas correlacionadas. Estos algoritmos pueden ser empoderados mediante métodos de remuestreo que se usan para obtener muestras aleatorias a partir de los datos observados o muestra original, derivar modelos para cada muestra y ensamblar los resultados para optimizar la predicción. Otros algoritmos de aprendizaje automático basados en árboles son la regresiones por bosques aleatorios (RF por el término en inglés <em>Random Forest</em>) y los árboles de regresión generalizados (GBR por el término en inglés <em>Generalized Boosting Regression</em>) <span class="citation">(Efron and Hastie <a href="#ref-Efron_Hastie_2016">2016</a>)</span>. Los algoritmos basados en árboles engloban así a un conjunto de técnicas supervisadas no paramétricas (<em>i.e.</em> sin supuestos distribucionales) para segmentar el espacio de los predictores en regiones simples con máxima diferencia en la variable respuesta. Es necesario tener cuidados particulares al momento de estimar el árbol que será usados como modelo predictivo ya que puede existir sobreajuste, <em>i.e.</em> construirse un modelo sólo útil para los datos disponibles cuyas predicciones pueden cambiar con pequeños cambios en el conjunto de datos observados.</p>
+<p>Si bien estos algoritmos se han utilizados para datos espaciales <span class="citation">(Kanevski et al. <a href="#ref-Kanevski_Timonin_Pozdnukhov_Ritter_2009">2009</a>)</span>, es raro que se modele la estructura espacial. Una propuesta para incorporar la correlación espacial en los datos es utilizar las coordenadas geográficas o las matrices de distancias entre observaciones covariables en la construcción del modelo <span class="citation">(Pejović et al. <a href="#ref-Pejović_Nikolić_Heuvelink_Hengl_Kilibarda_Bajat_2018">2018</a>)</span>. Otra propuesta, es modelar el residuo remanente del ajuste del algoritmo de aprendizaje automático con una función de autocorrelación espacial <span class="citation">(Li et al. <a href="#ref-Li_Heap_Potter_Daniell_2011">2011</a>)</span> y finalmente combinar los resultados de la predicción determinística dada por el árbol y la predicción espacial obtenida mediante kriging de los residuos.</p>
+<div id="bosques-aleatorios" class="section level3">
+<h3><span class="header-section-number">4.3.1</span> Bosques aleatorios</h3>
+<p>El método de bosques aleatorios o <em>Random Forest</em> (RF) es una modificación del proceso de ensamblaje de varios árboles (<em>Bagging</em>) donde se ajustan múltiples árboles desde cada muestra obtenida por remuestreo formando un “bosque”. En cada nueva predicción, todos los árboles que forman el “bosque” participan aportando su predicción. Como valor final, se toma la media de todas las predicciones en el caso de variables respuesta continuas. El método RF a diferencia de <em>Bagging</em> realiza una selección aleatoria de <span class="math inline">\(m\)</span> predictores antes de evaluar cada división. Si <span class="math inline">\(m=p\)</span> los resultados de RF y <em>Bagging</em> son equivalentes. Este método trabaja bien con grandes bases de datos presentando mayor facilidad en la implementación y baja tendencia al sobreajuste. Para implementar RF es necesario optimizar el parámetro <span class="math inline">\(m\)</span>, no obstante, existe la recomendación de usar <span class="math inline">\(m=\frac{p}{3}\)</span> por defecto para regresión.</p>
+<p>Para contemplar la estructura espacial es posible combinar los resultados de RF con una interpolación geoestadística basada en kriging <span class="citation">(Li et al. <a href="#ref-Li_Heap_Potter_Daniell_2011">2011</a>)</span>. La predicción de los residuos se complementa con la predicción de RF de manera aditiva. Es recomendable que el ajuste del modelo espacial para realizar kriging se logre con un subconjunto de datos de entrenamiento, diferente al grupo de validación, para evitar sobreajustes.</p>
+</div>
+<div id="árboles-de-regresión-generalizados" class="section level3">
+<h3><span class="header-section-number">4.3.2</span> Árboles de regresión generalizados</h3>
+<p>El método <em>Boosting</em> es otro método de ensamblaje que consiste en ajustar secuencialmente modelos sencillos, de manera que cada modelo aprende de los errores del anterior. Los algoritmos de <em>Boosting</em> trabajan minimizando una función de pérdida (deviance) para maximizar la proporción de varianza que explica el modelo. Los árboles de regresión generalizados, conocido en inglés como <em>Generalized Boosted Regression Trees</em> (GBR) particularmente utiliza <em>Boosting</em> para ensamblar los árboles obtenidos de múltiples muestras obtenida mediante remuestreo de la muestra original. El algoritmo ajusta árboles de regresión a los datos de entrenamiento de manera iterativa. El primer árbol que se ajusta es aquel que, según la complejidad del árbol seleccionada, minimiza la deviance. El siguiente árbol se ajusta a los residuos del primer árbol. Luego, se vuelven a realizar predicciones para las observaciones que tienen en cuenta los dos árboles. En cada uno de los pasos siguientes se ajusta un nuevo árbol sobre los residuos de la combinación de los árboles anteriores. El procedimiento es parametrizado por varias constantes que es necesario identificar probando numerosas o todas las combinaciones posibles de parámetros ya que estos son dependientes entre sí.</p>
+<p>Una vez encontrada la combinación optima de parámetros se ajusta GBR en el grupo de entrenamiento. Luego, a partir de los residuos del modelo se ajusta un kriging y se guardan los parámetros de la función de semivarianza ajustados. Finalmente se utiliza el modelo GBR construido para predecir los datos en el grupo de validación adicionando a los resultados obtenidos desde el árbol la predicción de los residuos de cada sitio.</p>
+
+
+</div>
+</div>
+</div>
+
+
+
+</div>
+<h3>Referencias</h3>
+<div id="refs" class="references">
+<div id="ref-Bakka_Rue_Fuglstad_Riebler_Bolin_Illian_Krainski_Simpson_Lindgren_2018">
+<p>Bakka, Haakon, Håvard Rue, Geir Arne Fuglstad, Andrea Riebler, David Bolin, Janine Illian, Elias Krainski, Daniel Simpson, and Finn Lindgren. 2018. “Spatial Modeling with R-Inla: A Review.” <em>Wiley Interdisciplinary Reviews: Computational Statistics</em>, no. February: 1–24. <a href="https://doi.org/10.1002/wics.1443">https://doi.org/10.1002/wics.1443</a>.</p>
+</div>
+<div id="ref-Balzarini_Macchiavelli_Casanoves_2004">
+<p>Balzarini, Mónica, R Macchiavelli, and Fernando Casanoves. 2004. “Aplicaciones de Modelos Mixtos En Agricultura Y Forestería.” <em>Curso de Capacitacion Centro Agronomico Tropical de Investigación Y Enseñanza-CATIE</em>.</p>
+</div>
+<div id="ref-Blangiardo_Cameletti_2015">
+<p>Blangiardo, Marta, and Michela Cameletti. 2015. <em>Spatial and Spatio-Temporal Bayesian Models with R-Inla</em>. John Wiley &amp; Sons.</p>
+</div>
+<div id="ref-Breiman_2001">
+<p>Breiman, Leo. 2001. “Random Forests.” <em>Machine Learning</em> 45 (1). Springer: 5–32.</p>
+</div>
+<div id="ref-Breiman_Friedman_Olshen_Stone_2017">
+<p>Breiman, Leo, Jerome H. Friedman, Richard A. Olshen, and Charles J. Stone. 2017. <em>Classification and Regression Trees</em>. <em>Classification and Regression Trees</em>. <a href="https://doi.org/10.1201/9781315139470">https://doi.org/10.1201/9781315139470</a>.</p>
+</div>
+<div id="ref-Brenning_2012">
+<p>Brenning, Alexander. 2012. “Spatial Cross-Validation and Bootstrap for the Assessment of Prediction Rules in Remote Sensing: The R Package Sperrorest.” In <em>Geoscience and Remote Sensing Symposium (Igarss), 2012 Ieee International</em>, 5372–5. IEEE.</p>
+</div>
+<div id="ref-Cameletti_Lindgren_Simpson_Rue_2013">
+<p>Cameletti, Michela, Finn Lindgren, Daniel Simpson, and Håvard Rue. 2013. “Spatio-Temporal Modeling of Particulate Matter Concentration Through the Spde Approach.” <em>AStA Advances in Statistical Analysis</em> 97 (2): 109–31. <a href="https://doi.org/10.1007/s10182-012-0196-3">https://doi.org/10.1007/s10182-012-0196-3</a>.</p>
+</div>
+<div id="ref-Correa_Morales_Causil_Javier_2018">
+<p>Correa Morales, Juan Carlos, Barrera Causil, and Carlos Javier. 2018. <em>Introducción a La Estadística Bayesiana: Notas de Clase</em>. Instituto Tecnológico Metropolitano.</p>
+</div>
+<div id="ref-Efron_Hastie_2016">
+<p>Efron, Bradley, and Trevor Hastie. 2016. <em>Computer Age Statistical Inference: Algorithms, Evidence, and Data Science</em>. <em>Computer Age Statistical Inference: Algorithms, Evidence, and Data Science</em>. <a href="https://doi.org/10.1017/CBO9781316576533">https://doi.org/10.1017/CBO9781316576533</a>.</p>
+</div>
+<div id="ref-Efron_Tibshirani_1997">
+<p>Efron, Bradley, and Robert Tibshirani. 1997. “Improvements on Cross-Validation: The 632+ Bootstrap Method.” <em>Journal of the American Statistical Association</em> 92 (438). Taylor &amp; Francis: 548–60.</p>
+</div>
+<div id="ref-Hengl_Heuvelink_Rossiter_2007">
+<p>Hengl, Tomislav, Gerard B.M. Heuvelink, and David G. Rossiter. 2007. “About Regression-Kriging: From Equations to Case Studies.” <em>Computers and Geosciences</em> 33 (10): 1301–15. <a href="https://doi.org/10.1016/j.cageo.2007.05.001">https://doi.org/10.1016/j.cageo.2007.05.001</a>.</p>
+</div>
+<div id="ref-Kanevski_Timonin_Pozdnukhov_Ritter_2009">
+<p>Kanevski, Mikhail, Vadim Timonin, Alexi Pozdnukhov, and Gordon Ritter. 2009. <em>Machine Learning for Spatial Environmental Data: Theory, Applications, and Software</em>. <em>Ssrn</em>. EPFL press. <a href="https://doi.org/10.2139/ssrn.3015609">https://doi.org/10.2139/ssrn.3015609</a>.</p>
+</div>
+<div id="ref-Kuhn_Johnson_2013">
+<p>Kuhn, Max, and Kjell Johnson. 2013. <em>Applied Predictive Modeling</em>. Vol. 26. Springer.</p>
+</div>
+<div id="ref-Li_Heap_Potter_Daniell_2011">
+<p>Li, Jin, Andrew D Heap, Anna Potter, and James J Daniell. 2011. “Application of Machine Learning Methods to Spatial Interpolation of Environmental Variables.” <em>Environmental Modelling &amp; Software</em> 26 (12). Elsevier: 1647–59.</p>
+</div>
+<div id="ref-Lindgren_Rue_2015">
+<p>Lindgren, Finn, and Håvard Rue. 2015. “Bayesian Spatial Modelling with R - Inla.” <em>Journal of Statistical Software</em> 63 (19). <a href="https://doi.org/10.18637/jss.v063.i19">https://doi.org/10.18637/jss.v063.i19</a>.</p>
+</div>
+<div id="ref-Morrell_1998">
+<p>Morrell, Christopher H. 1998. “Likelihood Ratio Testing of Variance Components in the Linear Mixed-Effects Model Using Restricted Maximum Likelihood.” <em>Biometrics</em>. JSTOR, 1560–8.</p>
+</div>
+<div id="ref-Patterson_Thompson_1971">
+<p>Patterson, H Desmond, and Robin Thompson. 1971. “Recovery of Inter-Block Information When Block Sizes Are Unequal.” <em>Biometrika</em> 58 (3). Oxford University Press: 545–54.</p>
+</div>
+<div id="ref-Pejović_Nikolić_Heuvelink_Hengl_Kilibarda_Bajat_2018">
+<p>Pejović, Milutin, Mladen Nikolić, Gerard B.M. Heuvelink, Tomislav Hengl, Milan Kilibarda, and Branislav Bajat. 2018. “Sparse Regression Interaction Models for Spatial Prediction of Soil Properties in 3D.” <em>Computers and Geosciences</em> 118. Elsevier Ltd: 1–13. <a href="https://doi.org/10.1016/j.cageo.2018.05.008">https://doi.org/10.1016/j.cageo.2018.05.008</a>.</p>
+</div>
+<div id="ref-Rue_Martino_Chopin_2009">
+<p>Rue, Håvard, Sara Martino, and Nicolas Chopin. 2009. “Approximate Bayesian Inference for Latent Gaussian Models by Using Integrated Nested Laplace Approximations.” <em>Journal of the Royal Statistical Society: Series B (Statistical Methodology)</em> 71 (2). Wiley Online Library: 319–92.</p>
+</div>
+</div>
+<script>
+/*
+Sorts the references alphabetically.
+Modified from code by Yvonne Aburrow.
+*/
+$(function(){
+    var elems = $('#refs').children('div').remove();
+    elems.sort(function (a, b) {
+        return $(b).children('p').html().toUpperCase() > $(a).children('p').html().toUpperCase() ? -1 : 1;
+    });
+    $('#refs').append(elems);
+})
+</script>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="caracterización-de-variabilidad-espacial-con-múltiples-capas-de-datos.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="implementación-con-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": null,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
