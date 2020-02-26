@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.12.26)  17 FEB 2020 12:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.12.26)  26 FEB 2020 15:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1751,7 +1751,7 @@ LaTeX Info: Redefining \% on input line 432.
 LaTeX Info: Redefining \. on input line 442.
 LaTeX Info: Redefining \% on input line 442.
 [18]
-<figuras/semivEmpTeo.png, id=516, 662.475pt x 241.8636pt>
+<figuras/semivEmpTeo.png, id=524, 662.475pt x 241.8636pt>
 File: figuras/semivEmpTeo.png Graphic file (type png)
 <use figuras/semivEmpTeo.png>
 Package pdftex.def Info: figuras/semivEmpTeo.png  used on input line 451.
@@ -1762,7 +1762,7 @@ LaTeX Info: Redefining \% on input line 457.
 LaTeX Info: Redefining \. on input line 461.
 LaTeX Info: Redefining \% on input line 461.
 [20 <./figuras/semivEmpTeo.png>]
-<figuras/modeloIsoAniso.png, id=528, 290.5254pt x 147.4308pt>
+<figuras/modeloIsoAniso.png, id=536, 290.5254pt x 147.4308pt>
 File: figuras/modeloIsoAniso.png Graphic file (type png)
 <use figuras/modeloIsoAniso.png>
 Package pdftex.def Info: figuras/modeloIsoAniso.png  used on input line 466.
@@ -1773,7 +1773,7 @@ LaTeX Info: Redefining \% on input line 474.
 LaTeX Info: Redefining \. on input line 485.
 LaTeX Info: Redefining \% on input line 485.
 [22]
-<figuras/Semivariogramas.jpg, id=544, 636.87938pt x 536.75531pt>
+<figuras/Semivariogramas.jpg, id=552, 636.87938pt x 536.75531pt>
 File: figuras/Semivariogramas.jpg Graphic file (type jpg)
 <use figuras/Semivariogramas.jpg>
 Package pdftex.def Info: figuras/Semivariogramas.jpg  used on input line 488.
@@ -1822,7 +1822,7 @@ LaTeX Info: Redefining \% on input line 523.
 LaTeX Info: Redefining \. on input line 534.
 LaTeX Info: Redefining \% on input line 534.
 [27]
-<figuras/codispersion.jpg, id=579, 722.7pt x 542.025pt>
+<figuras/codispersion.jpg, id=587, 722.7pt x 542.025pt>
 File: figuras/codispersion.jpg Graphic file (type jpg)
 <use figuras/codispersion.jpg>
 Package pdftex.def Info: figuras/codispersion.jpg  used on input line 537.
@@ -2306,12 +2306,17 @@ LaTeX Info: Redefining \% on input line 900.
 LaTeX Info: Redefining \. on input line 934.
 LaTeX Info: Redefining \% on input line 934.
 [68]
-<figuras/figLibro/unnamed-chunk-18-1.pdf, id=852, 256.96pt x 256.96pt>
+<figuras/figLibro/unnamed-chunk-18-1.pdf, id=860, 256.96pt x 256.96pt>
 File: figuras/figLibro/unnamed-chunk-18-1.pdf Graphic file (type pdf)
 <use figuras/figLibro/unnamed-chunk-18-1.pdf>
 Package pdftex.def Info: figuras/figLibro/unnamed-chunk-18-1.pdf  used on input
  line 942.
 (pdftex.def)             Requested size: 256.97896pt x 256.97896pt.
+
+Overfull \hbox (35.0867pt too wide) in paragraph at lines 942--943
+[]\T1/lmr/m/n/12 (-20) \begin{center}[] 
+ []
+
 pdfTeX warning (ext4): destination with the same identifier (name{section.1.2})
  has been already used, duplicate ignored
 <to be read again> 
@@ -2321,7 +2326,7 @@ l.945 ...el{eliminaciuxf3n-de-outliers-e-inliers}}
 LaTeX Info: Redefining \. on input line 949.
 LaTeX Info: Redefining \% on input line 949.
 [69 <./figuras/figLibro/unnamed-chunk-18-1.pdf>]
-<figuras/figLibro/fighistBox-1.pdf, id=871, 401.5pt x 227.85126pt>
+<figuras/figLibro/fighistBox-1.pdf, id=879, 401.5pt x 227.85126pt>
 File: figuras/figLibro/fighistBox-1.pdf Graphic file (type pdf)
 <use figuras/figLibro/fighistBox-1.pdf>
 Package pdftex.def Info: figuras/figLibro/fighistBox-1.pdf  used on input line 
@@ -2336,7 +2341,7 @@ LaTeX Info: Redefining \% on input line 1003.
 LaTeX Info: Redefining \. on input line 1051.
 LaTeX Info: Redefining \% on input line 1051.
 [72]
-<figuras/figLibro/unnamed-chunk-25-1.pdf, id=903, 401.5pt x 227.85126pt>
+<figuras/figLibro/unnamed-chunk-25-1.pdf, id=911, 401.5pt x 227.85126pt>
 File: figuras/figLibro/unnamed-chunk-25-1.pdf Graphic file (type pdf)
 <use figuras/figLibro/unnamed-chunk-25-1.pdf>
 Package pdftex.def Info: figuras/figLibro/unnamed-chunk-25-1.pdf  used on input
@@ -2354,7 +2359,7 @@ Overfull \vbox (0.66754pt too high) detected at line 1107
 LaTeX Info: Redefining \. on input line 1107.
 LaTeX Info: Redefining \% on input line 1107.
 [75]
-<figuras/figLibro/unnamed-chunk-29-1.pdf, id=934, 401.5pt x 190.7125pt>
+<figuras/figLibro/unnamed-chunk-29-1.pdf, id=942, 401.5pt x 190.7125pt>
 File: figuras/figLibro/unnamed-chunk-29-1.pdf Graphic file (type pdf)
 <use figuras/figLibro/unnamed-chunk-29-1.pdf>
 Package pdftex.def Info: figuras/figLibro/unnamed-chunk-29-1.pdf  used on input
@@ -2375,7 +2380,7 @@ Overfull \vbox (1.62888pt too high) detected at line 1213
 LaTeX Info: Redefining \. on input line 1213.
 LaTeX Info: Redefining \% on input line 1213.
 [79]
-<figuras/figLibro/unnamed-chunk-39-1.pdf, id=962, 401.5pt x 227.85126pt>
+<figuras/figLibro/unnamed-chunk-39-1.pdf, id=970, 401.5pt x 227.85126pt>
 File: figuras/figLibro/unnamed-chunk-39-1.pdf Graphic file (type pdf)
 <use figuras/figLibro/unnamed-chunk-39-1.pdf>
 Package pdftex.def Info: figuras/figLibro/unnamed-chunk-39-1.pdf  used on input
@@ -2384,7 +2389,7 @@ Package pdftex.def Info: figuras/figLibro/unnamed-chunk-39-1.pdf  used on input
 LaTeX Info: Redefining \. on input line 1239.
 LaTeX Info: Redefining \% on input line 1239.
 [80 <./figuras/figLibro/unnamed-chunk-39-1.pdf>]
-<figuras/figLibro/tmapvarios-1.pdf, id=984, 254.9525pt x 256.96pt>
+<figuras/figLibro/tmapvarios-1.pdf, id=992, 254.9525pt x 256.96pt>
 File: figuras/figLibro/tmapvarios-1.pdf Graphic file (type pdf)
 <use figuras/figLibro/tmapvarios-1.pdf>
 Package pdftex.def Info: figuras/figLibro/tmapvarios-1.pdf  used on input line 
@@ -2404,7 +2409,7 @@ LaTeX Info: Redefining \% on input line 1285.
 LaTeX Info: Redefining \. on input line 1315.
 LaTeX Info: Redefining \% on input line 1315.
 [83]
-<figuras/figLibro/unnamed-chunk-44-1.pdf, id=1010, 401.5pt x 192.72pt>
+<figuras/figLibro/unnamed-chunk-44-1.pdf, id=1018, 401.5pt x 192.72pt>
 File: figuras/figLibro/unnamed-chunk-44-1.pdf Graphic file (type pdf)
 <use figuras/figLibro/unnamed-chunk-44-1.pdf>
 Package pdftex.def Info: figuras/figLibro/unnamed-chunk-44-1.pdf  used on input
@@ -2425,7 +2430,7 @@ LaTeX Info: Redefining \% on input line 1432.
 LaTeX Info: Redefining \. on input line 1454.
 LaTeX Info: Redefining \% on input line 1454.
 [88]
-<figuras/figLibro/unnamed-chunk-50-1.pdf, id=1046, 423.5825pt x 268.00125pt>
+<figuras/figLibro/unnamed-chunk-50-1.pdf, id=1054, 423.5825pt x 268.00125pt>
 File: figuras/figLibro/unnamed-chunk-50-1.pdf Graphic file (type pdf)
 <use figuras/figLibro/unnamed-chunk-50-1.pdf>
 Package pdftex.def Info: figuras/figLibro/unnamed-chunk-50-1.pdf  used on input
@@ -2437,7 +2442,7 @@ LaTeX Info: Redefining \% on input line 1468.
 LaTeX Info: Redefining \. on input line 1474.
 LaTeX Info: Redefining \% on input line 1474.
 [90]
-<figuras/figLibro/unnamed-chunk-52-1.pdf, id=1072, 423.5825pt x 268.00125pt>
+<figuras/figLibro/unnamed-chunk-52-1.pdf, id=1080, 423.5825pt x 268.00125pt>
 File: figuras/figLibro/unnamed-chunk-52-1.pdf Graphic file (type pdf)
 <use figuras/figLibro/unnamed-chunk-52-1.pdf>
 Package pdftex.def Info: figuras/figLibro/unnamed-chunk-52-1.pdf  used on input
@@ -2449,7 +2454,7 @@ LaTeX Info: Redefining \% on input line 1499.
 LaTeX Info: Redefining \. on input line 1522.
 LaTeX Info: Redefining \% on input line 1522.
 [92 <./figuras/figLibro/unnamed-chunk-52-1.pdf>]
-<figuras/figLibro/unnamed-chunk-56-1.pdf, id=1098, 423.5825pt x 268.00125pt>
+<figuras/figLibro/unnamed-chunk-56-1.pdf, id=1106, 423.5825pt x 268.00125pt>
 File: figuras/figLibro/unnamed-chunk-56-1.pdf Graphic file (type pdf)
 <use figuras/figLibro/unnamed-chunk-56-1.pdf>
 Package pdftex.def Info: figuras/figLibro/unnamed-chunk-56-1.pdf  used on input
@@ -2458,7 +2463,7 @@ Package pdftex.def Info: figuras/figLibro/unnamed-chunk-56-1.pdf  used on input
 LaTeX Info: Redefining \. on input line 1574.
 LaTeX Info: Redefining \% on input line 1574.
 [93 <./figuras/figLibro/unnamed-chunk-56-1.pdf>]
-<figuras/figLibro/unnamed-chunk-57-1.pdf, id=1121, 416.55624pt x 254.9525pt>
+<figuras/figLibro/unnamed-chunk-57-1.pdf, id=1129, 416.55624pt x 254.9525pt>
 File: figuras/figLibro/unnamed-chunk-57-1.pdf Graphic file (type pdf)
 <use figuras/figLibro/unnamed-chunk-57-1.pdf>
 Package pdftex.def Info: figuras/figLibro/unnamed-chunk-57-1.pdf  used on input
@@ -2470,7 +2475,7 @@ LaTeX Info: Redefining \% on input line 1576.
 LaTeX Info: Redefining \. on input line 1599.
 LaTeX Info: Redefining \% on input line 1599.
 [95 <./figuras/figLibro/unnamed-chunk-57-1.pdf>]
-<figuras/figLibro/unnamed-chunk-60-1.pdf, id=1141, 423.5825pt x 256.96pt>
+<figuras/figLibro/unnamed-chunk-60-1.pdf, id=1149, 423.5825pt x 256.96pt>
 File: figuras/figLibro/unnamed-chunk-60-1.pdf Graphic file (type pdf)
 <use figuras/figLibro/unnamed-chunk-60-1.pdf>
 Package pdftex.def Info: figuras/figLibro/unnamed-chunk-60-1.pdf  used on input
@@ -2482,7 +2487,7 @@ LaTeX Info: Redefining \% on input line 1616.
 LaTeX Info: Redefining \. on input line 1639.
 LaTeX Info: Redefining \% on input line 1639.
 [97 <./figuras/figLibro/unnamed-chunk-60-1.pdf>]
-<figuras/figLibro/unnamed-chunk-62-1.pdf, id=1162, 129.48375pt x 131.49126pt>
+<figuras/figLibro/unnamed-chunk-62-1.pdf, id=1170, 129.48375pt x 131.49126pt>
 File: figuras/figLibro/unnamed-chunk-62-1.pdf Graphic file (type pdf)
 <use figuras/figLibro/unnamed-chunk-62-1.pdf>
 Package pdftex.def Info: figuras/figLibro/unnamed-chunk-62-1.pdf  used on input
@@ -2491,7 +2496,7 @@ Package pdftex.def Info: figuras/figLibro/unnamed-chunk-62-1.pdf  used on input
 LaTeX Info: Redefining \. on input line 1655.
 LaTeX Info: Redefining \% on input line 1655.
 [98 <./figuras/figLibro/unnamed-chunk-62-1.pdf>]
-<figuras/figLibro/unnamed-chunk-64-1.pdf, id=1173, 425.59pt x 256.96pt>
+<figuras/figLibro/unnamed-chunk-64-1.pdf, id=1181, 425.59pt x 256.96pt>
 File: figuras/figLibro/unnamed-chunk-64-1.pdf Graphic file (type pdf)
 <use figuras/figLibro/unnamed-chunk-64-1.pdf>
 Package pdftex.def Info: figuras/figLibro/unnamed-chunk-64-1.pdf  used on input
@@ -2503,7 +2508,7 @@ LaTeX Info: Redefining \% on input line 1686.
 LaTeX Info: Redefining \. on input line 1718.
 LaTeX Info: Redefining \% on input line 1718.
 [100 <./figuras/figLibro/unnamed-chunk-64-1.pdf>]
-<figuras/figLibro/unnamed-chunk-66-1.pdf, id=1194, 425.59pt x 256.96pt>
+<figuras/figLibro/unnamed-chunk-66-1.pdf, id=1202, 425.59pt x 256.96pt>
 File: figuras/figLibro/unnamed-chunk-66-1.pdf Graphic file (type pdf)
 <use figuras/figLibro/unnamed-chunk-66-1.pdf>
 Package pdftex.def Info: figuras/figLibro/unnamed-chunk-66-1.pdf  used on input
@@ -2553,7 +2558,7 @@ Underfull \vbox (badness 10000) detected at line 1933
 LaTeX Info: Redefining \. on input line 1933.
 LaTeX Info: Redefining \% on input line 1933.
 [108]
-<figuras/figLibro/unnamed-chunk-73-1.pdf, id=1240, 401.5pt x 190.7125pt>
+<figuras/figLibro/unnamed-chunk-73-1.pdf, id=1248, 401.5pt x 190.7125pt>
 File: figuras/figLibro/unnamed-chunk-73-1.pdf Graphic file (type pdf)
 <use figuras/figLibro/unnamed-chunk-73-1.pdf>
 Package pdftex.def Info: figuras/figLibro/unnamed-chunk-73-1.pdf  used on input
@@ -2589,7 +2594,7 @@ iples capas de datos  \T1/lmr/m/n/10 111
  []
 
 [111]
-<figuras/figLibro/unnamed-chunk-77-1.pdf, id=1267, 431.6125pt x 264.99pt>
+<figuras/figLibro/unnamed-chunk-77-1.pdf, id=1275, 431.6125pt x 264.99pt>
 File: figuras/figLibro/unnamed-chunk-77-1.pdf Graphic file (type pdf)
 <use figuras/figLibro/unnamed-chunk-77-1.pdf>
 Package pdftex.def Info: figuras/figLibro/unnamed-chunk-77-1.pdf  used on input
@@ -2651,7 +2656,7 @@ iples capas de datos  \T1/lmr/m/n/10 119
  []
 
 [119]
-<figuras/figLibro/tmapclasificacion-1.pdf, id=1318, 248.93pt x 256.96pt>
+<figuras/figLibro/tmapclasificacion-1.pdf, id=1326, 248.93pt x 256.96pt>
 File: figuras/figLibro/tmapclasificacion-1.pdf Graphic file (type pdf)
 <use figuras/figLibro/tmapclasificacion-1.pdf>
 Package pdftex.def Info: figuras/figLibro/tmapclasificacion-1.pdf  used on inpu
@@ -2663,82 +2668,86 @@ LaTeX Info: Redefining \% on input line 2223.
 LaTeX Info: Redefining \. on input line 2232.
 LaTeX Info: Redefining \% on input line 2232.
 [121 <./figuras/figLibro/tmapclasificacion-1.pdf>]
-LaTeX Info: Redefining \. on input line 2271.
-LaTeX Info: Redefining \% on input line 2271.
+LaTeX Info: Redefining \. on input line 2272.
+LaTeX Info: Redefining \% on input line 2272.
 [122]
-<figuras/figLibro/unnamed-chunk-88-1.pdf, id=1351, 423.5825pt x 256.96pt>
+<figuras/figLibro/unnamed-chunk-88-1.pdf, id=1359, 423.5825pt x 256.96pt>
 File: figuras/figLibro/unnamed-chunk-88-1.pdf Graphic file (type pdf)
 <use figuras/figLibro/unnamed-chunk-88-1.pdf>
 Package pdftex.def Info: figuras/figLibro/unnamed-chunk-88-1.pdf  used on input
- line 2289.
+ line 2290.
 (pdftex.def)             Requested size: 295.91756pt x 179.51396pt.
-LaTeX Info: Redefining \. on input line 2289.
-LaTeX Info: Redefining \% on input line 2289.
+LaTeX Info: Redefining \. on input line 2290.
+LaTeX Info: Redefining \% on input line 2290.
 [123]
-LaTeX Info: Redefining \. on input line 2322.
-LaTeX Info: Redefining \% on input line 2322.
+LaTeX Info: Redefining \. on input line 2326.
+LaTeX Info: Redefining \% on input line 2326.
 [124 <./figuras/figLibro/unnamed-chunk-88-1.pdf>]
-<figuras/figLibro/tmapKED-1.pdf, id=1372, 425.59pt x 256.96pt>
-File: figuras/figLibro/tmapKED-1.pdf Graphic file (type pdf)
-<use figuras/figLibro/tmapKED-1.pdf>
-Package pdftex.def Info: figuras/figLibro/tmapKED-1.pdf  used on input line 232
-4.
-(pdftex.def)             Requested size: 295.9238pt x 178.67097pt.
-LaTeX Info: Redefining \. on input line 2338.
-LaTeX Info: Redefining \% on input line 2338.
-[125 <./figuras/figLibro/tmapKED-1.pdf>]
-<figuras/figLibro/unnamed-chunk-93-1.pdf, id=1389, 423.5825pt x 256.96pt>
-File: figuras/figLibro/unnamed-chunk-93-1.pdf Graphic file (type pdf)
-<use figuras/figLibro/unnamed-chunk-93-1.pdf>
-Package pdftex.def Info: figuras/figLibro/unnamed-chunk-93-1.pdf  used on input
- line 2368.
+LaTeX Info: Redefining \. on input line 2354.
+LaTeX Info: Redefining \% on input line 2354.
+[125]
+<figuras/figLibro/unnamed-chunk-94-1.pdf, id=1387, 423.5825pt x 256.96pt>
+File: figuras/figLibro/unnamed-chunk-94-1.pdf Graphic file (type pdf)
+<use figuras/figLibro/unnamed-chunk-94-1.pdf>
+Package pdftex.def Info: figuras/figLibro/unnamed-chunk-94-1.pdf  used on input
+ line 2374.
 (pdftex.def)             Requested size: 295.91756pt x 179.51396pt.
-LaTeX Info: Redefining \. on input line 2368.
-LaTeX Info: Redefining \% on input line 2368.
-[126]
-<figuras/figLibro/tmapRK-1.pdf, id=1394, 246.9225pt x 256.96pt>
+LaTeX Info: Redefining \. on input line 2387.
+LaTeX Info: Redefining \% on input line 2387.
+[126 <./figuras/figLibro/unnamed-chunk-94-1.pdf>]
+<figuras/figLibro/tmapRK-1.pdf, id=1403, 246.9225pt x 256.96pt>
 File: figuras/figLibro/tmapRK-1.pdf Graphic file (type pdf)
 <use figuras/figLibro/tmapRK-1.pdf>
-Package pdftex.def Info: figuras/figLibro/tmapRK-1.pdf  used on input line 2392
+Package pdftex.def Info: figuras/figLibro/tmapRK-1.pdf  used on input line 2398
 .
 (pdftex.def)             Requested size: 246.9407pt x 256.97896pt.
-LaTeX Info: Redefining \. on input line 2392.
-LaTeX Info: Redefining \% on input line 2392.
-[127 <./figuras/figLibro/unnamed-chunk-93-1.pdf>]
-LaTeX Info: Redefining \. on input line 2410.
-LaTeX Info: Redefining \% on input line 2410.
-[128 <./figuras/figLibro/tmapRK-1.pdf>]
-LaTeX Info: Redefining \. on input line 2449.
-LaTeX Info: Redefining \% on input line 2449.
-[129]
-<figuras/figLibro/unnamed-chunk-98-1.pdf, id=1431, 423.5825pt x 256.96pt>
-File: figuras/figLibro/unnamed-chunk-98-1.pdf Graphic file (type pdf)
-<use figuras/figLibro/unnamed-chunk-98-1.pdf>
-Package pdftex.def Info: figuras/figLibro/unnamed-chunk-98-1.pdf  used on input
- line 2451.
-(pdftex.def)             Requested size: 295.91756pt x 179.51396pt.
-<figuras/figLibro/unnamed-chunk-98-2.pdf, id=1432, 423.5825pt x 256.96pt>
-File: figuras/figLibro/unnamed-chunk-98-2.pdf Graphic file (type pdf)
-<use figuras/figLibro/unnamed-chunk-98-2.pdf>
-Package pdftex.def Info: figuras/figLibro/unnamed-chunk-98-2.pdf  used on input
- line 2451.
-(pdftex.def)             Requested size: 295.91756pt x 179.51396pt.
-LaTeX Info: Redefining \. on input line 2455.
-LaTeX Info: Redefining \% on input line 2455.
-[130 <./figuras/figLibro/unnamed-chunk-98-1.pdf> <./figuras/figLibro/unnamed-ch
-unk-98-2.pdf
 
-pdfTeX warning: pdflatex (file ./figuras/figLibro/unnamed-chunk-98-2.pdf): PDF 
+Overfull \hbox (25.04845pt too wide) in paragraph at lines 2398--2399
+[]\T1/lmr/m/n/12 (-20) \begin{center}[] 
+ []
+
+LaTeX Info: Redefining \. on input line 2404.
+LaTeX Info: Redefining \% on input line 2404.
+[127 <./figuras/figLibro/tmapRK-1.pdf>]
+LaTeX Info: Redefining \. on input line 2442.
+LaTeX Info: Redefining \% on input line 2442.
+[128]
+<figuras/figLibro/unnamed-chunk-99-1.pdf, id=1424, 423.5825pt x 256.96pt>
+File: figuras/figLibro/unnamed-chunk-99-1.pdf Graphic file (type pdf)
+<use figuras/figLibro/unnamed-chunk-99-1.pdf>
+Package pdftex.def Info: figuras/figLibro/unnamed-chunk-99-1.pdf  used on input
+ line 2457.
+(pdftex.def)             Requested size: 295.91756pt x 179.51396pt.
+<figuras/figLibro/unnamed-chunk-99-2.pdf, id=1425, 423.5825pt x 256.96pt>
+File: figuras/figLibro/unnamed-chunk-99-2.pdf Graphic file (type pdf)
+<use figuras/figLibro/unnamed-chunk-99-2.pdf>
+Package pdftex.def Info: figuras/figLibro/unnamed-chunk-99-2.pdf  used on input
+ line 2457.
+(pdftex.def)             Requested size: 295.91756pt x 179.51396pt.
+LaTeX Info: Redefining \. on input line 2457.
+LaTeX Info: Redefining \% on input line 2457.
+[129]
+LaTeX Info: Redefining \. on input line 2469.
+LaTeX Info: Redefining \% on input line 2469.
+[130 <./figuras/figLibro/unnamed-chunk-99-1.pdf> <./figuras/figLibro/unnamed-ch
+unk-99-2.pdf
+
+pdfTeX warning: pdflatex (file ./figuras/figLibro/unnamed-chunk-99-2.pdf): PDF 
 inclusion: multiple pdfs with page group included in a single page
 >]
-<figuras/figLibro/tmapRFK-1.pdf, id=1459, 246.9225pt x 256.96pt>
+<figuras/figLibro/tmapRFK-1.pdf, id=1457, 246.9225pt x 256.96pt>
 File: figuras/figLibro/tmapRFK-1.pdf Graphic file (type pdf)
 <use figuras/figLibro/tmapRFK-1.pdf>
 Package pdftex.def Info: figuras/figLibro/tmapRFK-1.pdf  used on input line 247
-2.
+8.
 (pdftex.def)             Requested size: 246.9407pt x 256.97896pt.
-LaTeX Info: Redefining \. on input line 2475.
-LaTeX Info: Redefining \% on input line 2475.
+
+Overfull \hbox (25.04845pt too wide) in paragraph at lines 2478--2479
+[]\T1/lmr/m/n/12 (-20) \begin{center}[] 
+ []
+
+LaTeX Info: Redefining \. on input line 2481.
+LaTeX Info: Redefining \% on input line 2481.
 [131 <./figuras/figLibro/tmapRFK-1.pdf>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -2779,38 +2788,38 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [132
 
 ]
-Underfull \vbox (badness 10000) detected at line 2475
+Underfull \vbox (badness 10000) detected at line 2481
  []
 
 
-Overfull \hbox (295.65833pt too wide) detected at line 2475
+Overfull \hbox (295.65833pt too wide) detected at line 2481
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 2475
+Underfull \vbox (badness 10000) detected at line 2481
  []
 
 
-Overfull \hbox (295.65833pt too wide) detected at line 2475
+Overfull \hbox (295.65833pt too wide) detected at line 2481
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 2475
+Underfull \vbox (badness 10000) detected at line 2481
  []
 
 
-Overfull \hbox (295.65833pt too wide) detected at line 2475
+Overfull \hbox (295.65833pt too wide) detected at line 2481
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 2475
+Underfull \vbox (badness 10000) detected at line 2481
  []
 
 
-Overfull \hbox (295.65833pt too wide) detected at line 2475
+Overfull \hbox (295.65833pt too wide) detected at line 2481
 []
  []
 
@@ -2818,14 +2827,14 @@ pdfTeX warning (ext4): destination with the same identifier (name{chapter.2}) h
 as been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2475 ...}\label{implementaciuxf3n-con-infostat}}
+l.2481 ...}\label{implementaciuxf3n-con-infostat}}
                                                   
 Cap\'{\i }tulo 2.
 pdfTeX warning (ext4): destination with the same identifier (name{section.2.1})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2480 ...versiuxf3n-de-coordenadas-espaciales-1}}
+l.2486 ...versiuxf3n-de-coordenadas-espaciales-1}}
                                                   
 Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
@@ -2834,240 +2843,240 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [133
 
 ]
-<figuras/Parte2/1.jpg, id=1486, 2363.83125pt x 925.20656pt>
+<figuras/Parte2/1.jpg, id=1484, 2363.83125pt x 925.20656pt>
 File: figuras/Parte2/1.jpg Graphic file (type jpg)
 <use figuras/Parte2/1.jpg>
-Package pdftex.def Info: figuras/Parte2/1.jpg  used on input line 2484.
+Package pdftex.def Info: figuras/Parte2/1.jpg  used on input line 2490.
 (pdftex.def)             Requested size: 295.87494pt x 115.80582pt.
-<figuras/Parte2/2.jpg, id=1487, 327.186pt x 177.0615pt>
+<figuras/Parte2/2.jpg, id=1485, 327.186pt x 177.0615pt>
 File: figuras/Parte2/2.jpg Graphic file (type jpg)
 <use figuras/Parte2/2.jpg>
-Package pdftex.def Info: figuras/Parte2/2.jpg  used on input line 2486.
+Package pdftex.def Info: figuras/Parte2/2.jpg  used on input line 2492.
 (pdftex.def)             Requested size: 295.93245pt x 160.14815pt.
-LaTeX Info: Redefining \. on input line 2489.
-LaTeX Info: Redefining \% on input line 2489.
-[134 <./figuras/Parte2/1.jpg> <./figuras/Parte2/2.jpg>]
-<figuras/Parte2/3.jpg, id=1492, 1077.27469pt x 1278.27562pt>
-File: figuras/Parte2/3.jpg Graphic file (type jpg)
-<use figuras/Parte2/3.jpg>
-Package pdftex.def Info: figuras/Parte2/3.jpg  used on input line 2490.
-(pdftex.def)             Requested size: 207.13356pt x 245.78111pt.
-<figuras/Parte2/4.jpg, id=1493, 1547.0297pt x 414.79968pt>
-File: figuras/Parte2/4.jpg Graphic file (type jpg)
-<use figuras/Parte2/4.jpg>
-Package pdftex.def Info: figuras/Parte2/4.jpg  used on input line 2492.
-(pdftex.def)             Requested size: 295.89796pt x 79.33809pt.
 LaTeX Info: Redefining \. on input line 2495.
 LaTeX Info: Redefining \% on input line 2495.
+[134 <./figuras/Parte2/1.jpg> <./figuras/Parte2/2.jpg>]
+<figuras/Parte2/3.jpg, id=1490, 1077.27469pt x 1278.27562pt>
+File: figuras/Parte2/3.jpg Graphic file (type jpg)
+<use figuras/Parte2/3.jpg>
+Package pdftex.def Info: figuras/Parte2/3.jpg  used on input line 2496.
+(pdftex.def)             Requested size: 207.13356pt x 245.78111pt.
+<figuras/Parte2/4.jpg, id=1491, 1547.0297pt x 414.79968pt>
+File: figuras/Parte2/4.jpg Graphic file (type jpg)
+<use figuras/Parte2/4.jpg>
+Package pdftex.def Info: figuras/Parte2/4.jpg  used on input line 2498.
+(pdftex.def)             Requested size: 295.89796pt x 79.33809pt.
+LaTeX Info: Redefining \. on input line 2501.
+LaTeX Info: Redefining \% on input line 2501.
 [135 <./figuras/Parte2/3.jpg> <./figuras/Parte2/4.jpg>]
-<figuras/Parte2/5.jpg, id=1499, 1946.77313pt x 906.38625pt>
+<figuras/Parte2/5.jpg, id=1497, 1946.77313pt x 906.38625pt>
 File: figuras/Parte2/5.jpg Graphic file (type jpg)
 <use figuras/Parte2/5.jpg>
-Package pdftex.def Info: figuras/Parte2/5.jpg  used on input line 2496.
+Package pdftex.def Info: figuras/Parte2/5.jpg  used on input line 2502.
 (pdftex.def)             Requested size: 295.89478pt x 137.76384pt.
 pdfTeX warning (ext4): destination with the same identifier (name{section.2.2})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2499 ...eliminaciuxf3n-de-outliers-e-inliers-1}}
+l.2505 ...eliminaciuxf3n-de-outliers-e-inliers-1}}
                                                   
-<figuras/Parte2/6.jpg, id=1500, 1064.47687pt x 1258.7025pt>
+<figuras/Parte2/6.jpg, id=1498, 1064.47687pt x 1258.7025pt>
 File: figuras/Parte2/6.jpg Graphic file (type jpg)
 <use figuras/Parte2/6.jpg>
-Package pdftex.def Info: figuras/Parte2/6.jpg  used on input line 2503.
+Package pdftex.def Info: figuras/Parte2/6.jpg  used on input line 2509.
 (pdftex.def)             Requested size: 207.12547pt x 244.91783pt.
-LaTeX Info: Redefining \. on input line 2503.
-LaTeX Info: Redefining \% on input line 2503.
+LaTeX Info: Redefining \. on input line 2509.
+LaTeX Info: Redefining \% on input line 2509.
 [136 <./figuras/Parte2/5.jpg>]
-LaTeX Info: Redefining \. on input line 2508.
-LaTeX Info: Redefining \% on input line 2508.
+LaTeX Info: Redefining \. on input line 2514.
+LaTeX Info: Redefining \% on input line 2514.
 [137 <./figuras/Parte2/6.jpg>]
-<figuras/Parte2/7.jpg, id=1510, 1541.00719pt x 894.34125pt>
+<figuras/Parte2/7.jpg, id=1508, 1541.00719pt x 894.34125pt>
 File: figuras/Parte2/7.jpg Graphic file (type jpg)
 <use figuras/Parte2/7.jpg>
-Package pdftex.def Info: figuras/Parte2/7.jpg  used on input line 2509.
+Package pdftex.def Info: figuras/Parte2/7.jpg  used on input line 2515.
 (pdftex.def)             Requested size: 295.89824pt x 171.72794pt.
-<figuras/Parte2/8.jpg, id=1511, 884.55469pt x 288.07625pt>
+<figuras/Parte2/8.jpg, id=1509, 884.55469pt x 288.07625pt>
 File: figuras/Parte2/8.jpg Graphic file (type jpg)
 <use figuras/Parte2/8.jpg>
-Package pdftex.def Info: figuras/Parte2/8.jpg  used on input line 2513.
+Package pdftex.def Info: figuras/Parte2/8.jpg  used on input line 2519.
 (pdftex.def)             Requested size: 295.91261pt x 96.37096pt.
-LaTeX Info: Redefining \. on input line 2513.
-LaTeX Info: Redefining \% on input line 2513.
+LaTeX Info: Redefining \. on input line 2519.
+LaTeX Info: Redefining \% on input line 2519.
 [138 <./figuras/Parte2/7.jpg>]
-<figuras/Parte2/8b.jpg, id=1516, 1943.00906pt x 1052.43187pt>
+<figuras/Parte2/8b.jpg, id=1514, 1943.00906pt x 1052.43187pt>
 File: figuras/Parte2/8b.jpg Graphic file (type jpg)
 <use figuras/Parte2/8b.jpg>
-Package pdftex.def Info: figuras/Parte2/8b.jpg  used on input line 2517.
+Package pdftex.def Info: figuras/Parte2/8b.jpg  used on input line 2523.
 (pdftex.def)             Requested size: 295.88597pt x 160.26678pt.
-LaTeX Info: Redefining \. on input line 2517.
-LaTeX Info: Redefining \% on input line 2517.
+LaTeX Info: Redefining \. on input line 2523.
+LaTeX Info: Redefining \% on input line 2523.
 [139 <./figuras/Parte2/8.jpg>]
-LaTeX Info: Redefining \. on input line 2521.
-LaTeX Info: Redefining \% on input line 2521.
+LaTeX Info: Redefining \. on input line 2527.
+LaTeX Info: Redefining \% on input line 2527.
 [140 <./figuras/Parte2/8b.jpg>]
-<figuras/Parte2/9.jpg, id=1525, 2890.04718pt x 1376.14125pt>
+<figuras/Parte2/9.jpg, id=1523, 2890.04718pt x 1376.14125pt>
 File: figuras/Parte2/9.jpg Graphic file (type jpg)
 <use figuras/Parte2/9.jpg>
-Package pdftex.def Info: figuras/Parte2/9.jpg  used on input line 2522.
+Package pdftex.def Info: figuras/Parte2/9.jpg  used on input line 2528.
 (pdftex.def)             Requested size: 295.90102pt x 140.8979pt.
 pdfTeX warning (ext4): destination with the same identifier (name{section.2.3})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2525 ...etecciuxf3n-de-tendencias-espaciales-1}}
+l.2531 ...etecciuxf3n-de-tendencias-espaciales-1}}
                                                   
-<figuras/Parte2/10.jpg, id=1526, 979.40906pt x 1187.93813pt>
+<figuras/Parte2/10.jpg, id=1524, 979.40906pt x 1187.93813pt>
 File: figuras/Parte2/10.jpg Graphic file (type jpg)
 <use figuras/Parte2/10.jpg>
-Package pdftex.def Info: figuras/Parte2/10.jpg  used on input line 2529.
+Package pdftex.def Info: figuras/Parte2/10.jpg  used on input line 2535.
 (pdftex.def)             Requested size: 207.13159pt x 251.23264pt.
-LaTeX Info: Redefining \. on input line 2529.
-LaTeX Info: Redefining \% on input line 2529.
+LaTeX Info: Redefining \. on input line 2535.
+LaTeX Info: Redefining \% on input line 2535.
 [141 <./figuras/Parte2/9.jpg>]
-<figuras/Parte2/11.jpg, id=1533, 100.87688pt x 84.56593pt>
+<figuras/Parte2/11.jpg, id=1531, 100.87688pt x 84.56593pt>
 File: figuras/Parte2/11.jpg Graphic file (type jpg)
 <use figuras/Parte2/11.jpg>
-Package pdftex.def Info: figuras/Parte2/11.jpg  used on input line 2531.
+Package pdftex.def Info: figuras/Parte2/11.jpg  used on input line 2537.
 (pdftex.def)             Requested size: 100.87968pt x 84.5683pt.
-LaTeX Info: Redefining \. on input line 2539.
-LaTeX Info: Redefining \% on input line 2539.
+LaTeX Info: Redefining \. on input line 2545.
+LaTeX Info: Redefining \% on input line 2545.
 [142 <./figuras/Parte2/10.jpg> <./figuras/Parte2/11.jpg>]
-<figuras/Parte2/15.jpg, id=1539, 1099.85907pt x 1260.20813pt>
+<figuras/Parte2/15.jpg, id=1537, 1099.85907pt x 1260.20813pt>
 File: figuras/Parte2/15.jpg Graphic file (type jpg)
 <use figuras/Parte2/15.jpg>
-Package pdftex.def Info: figuras/Parte2/15.jpg  used on input line 2540.
+Package pdftex.def Info: figuras/Parte2/15.jpg  used on input line 2546.
 (pdftex.def)             Requested size: 207.12932pt x 237.32681pt.
-LaTeX Info: Redefining \. on input line 2543.
-LaTeX Info: Redefining \% on input line 2543.
-[143 <./figuras/Parte2/15.jpg>]
-<figuras/Parte2/14.jpg, id=1544, 1288.0622pt x 829.59938pt>
-File: figuras/Parte2/14.jpg Graphic file (type jpg)
-<use figuras/Parte2/14.jpg>
-Package pdftex.def Info: figuras/Parte2/14.jpg  used on input line 2544.
-(pdftex.def)             Requested size: 295.91396pt x 190.58864pt.
 LaTeX Info: Redefining \. on input line 2549.
 LaTeX Info: Redefining \% on input line 2549.
+[143 <./figuras/Parte2/15.jpg>]
+<figuras/Parte2/14.jpg, id=1542, 1288.0622pt x 829.59938pt>
+File: figuras/Parte2/14.jpg Graphic file (type jpg)
+<use figuras/Parte2/14.jpg>
+Package pdftex.def Info: figuras/Parte2/14.jpg  used on input line 2550.
+(pdftex.def)             Requested size: 295.91396pt x 190.58864pt.
+LaTeX Info: Redefining \. on input line 2555.
+LaTeX Info: Redefining \% on input line 2555.
 [144 <./figuras/Parte2/14.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 2551--2552
+Underfull \hbox (badness 10000) in paragraph at lines 2557--2558
 []\T1/lmr/m/n/12 (+20) Para ac-ce-der al ar-chi-vo de ejem-plo \T1/lmr/bx/sc/12
  da-tos-Rin-
  []
 
 
-Underfull \hbox (badness 2005) in paragraph at lines 2551--2552
+Underfull \hbox (badness 2005) in paragraph at lines 2557--2558
 \T1/lmr/bx/sc/12 de_dep.idb2 \T1/lmr/m/n/12 (+20) se de-be ir al me-nú Apli-ca-
 cio-nes $\OMS/lmsy/m/n/12 !$
  []
 
-<figuras/Parte2/16.jpg, id=1549, 1555.31062pt x 1196.97188pt>
+<figuras/Parte2/16.jpg, id=1547, 1555.31062pt x 1196.97188pt>
 File: figuras/Parte2/16.jpg Graphic file (type jpg)
 <use figuras/Parte2/16.jpg>
-Package pdftex.def Info: figuras/Parte2/16.jpg  used on input line 2553.
+Package pdftex.def Info: figuras/Parte2/16.jpg  used on input line 2559.
 (pdftex.def)             Requested size: 295.8918pt x 227.71925pt.
-LaTeX Info: Redefining \. on input line 2556.
-LaTeX Info: Redefining \% on input line 2556.
+LaTeX Info: Redefining \. on input line 2562.
+LaTeX Info: Redefining \% on input line 2562.
 [145 <./figuras/Parte2/16.jpg>]
-LaTeX Info: Redefining \. on input line 2556.
-LaTeX Info: Redefining \% on input line 2556.
+LaTeX Info: Redefining \. on input line 2562.
+LaTeX Info: Redefining \% on input line 2562.
 [146]
-LaTeX Info: Redefining \. on input line 2561.
-LaTeX Info: Redefining \% on input line 2561.
+LaTeX Info: Redefining \. on input line 2567.
+LaTeX Info: Redefining \% on input line 2567.
 [147]
-<figuras/Parte2/17.jpg, id=1564, 887.81688pt x 294.09875pt>
+<figuras/Parte2/17.jpg, id=1562, 887.81688pt x 294.09875pt>
 File: figuras/Parte2/17.jpg Graphic file (type jpg)
 <use figuras/Parte2/17.jpg>
-Package pdftex.def Info: figuras/Parte2/17.jpg  used on input line 2562.
+Package pdftex.def Info: figuras/Parte2/17.jpg  used on input line 2568.
 (pdftex.def)             Requested size: 295.90662pt x 98.0222pt.
-<figuras/Parte2/18.jpg, id=1565, 1382.16376pt x 1335.48938pt>
+<figuras/Parte2/18.jpg, id=1563, 1382.16376pt x 1335.48938pt>
 File: figuras/Parte2/18.jpg Graphic file (type jpg)
 <use figuras/Parte2/18.jpg>
-Package pdftex.def Info: figuras/Parte2/18.jpg  used on input line 2564.
+Package pdftex.def Info: figuras/Parte2/18.jpg  used on input line 2570.
 (pdftex.def)             Requested size: 295.89401pt x 285.90195pt.
-LaTeX Info: Redefining \. on input line 2564.
-LaTeX Info: Redefining \% on input line 2564.
+LaTeX Info: Redefining \. on input line 2570.
+LaTeX Info: Redefining \% on input line 2570.
 [148 <./figuras/Parte2/17.jpg>]
-<figuras/Parte2/19.jpg, id=1570, 1953.54843pt x 1049.42062pt>
+<figuras/Parte2/19.jpg, id=1568, 1953.54843pt x 1049.42062pt>
 File: figuras/Parte2/19.jpg Graphic file (type jpg)
 <use figuras/Parte2/19.jpg>
-Package pdftex.def Info: figuras/Parte2/19.jpg  used on input line 2571.
+Package pdftex.def Info: figuras/Parte2/19.jpg  used on input line 2577.
 (pdftex.def)             Requested size: 295.88126pt x 158.94353pt.
-LaTeX Info: Redefining \. on input line 2571.
-LaTeX Info: Redefining \% on input line 2571.
+LaTeX Info: Redefining \. on input line 2577.
+LaTeX Info: Redefining \% on input line 2577.
 [149 <./figuras/Parte2/18.jpg>]
-<figuras/Parte2/20.jpg, id=1576, 1068.24094pt x 1273.00594pt>
+<figuras/Parte2/20.jpg, id=1574, 1068.24094pt x 1273.00594pt>
 File: figuras/Parte2/20.jpg Graphic file (type jpg)
 <use figuras/Parte2/20.jpg>
-Package pdftex.def Info: figuras/Parte2/20.jpg  used on input line 2575.
+Package pdftex.def Info: figuras/Parte2/20.jpg  used on input line 2581.
 (pdftex.def)             Requested size: 207.12439pt x 246.82689pt.
-LaTeX Info: Redefining \. on input line 2578.
-LaTeX Info: Redefining \% on input line 2578.
+LaTeX Info: Redefining \. on input line 2584.
+LaTeX Info: Redefining \% on input line 2584.
 [150 <./figuras/Parte2/19.jpg> <./figuras/Parte2/20.jpg>]
-LaTeX Info: Redefining \. on input line 2580.
-LaTeX Info: Redefining \% on input line 2580.
+LaTeX Info: Redefining \. on input line 2586.
+LaTeX Info: Redefining \% on input line 2586.
 [151]
-<figuras/Parte2/21.jpg, id=1585, 1540.25438pt x 1227.83719pt>
+<figuras/Parte2/21.jpg, id=1583, 1540.25438pt x 1227.83719pt>
 File: figuras/Parte2/21.jpg Graphic file (type jpg)
 <use figuras/Parte2/21.jpg>
-Package pdftex.def Info: figuras/Parte2/21.jpg  used on input line 2581.
+Package pdftex.def Info: figuras/Parte2/21.jpg  used on input line 2587.
 (pdftex.def)             Requested size: 295.8947pt x 235.87695pt.
-<figuras/Parte2/22.jpg, id=1586, 539.2647pt x 255.45438pt>
+<figuras/Parte2/22.jpg, id=1584, 539.2647pt x 255.45438pt>
 File: figuras/Parte2/22.jpg Graphic file (type jpg)
 <use figuras/Parte2/22.jpg>
-Package pdftex.def Info: figuras/Parte2/22.jpg  used on input line 2583.
+Package pdftex.def Info: figuras/Parte2/22.jpg  used on input line 2589.
 (pdftex.def)             Requested size: 295.91353pt x 140.1768pt.
-LaTeX Info: Redefining \. on input line 2583.
-LaTeX Info: Redefining \% on input line 2583.
+LaTeX Info: Redefining \. on input line 2589.
+LaTeX Info: Redefining \% on input line 2589.
 [152 <./figuras/Parte2/21.jpg>]
-<figuras/Parte2/23.jpg, id=1591, 2868.96844pt x 1362.59062pt>
+<figuras/Parte2/23.jpg, id=1589, 2868.96844pt x 1362.59062pt>
 File: figuras/Parte2/23.jpg Graphic file (type jpg)
 <use figuras/Parte2/23.jpg>
-Package pdftex.def Info: figuras/Parte2/23.jpg  used on input line 2585.
+Package pdftex.def Info: figuras/Parte2/23.jpg  used on input line 2591.
 (pdftex.def)             Requested size: 295.88791pt x 140.52928pt.
-<figuras/Parte2/24.jpg, id=1592, 1057.70157pt x 1261.71375pt>
+<figuras/Parte2/24.jpg, id=1590, 1057.70157pt x 1261.71375pt>
 File: figuras/Parte2/24.jpg Graphic file (type jpg)
 <use figuras/Parte2/24.jpg>
-Package pdftex.def Info: figuras/Parte2/24.jpg  used on input line 2592.
+Package pdftex.def Info: figuras/Parte2/24.jpg  used on input line 2598.
 (pdftex.def)             Requested size: 207.13055pt x 247.08243pt.
-LaTeX Info: Redefining \. on input line 2592.
-LaTeX Info: Redefining \% on input line 2592.
+LaTeX Info: Redefining \. on input line 2598.
+LaTeX Info: Redefining \% on input line 2598.
 [153 <./figuras/Parte2/22.jpg> <./figuras/Parte2/23.jpg>]
-<figuras/Parte2/25.jpg, id=1599, 1557.56906pt x 977.90344pt>
+<figuras/Parte2/25.jpg, id=1597, 1557.56906pt x 977.90344pt>
 File: figuras/Parte2/25.jpg Graphic file (type jpg)
 <use figuras/Parte2/25.jpg>
-Package pdftex.def Info: figuras/Parte2/25.jpg  used on input line 2596.
+Package pdftex.def Info: figuras/Parte2/25.jpg  used on input line 2602.
 (pdftex.def)             Requested size: 295.89366pt x 185.77374pt.
-LaTeX Info: Redefining \. on input line 2596.
-LaTeX Info: Redefining \% on input line 2596.
+LaTeX Info: Redefining \. on input line 2602.
+LaTeX Info: Redefining \% on input line 2602.
 [154 <./figuras/Parte2/24.jpg>]
-<figuras/Parte2/26.jpg, id=1605, 1144.275pt x 914.66719pt>
+<figuras/Parte2/26.jpg, id=1602, 1144.275pt x 914.66719pt>
 File: figuras/Parte2/26.jpg Graphic file (type jpg)
 <use figuras/Parte2/26.jpg>
-Package pdftex.def Info: figuras/Parte2/26.jpg  used on input line 2600.
+Package pdftex.def Info: figuras/Parte2/26.jpg  used on input line 2606.
 (pdftex.def)             Requested size: 295.89813pt x 236.52385pt.
-LaTeX Info: Redefining \. on input line 2609.
-LaTeX Info: Redefining \% on input line 2609.
+LaTeX Info: Redefining \. on input line 2615.
+LaTeX Info: Redefining \% on input line 2615.
 [155 <./figuras/Parte2/25.jpg> <./figuras/Parte2/26.jpg>]
-<figuras/Parte2/27.jpg, id=1611, 1073.51062pt x 1263.21938pt>
+<figuras/Parte2/27.jpg, id=1609, 1073.51062pt x 1263.21938pt>
 File: figuras/Parte2/27.jpg Graphic file (type jpg)
 <use figuras/Parte2/27.jpg>
-Package pdftex.def Info: figuras/Parte2/27.jpg  used on input line 2610.
+Package pdftex.def Info: figuras/Parte2/27.jpg  used on input line 2616.
 (pdftex.def)             Requested size: 207.13055pt x 243.73428pt.
-LaTeX Info: Redefining \. on input line 2613.
-LaTeX Info: Redefining \% on input line 2613.
+LaTeX Info: Redefining \. on input line 2619.
+LaTeX Info: Redefining \% on input line 2619.
 [156 <./figuras/Parte2/27.jpg>]
-<figuras/Parte2/28.jpg, id=1617, 1553.805pt x 602.25pt>
+<figuras/Parte2/28.jpg, id=1615, 1553.805pt x 602.25pt>
 File: figuras/Parte2/28.jpg Graphic file (type jpg)
 <use figuras/Parte2/28.jpg>
-Package pdftex.def Info: figuras/Parte2/28.jpg  used on input line 2614.
+Package pdftex.def Info: figuras/Parte2/28.jpg  used on input line 2620.
 (pdftex.def)             Requested size: 295.88988pt x 114.68599pt.
-<figuras/Parte2/29.jpg, id=1618, 708.89844pt x 339.51843pt>
+<figuras/Parte2/29.jpg, id=1616, 708.89844pt x 339.51843pt>
 File: figuras/Parte2/29.jpg Graphic file (type jpg)
 <use figuras/Parte2/29.jpg>
-Package pdftex.def Info: figuras/Parte2/29.jpg  used on input line 2618.
+Package pdftex.def Info: figuras/Parte2/29.jpg  used on input line 2624.
 (pdftex.def)             Requested size: 295.90726pt x 141.72124pt.
-LaTeX Info: Redefining \. on input line 2621.
-LaTeX Info: Redefining \% on input line 2621.
+LaTeX Info: Redefining \. on input line 2627.
+LaTeX Info: Redefining \% on input line 2627.
 
 Overfull \hbox (32.1096pt too wide) has occurred while \output is active
  [][][][]  \T1/lmr/m/it/10 2.6Caracterización de variabilidad espacial con múlt
@@ -3075,21 +3084,21 @@ iples capas de datos  \T1/lmr/m/n/10 157
  []
 
 [157 <./figuras/Parte2/28.jpg> <./figuras/Parte2/29.jpg>]
-<figuras/Parte2/30.jpg, id=1623, 1651.67062pt x 1273.75874pt>
+<figuras/Parte2/30.jpg, id=1621, 1651.67062pt x 1273.75874pt>
 File: figuras/Parte2/30.jpg Graphic file (type jpg)
 <use figuras/Parte2/30.jpg>
-Package pdftex.def Info: figuras/Parte2/30.jpg  used on input line 2622.
+Package pdftex.def Info: figuras/Parte2/30.jpg  used on input line 2628.
 (pdftex.def)             Requested size: 295.90175pt x 228.19771pt.
-LaTeX Info: Redefining \. on input line 2628.
-LaTeX Info: Redefining \% on input line 2628.
+LaTeX Info: Redefining \. on input line 2634.
+LaTeX Info: Redefining \% on input line 2634.
 [158 <./figuras/Parte2/30.jpg>]
-<figuras/Parte2/31.jpg, id=1629, 1068.99374pt x 1270.7475pt>
+<figuras/Parte2/31.jpg, id=1627, 1068.99374pt x 1270.7475pt>
 File: figuras/Parte2/31.jpg Graphic file (type jpg)
 <use figuras/Parte2/31.jpg>
-Package pdftex.def Info: figuras/Parte2/31.jpg  used on input line 2629.
+Package pdftex.def Info: figuras/Parte2/31.jpg  used on input line 2635.
 (pdftex.def)             Requested size: 207.12355pt x 246.21448pt.
-LaTeX Info: Redefining \. on input line 2632.
-LaTeX Info: Redefining \% on input line 2632.
+LaTeX Info: Redefining \. on input line 2638.
+LaTeX Info: Redefining \% on input line 2638.
 
 Overfull \hbox (32.1096pt too wide) has occurred while \output is active
  [][][][]  \T1/lmr/m/it/10 2.6Caracterización de variabilidad espacial con múlt
@@ -3097,200 +3106,200 @@ iples capas de datos  \T1/lmr/m/n/10 159
  []
 
 [159 <./figuras/Parte2/31.jpg>]
-<figuras/Parte2/32.jpg, id=1635, 1553.805pt x 856.70062pt>
+<figuras/Parte2/32.jpg, id=1633, 1553.805pt x 856.70062pt>
 File: figuras/Parte2/32.jpg Graphic file (type jpg)
 <use figuras/Parte2/32.jpg>
-Package pdftex.def Info: figuras/Parte2/32.jpg  used on input line 2633.
+Package pdftex.def Info: figuras/Parte2/32.jpg  used on input line 2639.
 (pdftex.def)             Requested size: 295.88988pt x 163.14082pt.
-LaTeX Info: Redefining \. on input line 2637.
-LaTeX Info: Redefining \% on input line 2637.
+LaTeX Info: Redefining \. on input line 2643.
+LaTeX Info: Redefining \% on input line 2643.
 [160 <./figuras/Parte2/32.jpg>]
-<figuras/Parte2/33.jpg, id=1640, 1954.30125pt x 1093.83656pt>
+<figuras/Parte2/33.jpg, id=1638, 1954.30125pt x 1093.83656pt>
 File: figuras/Parte2/33.jpg Graphic file (type jpg)
 <use figuras/Parte2/33.jpg>
-Package pdftex.def Info: figuras/Parte2/33.jpg  used on input line 2637.
+Package pdftex.def Info: figuras/Parte2/33.jpg  used on input line 2643.
 (pdftex.def)             Requested size: 295.90582pt x 165.62062pt.
-<figuras/Parte2/34.jpg, id=1641, 889.57344pt x 362.10281pt>
+<figuras/Parte2/34.jpg, id=1639, 889.57344pt x 362.10281pt>
 File: figuras/Parte2/34.jpg Graphic file (type jpg)
 <use figuras/Parte2/34.jpg>
-Package pdftex.def Info: figuras/Parte2/34.jpg  used on input line 2639.
+Package pdftex.def Info: figuras/Parte2/34.jpg  used on input line 2645.
 (pdftex.def)             Requested size: 295.9084pt x 120.45015pt.
-LaTeX Info: Redefining \. on input line 2647.
-LaTeX Info: Redefining \% on input line 2647.
-[161 <./figuras/Parte2/33.jpg> <./figuras/Parte2/34.jpg>]
-<figuras/Parte2/35.jpg, id=1647, 1071.25218pt x 1079.53313pt>
-File: figuras/Parte2/35.jpg Graphic file (type jpg)
-<use figuras/Parte2/35.jpg>
-Package pdftex.def Info: figuras/Parte2/35.jpg  used on input line 2653.
-(pdftex.def)             Requested size: 207.13614pt x 208.73734pt.
 LaTeX Info: Redefining \. on input line 2653.
 LaTeX Info: Redefining \% on input line 2653.
-[162]
-<figuras/Parte2/36.jpg, id=1653, 1564.34438pt x 1200.73593pt>
-File: figuras/Parte2/36.jpg Graphic file (type jpg)
-<use figuras/Parte2/36.jpg>
-Package pdftex.def Info: figuras/Parte2/36.jpg  used on input line 2657.
-(pdftex.def)             Requested size: 295.8918pt x 227.11618pt.
-LaTeX Info: Redefining \. on input line 2657.
-LaTeX Info: Redefining \% on input line 2657.
-[163 <./figuras/Parte2/35.jpg>]
-<figuras/Parte2/37.jpg, id=1658, 1227.08438pt x 1306.12968pt>
-File: figuras/Parte2/37.jpg Graphic file (type jpg)
-<use figuras/Parte2/37.jpg>
-Package pdftex.def Info: figuras/Parte2/37.jpg  used on input line 2659.
-(pdftex.def)             Requested size: 295.91055pt x 314.97227pt.
+[161 <./figuras/Parte2/33.jpg> <./figuras/Parte2/34.jpg>]
+<figuras/Parte2/35.jpg, id=1645, 1071.25218pt x 1079.53313pt>
+File: figuras/Parte2/35.jpg Graphic file (type jpg)
+<use figuras/Parte2/35.jpg>
+Package pdftex.def Info: figuras/Parte2/35.jpg  used on input line 2659.
+(pdftex.def)             Requested size: 207.13614pt x 208.73734pt.
 LaTeX Info: Redefining \. on input line 2659.
 LaTeX Info: Redefining \% on input line 2659.
-[164 <./figuras/Parte2/36.jpg>]
-<figuras/Parte2/38.jpg, id=1663, 889.3225pt x 292.59312pt>
-File: figuras/Parte2/38.jpg Graphic file (type jpg)
-<use figuras/Parte2/38.jpg>
-Package pdftex.def Info: figuras/Parte2/38.jpg  used on input line 2661.
-(pdftex.def)             Requested size: 295.90634pt x 97.35518pt.
+[162]
+<figuras/Parte2/36.jpg, id=1651, 1564.34438pt x 1200.73593pt>
+File: figuras/Parte2/36.jpg Graphic file (type jpg)
+<use figuras/Parte2/36.jpg>
+Package pdftex.def Info: figuras/Parte2/36.jpg  used on input line 2663.
+(pdftex.def)             Requested size: 295.8918pt x 227.11618pt.
+LaTeX Info: Redefining \. on input line 2663.
+LaTeX Info: Redefining \% on input line 2663.
+[163 <./figuras/Parte2/35.jpg>]
+<figuras/Parte2/37.jpg, id=1656, 1227.08438pt x 1306.12968pt>
+File: figuras/Parte2/37.jpg Graphic file (type jpg)
+<use figuras/Parte2/37.jpg>
+Package pdftex.def Info: figuras/Parte2/37.jpg  used on input line 2665.
+(pdftex.def)             Requested size: 295.91055pt x 314.97227pt.
 LaTeX Info: Redefining \. on input line 2665.
 LaTeX Info: Redefining \% on input line 2665.
+[164 <./figuras/Parte2/36.jpg>]
+<figuras/Parte2/38.jpg, id=1661, 889.3225pt x 292.59312pt>
+File: figuras/Parte2/38.jpg Graphic file (type jpg)
+<use figuras/Parte2/38.jpg>
+Package pdftex.def Info: figuras/Parte2/38.jpg  used on input line 2667.
+(pdftex.def)             Requested size: 295.90634pt x 97.35518pt.
+LaTeX Info: Redefining \. on input line 2671.
+LaTeX Info: Redefining \% on input line 2671.
 [165 <./figuras/Parte2/37.jpg> <./figuras/Parte2/38.jpg>]
-<figuras/Parte2/39.jpg, id=1669, 1067.48813pt x 1089.31969pt>
+<figuras/Parte2/39.jpg, id=1667, 1067.48813pt x 1089.31969pt>
 File: figuras/Parte2/39.jpg Graphic file (type jpg)
 <use figuras/Parte2/39.jpg>
-Package pdftex.def Info: figuras/Parte2/39.jpg  used on input line 2665.
+Package pdftex.def Info: figuras/Parte2/39.jpg  used on input line 2671.
 (pdftex.def)             Requested size: 207.12503pt x 211.36101pt.
-<figuras/Parte2/40.jpg, id=1670, 1557.56906pt x 1029.8475pt>
+<figuras/Parte2/40.jpg, id=1668, 1557.56906pt x 1029.8475pt>
 File: figuras/Parte2/40.jpg Graphic file (type jpg)
 <use figuras/Parte2/40.jpg>
-Package pdftex.def Info: figuras/Parte2/40.jpg  used on input line 2669.
+Package pdftex.def Info: figuras/Parte2/40.jpg  used on input line 2675.
 (pdftex.def)             Requested size: 295.89366pt x 195.64163pt.
-LaTeX Info: Redefining \. on input line 2669.
-LaTeX Info: Redefining \% on input line 2669.
-[166 <./figuras/Parte2/39.jpg>]
-<figuras/Parte2/41.jpg, id=1675, 1376.89406pt x 814.54312pt>
-File: figuras/Parte2/41.jpg Graphic file (type jpg)
-<use figuras/Parte2/41.jpg>
-Package pdftex.def Info: figuras/Parte2/41.jpg  used on input line 2673.
-(pdftex.def)             Requested size: 295.90039pt x 175.04878pt.
-<figuras/Parte2/42.jpg, id=1676, 834.11626pt x 252.44313pt>
-File: figuras/Parte2/42.jpg Graphic file (type jpg)
-<use figuras/Parte2/42.jpg>
-Package pdftex.def Info: figuras/Parte2/42.jpg  used on input line 2675.
-(pdftex.def)             Requested size: 295.90334pt x 89.55437pt.
 LaTeX Info: Redefining \. on input line 2675.
 LaTeX Info: Redefining \% on input line 2675.
+[166 <./figuras/Parte2/39.jpg>]
+<figuras/Parte2/41.jpg, id=1673, 1376.89406pt x 814.54312pt>
+File: figuras/Parte2/41.jpg Graphic file (type jpg)
+<use figuras/Parte2/41.jpg>
+Package pdftex.def Info: figuras/Parte2/41.jpg  used on input line 2679.
+(pdftex.def)             Requested size: 295.90039pt x 175.04878pt.
+<figuras/Parte2/42.jpg, id=1674, 834.11626pt x 252.44313pt>
+File: figuras/Parte2/42.jpg Graphic file (type jpg)
+<use figuras/Parte2/42.jpg>
+Package pdftex.def Info: figuras/Parte2/42.jpg  used on input line 2681.
+(pdftex.def)             Requested size: 295.90334pt x 89.55437pt.
+LaTeX Info: Redefining \. on input line 2681.
+LaTeX Info: Redefining \% on input line 2681.
 [167 <./figuras/Parte2/40.jpg> <./figuras/Parte2/41.jpg>]
-<figuras/Parte2/43.jpg, id=1681, 1072.005pt x 1264.725pt>
+<figuras/Parte2/43.jpg, id=1679, 1072.005pt x 1264.725pt>
 File: figuras/Parte2/43.jpg Graphic file (type jpg)
 <use figuras/Parte2/43.jpg>
-Package pdftex.def Info: figuras/Parte2/43.jpg  used on input line 2682.
+Package pdftex.def Info: figuras/Parte2/43.jpg  used on input line 2688.
 (pdftex.def)             Requested size: 207.13449pt x 244.37215pt.
-LaTeX Info: Redefining \. on input line 2685.
-LaTeX Info: Redefining \% on input line 2685.
+LaTeX Info: Redefining \. on input line 2691.
+LaTeX Info: Redefining \% on input line 2691.
 [168 <./figuras/Parte2/42.jpg> <./figuras/Parte2/43.jpg>]
-<figuras/Parte2/44.jpg, id=1687, 871.00406pt x 1017.8025pt>
+<figuras/Parte2/44.jpg, id=1685, 871.00406pt x 1017.8025pt>
 File: figuras/Parte2/44.jpg Graphic file (type jpg)
 <use figuras/Parte2/44.jpg>
-Package pdftex.def Info: figuras/Parte2/44.jpg  used on input line 2686.
+Package pdftex.def Info: figuras/Parte2/44.jpg  used on input line 2692.
 (pdftex.def)             Requested size: 207.13142pt x 242.04121pt.
-LaTeX Info: Redefining \. on input line 2686.
-LaTeX Info: Redefining \% on input line 2686.
+LaTeX Info: Redefining \. on input line 2692.
+LaTeX Info: Redefining \% on input line 2692.
 [169]
-<figuras/Parte2/45.jpg, id=1692, 1364.09625pt x 814.54312pt>
+<figuras/Parte2/45.jpg, id=1690, 1364.09625pt x 814.54312pt>
 File: figuras/Parte2/45.jpg Graphic file (type jpg)
 <use figuras/Parte2/45.jpg>
-Package pdftex.def Info: figuras/Parte2/45.jpg  used on input line 2690.
+Package pdftex.def Info: figuras/Parte2/45.jpg  used on input line 2696.
 (pdftex.def)             Requested size: 295.8976pt x 176.68939pt.
-LaTeX Info: Redefining \. on input line 2690.
-LaTeX Info: Redefining \% on input line 2690.
+LaTeX Info: Redefining \. on input line 2696.
+LaTeX Info: Redefining \% on input line 2696.
 [170 <./figuras/Parte2/44.jpg>]
-<figuras/Parte2/46.jpg, id=1697, 1309.14093pt x 1274.51157pt>
+<figuras/Parte2/46.jpg, id=1695, 1309.14093pt x 1274.51157pt>
 File: figuras/Parte2/46.jpg Graphic file (type jpg)
 <use figuras/Parte2/46.jpg>
-Package pdftex.def Info: figuras/Parte2/46.jpg  used on input line 2692.
+Package pdftex.def Info: figuras/Parte2/46.jpg  used on input line 2698.
 (pdftex.def)             Requested size: 295.90236pt x 288.07515pt.
-LaTeX Info: Redefining \. on input line 2695.
-LaTeX Info: Redefining \% on input line 2695.
+LaTeX Info: Redefining \. on input line 2701.
+LaTeX Info: Redefining \% on input line 2701.
 [171 <./figuras/Parte2/45.jpg> <./figuras/Parte2/46.jpg>]
-<figuras/Parte2/48.jpg, id=1703, 1060.71281pt x 1267.73625pt>
+<figuras/Parte2/48.jpg, id=1701, 1060.71281pt x 1267.73625pt>
 File: figuras/Parte2/48.jpg Graphic file (type jpg)
 <use figuras/Parte2/48.jpg>
-Package pdftex.def Info: figuras/Parte2/48.jpg  used on input line 2701.
+Package pdftex.def Info: figuras/Parte2/48.jpg  used on input line 2707.
 (pdftex.def)             Requested size: 207.1214pt x 247.5461pt.
-LaTeX Info: Redefining \. on input line 2704.
-LaTeX Info: Redefining \% on input line 2704.
-[172 <./figuras/Parte2/48.jpg>]
-LaTeX Info: Redefining \. on input line 2706.
-LaTeX Info: Redefining \% on input line 2706.
-[173]
-<figuras/Parte2/49.jpg, id=1713, 846.16125pt x 1250.42157pt>
-File: figuras/Parte2/49.jpg Graphic file (type jpg)
-<use figuras/Parte2/49.jpg>
-Package pdftex.def Info: figuras/Parte2/49.jpg  used on input line 2707.
-(pdftex.def)             Requested size: 207.1241pt x 306.0793pt.
 LaTeX Info: Redefining \. on input line 2710.
 LaTeX Info: Redefining \% on input line 2710.
-[174 <./figuras/Parte2/49.jpg>]
-<figuras/Parte2/50.jpg, id=1718, 1373.88281pt x 813.0375pt>
-File: figuras/Parte2/50.jpg Graphic file (type jpg)
-<use figuras/Parte2/50.jpg>
-Package pdftex.def Info: figuras/Parte2/50.jpg  used on input line 2711.
-(pdftex.def)             Requested size: 295.90314pt x 175.1098pt.
-<figuras/Parte2/51.jpg, id=1719, 968.86969pt x 1311.39937pt>
-File: figuras/Parte2/51.jpg Graphic file (type jpg)
-<use figuras/Parte2/51.jpg>
-Package pdftex.def Info: figuras/Parte2/51.jpg  used on input line 2713.
-(pdftex.def)             Requested size: 295.91138pt x 400.5265pt.
-LaTeX Info: Redefining \. on input line 2713.
-LaTeX Info: Redefining \% on input line 2713.
-[175 <./figuras/Parte2/50.jpg>]
+[172 <./figuras/Parte2/48.jpg>]
+LaTeX Info: Redefining \. on input line 2712.
+LaTeX Info: Redefining \% on input line 2712.
+[173]
+<figuras/Parte2/49.jpg, id=1711, 846.16125pt x 1250.42157pt>
+File: figuras/Parte2/49.jpg Graphic file (type jpg)
+<use figuras/Parte2/49.jpg>
+Package pdftex.def Info: figuras/Parte2/49.jpg  used on input line 2713.
+(pdftex.def)             Requested size: 207.1241pt x 306.0793pt.
 LaTeX Info: Redefining \. on input line 2716.
 LaTeX Info: Redefining \% on input line 2716.
-[176 <./figuras/Parte2/51.jpg>]
-<figuras/Parte2/52.jpg, id=1728, 875.27pt x 280.79906pt>
-File: figuras/Parte2/52.jpg Graphic file (type jpg)
-<use figuras/Parte2/52.jpg>
-Package pdftex.def Info: figuras/Parte2/52.jpg  used on input line 2717.
-(pdftex.def)             Requested size: 295.90506pt x 94.93054pt.
-<figuras/Parte2/53.jpg, id=1729, 454.69875pt x 454.69875pt>
-File: figuras/Parte2/53.jpg Graphic file (type jpg)
-<use figuras/Parte2/53.jpg>
-Package pdftex.def Info: figuras/Parte2/53.jpg  used on input line 2719.
-(pdftex.def)             Requested size: 295.91145pt x 295.91145pt.
+[174 <./figuras/Parte2/49.jpg>]
+<figuras/Parte2/50.jpg, id=1716, 1373.88281pt x 813.0375pt>
+File: figuras/Parte2/50.jpg Graphic file (type jpg)
+<use figuras/Parte2/50.jpg>
+Package pdftex.def Info: figuras/Parte2/50.jpg  used on input line 2717.
+(pdftex.def)             Requested size: 295.90314pt x 175.1098pt.
+<figuras/Parte2/51.jpg, id=1717, 968.86969pt x 1311.39937pt>
+File: figuras/Parte2/51.jpg Graphic file (type jpg)
+<use figuras/Parte2/51.jpg>
+Package pdftex.def Info: figuras/Parte2/51.jpg  used on input line 2719.
+(pdftex.def)             Requested size: 295.91138pt x 400.5265pt.
 LaTeX Info: Redefining \. on input line 2719.
 LaTeX Info: Redefining \% on input line 2719.
+[175 <./figuras/Parte2/50.jpg>]
+LaTeX Info: Redefining \. on input line 2722.
+LaTeX Info: Redefining \% on input line 2722.
+[176 <./figuras/Parte2/51.jpg>]
+<figuras/Parte2/52.jpg, id=1726, 875.27pt x 280.79906pt>
+File: figuras/Parte2/52.jpg Graphic file (type jpg)
+<use figuras/Parte2/52.jpg>
+Package pdftex.def Info: figuras/Parte2/52.jpg  used on input line 2723.
+(pdftex.def)             Requested size: 295.90506pt x 94.93054pt.
+<figuras/Parte2/53.jpg, id=1727, 454.69875pt x 454.69875pt>
+File: figuras/Parte2/53.jpg Graphic file (type jpg)
+<use figuras/Parte2/53.jpg>
+Package pdftex.def Info: figuras/Parte2/53.jpg  used on input line 2725.
+(pdftex.def)             Requested size: 295.91145pt x 295.91145pt.
+LaTeX Info: Redefining \. on input line 2725.
+LaTeX Info: Redefining \% on input line 2725.
 [177 <./figuras/Parte2/52.jpg>]
-LaTeX Info: Redefining \. on input line 2721.
-LaTeX Info: Redefining \% on input line 2721.
+LaTeX Info: Redefining \. on input line 2727.
+LaTeX Info: Redefining \% on input line 2727.
 [178 <./figuras/Parte2/53.jpg>]
-Underfull \vbox (badness 10000) detected at line 2724
+Underfull \vbox (badness 10000) detected at line 2730
  []
 
 
-Overfull \hbox (295.65833pt too wide) detected at line 2724
+Overfull \hbox (295.65833pt too wide) detected at line 2730
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 2724
+Underfull \vbox (badness 10000) detected at line 2730
  []
 
 
-Overfull \hbox (295.65833pt too wide) detected at line 2724
+Overfull \hbox (295.65833pt too wide) detected at line 2730
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 2724
+Underfull \vbox (badness 10000) detected at line 2730
  []
 
 
-Overfull \hbox (295.65833pt too wide) detected at line 2724
+Overfull \hbox (295.65833pt too wide) detected at line 2730
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 2724
+Underfull \vbox (badness 10000) detected at line 2730
  []
 
 
-Overfull \hbox (295.65833pt too wide) detected at line 2724
+Overfull \hbox (295.65833pt too wide) detected at line 2730
 []
  []
 
@@ -3372,38 +3381,38 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [180]
-Underfull \vbox (badness 10000) detected at line 2729
+Underfull \vbox (badness 10000) detected at line 2735
  []
 
 
-Overfull \hbox (295.65833pt too wide) detected at line 2729
+Overfull \hbox (295.65833pt too wide) detected at line 2735
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 2729
+Underfull \vbox (badness 10000) detected at line 2735
  []
 
 
-Overfull \hbox (295.65833pt too wide) detected at line 2729
+Overfull \hbox (295.65833pt too wide) detected at line 2735
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 2729
+Underfull \vbox (badness 10000) detected at line 2735
  []
 
 
-Overfull \hbox (295.65833pt too wide) detected at line 2729
+Overfull \hbox (295.65833pt too wide) detected at line 2735
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 2729
+Underfull \vbox (badness 10000) detected at line 2735
  []
 
 
-Overfull \hbox (295.65833pt too wide) detected at line 2729
+Overfull \hbox (295.65833pt too wide) detected at line 2735
 []
  []
 
@@ -3411,7 +3420,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{chapter.1}) h
 as been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2729 ...nales}\label{bases-de-datos-regionales}}
+l.2735 ...nales}\label{bases-de-datos-regionales}}
                                                   
 Cap\'{\i }tulo 1.
 
@@ -3426,189 +3435,148 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 ) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2750 ...es}\label{manejo-de-datos-espaciales-1}}
+l.2756 ...es}\label{manejo-de-datos-espaciales-1}}
                                                   
-LaTeX Info: Redefining \. on input line 2766.
-LaTeX Info: Redefining \% on input line 2766.
+LaTeX Info: Redefining \. on input line 2772.
+LaTeX Info: Redefining \% on input line 2772.
 [182]
-Underfull \vbox (badness 2035) detected at line 2798
+Underfull \vbox (badness 2035) detected at line 2804
  []
 
-LaTeX Info: Redefining \. on input line 2798.
-LaTeX Info: Redefining \% on input line 2798.
+LaTeX Info: Redefining \. on input line 2804.
+LaTeX Info: Redefining \% on input line 2804.
 [183]
-<figuras/figLibro/unnamed-chunk-157-1.pdf, id=1766, 160.6pt x 256.96pt>
-File: figuras/figLibro/unnamed-chunk-157-1.pdf Graphic file (type pdf)
-<use figuras/figLibro/unnamed-chunk-157-1.pdf>
-Package pdftex.def Info: figuras/figLibro/unnamed-chunk-157-1.pdf  used on inpu
-t line 2809.
-(pdftex.def)             Requested size: 160.61183pt x 256.97896pt.
-LaTeX Info: Redefining \. on input line 2809.
-LaTeX Info: Redefining \% on input line 2809.
-[184]
-<figuras/figLibro/unnamed-chunk-158-1.pdf, id=1771, 173.64874pt x 256.96pt>
+<figuras/figLibro/unnamed-chunk-158-1.pdf, id=1764, 173.64874pt x 256.96pt>
 File: figuras/figLibro/unnamed-chunk-158-1.pdf Graphic file (type pdf)
 <use figuras/figLibro/unnamed-chunk-158-1.pdf>
 Package pdftex.def Info: figuras/figLibro/unnamed-chunk-158-1.pdf  used on inpu
-t line 2821.
+t line 2815.
 (pdftex.def)             Requested size: 173.66156pt x 256.97896pt.
-LaTeX Info: Redefining \. on input line 2821.
-LaTeX Info: Redefining \% on input line 2821.
-[185 <./figuras/figLibro/unnamed-chunk-157-1.pdf>]
-LaTeX Info: Redefining \. on input line 2827.
-LaTeX Info: Redefining \% on input line 2827.
-[186 <./figuras/figLibro/unnamed-chunk-158-1.pdf>]
-<figuras/suelossftmap.png, id=1796, 401.5pt x 301.125pt>
+LaTeX Info: Redefining \. on input line 2817.
+LaTeX Info: Redefining \% on input line 2817.
+[184]
+<figuras/figLibro/unnamed-chunk-159-1.png, id=1769, 401.5pt x 301.125pt>
+File: figuras/figLibro/unnamed-chunk-159-1.png Graphic file (type png)
+<use figuras/figLibro/unnamed-chunk-159-1.png>
+Package pdftex.def Info: figuras/figLibro/unnamed-chunk-159-1.png  used on inpu
+t line 2827.
+(pdftex.def)             Requested size: 295.92908pt x 221.9468pt.
+
+Overfull \hbox (74.03682pt too wide) in paragraph at lines 2827--2828
+[]\T1/lmr/m/n/12 (-20) \begin{center}[] 
+ []
+
+LaTeX Info: Redefining \. on input line 2829.
+LaTeX Info: Redefining \% on input line 2829.
+[185 <./figuras/figLibro/unnamed-chunk-158-1.pdf>]
+LaTeX Info: Redefining \. on input line 2833.
+LaTeX Info: Redefining \% on input line 2833.
+[186 <./figuras/figLibro/unnamed-chunk-159-1.png>]
+<figuras/suelossftmap.png, id=1790, 401.5pt x 301.125pt>
 File: figuras/suelossftmap.png Graphic file (type png)
 <use figuras/suelossftmap.png>
-Package pdftex.def Info: figuras/suelossftmap.png  used on input line 2838.
+Package pdftex.def Info: figuras/suelossftmap.png  used on input line 2844.
 (pdftex.def)             Requested size: 295.92908pt x 221.9468pt.
 pdfTeX warning (ext4): destination with the same identifier (name{section.1.2})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2841 ...fecciuxf3n-de-grillas-de-predicciuxf3n}}
+l.2847 ...fecciuxf3n-de-grillas-de-predicciuxf3n}}
                                                   
-LaTeX Info: Redefining \. on input line 2845.
-LaTeX Info: Redefining \% on input line 2845.
+LaTeX Info: Redefining \. on input line 2851.
+LaTeX Info: Redefining \% on input line 2851.
 [187 <./figuras/suelossftmap.png>]
-<figuras/figLibro/unnamed-chunk-162-1.pdf, id=1803, 164.615pt x 256.96pt>
-File: figuras/figLibro/unnamed-chunk-162-1.pdf Graphic file (type pdf)
-<use figuras/figLibro/unnamed-chunk-162-1.pdf>
-Package pdftex.def Info: figuras/figLibro/unnamed-chunk-162-1.pdf  used on inpu
-t line 2868.
-(pdftex.def)             Requested size: 164.62715pt x 256.97896pt.
-LaTeX Info: Redefining \. on input line 2868.
-LaTeX Info: Redefining \% on input line 2868.
-[188]
-<figuras/figLibro/unnamed-chunk-163-1.pdf, id=1808, 160.6pt x 256.96pt>
+<figuras/figLibro/unnamed-chunk-163-1.pdf, id=1797, 160.6pt x 256.96pt>
 File: figuras/figLibro/unnamed-chunk-163-1.pdf Graphic file (type pdf)
 <use figuras/figLibro/unnamed-chunk-163-1.pdf>
 Package pdftex.def Info: figuras/figLibro/unnamed-chunk-163-1.pdf  used on inpu
-t line 2882.
+t line 2874.
 (pdftex.def)             Requested size: 160.61183pt x 256.97896pt.
-LaTeX Info: Redefining \. on input line 2882.
-LaTeX Info: Redefining \% on input line 2882.
-[189 <./figuras/figLibro/unnamed-chunk-162-1.pdf>]
-<figuras/figLibro/unnamed-chunk-164-1.pdf, id=1819, 160.6pt x 256.96pt>
+LaTeX Info: Redefining \. on input line 2876.
+LaTeX Info: Redefining \% on input line 2876.
+[188]
+<figuras/figLibro/unnamed-chunk-164-1.pdf, id=1802, 160.6pt x 256.96pt>
 File: figuras/figLibro/unnamed-chunk-164-1.pdf Graphic file (type pdf)
 <use figuras/figLibro/unnamed-chunk-164-1.pdf>
 Package pdftex.def Info: figuras/figLibro/unnamed-chunk-164-1.pdf  used on inpu
-t line 2895.
+t line 2888.
 (pdftex.def)             Requested size: 160.61183pt x 256.97896pt.
-LaTeX Info: Redefining \. on input line 2895.
-LaTeX Info: Redefining \% on input line 2895.
-[190 <./figuras/figLibro/unnamed-chunk-163-1.pdf>]pdfTeX warning (ext4): destin
+LaTeX Info: Redefining \. on input line 2890.
+LaTeX Info: Redefining \% on input line 2890.
+[189 <./figuras/figLibro/unnamed-chunk-163-1.pdf>]
+<figuras/figLibro/unnamed-chunk-165-1.png, id=1813, 401.5pt x 301.125pt>
+File: figuras/figLibro/unnamed-chunk-165-1.png Graphic file (type png)
+<use figuras/figLibro/unnamed-chunk-165-1.png>
+Package pdftex.def Info: figuras/figLibro/unnamed-chunk-165-1.png  used on inpu
+t line 2901.
+(pdftex.def)             Requested size: 295.92908pt x 221.9468pt.
+
+Overfull \hbox (74.03682pt too wide) in paragraph at lines 2901--2902
+[]\T1/lmr/m/n/12 (-20) \begin{center}[] 
+ []
+
+LaTeX Info: Redefining \. on input line 2904.
+LaTeX Info: Redefining \% on input line 2904.
+[190 <./figuras/figLibro/unnamed-chunk-164-1.pdf>]pdfTeX warning (ext4): destin
 ation with the same identifier (name{section.1.3}) has been already used, dupli
 cate ignored
 <to be read again> 
                    \relax 
-l.2898 ...el{agregado-de-capas-de-informaciuxf3n}}
+l.2904 ...el{agregado-de-capas-de-informaciuxf3n}}
                                                   
-LaTeX Info: Redefining \. on input line 2902.
-LaTeX Info: Redefining \% on input line 2902.
-[191 <./figuras/figLibro/unnamed-chunk-164-1.pdf>]
-LaTeX Info: Redefining \. on input line 2935.
-LaTeX Info: Redefining \% on input line 2935.
+LaTeX Info: Redefining \. on input line 2908.
+LaTeX Info: Redefining \% on input line 2908.
+[191 <./figuras/figLibro/unnamed-chunk-165-1.png>]
+LaTeX Info: Redefining \. on input line 2941.
+LaTeX Info: Redefining \% on input line 2941.
 [192]
-LaTeX Info: Redefining \. on input line 2969.
-LaTeX Info: Redefining \% on input line 2969.
+LaTeX Info: Redefining \. on input line 2975.
+LaTeX Info: Redefining \% on input line 2975.
 [193]
-<figuras/figLibro/unnamed-chunk-169-1.pdf, id=1847, 327.2225pt x 256.96pt>
-File: figuras/figLibro/unnamed-chunk-169-1.pdf Graphic file (type pdf)
-<use figuras/figLibro/unnamed-chunk-169-1.pdf>
-Package pdftex.def Info: figuras/figLibro/unnamed-chunk-169-1.pdf  used on inpu
-t line 2983.
-(pdftex.def)             Requested size: 295.91054pt x 232.37146pt.
-LaTeX Info: Redefining \. on input line 2987.
-LaTeX Info: Redefining \% on input line 2987.
-[194 <./figuras/figLibro/unnamed-chunk-169-1.pdf>]
-LaTeX Info: Redefining \. on input line 3020.
-LaTeX Info: Redefining \% on input line 3020.
+Underfull \vbox (badness 1275) detected at line 3026
+ []
+
+LaTeX Info: Redefining \. on input line 3026.
+LaTeX Info: Redefining \% on input line 3026.
+[194]
+LaTeX Info: Redefining \. on input line 3030.
+LaTeX Info: Redefining \% on input line 3030.
 [195]
-<figuras/figLibro/unnamed-chunk-171-1.pdf, id=1876, 425.59pt x 262.9825pt>
-File: figuras/figLibro/unnamed-chunk-171-1.pdf Graphic file (type pdf)
-<use figuras/figLibro/unnamed-chunk-171-1.pdf>
-Package pdftex.def Info: figuras/figLibro/unnamed-chunk-171-1.pdf  used on inpu
-t line 3040.
-(pdftex.def)             Requested size: 295.9238pt x 182.85857pt.
-LaTeX Info: Redefining \. on input line 3040.
-LaTeX Info: Redefining \% on input line 3040.
+LaTeX Info: Redefining \. on input line 3058.
+LaTeX Info: Redefining \% on input line 3058.
 [196]
-LaTeX Info: Redefining \. on input line 3043.
-LaTeX Info: Redefining \% on input line 3043.
-[197 <./figuras/figLibro/unnamed-chunk-171-1.pdf>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 10000) detected at line 3058
+ []
 
 
-Overfull \hbox (295.65833pt too wide) has occurred while \output is active
+Overfull \hbox (295.65833pt too wide) detected at line 3058
 []
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 10000) detected at line 3058
+ []
 
 
-Overfull \hbox (295.65833pt too wide) has occurred while \output is active
+Overfull \hbox (295.65833pt too wide) detected at line 3058
 []
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 10000) detected at line 3058
+ []
 
 
-Overfull \hbox (295.65833pt too wide) has occurred while \output is active
+Overfull \hbox (295.65833pt too wide) detected at line 3058
 []
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \hbox (295.65833pt too wide) has occurred while \output is active
-[]
+Underfull \vbox (badness 10000) detected at line 3058
  []
 
 
-Underfull \hbox (badness 10000) has occurred while \output is active
- [][][][] 
- []
-
-[198
-
-]
-Underfull \vbox (badness 10000) detected at line 3043
- []
-
-
-Overfull \hbox (295.65833pt too wide) detected at line 3043
-[]
- []
-
-
-Underfull \vbox (badness 10000) detected at line 3043
- []
-
-
-Overfull \hbox (295.65833pt too wide) detected at line 3043
-[]
- []
-
-
-Underfull \vbox (badness 10000) detected at line 3043
- []
-
-
-Overfull \hbox (295.65833pt too wide) detected at line 3043
-[]
- []
-
-
-Underfull \vbox (badness 10000) detected at line 3043
- []
-
-
-Overfull \hbox (295.65833pt too wide) detected at line 3043
+Overfull \hbox (295.65833pt too wide) detected at line 3058
 []
  []
 
@@ -3616,11 +3584,11 @@ pdfTeX warning (ext4): destination with the same identifier (name{chapter.2}) h
 as been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3043 ...xf3n-con-muxfaltiples-capas-de-datos-3}}
+l.3058 ...xf3n-con-muxfaltiples-capas-de-datos-3}}
                                                   
 Cap\'{\i }tulo 2.
 
-Underfull \vbox (badness 1354) detected at line 3064
+Underfull \vbox (badness 1354) detected at line 3079
  []
 
 
@@ -3628,26 +3596,50 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
  []
 
-[199
+[197
+
 
 ]
-<figuras/figLibro/unnamed-chunk-172-1.pdf, id=1907, 278.03876pt x 256.96pt>
-File: figuras/figLibro/unnamed-chunk-172-1.pdf Graphic file (type pdf)
-<use figuras/figLibro/unnamed-chunk-172-1.pdf>
-Package pdftex.def Info: figuras/figLibro/unnamed-chunk-172-1.pdf  used on inpu
-t line 3066.
-(pdftex.def)             Requested size: 278.05928pt x 256.97896pt.
+<figuras/figLibro/unnamed-chunk-173-1.png, id=1862, 401.5pt x 301.125pt>
+File: figuras/figLibro/unnamed-chunk-173-1.png Graphic file (type png)
+<use figuras/figLibro/unnamed-chunk-173-1.png>
+Package pdftex.def Info: figuras/figLibro/unnamed-chunk-173-1.png  used on inpu
+t line 3081.
+(pdftex.def)             Requested size: 295.92908pt x 221.9468pt.
+
+Overfull \hbox (74.03682pt too wide) in paragraph at lines 3081--3082
+[]\T1/lmr/m/n/12 (-20) \begin{center}[] 
+ []
+
 pdfTeX warning (ext4): destination with the same identifier (name{section.2.1})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3069 ...lacionados-espacialmente-vuxeda-reml-1}}
+l.3084 ...lacionados-espacialmente-vuxeda-reml-1}}
                                                   
-LaTeX Info: Redefining \. on input line 3072.
-LaTeX Info: Redefining \% on input line 3072.
-[200 <./figuras/figLibro/unnamed-chunk-172-1.pdf>]
-LaTeX Info: Redefining \. on input line 3094.
-LaTeX Info: Redefining \% on input line 3094.
+LaTeX Info: Redefining \. on input line 3087.
+LaTeX Info: Redefining \% on input line 3087.
+[198 <./figuras/figLibro/unnamed-chunk-173-1.png>]
+LaTeX Info: Redefining \. on input line 3109.
+LaTeX Info: Redefining \% on input line 3109.
+
+Overfull \hbox (11.09285pt too wide) has occurred while \output is active
+ [][][][]  \T1/lmr/m/it/10 2.1Regresión con errores correlacionados espacialmen
+te vía REML  \T1/lmr/m/n/10 199
+ []
+
+[199]
+Underfull \vbox (badness 10000) detected at line 3144
+ []
+
+LaTeX Info: Redefining \. on input line 3144.
+LaTeX Info: Redefining \% on input line 3144.
+[200]
+Underfull \vbox (badness 1762) detected at line 3189
+ []
+
+LaTeX Info: Redefining \. on input line 3189.
+LaTeX Info: Redefining \% on input line 3189.
 
 Overfull \hbox (11.09285pt too wide) has occurred while \output is active
  [][][][]  \T1/lmr/m/it/10 2.1Regresión con errores correlacionados espacialmen
@@ -3655,169 +3647,153 @@ te vía REML  \T1/lmr/m/n/10 201
  []
 
 [201]
-Underfull \vbox (badness 10000) detected at line 3129
+Underfull \hbox (badness 1661) in paragraph at lines 3191--3192
+[]\T1/lmr/m/n/12 (+20) Las pre-dic-cio-nes se rea-li-za-ron uti-li-zan-do la fu
+n-ción
  []
 
-LaTeX Info: Redefining \. on input line 3129.
-LaTeX Info: Redefining \% on input line 3129.
+LaTeX Info: Redefining \. on input line 3193.
+LaTeX Info: Redefining \% on input line 3193.
 [202]
-Underfull \vbox (badness 1762) detected at line 3174
+<figuras/figLibro/unnamed-chunk-179-1.png, id=1886, 401.5pt x 301.125pt>
+File: figuras/figLibro/unnamed-chunk-179-1.png Graphic file (type png)
+<use figuras/figLibro/unnamed-chunk-179-1.png>
+Package pdftex.def Info: figuras/figLibro/unnamed-chunk-179-1.png  used on inpu
+t line 3225.
+(pdftex.def)             Requested size: 295.92908pt x 221.9468pt.
+
+Overfull \hbox (74.03682pt too wide) in paragraph at lines 3225--3226
+[]\T1/lmr/m/n/12 (-20) \begin{center}[] 
  []
 
-LaTeX Info: Redefining \. on input line 3174.
-LaTeX Info: Redefining \% on input line 3174.
+LaTeX Info: Redefining \. on input line 3228.
+LaTeX Info: Redefining \% on input line 3228.
 
 Overfull \hbox (11.09285pt too wide) has occurred while \output is active
  [][][][]  \T1/lmr/m/it/10 2.1Regresión con errores correlacionados espacialmen
 te vía REML  \T1/lmr/m/n/10 203
  []
 
-[203]
-Underfull \hbox (badness 1661) in paragraph at lines 3176--3177
-[]\T1/lmr/m/n/12 (+20) Las pre-dic-cio-nes se rea-li-za-ron uti-li-zan-do la fu
-n-ción
- []
-
-LaTeX Info: Redefining \. on input line 3178.
-LaTeX Info: Redefining \% on input line 3178.
-[204]
-<figuras/figLibro/unnamed-chunk-178-1.pdf, id=1941, 160.6pt x 256.96pt>
-File: figuras/figLibro/unnamed-chunk-178-1.pdf Graphic file (type pdf)
-<use figuras/figLibro/unnamed-chunk-178-1.pdf>
-Package pdftex.def Info: figuras/figLibro/unnamed-chunk-178-1.pdf  used on inpu
-t line 3210.
-(pdftex.def)             Requested size: 160.61183pt x 256.97896pt.
-LaTeX Info: Redefining \. on input line 3210.
-LaTeX Info: Redefining \% on input line 3210.
-
-Overfull \hbox (11.09285pt too wide) has occurred while \output is active
- [][][][]  \T1/lmr/m/it/10 2.1Regresión con errores correlacionados espacialmen
-te vía REML  \T1/lmr/m/n/10 205
- []
-
-[205]pdfTeX warning (ext4): destination with the same identifier (name{section.
+[203]pdfTeX warning (ext4): destination with the same identifier (name{section.
 2.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3213 ...ctos-aleatorios-de-sitio-vuxeda-inla-1}}
+l.3228 ...ctos-aleatorios-de-sitio-vuxeda-inla-1}}
                                                   
-LaTeX Info: Redefining \. on input line 3216.
-LaTeX Info: Redefining \% on input line 3216.
-[206 <./figuras/figLibro/unnamed-chunk-178-1.pdf>]
-LaTeX Info: Redefining \. on input line 3228.
-LaTeX Info: Redefining \% on input line 3228.
+LaTeX Info: Redefining \. on input line 3231.
+LaTeX Info: Redefining \% on input line 3231.
+[204 <./figuras/figLibro/unnamed-chunk-179-1.png>]
+LaTeX Info: Redefining \. on input line 3243.
+LaTeX Info: Redefining \% on input line 3243.
+[205]
+LaTeX Info: Redefining \. on input line 3291.
+LaTeX Info: Redefining \% on input line 3291.
+[206]
+LaTeX Info: Redefining \. on input line 3294.
+LaTeX Info: Redefining \% on input line 3294.
 [207]
-LaTeX Info: Redefining \. on input line 3276.
-LaTeX Info: Redefining \% on input line 3276.
+LaTeX Info: Redefining \. on input line 3316.
+LaTeX Info: Redefining \% on input line 3316.
 [208]
-LaTeX Info: Redefining \. on input line 3279.
-LaTeX Info: Redefining \% on input line 3279.
+Underfull \vbox (badness 10000) detected at line 3383
+ []
+
+LaTeX Info: Redefining \. on input line 3383.
+LaTeX Info: Redefining \% on input line 3383.
 [209]
-LaTeX Info: Redefining \. on input line 3301.
-LaTeX Info: Redefining \% on input line 3301.
+Underfull \vbox (badness 10000) detected at line 3383
+ []
+
+
+Overfull \vbox (1.4834pt too high) detected at line 3383
+ []
+
+LaTeX Info: Redefining \. on input line 3383.
+LaTeX Info: Redefining \% on input line 3383.
 [210]
-Underfull \vbox (badness 10000) detected at line 3369
- []
-
-LaTeX Info: Redefining \. on input line 3369.
-LaTeX Info: Redefining \% on input line 3369.
+LaTeX Info: Redefining \. on input line 3408.
+LaTeX Info: Redefining \% on input line 3408.
 [211]
-Underfull \vbox (badness 10000) detected at line 3369
- []
-
-
-Underfull \vbox (badness 10000) detected at line 3369
- []
-
-LaTeX Info: Redefining \. on input line 3369.
-LaTeX Info: Redefining \% on input line 3369.
+LaTeX Info: Redefining \. on input line 3434.
+LaTeX Info: Redefining \% on input line 3434.
 [212]
-LaTeX Info: Redefining \. on input line 3394.
-LaTeX Info: Redefining \% on input line 3394.
+LaTeX Info: Redefining \. on input line 3469.
+LaTeX Info: Redefining \% on input line 3469.
 [213]
-Overfull \vbox (0.93274pt too high) detected at line 3420
- []
-
-LaTeX Info: Redefining \. on input line 3420.
-LaTeX Info: Redefining \% on input line 3420.
-[214]
-LaTeX Info: Redefining \. on input line 3454.
-LaTeX Info: Redefining \% on input line 3454.
-[215]
-<figuras/figLibro/unionpredichosinla-1.pdf, id=2000, 160.6pt x 256.96pt>
+<figuras/figLibro/unionpredichosinla-1.pdf, id=1936, 160.6pt x 256.96pt>
 File: figuras/figLibro/unionpredichosinla-1.pdf Graphic file (type pdf)
 <use figuras/figLibro/unionpredichosinla-1.pdf>
 Package pdftex.def Info: figuras/figLibro/unionpredichosinla-1.pdf  used on inp
-ut line 3468.
+ut line 3482.
 (pdftex.def)             Requested size: 160.61183pt x 256.97896pt.
 pdfTeX warning (ext4): destination with the same identifier (name{section.2.3})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3471 ...n-vuxeda-modelos-basados-en-uxe1rbol-1}}
+l.3485 ...n-vuxeda-modelos-basados-en-uxe1rbol-1}}
                                                   
-LaTeX Info: Redefining \. on input line 3474.
-LaTeX Info: Redefining \% on input line 3474.
-[216 <./figuras/figLibro/unionpredichosinla-1.pdf>]
-LaTeX Info: Redefining \. on input line 3477.
-LaTeX Info: Redefining \% on input line 3477.
-[217]
-Underfull \vbox (badness 10000) detected at line 3513
+LaTeX Info: Redefining \. on input line 3488.
+LaTeX Info: Redefining \% on input line 3488.
+[214 <./figuras/figLibro/unionpredichosinla-1.pdf>]
+LaTeX Info: Redefining \. on input line 3491.
+LaTeX Info: Redefining \% on input line 3491.
+[215]
+Underfull \vbox (badness 10000) detected at line 3527
  []
 
-LaTeX Info: Redefining \. on input line 3513.
-LaTeX Info: Redefining \% on input line 3513.
-[218]
-<figuras/figLibro/mejorajustegbm-1.pdf, id=2025, 427.5975pt x 262.9825pt>
+LaTeX Info: Redefining \. on input line 3527.
+LaTeX Info: Redefining \% on input line 3527.
+[216]
+<figuras/figLibro/mejorajustegbm-1.pdf, id=1961, 427.5975pt x 262.9825pt>
 File: figuras/figLibro/mejorajustegbm-1.pdf Graphic file (type pdf)
 <use figuras/figLibro/mejorajustegbm-1.pdf>
 Package pdftex.def Info: figuras/figLibro/mejorajustegbm-1.pdf  used on input l
-ine 3515.
+ine 3529.
 (pdftex.def)             Requested size: 295.90384pt x 181.9878pt.
-<figuras/figLibro/resumenajustegbm-1.pdf, id=2026, 372.39125pt x 185.69376pt>
+<figuras/figLibro/resumenajustegbm-1.pdf, id=1962, 372.39125pt x 185.69376pt>
 File: figuras/figLibro/resumenajustegbm-1.pdf Graphic file (type pdf)
 <use figuras/figLibro/resumenajustegbm-1.pdf>
 Package pdftex.def Info: figuras/figLibro/resumenajustegbm-1.pdf  used on input
- line 3531.
+ line 3545.
 (pdftex.def)             Requested size: 295.91893pt x 147.56065pt.
-LaTeX Info: Redefining \. on input line 3531.
-LaTeX Info: Redefining \% on input line 3531.
-[219 <./figuras/figLibro/mejorajustegbm-1.pdf>]
-<figuras/figLibro/unnamed-chunk-185-1.pdf, id=2043, 423.5825pt x 256.96pt>
-File: figuras/figLibro/unnamed-chunk-185-1.pdf Graphic file (type pdf)
-<use figuras/figLibro/unnamed-chunk-185-1.pdf>
-Package pdftex.def Info: figuras/figLibro/unnamed-chunk-185-1.pdf  used on inpu
-t line 3559.
+LaTeX Info: Redefining \. on input line 3545.
+LaTeX Info: Redefining \% on input line 3545.
+[217 <./figuras/figLibro/mejorajustegbm-1.pdf>]
+<figuras/figLibro/unnamed-chunk-186-1.pdf, id=1978, 423.5825pt x 256.96pt>
+File: figuras/figLibro/unnamed-chunk-186-1.pdf Graphic file (type pdf)
+<use figuras/figLibro/unnamed-chunk-186-1.pdf>
+Package pdftex.def Info: figuras/figLibro/unnamed-chunk-186-1.pdf  used on inpu
+t line 3573.
 (pdftex.def)             Requested size: 295.91756pt x 179.51396pt.
-<figuras/figLibro/unnamed-chunk-185-2.pdf, id=2044, 423.5825pt x 256.96pt>
-File: figuras/figLibro/unnamed-chunk-185-2.pdf Graphic file (type pdf)
-<use figuras/figLibro/unnamed-chunk-185-2.pdf>
-Package pdftex.def Info: figuras/figLibro/unnamed-chunk-185-2.pdf  used on inpu
-t line 3559.
+<figuras/figLibro/unnamed-chunk-186-2.pdf, id=1979, 423.5825pt x 256.96pt>
+File: figuras/figLibro/unnamed-chunk-186-2.pdf Graphic file (type pdf)
+<use figuras/figLibro/unnamed-chunk-186-2.pdf>
+Package pdftex.def Info: figuras/figLibro/unnamed-chunk-186-2.pdf  used on inpu
+t line 3573.
 (pdftex.def)             Requested size: 295.91756pt x 179.51396pt.
-LaTeX Info: Redefining \. on input line 3559.
-LaTeX Info: Redefining \% on input line 3559.
-[220 <./figuras/figLibro/resumenajustegbm-1.pdf>]
-LaTeX Info: Redefining \. on input line 3563.
-LaTeX Info: Redefining \% on input line 3563.
-[221 <./figuras/figLibro/unnamed-chunk-185-1.pdf> <./figuras/figLibro/unnamed-c
-hunk-185-2.pdf
+LaTeX Info: Redefining \. on input line 3573.
+LaTeX Info: Redefining \% on input line 3573.
+[218 <./figuras/figLibro/resumenajustegbm-1.pdf>]
+LaTeX Info: Redefining \. on input line 3577.
+LaTeX Info: Redefining \% on input line 3577.
+[219 <./figuras/figLibro/unnamed-chunk-186-1.pdf> <./figuras/figLibro/unnamed-c
+hunk-186-2.pdf
 
-pdfTeX warning: pdflatex (file ./figuras/figLibro/unnamed-chunk-185-2.pdf): PDF
+pdfTeX warning: pdflatex (file ./figuras/figLibro/unnamed-chunk-186-2.pdf): PDF
  inclusion: multiple pdfs with page group included in a single page
 >]
-<figuras/figLibro/predichosgbm-1.pdf, id=2093, 160.6pt x 256.96pt>
+<figuras/figLibro/predichosgbm-1.pdf, id=2028, 160.6pt x 256.96pt>
 File: figuras/figLibro/predichosgbm-1.pdf Graphic file (type pdf)
 <use figuras/figLibro/predichosgbm-1.pdf>
 Package pdftex.def Info: figuras/figLibro/predichosgbm-1.pdf  used on input lin
-e 3589.
+e 3603.
 (pdftex.def)             Requested size: 160.61183pt x 256.97896pt.
-LaTeX Info: Redefining \. on input line 3589.
-LaTeX Info: Redefining \% on input line 3589.
-[222]
-LaTeX Info: Redefining \. on input line 3591.
-LaTeX Info: Redefining \% on input line 3591.
-[223 <./figuras/figLibro/predichosgbm-1.pdf>]
+LaTeX Info: Redefining \. on input line 3605.
+LaTeX Info: Redefining \% on input line 3605.
+[220]
+LaTeX Info: Redefining \. on input line 3605.
+LaTeX Info: Redefining \% on input line 3605.
+[221 <./figuras/figLibro/predichosgbm-1.pdf>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -3854,209 +3830,146 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
  []
 
-[224
+[222
 
 ]
-LaTeX Info: Redefining \. on input line 3598.
-LaTeX Info: Redefining \% on input line 3598.
-[225]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 10000) detected at line 3614
+ []
 
 
-Overfull \hbox (295.65833pt too wide) has occurred while \output is active
+Overfull \hbox (295.65833pt too wide) detected at line 3614
 []
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 10000) detected at line 3614
+ []
 
 
-Overfull \hbox (295.65833pt too wide) has occurred while \output is active
+Overfull \hbox (295.65833pt too wide) detected at line 3614
 []
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 10000) detected at line 3614
+ []
 
 
-Overfull \hbox (295.65833pt too wide) has occurred while \output is active
+Overfull \hbox (295.65833pt too wide) detected at line 3614
 []
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 10000) detected at line 3614
+ []
 
 
-Overfull \hbox (295.65833pt too wide) has occurred while \output is active
+Overfull \hbox (295.65833pt too wide) detected at line 3614
 []
  []
 
+Anexo A.
 
 Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
  []
 
-[226
+[223
+
 
 ]
-Underfull \vbox (badness 10000) detected at line 3598
+LaTeX Info: Redefining \. on input line 3628.
+LaTeX Info: Redefining \% on input line 3628.
+[224]
+<figuras/InterpreteInfoStat.png, id=2075, 469.755pt x 251.4996pt>
+File: figuras/InterpreteInfoStat.png Graphic file (type png)
+<use figuras/InterpreteInfoStat.png>
+Package pdftex.def Info: figuras/InterpreteInfoStat.png  used on input line 362
+8.
+(pdftex.def)             Requested size: 295.9042pt x 158.42255pt.
+<figuras/IDERstudio.png, id=2076, 469.755pt x 251.9814pt>
+File: figuras/IDERstudio.png Graphic file (type png)
+<use figuras/IDERstudio.png>
+Package pdftex.def Info: figuras/IDERstudio.png  used on input line 3635.
+(pdftex.def)             Requested size: 295.9042pt x 158.72604pt.
+LaTeX Info: Redefining \. on input line 3635.
+LaTeX Info: Redefining \% on input line 3635.
+[225 <./figuras/InterpreteInfoStat.png>]
+LaTeX Info: Redefining \. on input line 3638.
+LaTeX Info: Redefining \% on input line 3638.
+[226 <./figuras/IDERstudio.png>]
+Underfull \vbox (badness 10000) detected at line 3638
  []
 
 
-Overfull \hbox (295.65833pt too wide) detected at line 3598
+Overfull \hbox (295.65833pt too wide) detected at line 3638
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 3598
+Underfull \vbox (badness 10000) detected at line 3638
  []
 
 
-Overfull \hbox (295.65833pt too wide) detected at line 3598
+Overfull \hbox (295.65833pt too wide) detected at line 3638
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 3598
+Underfull \vbox (badness 10000) detected at line 3638
  []
 
 
-Overfull \hbox (295.65833pt too wide) detected at line 3598
+Overfull \hbox (295.65833pt too wide) detected at line 3638
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 3598
+Underfull \vbox (badness 10000) detected at line 3638
  []
 
 
-Overfull \hbox (295.65833pt too wide) detected at line 3598
+Overfull \hbox (295.65833pt too wide) detected at line 3638
 []
  []
 
-pdfTeX warning (ext4): destination with the same identifier (name{chapter.1}) h
-as been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.3598 ...ftware}\label{herramientas-de-software}}
-                                                  
-Cap\'{\i }tulo 1.
-pdfTeX warning (ext4): destination with the same identifier (name{section.1.1})
- has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.3603 ...3n-al-manejo-de-datos-espaciales-con-r}}
-                                                  
+
+Underfull \hbox (badness 10000) detected at line 3638
+[]
+ []
+
+
 Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
  []
 
 [227
 
-]pdfTeX warning (ext4): destination with the same identifier (name{section.1.2}
-) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.3608 ...}\label{intuxe9rprete-de-r-en-infostat}}
-                                                  
-LaTeX Info: Redefining \. on input line 3612.
-LaTeX Info: Redefining \% on input line 3612.
-[228]
-<figuras/InterpreteInfoStat.png, id=2147, 469.755pt x 251.4996pt>
-File: figuras/InterpreteInfoStat.png Graphic file (type png)
-<use figuras/InterpreteInfoStat.png>
-Package pdftex.def Info: figuras/InterpreteInfoStat.png  used on input line 361
-2.
-(pdftex.def)             Requested size: 295.9042pt x 158.42255pt.
-pdfTeX warning (ext4): destination with the same identifier (name{section.1.3})
- has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.3615 \section{RStudio}\label{rstudio}}
-                                        
-<figuras/IDERstudio.png, id=2148, 469.755pt x 251.9814pt>
-File: figuras/IDERstudio.png Graphic file (type png)
-<use figuras/IDERstudio.png>
-Package pdftex.def Info: figuras/IDERstudio.png  used on input line 3619.
-(pdftex.def)             Requested size: 295.9042pt x 158.72604pt.
-LaTeX Info: Redefining \. on input line 3619.
-LaTeX Info: Redefining \% on input line 3619.
-[229 <./figuras/InterpreteInfoStat.png>]
-LaTeX Info: Redefining \. on input line 3622.
-LaTeX Info: Redefining \% on input line 3622.
-[230 <./figuras/IDERstudio.png>]
-Underfull \vbox (badness 10000) detected at line 3622
- []
-
-
-Overfull \hbox (295.65833pt too wide) detected at line 3622
-[]
- []
-
-
-Underfull \vbox (badness 10000) detected at line 3622
- []
-
-
-Overfull \hbox (295.65833pt too wide) detected at line 3622
-[]
- []
-
-
-Underfull \vbox (badness 10000) detected at line 3622
- []
-
-
-Overfull \hbox (295.65833pt too wide) detected at line 3622
-[]
- []
-
-
-Underfull \vbox (badness 10000) detected at line 3622
- []
-
-
-Overfull \hbox (295.65833pt too wide) detected at line 3622
-[]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 3622
-[]
- []
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
- [][][][] 
- []
-
-[231
-
 
 ]
-LaTeX Info: Redefining \. on input line 3671.
-LaTeX Info: Redefining \% on input line 3671.
-[232]
-LaTeX Info: Redefining \. on input line 3698.
-LaTeX Info: Redefining \% on input line 3698.
-[233]
-LaTeX Info: Redefining \. on input line 3727.
-LaTeX Info: Redefining \% on input line 3727.
-[234]
-LaTeX Info: Redefining \. on input line 3749.
-LaTeX Info: Redefining \% on input line 3749.
-[235]
-Underfull \hbox (badness 1127) in paragraph at lines 3767--3769
+LaTeX Info: Redefining \. on input line 3687.
+LaTeX Info: Redefining \% on input line 3687.
+[228]
+LaTeX Info: Redefining \. on input line 3714.
+LaTeX Info: Redefining \% on input line 3714.
+[229]
+LaTeX Info: Redefining \. on input line 3743.
+LaTeX Info: Redefining \% on input line 3743.
+[230]
+LaTeX Info: Redefining \. on input line 3765.
+LaTeX Info: Redefining \% on input line 3765.
+[231]
+Underfull \hbox (badness 1127) in paragraph at lines 3783--3785
 \T1/lmr/m/n/12 (+20) 1). John Wi-ley & Sons. [][]$\T1/lmtt/m/n/12 https : / / d
 oi . org / 10 . 2136 /
  []
 
-LaTeX Info: Redefining \. on input line 3776.
-LaTeX Info: Redefining \% on input line 3776.
-[236]
-LaTeX Info: Redefining \. on input line 3776.
-LaTeX Info: Redefining \% on input line 3776.
-[237]
+LaTeX Info: Redefining \. on input line 3792.
+LaTeX Info: Redefining \% on input line 3792.
+[232]
+LaTeX Info: Redefining \. on input line 3792.
+LaTeX Info: Redefining \% on input line 3792.
+[233]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -4093,31 +4006,31 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
  []
 
-[238
+[234
 
 ] (./PROTRI2018-VariabilidadEspacial.ind)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 3779.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 3779.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 3795.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 3795.
 (./PROTRI2018-VariabilidadEspacial.aux
 LaTeX Info: Redefining \. on input line 23.
 LaTeX Info: Redefining \% on input line 23.
 )
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 3779.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 3779.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 3795.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 3795.
 
 Package rerunfilecheck Info: File `PROTRI2018-VariabilidadEspacial.out' has not
  changed.
-(rerunfilecheck)             Checksum: EB21F53DE148B02BBF91C0BF25E18713;16249.
+(rerunfilecheck)             Checksum: 9B8C4C3177491C801EC657A249678608;16359.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 3779.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 3795.
  ) 
 Here is how much of TeX's memory you used:
- 17919 strings out of 492982
- 270870 string characters out of 6134895
- 393517 words of memory out of 5000000
- 20559 multiletter control sequences out of 15000+600000
+ 17920 strings out of 492982
+ 270434 string characters out of 6134895
+ 393535 words of memory out of 5000000
+ 20551 multiletter control sequences out of 15000+600000
  110743 words of font info for 193 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,12n,45p,2862b,672s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -4140,11 +4053,11 @@ e1/public/lm/lmsy6.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb></usr/
 share/texmf/fonts/type1/public/lm/lmtk10.pfb></usr/share/texmf/fonts/type1/publ
 ic/lm/lmtt12.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt8.pfb></usr/share/
 texmf/fonts/type1/public/lm/lmtti10.pfb>
-Output written on PROTRI2018-VariabilidadEspacial.pdf (248 pages, 21097165 byte
+Output written on PROTRI2018-VariabilidadEspacial.pdf (244 pages, 20695608 byte
 s).
 PDF statistics:
- 2411 PDF objects out of 2487 (max. 8388607)
- 1886 compressed objects within 19 object streams
- 428 named destinations out of 1000 (max. 500000)
- 17451 words of extra memory for PDF output out of 20736 (max. 10000000)
+ 2342 PDF objects out of 2487 (max. 8388607)
+ 1841 compressed objects within 19 object streams
+ 437 named destinations out of 1000 (max. 500000)
+ 17444 words of extra memory for PDF output out of 20736 (max. 10000000)
 

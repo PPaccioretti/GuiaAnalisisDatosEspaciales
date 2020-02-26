@@ -1,7 +1,7 @@
 
 \cleardoublepage 
 
-#(APPENDIX) Introduccion a R {-}
+# (APPENDIX) Introduccion a R {-}
 
 \setcounter{chapter}{0}
 

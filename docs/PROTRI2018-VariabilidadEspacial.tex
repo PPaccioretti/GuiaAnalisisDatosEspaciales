@@ -939,7 +939,7 @@ La visualización de la información georreferenciada permite un rápido diagnó
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\linewidth]{figuras/figLibro/unnamed-chunk-18-1} \end{center}
+\textbackslash{}begin\{center\}\includegraphics[width=\linewidth]{figuras/figLibro/unnamed-chunk-18-1}
 
 \hypertarget{eliminaciuxf3n-de-outliers-e-inliers}{%
 \section{\texorpdfstring{Eliminación de \emph{outliers} e \emph{inliers}}{Eliminación de outliers e inliers}}\label{eliminaciuxf3n-de-outliers-e-inliers}}
@@ -2257,9 +2257,10 @@ Adicionalmente, para realizar la interpolación utilizando información de las c
 \CommentTok{#> [ reached 'max'}
     \OperatorTok{/}\StringTok{ }\KeywordTok{getOption}\NormalTok{(}\StringTok{"max.print"}\NormalTok{) }\OperatorTok{--}
 \NormalTok{omitted }\DecValTok{1}\NormalTok{ rows ]}
+
 \NormalTok{grilla <-}\StringTok{ }\KeywordTok{read.table}\NormalTok{(}\StringTok{"datos/grilla_am.txt"}\NormalTok{, }
                      \DataTypeTok{header =} \OtherTok{TRUE}\NormalTok{)}
-\NormalTok{grilla <-}\StringTok{ }\KeywordTok{st_as_sf}\NormalTok{(pred, }\DataTypeTok{coords =} \KeywordTok{c}\NormalTok{(}\StringTok{"x"}\NormalTok{, }\StringTok{"y"}\NormalTok{), }
+\NormalTok{grilla <-}\StringTok{ }\KeywordTok{st_as_sf}\NormalTok{(grilla, }\DataTypeTok{coords =} \KeywordTok{c}\NormalTok{(}\StringTok{"x"}\NormalTok{, }\StringTok{"y"}\NormalTok{), }
                    \DataTypeTok{crs =} \DecValTok{32721}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -2282,7 +2283,7 @@ En las siguientes líneas de se realiza el ajuste del semivariograma empírico c
 \CommentTok{#>   model psill range}
 \CommentTok{#> 1   Nug 0,163   0,0}
 \CommentTok{#> 2   Exp 0,549  80,7}
-\KeywordTok{plot}\NormalTok{(semiv_ked , v.fit_vut_ked)}
+\KeywordTok{plot}\NormalTok{(semiv_ked, v.fit_vut_ked)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -2310,18 +2311,23 @@ Para realizar la interpolación espacial se utiliza también la función \texttt
 \NormalTok{prediccionKED <-}
 \StringTok{  }\KeywordTok{tm_shape}\NormalTok{(kriging_ed) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{tm_dots}\NormalTok{(}\StringTok{"var1.pred"}\NormalTok{, }\DataTypeTok{style =} \StringTok{"cont"}\NormalTok{,}
+          \DataTypeTok{group =} \StringTok{"Predicción KED"}\NormalTok{,}
           \DataTypeTok{title =} \StringTok{"Predicción KED"}\NormalTok{)}
 
 \NormalTok{varianzaKED <-}
-\StringTok{  }\KeywordTok{tm_shape}\NormalTok{(kriging_o) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{tm_shape}\NormalTok{(kriging_ed) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{tm_dots}\NormalTok{(}\StringTok{"var1.var"}\NormalTok{, }\DataTypeTok{style =} \StringTok{"cont"}\NormalTok{,}
+          \DataTypeTok{group =} \StringTok{"Varianza KED"}\NormalTok{,}
           \DataTypeTok{title =} \StringTok{"Varianza KED"}\NormalTok{) }
 
-\KeywordTok{tmap_arrange}\NormalTok{(prediccionKED, varianzaKED)}
+\KeywordTok{tmap_mode}\NormalTok{(}\StringTok{"view"}\NormalTok{)}
+\KeywordTok{tmap_arrange}\NormalTok{(prediccionKED, varianzaKED, }\DataTypeTok{sync =} \OtherTok{TRUE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\linewidth]{figuras/figLibro/tmapKED-1} \end{center}
+\hypertarget{htmlwidget-3797}{}
+
+\hypertarget{htmlwidget-1163}{}
 
 \hypertarget{kriging-desde-modelo-de-regresiuxf3n}{%
 \subsection{Kriging desde modelo de regresión}\label{kriging-desde-modelo-de-regresiuxf3n}}
@@ -2365,7 +2371,7 @@ A partir del modelo ajustado se obtienen los residuos que son incorporados al ob
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\linewidth]{figuras/figLibro/unnamed-chunk-93-1} \end{center}
+\begin{center}\includegraphics[width=\linewidth]{figuras/figLibro/unnamed-chunk-94-1} \end{center}
 
 Finalmente se realiza la predicción en la grilla de los residuos y esta es sumada a la predicción del modelo de regresión ajustado inicialmente para obtener los valores predichos finales.
 
@@ -2389,7 +2395,7 @@ Finalmente se realiza la predicción en la grilla de los residuos y esta es suma
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\linewidth]{figuras/figLibro/tmapRK-1} \end{center}
+\textbackslash{}begin\{center\}\includegraphics[width=\linewidth]{figuras/figLibro/tmapRK-1}
 
 \hypertarget{uxe1rboles-aleatorios}{%
 \subsection{Árboles aleatorios}\label{uxe1rboles-aleatorios}}
@@ -2448,7 +2454,7 @@ Luego de ajustar el modelo de RF se procede a obtener los residuos y el ajuste d
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\linewidth]{figuras/figLibro/unnamed-chunk-98-1} \includegraphics[width=\linewidth]{figuras/figLibro/unnamed-chunk-98-2} \end{center}
+\begin{center}\includegraphics[width=\linewidth]{figuras/figLibro/unnamed-chunk-99-1} \includegraphics[width=\linewidth]{figuras/figLibro/unnamed-chunk-99-2} \end{center}
 
 Finalmente se realiza la predicción de los residuos sobre la grilla y se suman a la predicción del modelo de random forest ajustado inicialmente.
 
@@ -2469,7 +2475,7 @@ Finalmente se realiza la predicción de los residuos sobre la grilla y se suman 
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\linewidth]{figuras/figLibro/tmapRFK-1} \end{center}
+\textbackslash{}begin\{center\}\includegraphics[width=\linewidth]{figuras/figLibro/tmapRFK-1}
 
 \hypertarget{implementaciuxf3n-con-infostat}{%
 \chapter{Implementación con InfoStat}\label{implementaciuxf3n-con-infostat}}
@@ -2806,7 +2812,7 @@ Para explorar los datos se usa el paquete \texttt{tmap} que permite realizar gr�
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\linewidth]{figuras/figLibro/unnamed-chunk-157-1} \end{center}
+\textbackslash{}begin\{center\}\includegraphics[width=\linewidth]{figuras/figLibro/unnamed-chunk-158-1}
 
 Para agregar latitud y longitud a esta figura se realiza una reproyección. En la función \texttt{tm\_shape()} se especifica el nuevo sistema de coordenadas con el que se desea graficar (argumento \texttt{projection}). Se agregar el nivel \texttt{tm\_grid()} para visualizar una grilla que contiene las coordenadas latitud y longitud.
 
@@ -2818,7 +2824,7 @@ Para agregar latitud y longitud a esta figura se realiza una reproyección. En l
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\linewidth]{figuras/figLibro/unnamed-chunk-158-1} \end{center}
+\textbackslash{}begin\{center\}\includegraphics[width=\linewidth]{figuras/figLibro/unnamed-chunk-159-1}
 
 Cualquiera de estos gráficos se puede convertir en un gráfico dinámico mediante la función \texttt{tmap\_mode()} especificando como argumento \texttt{"view"}. Para continuar con gráficos estáticos se debe especificar \texttt{"plot"} como argumento de esta función. Mediante la función \texttt{tm\_basemap()}, se pueden incorporar distintas capas base. Las opciones disponibles para las capas base se pueden ver mediante el comando \texttt{names(leaflet::providers)}.
 
@@ -2865,7 +2871,7 @@ La función \texttt{st\_make\_grid()} genera una grilla rectangular conteniendo 
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\linewidth]{figuras/figLibro/unnamed-chunk-162-1} \end{center}
+\textbackslash{}begin\{center\}\includegraphics[width=\linewidth]{figuras/figLibro/unnamed-chunk-163-1}
 
 Dado que la grilla es rectangular, es necesario cortarla según los límites. Para esto se realiza una intersección entre los límites y la grilla utilizando la función \texttt{st\_intersection()}.
 
@@ -2879,7 +2885,7 @@ Dado que la grilla es rectangular, es necesario cortarla según los límites. Pa
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\linewidth]{figuras/figLibro/unnamed-chunk-163-1} \end{center}
+\textbackslash{}begin\{center\}\includegraphics[width=\linewidth]{figuras/figLibro/unnamed-chunk-164-1}
 
 Los algoritmos de predicción implementados trabajan prediciendo sitios puntuales, por lo cual, a partir de la grilla, es necesario generar una grilla de puntos. Una alternativa es utilizar la función \texttt{st\_centroid()} para obtener el centroide de cada celda.
 
@@ -2892,7 +2898,7 @@ Los algoritmos de predicción implementados trabajan prediciendo sitios puntuale
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\linewidth]{figuras/figLibro/unnamed-chunk-164-1} \end{center}
+\textbackslash{}begin\{center\}\includegraphics[width=\linewidth]{figuras/figLibro/unnamed-chunk-165-1}
 
 \hypertarget{agregado-de-capas-de-informaciuxf3n}{%
 \section{Agregado de capas de información}\label{agregado-de-capas-de-informaciuxf3n}}
@@ -2977,10 +2983,13 @@ Se adiciona a la grilla variables procedentes de otras fuentes (SIG de muestreo 
 
 \KeywordTok{tm_shape}\NormalTok{(edaf) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{tm_raster}\NormalTok{()}
+\CommentTok{#> Tip: rasters can be shown as layers instead of facets by setting tm_facets(as.layers = TRUE).}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\linewidth]{figuras/figLibro/unnamed-chunk-169-1} \end{center}
+\hypertarget{htmlwidget-3817}{}
+
+\hypertarget{htmlwidget-1721}{}
 
 Se seleccionan los valores de los sitios utilizando la función \texttt{extract()}. Como los valores extraídos mediante la funcion desde un \emph{stack} de rasters genera un objeto de tipo \texttt{data.frame} con tantas columnas como capas contenga ese raster, se adicionan al objeto \texttt{centroide\_pred} mediante la función \texttt{cbind()}, la cual une columnas de igual número de filas. Ahora el objeto \texttt{cetroide\_pred} contiene todos los sitios de predicción con las variables auxiliares adicionadas.
 
@@ -3037,7 +3046,13 @@ Para identificar la variación de la variable de interés en un plano, se puede 
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\linewidth]{figuras/figLibro/unnamed-chunk-171-1} \end{center}
+\hypertarget{htmlwidget-2339}{}
+
+\hypertarget{htmlwidget-3624}{}
+
+\hypertarget{htmlwidget-1190}{}
+
+\hypertarget{htmlwidget-2237}{}
 
 \hypertarget{predicciuxf3n-con-muxfaltiples-capas-de-datos-3}{%
 \chapter{Predicción con múltiples capas de datos}\label{predicciuxf3n-con-muxfaltiples-capas-de-datos-3}}
@@ -3063,7 +3078,7 @@ La distribución espacial de la variable de interés (COS) puede visualizarse co
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\linewidth]{figuras/figLibro/unnamed-chunk-172-1} \end{center}
+\textbackslash{}begin\{center\}\includegraphics[width=\linewidth]{figuras/figLibro/unnamed-chunk-173-1}
 
 \hypertarget{regresiuxf3n-con-errores-correlacionados-espacialmente-vuxeda-reml-1}{%
 \section{Regresión con errores correlacionados espacialmente vía REML}\label{regresiuxf3n-con-errores-correlacionados-espacialmente-vuxeda-reml-1}}
@@ -3207,7 +3222,7 @@ Los predichos se adicionan al objeto \texttt{centroide\_pred} utilizando la func
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\linewidth]{figuras/figLibro/unnamed-chunk-178-1} \end{center}
+\textbackslash{}begin\{center\}\includegraphics[width=\linewidth]{figuras/figLibro/unnamed-chunk-179-1}
 
 \hypertarget{regresiuxf3n-con-efectos-aleatorios-de-sitio-vuxeda-inla-1}{%
 \section{Regresión con efectos aleatorios de sitio vía INLA}\label{regresiuxf3n-con-efectos-aleatorios-de-sitio-vuxeda-inla-1}}
@@ -3237,8 +3252,8 @@ El intervalo de credibilidad contiene al verdadero parámetro con un 95\% de pro
 \CommentTok{#> \textbackslash{}"gaussian\textbackslash{}", ", " data = suelos,}
 \NormalTok{control.compute =}\StringTok{ }\KeywordTok{list}\NormalTok{(}\DataTypeTok{dic =} \OtherTok{TRUE}\NormalTok{)}\ErrorTok{)}\StringTok{")}
 \StringTok{#> Time used:}
-\StringTok{#> Pre = 0,417, Running = 0,138, Post = 0,0507,}
-\StringTok{Total = 0,606}
+\StringTok{#> Pre = 0,596, Running = 0,156, Post = 0,0621,}
+\StringTok{Total = 0,814}
 \StringTok{#> Fixed effects:}
 \StringTok{#> mean sd 0.025quant 0.5quant 0.975quant mode}
 \StringTok{kld}
@@ -3250,12 +3265,12 @@ El intervalo de credibilidad contiene al verdadero parámetro con un 95\% de pro
 \StringTok{3 rows ]}
 \StringTok{#>}
 \StringTok{#> Model hyperparameters:}
-\StringTok{#> mean sd 0.025quant 0.5quant 0.975quant}
+\StringTok{#> mean sd 0.025quant 0.5quant}
 \StringTok{#> Precision for the Gaussian observations}
-\StringTok{0,048 0,004 0,041 0,048 0,055}
-\StringTok{#> mode}
+\StringTok{0,048 0,004 0,041 0,048}
+\StringTok{#> 0.975quant mode}
 \StringTok{#> Precision for the Gaussian observations}
-\StringTok{0,048}
+\StringTok{0,055 0,048}
 \StringTok{#>}
 \StringTok{#> Expected number of effective}
 \StringTok{parameters(stdev): 5,00(0,00)}
@@ -3313,15 +3328,15 @@ Luego de identificar los nodos sobre la malla, se ajusta el modelo de regresión
 \CommentTok{#>}
 \CommentTok{#> Call:}
 \CommentTok{#> c("inla(formula = COS ~ 1 + elevacion + twi}
-\OperatorTok{+}\StringTok{ }\NormalTok{arcilla }\OperatorTok{+}\StringTok{ }\NormalTok{pH }\OperatorTok{+}\StringTok{ }\KeywordTok{f}\NormalTok{(nodos, }\StringTok{", "}
-\CommentTok{#> model = spde, diagonal = 1e-06), family =}
-\NormalTok{\textbackslash{}}\StringTok{"gaussian}\CharTok{\textbackslash{}"}\StringTok{, data = suelos, "}\NormalTok{, }\StringTok{"}
-\StringTok{#> control.compute = list(dic = TRUE),}
-\StringTok{control.predictor = list(compute =}
-\StringTok{#> TRUE))"}\NormalTok{ )}
+\OperatorTok{+}\StringTok{ }\NormalTok{arcilla }\OperatorTok{+}\StringTok{ }\NormalTok{pH }\OperatorTok{+}\StringTok{ }\KeywordTok{f}\NormalTok{(nodos,}
+\CommentTok{#> ", " model = spde, diagonal = 1e-06), family}
+\NormalTok{=}\StringTok{ }\NormalTok{\textbackslash{}}\StringTok{"gaussian}\CharTok{\textbackslash{}"}\StringTok{, data =}
+\StringTok{#> suelos, "}\NormalTok{, }\StringTok{" control.compute = list(dic =}
+\StringTok{TRUE), control.predictor =}
+\StringTok{#> list(compute = TRUE))"}\NormalTok{ )}
 \CommentTok{#> Time used:}
-\CommentTok{#> Pre = 0,598, Running = 1,99, Post = 0,0821,}
-\NormalTok{Total =}\StringTok{ }\DecValTok{2}\NormalTok{,}\DecValTok{67}
+\CommentTok{#> Pre = 0,806, Running = 2, Post = 0,0912,}
+\NormalTok{Total =}\StringTok{ }\DecValTok{2}\NormalTok{,}\DecValTok{9}
 \CommentTok{#> Fixed effects:}
 \CommentTok{#> mean sd 0.025quant 0.5quant 0.975quant mode}
 \NormalTok{kld}
@@ -3337,15 +3352,14 @@ Luego de identificar los nodos sobre la malla, se ajusta el modelo de regresión
 \CommentTok{#> nodos SPDE2 model}
 \CommentTok{#>}
 \CommentTok{#> Model hyperparameters:}
-\CommentTok{#> mean sd 0.025quant 0.5quant 0.975quant}
+\CommentTok{#> mean sd 0.025quant 0.5quant}
 \CommentTok{#> Precision for the Gaussian observations}
-\DecValTok{0}\NormalTok{,}\DecValTok{069} \DecValTok{0}\NormalTok{,}\DecValTok{007} \DecValTok{0}\NormalTok{,}\DecValTok{057} \DecValTok{0}\NormalTok{,}\DecValTok{069} \DecValTok{0}\NormalTok{,}\DecValTok{083}
+\DecValTok{0}\NormalTok{,}\DecValTok{069} \DecValTok{0}\NormalTok{,}\DecValTok{007} \DecValTok{0}\NormalTok{,}\DecValTok{057} \DecValTok{0}\NormalTok{,}\DecValTok{069}
 \CommentTok{#> Theta1 for nodos 8,579 0,154 8,291 8,574}
-\DecValTok{8}\NormalTok{,}\DecValTok{895}
-\CommentTok{#> mode}
+\CommentTok{#> 0.975quant mode}
 \CommentTok{#> Precision for the Gaussian observations}
-\DecValTok{0}\NormalTok{,}\DecValTok{069}
-\CommentTok{#> Theta1 for nodos 8,554}
+\DecValTok{0}\NormalTok{,}\DecValTok{083} \DecValTok{0}\NormalTok{,}\DecValTok{069}
+\CommentTok{#> Theta1 for nodos 8,895 8,554}
 \CommentTok{#> [ reached 'max'}
     \OperatorTok{/}\StringTok{ }\KeywordTok{getOption}\NormalTok{(}\StringTok{"max.print"}\NormalTok{) }\OperatorTok{--}
 \NormalTok{omitted }\DecValTok{1}\NormalTok{ rows ]}
@@ -3408,11 +3422,11 @@ En R-INLA no existe una funcion \texttt{predict()} como en gls. Las predicciones
 \NormalTok{                                     suelos)}
 \KeywordTok{head}\NormalTok{(suelos_pred_INLA)}
 \CommentTok{#> UNION JURISDICCI CAPITAL FUENTE elevacion}
-\NormalTok{twi pH arcilla X Y ID_}\DecValTok{2}
+\NormalTok{twi pH arcilla X Y}
 \CommentTok{#> 1 -2,15e+09 CORDOBA CORDOBA IGN 275 118 6,39}
-\DecValTok{8}\NormalTok{,}\DecValTok{21} \DecValTok{310499} \DecValTok{6129968} \OtherTok{NA}
-\CommentTok{#> COS}
-\CommentTok{#> 1 NA}
+\DecValTok{8}\NormalTok{,}\DecValTok{21} \DecValTok{310499} \DecValTok{6129968}
+\CommentTok{#> ID_2 COS}
+\CommentTok{#> 1 NA NA}
 \CommentTok{#> [ reached 'max'}
     \OperatorTok{/}\StringTok{ }\KeywordTok{getOption}\NormalTok{(}\StringTok{"max.print"}\NormalTok{) }\OperatorTok{--}
 \NormalTok{omitted }\DecValTok{5}\NormalTok{ rows ]}
@@ -3465,7 +3479,7 @@ Se puede obtener la media de la distribución a posteriori de los valores predic
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\linewidth]{figuras/figLibro/unionpredichosinla-1} \end{center}
+\textbackslash{}begin\{center\}\includegraphics[width=\linewidth]{figuras/figLibro/unionpredichosinla-1}
 
 \hypertarget{regresiuxf3n-vuxeda-modelos-basados-en-uxe1rbol-1}{%
 \section{Regresión vía modelos basados en árbol}\label{regresiuxf3n-vuxeda-modelos-basados-en-uxe1rbol-1}}
@@ -3508,7 +3522,7 @@ Pidiendo un gráfico del objeto \texttt{ajuste\_gbm} se puede acceder al resumen
 \NormalTok{ajuste_gbm}\OperatorTok{$}\NormalTok{bestTune}
 \CommentTok{#> n.trees interaction.depth shrinkage}
 \NormalTok{n.minobsinnode}
-\CommentTok{#> 173 2300 4 0,001 7}
+\CommentTok{#> 175 2500 4 0,001 7}
 \end{Highlighting}
 \end{Shaded}
 
@@ -3521,10 +3535,10 @@ El objeto resultante del ajuste GBM, provee un gráfico de la influencia relativ
 
 \KeywordTok{summary}\NormalTok{(ajuste_gbm)}
 \CommentTok{#>                 var rel.inf}
-\CommentTok{#> twi             twi   39,30}
-\CommentTok{#> arcilla     arcilla   38,53}
-\CommentTok{#> elevacion elevacion   14,02}
-\CommentTok{#> pH               pH    8,15}
+\CommentTok{#> twi             twi   39,18}
+\CommentTok{#> arcilla     arcilla   38,62}
+\CommentTok{#> elevacion elevacion   14,16}
+\CommentTok{#> pH               pH    8,04}
 \end{Highlighting}
 \end{Shaded}
 
@@ -3556,7 +3570,7 @@ En la segunda etapa, se ajusta una función de semivarianza a los residuos del m
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\linewidth]{figuras/figLibro/unnamed-chunk-185-1} \includegraphics[width=\linewidth]{figuras/figLibro/unnamed-chunk-185-2} \end{center}
+\begin{center}\includegraphics[width=\linewidth]{figuras/figLibro/unnamed-chunk-186-1} \includegraphics[width=\linewidth]{figuras/figLibro/unnamed-chunk-186-2} \end{center}
 
 Para obtener un predicción de COS en los sitios no muestreados, se realiza la predicción kriging de los residuos sobre los sitios de la grilla de predicción utilizando el modelo ajustado en el paso anterior a partir de la función \texttt{krige()}. Luego se utiliza el modelo GBM (árbol optimo) para predecir COS sobre la grilla de predicción sin considerar la espacialidad. Finalmente, la predicción de COS en cada sitio se compone sumando la predicción del modelo GBM y la predicción kriging de los residuos para cada sitio de la grilla de predicción.
 
@@ -3586,11 +3600,13 @@ Para obtener un predicción de COS en los sitios no muestreados, se realiza la p
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\linewidth]{figuras/figLibro/predichosgbm-1} \end{center}
+\textbackslash{}begin\{center\}\includegraphics[width=\linewidth]{figuras/figLibro/predichosgbm-1}
 
 \cleardoublepage
 
-\#(APPENDIX) Introduccion a R \{-\}
+\hypertarget{appendix-introduccion-a-r}{%
+\appendix \addcontentsline{toc}{chapter}{\appendixname}}
+
 
 \setcounter{chapter}{0}
 

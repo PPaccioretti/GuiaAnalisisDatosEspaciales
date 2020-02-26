@@ -13,19 +13,28 @@ knitr::opts_chunk$set(
         fig.width = 6,
         fig.asp = 0.618,# 1 / phi
         fig.show = "hold",
+        width = 85,
         linewidth = 48, #Agregado por mi
-        out.width = "\\linewidth")
+        out.width = "100%" 
+        )
 
 
-
+library(tmap)
 set.seed(2020)
 options(digits = 3,
         OutDec = ",",
-        width = 85, #Deberia ser menos?
+        # width = 85, #Deberia ser menos?
         sf_max_print = 3,
         dplyr.print_min = 4,
         dplyr.print_max = 4)
 
+if(!knitr::is_html_output()) {
+        
+        # options(width = 85)
+        
+        knitr::opts_chunk$set(
+        #         linewidth = 48,
+                out.width = "\\linewidth")
 # Set an output hook to split st_read output so it doesn't extend beyond line width
 knitr::knit_hooks$set(
         # modify the output
@@ -89,8 +98,6 @@ knitr::knit_hooks$set(
 )
 
 
-
-
 hook_output = knit_hooks$get('output')
 knit_hooks$set(output = function(x, options) {
         # this hook is used only when the linewidth option is not NULL
@@ -103,6 +110,7 @@ knit_hooks$set(output = function(x, options) {
         hook_output(x, options)
 })
 
+}
 # def.chunk.hook  <- knitr::knit_hooks$get("chunk")
 # knitr::knit_hooks$set(chunk = function(x, options) {
 #         x <- def.chunk.hook(x, options)

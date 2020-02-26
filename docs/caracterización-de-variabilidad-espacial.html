@@ -53,6 +53,19 @@
 
 
 
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/Proj4Leaflet-1.0.1/proj4-compressed.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.0.3/leaflet.js"></script>
+<script src="libs/leaflet-providers-1.9.0/leaflet-providers_1.9.0.js"></script>
+<script src="libs/leaflet-providers-plugin-2.0.3/leaflet-providers-plugin.js"></script>
+<script src="libs/Leaflet.Sync-0.0.5/L.Map.Sync.js"></script>
+<script src="libs/leaflet-graticule-0.1.0/L.Graticule.js"></script>
+<script src="libs/leaflet-graticule-0.1.0/Graticule-binding.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -230,10 +243,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.2" data-path="predicción-con-múltiples-capas-de-datos-3.html"><a href="predicción-con-múltiples-capas-de-datos-3.html#regresión-con-efectos-aleatorios-de-sitio-vía-inla-1"><i class="fa fa-check"></i><b>8.2</b> Regresión con efectos aleatorios de sitio vía INLA</a></li>
 <li class="chapter" data-level="8.3" data-path="predicción-con-múltiples-capas-de-datos-3.html"><a href="predicción-con-múltiples-capas-de-datos-3.html#regresión-vía-modelos-basados-en-árbol-1"><i class="fa fa-check"></i><b>8.3</b> Regresión vía modelos basados en árbol</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="herramientas-de-software.html"><a href="herramientas-de-software.html"><i class="fa fa-check"></i><b>9</b> Herramientas de software</a><ul>
-<li class="chapter" data-level="9.1" data-path="herramientas-de-software.html"><a href="herramientas-de-software.html#introducción-al-manejo-de-datos-espaciales-con-r"><i class="fa fa-check"></i><b>9.1</b> Introducción al manejo de datos espaciales con R</a></li>
-<li class="chapter" data-level="9.2" data-path="herramientas-de-software.html"><a href="herramientas-de-software.html#intérprete-de-r-en-infostat"><i class="fa fa-check"></i><b>9.2</b> Intérprete de R en InfoStat</a></li>
-<li class="chapter" data-level="9.3" data-path="herramientas-de-software.html"><a href="herramientas-de-software.html#rstudio"><i class="fa fa-check"></i><b>9.3</b> RStudio</a></li>
+<li class="appendix"><span><b>Introduccion a R</b></span></li>
+<li class="chapter" data-level="A" data-path="herramientas-de-software.html"><a href="herramientas-de-software.html"><i class="fa fa-check"></i><b>A</b> Herramientas de software</a><ul>
+<li class="chapter" data-level="A.1" data-path="herramientas-de-software.html"><a href="herramientas-de-software.html#introducción-al-manejo-de-datos-espaciales-con-r"><i class="fa fa-check"></i><b>A.1</b> Introducción al manejo de datos espaciales con R</a></li>
+<li class="chapter" data-level="A.2" data-path="herramientas-de-software.html"><a href="herramientas-de-software.html#intérprete-de-r-en-infostat"><i class="fa fa-check"></i><b>A.2</b> Intérprete de R en InfoStat</a></li>
+<li class="chapter" data-level="A.3" data-path="herramientas-de-software.html"><a href="herramientas-de-software.html#rstudio"><i class="fa fa-check"></i><b>A.3</b> RStudio</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="referencias.html"><a href="referencias.html"><i class="fa fa-check"></i>Referencias</a></li>
 <li class="divider"></li>
@@ -285,7 +299,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Este estimador puede ser menos sesgado que <span class="math inline">\(\hat{\gamma}(h)\)</span> cuando la varianza residual es relativamente pequeña siendo también menos sensible a la presencia de valores externos. El estimador muestra típicamente menor variación en distancias pequeñas y también resulta en valores generalmente más pequeños que el estimador de los momentos de Matheron. Computando cualquiera de los dos estimadores, para las distancias <span class="math inline">\(h\)</span>, obtenemos un conjunto ordenado de semivarianzas. Tales semivarianzas graficadas en función h constituye el semivariograma empírico o experimental.</p>
 <p>Los parámetros de un semivariograma son: la varianza nugget o simplemente nugget <span class="math inline">\((C_0)\)</span>, la varianza estructural o sill parcial <span class="math inline">\((C)\)</span> y el rango <span class="math inline">\((R)\)</span>. La asíntota es llamada la meseta del semivariograma o <span class="math inline">\(C\)</span> y el lag o distancia <span class="math inline">\(h^\ast\)</span> en el cual la meseta es alcanzada se denomina <span class="math inline">\(R\)</span> o rango. Observaciones <span class="math inline">\(Z(s_i)\)</span> y <span class="math inline">\(Z(s_j)\)</span> para las cuales <span class="math inline">\(|| Z(s_i) - Z(s_j)|| \geq h^\ast\)</span> son espacialmente independientes. Si el semivariograma alcanza la meseta asintóticamente, se define el rango práctico <span class="math inline">\((R_P)\)</span> como la distancia en el cual la semivarianza alcanza el 95% de la varianza umbral o total.</p>
 <div class="figure" style="text-align: center"><span id="fig:semivariogramasej"></span>
-<img src="figuras/semivEmpTeo.png" alt="a) Semivariograma empírico. b) Semivariograma teórico, modelo esférico. Se representan los tres parámetros que lo definen: rango, sill y efecto pepita o nugget." width="\linewidth" />
+<img src="figuras/semivEmpTeo.png" alt="a) Semivariograma empírico. b) Semivariograma teórico, modelo esférico. Se representan los tres parámetros que lo definen: rango, sill y efecto pepita o nugget." width="100%" />
 <p class="caption">
 Figura 2.1: a) Semivariograma empírico. b) Semivariograma teórico, modelo esférico. Se representan los tres parámetros que lo definen: rango, sill y efecto pepita o nugget.
 </p>
@@ -294,7 +308,7 @@ Figura 2.1: a) Semivariograma empírico. b) Semivariograma teórico, modelo esf�
 <p>Un semivariograma se define como anisotrópico si cambia en alguna forma respecto a la dirección que se considere. Si el semivariograma no solo depende de la longitud del vector h sino también de la dirección del vector entonces el semivariograma es anisotrópico. En los casos isotrópicos, los contornos de isocorrelación son esféricos, mientras que en el caso que haya anisotropía los contornos de isocorrelación son elípticos. Se reconocen dos tipos de anisotropía: anisotropía geométrica y anisotropía zonal. Anisotropía geométrica ocurre cuando el rango del semivariograma cambia en las distintas direcciones, pero no la varianza sill, por lo tanto, la correlación es más fuerte en una dirección que en otra. Anisotropía zonal existe cuando la varianza estructural del semivariograma cambia con la dirección. Anisotropía geométrica significa que la correlación es más fuerte en una dirección que en otra.</p>
 <p>Una forma en que la anisotropía geométrica puede ser identificada es graficando un semivariograma experimental direccional. Diferencias en el semivariograma muestral usando diferentes ángulos al computarlo, es indicador de anisotropía. La anisotropía geométrica puede ser modelada cambiando el modelo de semivariograma por un proceso isotrópico transformando las coordenadas. Los modelos teóricos de semivariograma más usados en predicción espacial están basados son isotrópicos, por lo que es necesario una corrección en casos de anisotropía para poder utilizar la metodología clásica de predicción en geoestadística. El radio de anisotropía, es decir, el cociente entre los rangos de la dirección de máximo y mínima variación es usada para mesurar anisotropía. Algunos autores consideran que existe anisotropía significativa si el radio de anisotropía es mayor a 2,5.</p>
 <div class="figure" style="text-align: center"><span id="fig:modeloIsoAniso"></span>
-<img src="figuras/modeloIsoAniso.png" alt="a) Modelo isotrópico. b) Modelo anisotrópico, con ángulo de anisotropía de 45º y un radio de anisotropía de 0,5." width="\linewidth" />
+<img src="figuras/modeloIsoAniso.png" alt="a) Modelo isotrópico. b) Modelo anisotrópico, con ángulo de anisotropía de 45º y un radio de anisotropía de 0,5." width="100%" />
 <p class="caption">
 Figura 2.2: a) Modelo isotrópico. b) Modelo anisotrópico, con ángulo de anisotropía de 45º y un radio de anisotropía de 0,5.
 </p>
@@ -307,7 +321,7 @@ Figura 2.2: a) Modelo isotrópico. b) Modelo anisotrópico, con ángulo de aniso
 <p>El semivariograma empírico <span class="math inline">\(\hat{\gamma}(h)\)</span>, es un estimador insesgado de <span class="math inline">\(\gamma(h)\)</span>, pero provee solo estimaciones para un conjunto finito de distancias. Para obtener estimaciones de <span class="math inline">\(\gamma(h)\)</span>, para cualquier lag, al semivariograma empírico se le ajusta un modelo teórico. El análisis geoestadístico sigue entonces estos dos pasos: 1) obtención del semivariograma empírico y 2) ajuste de un modelo teórico de semivariograma al semivariograma empírico.</p>
 <p>Las funciones que sirven como modelos teóricos de semivariograma deben ser condicionalmente definidas positivas. Existen varios modelos teóricos para funciones semivariogramas, entre los que se encuentran el modelo nugget, el lineal, el esférico, el gaussiano y el exponencial (Figura <a href="caracterización-de-variabilidad-espacial.html#fig:figSemivariogramas">2.3</a>). El semivariograma de un proceso de ruido blanco (modelo nugget), donde los valores <span class="math inline">\(Z\left(s\right)\)</span> se comportan como muestras aleatorias, todas con igual media y varianza sin correlación entre ellas. Este modelo suele ajustar el semivariograma empírico cuando la menor distancia de muestreo en los datos es mayor que el rango del proceso espacial.</p>
 <div class="figure" style="text-align: center"><span id="fig:figSemivariogramas"></span>
-<img src="figuras/Semivariogramas.jpg" alt="Funciones de semivariograma para el modelo exponencial, esférico y gaussiano. $C_0$=2, $C$=10 y $R$=200" width="\linewidth" />
+<img src="figuras/Semivariogramas.jpg" alt="Funciones de semivariograma para el modelo exponencial, esférico y gaussiano. $C_0$=2, $C$=10 y $R$=200" width="100%" />
 <p class="caption">
 Figura 2.3: Funciones de semivariograma para el modelo exponencial, esférico y gaussiano. <span class="math inline">\(C_0\)</span>=2, <span class="math inline">\(C\)</span>=10 y <span class="math inline">\(R\)</span>=200
 </p>
@@ -338,7 +352,7 @@ Como un estimador de la varianza condicional de <span class="math inline">\(s_{Z
 <p><span class="math display">\[\rho_{ZY}(h)= \frac{E \Big[ \big(Z(s+h)-Z(s) \big) \big(Y(s+h)-Y(s) \big) \Big]}{\sqrt{E \big[Z(s+h)-Z(s) \big]^2 E \big[Y(s+h)-Y(s) \big]^2}}\]</span></p>
 <p>La estructura de <span class="math inline">\(\rho_{ZY}\)</span> es computacionalmente similar al coeficiente de correlación de Pearson. Al igual que ese coeficiente, <span class="math inline">\(\rho_{ZY}(h)\)</span>, donde los límites superior e inferior definen una asociación espacial negativa o positiva perfecta, respectivamente. Sin embardo, a diferencia del coeficiente de correlación de Pearson, <span class="math inline">\(\rho_{ZY}\)</span> depende del lag <span class="math inline">\(h\)</span>, que enfatiza la idea de que la correlación espacial es un valor asociado con una distancia en el plano. El cálculo de la correlación se realiza para diferentes distancias y direcciones en el espacio. Cuando el coeficiente de co-dispersión se calcula para muchas direcciones, es útil mostrar esos valores en un solo gráfico. <span class="citation">Vallejos et al. (<a href="#ref-Vallejos2015">2015</a>)</span> proponen el mapa de co-dispersión para resumir en un plano los valores de los coeficientes de co-dispersión obtenidos para distintos <em>lag</em> espaciales (direcciones y distancias). El gráfico resume la información sobre la correlación entre dos procesos espaciales en forma radial sobre un plano que circunscribe los coeficientes en una semiesfera de radio no mayor al rango del proceso espacial <a href="caracterización-de-variabilidad-espacial.html#fig:figGrafCoDisp">2.4</a>. En general las correlaciones espaciales que se observan desde un gráfico de co-dispersión permanecen ocultas en el análisis exploratorio usual y pueden ser distintas a las correlaciones lineales de Pearson no restringidas espacialmente. El gráfico de co-dispersión no debe ser confundido con un mapeo de la co-dispersión de las variables en el espacio de interés. No captura similitudes relacionadas con los patrones o formas que están presentes en los procesos espaciales, sino que captura la dependencia espacial entre los procesos para una distancia h. Los ejes del gráfico de co-dispersión hacen referencia a los <em>lag</em> y direcciones y no a las coordenadas de los sitios muestrales originales.</p>
 <div class="figure" style="text-align: center"><span id="fig:figGrafCoDisp"></span>
-<img src="figuras/codispersion.jpg" alt="Gráfico de co-dispersión mostrando la correlación espacial entre dos variables para varios lag espaciales." width="\linewidth" />
+<img src="figuras/codispersion.jpg" alt="Gráfico de co-dispersión mostrando la correlación espacial entre dos variables para varios lag espaciales." width="100%" />
 <p class="caption">
 Figura 2.4: Gráfico de co-dispersión mostrando la correlación espacial entre dos variables para varios lag espaciales.
 </p>
@@ -478,7 +492,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": ["PROTRI2018-VariabilidadEspacial.pdf", "PROTRI2018-VariabilidadEspacial.epub"],
 "toc": {
 "collapse": "subsection"
 }

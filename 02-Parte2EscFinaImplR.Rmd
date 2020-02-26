@@ -12,7 +12,7 @@ Para cargar una base de datos puede utilizarse la función `read.table()`. Esta 
 Para seguir la ilustraciión, cargar los paquetes específicos de R que albergan las funciones que se utilizarán para el análisis.
 
 
-```{r, message=FALSE}
+```{r, message=FALSE, error = FALSE}
 library(sp)
 library(sf)
 library(tmap)
@@ -1069,9 +1069,10 @@ pred <- read.table("datos/Pred2.txt",
 pred <- st_as_sf(pred, coords = c("x", "y"), 
                  crs = 32721)
 head(pred)
+
 grilla <- read.table("datos/grilla_am.txt", 
                      header = TRUE)
-grilla <- st_as_sf(pred, coords = c("x", "y"), 
+grilla <- st_as_sf(grilla, coords = c("x", "y"), 
                    crs = 32721)
 
 ```
@@ -1091,7 +1092,7 @@ v.fit_vut_ked <-
                 vgm(c("Exp", "Sph", "Gau")))
                                
 v.fit_vut_ked
-plot(semiv_ked , v.fit_vut_ked)
+plot(semiv_ked, v.fit_vut_ked)
 ```
 
 Para realizar la interpolación espacial se utiliza también la función `krige()` y se especifica la tendencia con las covariables en la fórmula. En este caso la predicción se realiza también en un contexto local (argumentos `nmin` y `nmax`).
@@ -1107,19 +1108,32 @@ kriging_ed <- krige(
 )
 ```
 
-```{r tmapKED}
+```{r tmapKED, warning=FALSE, message=FALSE, cache = FALSE}
 
 prediccionKED <-
   tm_shape(kriging_ed) +
   tm_dots("var1.pred", style = "cont",
+          group = "Predicción KED",
           title = "Predicción KED")
 
 varianzaKED <-
-  tm_shape(kriging_o) +
+  tm_shape(kriging_ed) +
   tm_dots("var1.var", style = "cont",
+          group = "Varianza KED",
           title = "Varianza KED") 
 
-tmap_arrange(prediccionKED, varianzaKED)
+tmap_mode("view")
+tmap_arrange(prediccionKED, varianzaKED, sync = TRUE)
+```
+
+
+```{r,echo=FALSE, include=FALSE}
+#Visualizacion interactiva
+tmap_mode("view")
+tmap_arrange(prediccionKED, 
+             varianzaKED, 
+             sync = TRUE)
+
 ```
 
 
