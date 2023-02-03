@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.313">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta name="author" content="<p>“Mariano Córdoba, Pablo Paccioretti, Franca Giannini Kurina, Cecilia Bruno, Mónica Balzarini”</p>">
+<meta name="description" content="DISEMINACIÓN CIENTÍFICA Y TRASNFERENCIA DE RESULTADOS DE INVESTIGACIÓN, PROMOVIDAS POR EL MINISTERIO DE CIENCIA Y TECNOLOGÍA DE LA PROVINCIA DE CÓRDOBA.">
+<title>Guía para el análisis de datos espaciales. Aplicaciones en agricultura - 1&nbsp; Manejo de datos espaciales</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./Parte1_cap_b_CarcVarEsp.html" rel="next">
+<link href="./index.html" rel="prev">
+<link href="./figuras/cover.jpg" rel="icon" type="image/jpeg">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "Sin resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar"
+  }
+}</script><style>html{ scroll-behavior: smooth; }</style>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-154490537-1', 'auto');
+  ga('send', 'pageview');
+
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+</head>
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }"><div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">
+<span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Manejo de datos espaciales</span>
+</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Guía para el análisis de datos espaciales. Aplicaciones en agricultura</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/PPaccioretti/GuiaAnalisisDatosEspaciales" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+    <a href="./GuiaAnalisisDatosEspaciales.pdf" title="Download PDF" class="sidebar-tool px-1"><i class="bi bi-file-pdf"></i></a>
+  <a href="" class="quarto-reader-toggle sidebar-tool" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Prólogo</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Aproximaciones metodológicas</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Parte1_cap_a_MjoDtosEsp.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Manejo de datos espaciales</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Parte1_cap_b_CarcVarEsp.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Caracterización de variabilidad espacial</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Parte1_cap_c_CarcVarEspMultiCapa.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Caracterización de variabilidad espacial con múltiples capas de datos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Parte1_cap_d_PredMultipleCapa.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Predicción con múltiples capas de datos</span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Análisis de datos a escala fina</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Parte2_cap_a_EscFinaImplR.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Implementación con R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Parte2_cap_b_EscFinaImplInfo.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Implementación con InfoStat</span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">Análisis de datos a escala regional</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Parte3_cap_a_EscRegionImplR.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Bases de datos regionales</span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./referencias.html" class="sidebar-item-text sidebar-link">Referencias</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">Apéndices</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./anexoR.html" class="sidebar-item-text sidebar-link">Introducción a R</a>
+  </div>
+</li>
+      </ul>
+</li>
+    </ul>
+</div>
+</nav><!-- margin-sidebar --><div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+<li><a href="#transformaci%C3%B3n-y-conversi%C3%B3n-de-coordenadas" id="toc-transformación-y-conversión-de-coordenadas" class="nav-link active" data-scroll-target="#transformaci%C3%B3n-y-conversi%C3%B3n-de-coordenadas"><span class="toc-section-number">1.1</span>  Transformación y conversión de coordenadas</a></li>
+  <li><a href="#manipulaci%C3%B3n-de-m%C3%BAltiples-capas-de-datos" id="toc-manipulación-de-múltiples-capas-de-datos" class="nav-link" data-scroll-target="#manipulaci%C3%B3n-de-m%C3%BAltiples-capas-de-datos"><span class="toc-section-number">1.2</span>  Manipulación de múltiples capas de datos</a></li>
+  <li><a href="#depuraci%C3%B3n-de-datos" id="toc-depuración-de-datos" class="nav-link" data-scroll-target="#depuraci%C3%B3n-de-datos"><span class="toc-section-number">1.3</span>  Depuración de datos</a></li>
+  </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/PPaccioretti/GuiaAnalisisDatosEspaciales/edit/main/Parte1_cap_a_MjoDtosEsp.qmd" class="toc-action">Editar esta página</a></p><p><a href="https://github.com/PPaccioretti/GuiaAnalisisDatosEspaciales/issues/new" class="toc-action">Informar de un problema</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title d-none d-lg-block">
+<span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Manejo de datos espaciales</span>
+</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Código</button></div></div>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header><p>Cuando los datos georreferenciados se representan en fotografías, imágenes o mapas es posible visualizar patrones espaciales, <em>i.e.</em> estructuraciones de los datos en el espacio. Los datos espaciales involucran, no solo la realización (valor) de una variable, sino también las coordenadas geográficas que posicionan el dato en el dominio espacial. Las coordenadas pueden ser uni, bi o tridimensionales y expresarse según distintos sistemas. Los tipos de datos espaciales usados son: datos geoestadísticos, datos regionales (látices) y patrones de puntos. Los primeros son datos de dominio continuo, es decir, supone que entre dos sitios pueden existir infinitos datos. Se refiere a continuidad en la estructura espacial del proceso aleatorio espacial subyacente a partir del cual se han generado las observaciones que se tienen. A causa de la continuidad del dominio espacial, los datos geoestadísticos también se llaman “datos espaciales con variación continua”. La continuidad se asocia entonces con el proceso aleatorio subyacente y no con el atributo medido (que la variable sea de naturaleza continua o discreta no determina si los datos son geoestadísticos o no). Los datos regionales o de áreas son aquellos donde el dominio es fijo y conformado por un conjunto discreto de áreas, superficies o polígonos. Los datos del tipo patrones de puntos son aquellos que provienen de un proceso puntual aleatorio conformado por los puntos o sitios donde ocurren los eventos.</p>
+<p>En el trabajo con datos espaciales puede ser necesario realizar preprocesamientos previos al análisis estadístico. Es menester realizar la lectura de la o las capas de información (variables), proveer una descripción estadística de los datos y mapear o visualizar los datos en el espacio, eliminar valores atípicos. También puede requerirse la expresión del conjunto de variables en un mismo sistema de información geográfica o la necesidad de interpolar las variables de interés a una misma identidad espacial. Para el tratamiento de datos espaciales hay que considerar el formato de la información espacial (ráster o vectorial) y las particularidades del sistema de referencia.</p>
+<p>La tecnología de sistematización para información georreferenciada más conocida es la de los Sistemas de Información Geográfica (SIG). Actualmente, éstos abarcan un complejo de sistemas de bases de datos, programas de escritorio, lenguajes de programación, dispositivos gráficos, aplicaciones web y servidores. En un SIG, los datos de cada variable pueden manejarse como capas de información, y diversas técnicas de análisis de datos pueden aplicarse simultáneamente en todas las capas de manera independiente o integrándolas en un único análisis multivariado. Las capas pueden estar correlacionadas entre sí, los datos dentro de cada capa pueden presentar estructura de correlación espacial. Los Sistemas de Información Geográfica (SIG) ofrecen funciones para crear, integrar, transformar, visualizar y analizar de manera exploratoria estas capas de datos espaciales. Los SIG más avanzados también disponen de funciones que generan interfase con softwares estadísticos ampliando así la capacidad para la modelación conjunta de varias capas de información.</p>
+<section id="transformación-y-conversión-de-coordenadas" class="level2" data-number="1.1"><h2 data-number="1.1" class="anchored" data-anchor-id="transformación-y-conversión-de-coordenadas">
+<span class="header-section-number">1.1</span> Transformación y conversión de coordenadas</h2>
+<p>Para localizar el sitio (coordenadas) con el cual se asocia un dato espacial, se necesita un sistema de referencia. Existen dos tipos de coordenadas, cartesianas y geográficas. Las coordenadas cartesianas se miden desde el centro de la tierra, mientras que las geográficas desde una superficie de referencia o <em>datum</em>. Para Sudamérica el <em>datum</em> comúnmente utilizado es WGS84 (<em>World Geodetic System 84</em>). Éste es el <em>datum</em> estándar por defecto para coordenadas en los dispositivos GPS comerciales. Para combinar capas de información o para realizar otros procesamientos de datos espaciales es necesario conocer el <em>datum</em> y frecuentemente transformar o convertir las coordenadas. Transformar implica pasar de un sistema de referencia a otro (cambiar el <em>datum</em>), mientras que cuando se convierten coordenadas no se cambia de <em>datum</em>.</p>
+<p>Por una cuestión de practicidad, es usual proyectar el sistema de coordenadas geográficas (expresados en grados, minutos y segundos) a un sistema de coordenadas cartesianas, como por ejemplo el sistema de proyección UTM (<em>Universal Transverse Mercator</em>). Esta operación permite que las distancias entre los sitios desde donde se leen los datos se expresen como distancias absolutas (metros) en vez de distancias relativas (grados). Por ello, un paso inicial en el análisis de datos espaciales es convertir las coordenadas geográficas en coordenadas cartesianas (UTM). La mayoría del software SIG tiene la capacidad para realizar la transformación o conversión de coordenadas.</p>
+</section><section id="manipulación-de-múltiples-capas-de-datos" class="level2" data-number="1.2"><h2 data-number="1.2" class="anchored" data-anchor-id="manipulación-de-múltiples-capas-de-datos">
+<span class="header-section-number">1.2</span> Manipulación de múltiples capas de datos</h2>
+<p>Cuando se recolectan datos de más de una variable georreferencia (múltiples capas de datos especializados) es poco probable que se registre la misma ubicación para cada variable o tiempo de medición. Por ejemplo, rara vez las mediciones de propiedades del suelo y los índices derivados de imágenes satelitales de cultivos no son obtenidas exactamente para la misma localización y frecuentemente existen capas de datos en distintas escalas. Esta variabilidad en las coordenadas espaciales dificulta la fusión de datos para realizar análisis estadísticos multivariados, <em>i.e.</em> análisis que contemplen simultáneamente las distintas capas de datos.</p>
+<p>Se necesita organizar los datos en una grilla común a todas las capas, de manera que cada celda de la grilla cuente con la información de su ubicación espacial y cada una de las variables medidas. Existen diversas alternativas metodológicas para crear este tipo de grillas. Una de ellas consiste en generar una grilla regular de una determinada dimensión la cual se interseca con cada una de las variables medidas. Luego los valores de cada capa son asignados al nodo de la celda más cercana al punto medido. Cuando se tiene más de un dato de una variable para el mismo nodo, se suele calcular una medida de posición como la media o mediana de los datos e inclusive en algunos casos puede ser de interés tomar una medida de variabilidad como el desvió estándar o coeficiente de variación de los datos que comparten la celda. Otra alternativa metodológica es generar la grilla regular y utilizar la información recolectada para realizar una interpolación espacial en sitios no medidos y así obtener una predicción espacial de la variable de interés en cada celda de la grilla. Este proceso se realiza para cada una de las variables medidas empleando la misma grilla. Diversos métodos de interpolación pueden ser usados, uno frecuente es la interpolación kriging.</p>
+<p>El espaciado de la grilla debe reflejar el nivel de detalle requerido y la capacidad de procesamiento computacional. Por ejemplo, en aplicaciones de agricultura de precisión (escala de lote) puede utilizase una grilla de celdas cuadradas de 5 m × 5 m que se aproxima a la mitad del ancho operativo básico de muchas maquinarias. Esto genera unos 400 puntos de grilla por hectárea. Con lotes grandes puede ser conveniente utilizar una cuadricula de 10 m × 10 m para superar problemas computacionales y al mismo tiempo mantener una resolución de mapa adecuada para la visualización y análisis de los patrones espaciales.</p>
+<p>La normalización de los datos es otra práctica comúnmente usada en el manejo de múltiples capas de datos. Con esta técnica se busca ajustar los valores de variables no conmensurables, incluso medidos en diferentes escalas a una escala común. La normalización puede realizarse en base a la media de cada capa o variable y expresar la unidad como un porcentaje (%) de la media. La normalización también suele realizarse utilizando el máximo de la capa como referente o calculando la diferencia de la variable respecto al valor mínimo y dividiendo por el rango. Finalmente, cabe citar a la estandarización (sustracción de la media y división por el desvío estándar) como una transformación usual para expresar variables un conjunto de variables no conmensurables en un conjunto de variables normal estándar.</p>
+<p>Un paso importante en el análisis exploratorio de datos geoestadísticos es explorar la distribución de la variable. Para ello, puede realizarse una estadística descriptiva que incluye la elaboración de gráficos de distribución de frecuencias y medidas resumen (media, mediana y coeficiente de asimetría) de la variable en análisis. Cuando el método de análisis supone distribución normal de los datos, estas medidas exploratorias pueden ayudar a verificar el cumplimiento de los supuestos. Se considera que una distribución de frecuencias es simétrica y está próxima a la de una variable normal cuando la media y la mediana son prácticamente iguales y el coeficiente de asimetría es inferior a 1. La distribución de la variable también provee información para la depuración de datos raros.</p>
+</section><section id="depuración-de-datos" class="level2" data-number="1.3"><h2 data-number="1.3" class="anchored" data-anchor-id="depuración-de-datos">
+<span class="header-section-number">1.3</span> Depuración de datos</h2>
+<p>Los <em>outliers</em>, datos raros o atípicos, son observaciones con valores que se encuentran fuera del patrón general o distribución del conjunto de datos. La eliminación de los <em>outliers</em> es fundamental en el análisis de datos espaciales ya que las varianzas espaciales son muy sensibles a la presencia de datos raros. Los <em>outliers</em> deben eliminarse cuando el conjunto de datos no se limita dentro del rango de variación esperable con valores máximos y mínimos derivados de conocimiento previo sobre la distribución de la variable. También pueden eliminarse desde un criterio estadístico, cuando luego de calcular la media y la desviación estándar (SD), se identifican los valores que se encuentran fuera de la media <span class="math inline">\(\pm\)</span> 3 SD. Según conocimiento teórico, el 89% de los datos de una variable debieran encontrarse entre la media <span class="math inline">\(\pm\)</span> 3 SD cualquiera sea la distribución de la variable. Es recomendable, antes de la eliminación de los <em>outliers</em>, graficarlos utilizando coordenadas espaciales para visualizar su localización. De esta manera será posible identificar si los datos seleccionados para ser eliminados se relacionan con algún patrón sistemático o se corresponden a errores aleatorios.</p>
+<p>Al eliminar los <em>outliers</em> globales se eliminan los extremos del conjunto de datos, pero no los extremos locales (<em>outliers</em> espaciales). Los <em>outliers</em> espaciales, conocidos también como <em>inliers</em>, son datos que difieren significativamente de su vecindario, pero se sitúan dentro del rango general de variación del conjunto de datos. Existen estadísticos para identificar <em>inliers</em>, tal es el caso del índice autocorrelación espacial local de Moran (LM) <span class="citation" data-cites="Anselin_1995">(<a href="referencias.html#ref-Anselin_1995" role="doc-biblioref">Anselin 1995</a>)</span>. Dado un grupo de datos que pertenecen a diferentes vecindarios, el LM es aplicado a cada dato individualmente y da idea del grado de similitud o diferencia entre el valor de una observación respecto al valor de sus vecinos. La fórmula del índice de autocorrelación espacial local de Moran es la siguiente:</p>
+<p><span class="math display">\[{LM}_i=\frac{n\ (Z(s_i)-\bar{z})}{(n-1)s^2}\sum_{j=1}^{n}\left[w_{ij}\left(Z(s_j)-\bar{z}\right)\right]\]</span></p>
+<p>donde <span class="math inline">\(Z(s_i)\)</span> es el valor de la variable z en la posición <span class="math inline">\(i\)</span>; <span class="math inline">\(\bar{z}\)</span> y <span class="math inline">\(s^2\)</span> son la media y varianza muestral de <span class="math inline">\(z\)</span>, respectivamente; <span class="math inline">\(Z(s_j)\)</span> es el valor de la variable <span class="math inline">\(z\)</span> en todos los otros sitios (donde <span class="math inline">\(j\neq i\)</span>); <span class="math inline">\(w_{ij}\)</span> es el peso espacial entre las ubicaciones <span class="math inline">\(i\)</span> y <span class="math inline">\(j\)</span>.</p>
+<p>Para el cálculo del Índice de Moran se debe identificar el vecindario de cada dato, es decir el dominio donde existen datos que pueden ser interpretados como vecinos espaciales y que serán usados como referencia para decidir si el dato correspondiente es o no diferente a sus vecinos. Los vecindarios se definen a través de redes de conexión las que si bien pueden ser de distintos tipos pueden expresarse en el formato de una matriz de ponderación espacial <span class="math inline">\(W\)</span>. Cuando <span class="math inline">\(W\)</span> es binaria, <em>i.e.</em> compuesta por ceros y unos, se indica con 1 si la posición <span class="math inline">\(j\)</span> se considera vecina a la posición <span class="math inline">\(i\)</span>. Otra posibilidad para construir la matriz de ponderaciones espaciales es usando uná función de la distancia <span class="math inline">\(d\)</span> (usualmente distancia Euclídea) entre los sitios <span class="math inline">\(i\)</span>, <span class="math inline">\(j\)</span> como elemento de <span class="math inline">\(W\)</span>. Una función de amplio uso es la inversa de la distancia, es decir: <span class="math inline">\(w_{ij}=1/d_{ij}\)</span>. Así, valores muy cercanos en el espacio tendrán mayor ponderación. Existen diferentes opciones para definir el tamaño y la forma de los vecindarios de un dato espacial.</p>
+<p>El índice de Moran local esta estandarizado por lo que su nivel de significación puede ser evaluado en base a una distribución normal estándar. Los valores positivos del LM se corresponden con agrupamiento espacial de valores similares ya sean altos o bajos (autocorrelación positiva), mientras que un valor de LM negativo indica un agrupamiento de valores diferentes, por ejemplo, un sitio con valor bajo de la variable se encuentra rodeado de vecinos con valores altos (autocorrelación negativa).</p>
+<p>Para determinar la significancia estadística de LM, se calcula el <em>valor-p</em> asociado a la prueba de hipótesis que establece que la correlación de la información de un sitio con la de sus vecinos es nula. El <em>valor-p</em> para un índice determinado debe ser lo suficientemente pequeño para considerar el valor en cuestión como un <em>outlier</em> espacial o <em>inlier</em> (rechazar la hipótesis nula). Dado que se realiza una prueba de hipótesis para cada uno de los puntos espaciales, se recomienda el ajuste de los <em>valores-p</em> por el criterio de Bonferroni.</p>
+<p>Para visualizar el índice LM se puede representar en un diagrama de dispersión la similitud de cada valor observado respecto a las observaciones vecinas. Usualmente en el eje horizontal se expresan los valores de las observaciones mientras que en el vertical se representa el retardo espacial de la variable. Adicionalmente, se puede ajustar y añadir a este diagrama modelos de regresión lineal y estadísticos de influencia para identificar sitios con datos raros.</p>
+
+
+<!-- -->
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
+<div id="ref-Anselin_1995" class="csl-entry" role="doc-biblioentry">
+Anselin, Luc. 1995. <span>«Local indicators of spatial association—LISA»</span>. <em>Geographical analysis</em> 27 (2): 93-115.
+</div>
+</div>
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiado");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiado");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+      <a href="./index.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Prólogo</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./Parte1_cap_b_CarcVarEsp.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Caracterización de variabilidad espacial</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Ejecutar el código</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Manejo de datos espaciales</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">#| results: "asis"</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"_common.R"</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>Cuando los datos georreferenciados se representan en fotografías, imágenes o mapas es posible visualizar patrones espaciales, *i.e.* estructuraciones de los datos en el espacio. Los datos espaciales involucran, no solo la realización (valor) de una variable, sino también las coordenadas geográficas que posicionan el dato en el dominio espacial. Las coordenadas pueden ser uni, bi o tridimensionales y expresarse según distintos sistemas. Los tipos de datos espaciales usados son: datos geoestadísticos, datos regionales (látices) y patrones de puntos. Los primeros son datos de dominio continuo, es decir, supone que entre dos sitios pueden existir infinitos datos. Se refiere a continuidad en la estructura espacial del proceso aleatorio espacial subyacente a partir del cual se han generado las observaciones que se tienen. A causa de la continuidad del dominio espacial, los datos geoestadísticos también se llaman "datos espaciales con variación continua". La continuidad se asocia entonces con el proceso aleatorio subyacente y no con el atributo medido (que la variable sea de naturaleza continua o discreta no determina si los datos son geoestadísticos o no). Los datos regionales o de áreas son aquellos donde el dominio es fijo y conformado por un conjunto discreto de áreas, superficies o polígonos. Los datos del tipo patrones de puntos son aquellos que provienen de un proceso puntual aleatorio conformado por los puntos o sitios donde ocurren los eventos.</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>En el trabajo con datos espaciales puede ser necesario realizar preprocesamientos previos al análisis estadístico. Es menester realizar la lectura de la o las capas de información (variables), proveer una descripción estadística de los datos y mapear o visualizar los datos en el espacio, eliminar valores atípicos. También puede requerirse la expresión del conjunto de variables en un mismo sistema de información geográfica o la necesidad de interpolar las variables de interés a una misma identidad espacial. Para el tratamiento de datos espaciales hay que considerar el formato de la información espacial (ráster o vectorial) y las particularidades del sistema de referencia.</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>La tecnología de sistematización para información georreferenciada más conocida es la de los Sistemas de Información Geográfica (SIG). Actualmente, éstos abarcan un complejo de sistemas de bases de datos, programas de escritorio, lenguajes de programación, dispositivos gráficos, aplicaciones web y servidores. En un SIG, los datos de cada variable pueden manejarse como capas de información, y diversas técnicas de análisis de datos pueden aplicarse simultáneamente en todas las capas de manera independiente o integrándolas en un único análisis multivariado. Las capas pueden estar correlacionadas entre sí, los datos dentro de cada capa pueden presentar estructura de correlación espacial. Los Sistemas de Información Geográfica (SIG) ofrecen funciones para crear, integrar, transformar, visualizar y analizar de manera exploratoria estas capas de datos espaciales. Los SIG más avanzados también disponen de funciones que generan interfase con softwares estadísticos ampliando así la capacidad para la modelación conjunta de varias capas de información.</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="fu">## Transformación y conversión de coordenadas</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>Para localizar el sitio (coordenadas) con el cual se asocia un dato espacial, se necesita un sistema de referencia. Existen dos tipos de coordenadas, cartesianas y geográficas. Las coordenadas cartesianas se miden desde el centro de la tierra, mientras que las geográficas desde una superficie de referencia o *datum*. Para Sudamérica el *datum* comúnmente utilizado es WGS84 (*World Geodetic System 84*). Éste es el *datum* estándar por defecto para coordenadas en los dispositivos GPS comerciales. Para combinar capas de información o para realizar otros procesamientos de datos espaciales es necesario conocer el *datum* y frecuentemente transformar o convertir las coordenadas. Transformar implica pasar de un sistema de referencia a otro (cambiar el *datum*), mientras que cuando se convierten coordenadas no se cambia de *datum*.</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>Por una cuestión de practicidad, es usual proyectar el sistema de coordenadas geográficas (expresados en grados, minutos y segundos) a un sistema de coordenadas cartesianas, como por ejemplo el sistema de proyección UTM (*Universal Transverse Mercator*). Esta operación permite que las distancias entre los sitios desde donde se leen los datos se expresen como distancias absolutas (metros) en vez de distancias relativas (grados). Por ello, un paso inicial en el análisis de datos espaciales es convertir las coordenadas geográficas en coordenadas cartesianas (UTM). La mayoría del software SIG tiene la capacidad para realizar la transformación o conversión de coordenadas.</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="fu">## Manipulación de múltiples capas de datos</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>Cuando se recolectan datos de más de una variable georreferencia (múltiples capas de datos especializados) es poco probable que se registre la misma ubicación para cada variable o tiempo de medición. Por ejemplo, rara vez las mediciones de propiedades del suelo y los índices derivados de imágenes satelitales de cultivos no son obtenidas exactamente para la misma localización y frecuentemente existen capas de datos en distintas escalas. Esta variabilidad en las coordenadas espaciales dificulta la fusión de datos para realizar análisis estadísticos multivariados, *i.e.* análisis que contemplen simultáneamente las distintas capas de datos.</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>Se necesita organizar los datos en una grilla común a todas las capas, de manera que cada celda de la grilla cuente con la información de su ubicación espacial y cada una de las variables medidas. Existen diversas alternativas metodológicas para crear este tipo de grillas. Una de ellas consiste en generar una grilla regular de una determinada dimensión la cual se interseca con cada una de las variables medidas. Luego los valores de cada capa son asignados al nodo de la celda más cercana al punto medido. Cuando se tiene más de un dato de una variable para el mismo nodo, se suele calcular una medida de posición como la media o mediana de los datos e inclusive en algunos casos puede ser de interés tomar una medida de variabilidad como el desvió estándar o coeficiente de variación de los datos que comparten la celda. Otra alternativa metodológica es generar la grilla regular y utilizar la información recolectada para realizar una interpolación espacial en sitios no medidos y así obtener una predicción espacial de la variable de interés en cada celda de la grilla. Este proceso se realiza para cada una de las variables medidas empleando la misma grilla. Diversos métodos de interpolación pueden ser usados, uno frecuente es la interpolación kriging.</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>El espaciado de la grilla debe reflejar el nivel de detalle requerido y la capacidad de procesamiento computacional. Por ejemplo, en aplicaciones de agricultura de precisión (escala de lote) puede utilizase una grilla de celdas cuadradas de 5 m × 5 m que se aproxima a la mitad del ancho operativo básico de muchas maquinarias. Esto genera unos 400 puntos de grilla por hectárea. Con lotes grandes puede ser conveniente utilizar una cuadricula de 10 m × 10 m para superar problemas computacionales y al mismo tiempo mantener una resolución de mapa adecuada para la visualización y análisis de los patrones espaciales.</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>La normalización de los datos es otra práctica comúnmente usada en el manejo de múltiples capas de datos. Con esta técnica se busca ajustar los valores de variables no conmensurables, incluso medidos en diferentes escalas a una escala común. La normalización puede realizarse en base a la media de cada capa o variable y expresar la unidad como un porcentaje (\%) de la media. La normalización también suele realizarse utilizando el máximo de la capa como referente o calculando la diferencia de la variable respecto al valor mínimo y dividiendo por el rango. Finalmente, cabe citar a la estandarización (sustracción de la media y división por el desvío estándar) como una transformación usual para expresar variables un conjunto de variables no conmensurables en un conjunto de variables normal estándar.</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>Un paso importante en el análisis exploratorio de datos geoestadísticos es explorar la distribución de la variable.  Para ello, puede realizarse una estadística descriptiva que incluye la elaboración de gráficos de distribución de frecuencias y medidas resumen (media, mediana y coeficiente de asimetría) de la variable en análisis. Cuando el método de análisis supone distribución normal de los datos, estas medidas exploratorias pueden ayudar a verificar el cumplimiento de los supuestos. Se considera que una distribución de frecuencias es simétrica y está próxima a la de una variable normal cuando la media y la mediana son prácticamente iguales y el coeficiente de asimetría es inferior a 1. La distribución de la variable también provee información para la depuración de datos raros.</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="fu">## Depuración de datos</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>Los *outliers*, datos raros o atípicos, son observaciones con valores que se encuentran fuera del patrón general o distribución del conjunto de datos. La eliminación de los *outliers* es fundamental en el análisis de datos espaciales ya que las varianzas espaciales son muy sensibles a la presencia de datos raros. Los *outliers* deben eliminarse cuando el conjunto de datos no se limita dentro del rango de variación esperable con valores máximos y mínimos derivados de conocimiento previo sobre la distribución de la variable. También pueden eliminarse desde un criterio estadístico, cuando luego de calcular la media y la desviación estándar (SD), se identifican los valores que se encuentran fuera de la media $\pm$ 3 SD. Según conocimiento teórico, el 89\% de los datos de una variable debieran encontrarse entre la media $\pm$ 3 SD cualquiera sea la distribución de la variable. Es recomendable, antes de la eliminación de los *outliers*, graficarlos utilizando coordenadas espaciales para visualizar su localización. De esta manera será posible identificar si los datos seleccionados para ser eliminados se relacionan con algún patrón sistemático o se corresponden a errores aleatorios.</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>Al eliminar los *outliers* globales se eliminan los extremos del conjunto de datos, pero no los extremos locales (*outliers* espaciales). Los *outliers* espaciales, conocidos también como *inliers*, son datos que difieren significativamente de su vecindario, pero se sitúan dentro del rango general de variación del conjunto de datos. Existen estadísticos para identificar *inliers*, tal es el caso del índice autocorrelación espacial local de Moran (LM) <span class="co">[</span><span class="ot">@Anselin_1995</span><span class="co">]</span>. Dado un grupo de datos que pertenecen a diferentes vecindarios, el LM es aplicado a cada dato individualmente y da idea del grado de similitud o diferencia entre el valor de una observación respecto al valor de sus vecinos. La fórmula del índice de autocorrelación espacial local de Moran es la siguiente:</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>$${LM}_i=\frac{n\ (Z(s_i)-\bar{z})}{(n-1)s^2}\sum_{j=1}^{n}\left[w_{ij}\left(Z(s_j)-\bar{z}\right)\right]$$</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>donde $Z(s_i)$ es el valor de la variable z en la posición $i$; $\bar{z}$ y $s^2$ son la media y varianza muestral de $z$, respectivamente; $Z(s_j)$ es el valor de la variable $z$  en todos los otros sitios (donde $j\neq i$); $w_{ij}$ es el peso espacial entre las ubicaciones $i$ y $j$.</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>Para el cálculo del Índice de Moran se debe identificar el vecindario de cada dato, es decir el dominio donde existen datos que pueden ser interpretados como vecinos espaciales y que serán usados como referencia para decidir si el dato correspondiente es o no diferente a sus vecinos. Los vecindarios se definen a través de redes de conexión las que si bien pueden ser de distintos tipos pueden expresarse en el formato de una matriz de ponderación espacial $W$. Cuando $W$ es binaria, *i.e.* compuesta por ceros y unos, se indica con 1 si la posición $j$ se considera vecina a la posición $i$. Otra posibilidad para construir la matriz de ponderaciones espaciales es usando uná función de la distancia $d$ (usualmente distancia Euclídea) entre los sitios $i$, $j$ como elemento de $W$. Una función de amplio uso es la inversa de la distancia, es decir: $w_{ij}=1/d_{ij}$. Así, valores muy cercanos en el espacio tendrán mayor ponderación. Existen diferentes opciones para definir el tamaño y la forma de los vecindarios de un dato espacial.</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>El índice de Moran local esta estandarizado por lo que su nivel de significación puede ser evaluado en base a una distribución normal estándar. Los valores positivos del LM se corresponden con agrupamiento espacial de valores similares ya sean altos o bajos (autocorrelación positiva), mientras que un valor de LM negativo indica un agrupamiento de valores diferentes, por ejemplo, un sitio con valor bajo de la variable se encuentra rodeado de vecinos con valores altos (autocorrelación negativa).</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>Para determinar la significancia estadística de LM, se calcula el *valor-p* asociado a la prueba de hipótesis que establece que la correlación de la información de un sitio con la de sus vecinos es nula. El *valor-p* para un índice determinado debe ser lo suficientemente pequeño para considerar el valor en cuestión como un *outlier* espacial o *inlier* (rechazar la hipótesis nula). Dado que se realiza una prueba de hipótesis para cada uno de los puntos espaciales, se recomienda el ajuste de los *valores-p* por el criterio de Bonferroni.</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>Para visualizar el índice LM se puede representar en un diagrama de dispersión la similitud de cada valor observado respecto a las observaciones vecinas. Usualmente en el eje horizontal se expresan los valores de las observaciones mientras que en el vertical se representa el retardo espacial de la variable. Adicionalmente, se puede ajustar y añadir a este diagrama modelos de regresión lineal y estadísticos de influencia para identificar sitios con datos raros.</span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>
+</code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+<footer class="footer"><div class="nav-footer">
+    <div class="nav-footer-left">Guía para el análisis de datos espaciales. Aplicaciones en agricultura</div>   
+    <div class="nav-footer-right">Este libro se construyo con <a href="https://quarto.org/">Quarto</a>.</div>
+  </div>
+</footer>
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

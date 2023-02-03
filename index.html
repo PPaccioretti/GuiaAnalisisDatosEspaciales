@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.313">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta name="author" content="<p>“Mariano Córdoba, Pablo Paccioretti, Franca Giannini Kurina, Cecilia Bruno, Mónica Balzarini”</p>">
+<meta name="description" content="DISEMINACIÓN CIENTÍFICA Y TRASNFERENCIA DE RESULTADOS DE INVESTIGACIÓN, PROMOVIDAS POR EL MINISTERIO DE CIENCIA Y TECNOLOGÍA DE LA PROVINCIA DE CÓRDOBA.">
+<title>Guía para el análisis de datos espaciales. Aplicaciones en agricultura</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./Parte1_cap_a_MjoDtosEsp.html" rel="next">
+<link href="./figuras/cover.jpg" rel="icon" type="image/jpeg">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "Sin resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar"
+  }
+}</script><style>html{ scroll-behavior: smooth; }</style>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-154490537-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</head>
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }"><div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Guía para el análisis de datos espaciales. Aplicaciones en agricultura</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Guía para el análisis de datos espaciales. Aplicaciones en agricultura</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/PPaccioretti/GuiaAnalisisDatosEspaciales" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+    <a href="./GuiaAnalisisDatosEspaciales.pdf" title="Download PDF" class="sidebar-tool px-1"><i class="bi bi-file-pdf"></i></a>
+  <a href="" class="quarto-reader-toggle sidebar-tool" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link active">Prólogo</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Aproximaciones metodológicas</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Parte1_cap_a_MjoDtosEsp.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Manejo de datos espaciales</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Parte1_cap_b_CarcVarEsp.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Caracterización de variabilidad espacial</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Parte1_cap_c_CarcVarEspMultiCapa.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Caracterización de variabilidad espacial con múltiples capas de datos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Parte1_cap_d_PredMultipleCapa.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Predicción con múltiples capas de datos</span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Análisis de datos a escala fina</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Parte2_cap_a_EscFinaImplR.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Implementación con R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Parte2_cap_b_EscFinaImplInfo.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Implementación con InfoStat</span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">Análisis de datos a escala regional</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Parte3_cap_a_EscRegionImplR.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Bases de datos regionales</span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./referencias.html" class="sidebar-item-text sidebar-link">Referencias</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">Apéndices</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./anexoR.html" class="sidebar-item-text sidebar-link">Introducción a R</a>
+  </div>
+</li>
+      </ul>
+</li>
+    </ul>
+</div>
+</nav><!-- margin-sidebar --><div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+<li><a href="#pr%C3%B3logo" id="toc-prólogo" class="nav-link active" data-scroll-target="#pr%C3%B3logo">Prólogo</a></li>
+  </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/PPaccioretti/GuiaAnalisisDatosEspaciales/edit/main/index.qmd" class="toc-action">Editar esta página</a></p><p><a href="https://github.com/PPaccioretti/GuiaAnalisisDatosEspaciales/issues/new" class="toc-action">Informar de un problema</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title d-none d-lg-block">Guía para el análisis de datos espaciales. Aplicaciones en agricultura</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Código</button></div></div>
+</div>
+
+<div>
+  <div class="description">
+    DISEMINACIÓN CIENTÍFICA Y TRASNFERENCIA DE RESULTADOS DE INVESTIGACIÓN, PROMOVIDAS POR EL MINISTERIO DE CIENCIA Y TECNOLOGÍA DE LA PROVINCIA DE CÓRDOBA.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Autores/as</div>
+    <div class="quarto-title-meta-contents">
+             <p>Mariano Córdoba </p>
+             <p>Pablo Paccioretti </p>
+             <p>Franca Giannini Kurina </p>
+             <p>Cecilia Bruno </p>
+             <p>Mónica Balzarini </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+</header>
+<section id="prólogo" class="level1 unnumbered"><h1 class="unnumbered">Prólogo</h1><p><img src="figuras/cover.jpg" title="Guía para el análisis de datos espaciales. Aplicaciones en agricultura" class="quarto-cover-image img-fluid"></p>
+<p>En las últimas décadas se ha impulsado el desarrollo y la utilización de nuevas tecnologías que permiten capturar datos espaciales, <em>i.e.</em> datos de una variable regionalizada o asociados a una localización en el espacio.</p>
+<p>La infraestructura de datos espaciales es cada vez mayor en tamaño y calidad, especialmente la asociada a la generación de datos que provienen de sensores ya sea remotos o proximales. Los volúmenes de datos espaciales no sólo son vastos y variados, sino que también, en la mayoría de los escenarios, son accesibles. Estos datos generan nuevas oportunidades para la investigación en agricultura.</p>
+<p>La variabilidad en los procesos aleatorios que generan datos espaciales se modela con diversas herramientas de la Estadística Espacial y se representa gráficamente en mapas de variabilidad espacial donde puede observarse cómo cambian los valores de una o más variables aleatorias según su posición en el espacio.</p>
+<p>Aún cuando se estudian dominios espaciales continuos con alta densidad de datos, usualmente no existen observaciones de la variable de interés para todos las localizaciones o sitios del espacio analizado; así se hace necesario obtener predicciones espaciales, <em>i.e.</em> predecir el valor de la variable en sitios sin datos. Con grillas de predicción densa, es posible obtener mapas de contorno casi continuos espacialmente.</p>
+<p>Con varias variables para cada sitio, una de ellas interpretada como resultante de un proceso y otras como explicativas o potenciales predictores, es posible obtener predicciones espaciales a partir de modelos que consideran la correlación espacial de los datos. Los modelos pueden estimarse tanto en un marco teórico frecuentista <span class="citation" data-cites="Cressie_Wikle_2015 Schabenberger_Gotway_2005">(<a href="referencias.html#ref-Cressie_Wikle_2015" role="doc-biblioref">Cressie y Wikle 2015</a>; <a href="referencias.html#ref-Schabenberger_Gotway_2005" role="doc-biblioref">Schabenberger y Gotway 2005</a>)</span> como desde el marco teórico bayesiano <span class="citation" data-cites="Correa_Morales_Causil_Javier_2018">(<a href="referencias.html#ref-Correa_Morales_Causil_Javier_2018" role="doc-biblioref">Correa Morales, Causil, y Javier 2018</a>)</span>. También, desde la Ciencia de Datos con base computacional, se encuentran disponibles algoritmos de aprendizaje automático que incorporan la espacialidad en el análisis de datos <span class="citation" data-cites="Li_Heap_Potter_Daniell_2011">(<a href="referencias.html#ref-Li_Heap_Potter_Daniell_2011" role="doc-biblioref">Li et&nbsp;al. 2011</a>)</span>.</p>
+<p>En esta guía se ilustra el manejo y procesamiento de datos espaciales con distintos métodos estadísticos y su aplicación en agricultura. El texto está organizado en tres partes; la primera contiene bases conceptuales para el análisis de datos georreferenciados provenientes de procesos espaciales continuos. La segunda, la implementación de protocolos de análisis completos sobre datos distribuidos a escala fina en el espacio, con códigos de programa listos para ejecutar en el software estadístico R <span class="citation" data-cites="R_Core_Team_2019">(<a href="referencias.html#ref-R_Core_Team_2019" role="doc-biblioref">Team 2019</a>)</span> y en el software <em>InfoStat</em> <span class="citation" data-cites="Di_Rienzo_Casanoves_Balzarini_Gonzalez_Tablada_Robledo_2019">(<a href="referencias.html#ref-Di_Rienzo_Casanoves_Balzarini_Gonzalez_Tablada_Robledo_2019" role="doc-biblioref">Di Rienzo et&nbsp;al. 2019</a>)</span>. La tercera parte del texto ilustra la implementación del manejo y análisis de datos distribuidos a escala regional con códigos en R. La versión digital de este libro puede obtenerse desde www.agro.unc.edu.ar/~estadisticaaplicada donde también se encuentran los códigos de programación y los datos usados en este texto.</p>
+<div>
+<p><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"> <img alt="Creative Commons License" style="border-width: 0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png"></a> <br> Esta obra está bajo una Licencia <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"> Creative Commons Atribución – No Comercial – Sin Obra Derivada 4.0 Internacional.</a></p>
+</div>
+
+
+<!-- -->
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
+<div id="ref-Correa_Morales_Causil_Javier_2018" class="csl-entry" role="doc-biblioentry">
+Correa Morales, Juan Carlos, Barrera Causil, y Carlos Javier. 2018. <em>Introducción a la estadística bayesiana: notas de clase</em>. Instituto Tecnológico Metropolitano.
+</div>
+<div id="ref-Cressie_Wikle_2015" class="csl-entry" role="doc-biblioentry">
+Cressie, Noel, y Christopher K Wikle. 2015. <em>Statistics for spatio-temporal data</em>. John Wiley &amp; Sons.
+</div>
+<div id="ref-Di_Rienzo_Casanoves_Balzarini_Gonzalez_Tablada_Robledo_2019" class="csl-entry" role="doc-biblioentry">
+Di Rienzo, J A, F Casanoves, M G Balzarini, L Gonzalez, M Tablada, y C W Robledo. 2019. <span>«InfoStat»</span>.
+</div>
+<div id="ref-Li_Heap_Potter_Daniell_2011" class="csl-entry" role="doc-biblioentry">
+Li, Jin, Andrew D Heap, Anna Potter, y James J Daniell. 2011. <span>«Application of machine learning methods to spatial interpolation of environmental variables»</span>. <em>Environmental Modelling &amp; Software</em> 26 (12): 1647-59.
+</div>
+<div id="ref-Schabenberger_Gotway_2005" class="csl-entry" role="doc-biblioentry">
+Schabenberger, Oliver, y Carol A Gotway. 2005. <em>Statistical methods for spatial data analysis</em>. CRC press.
+</div>
+<div id="ref-R_Core_Team_2019" class="csl-entry" role="doc-biblioentry">
+Team, R Core. 2019. <span>«R: A Language and Environment for Statistical Computing»</span>.
+</div>
+</div>
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiado");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiado");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./Parte1_cap_a_MjoDtosEsp.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Manejo de datos espaciales</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Ejecutar el código</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Prólogo {.unnumbered}</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">#| results: "asis"</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"_common.R"</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>En las últimas décadas se ha impulsado el desarrollo y la utilización de nuevas tecnologías que permiten capturar datos espaciales, *i.e.* datos de una variable regionalizada o asociados a una localización en el espacio. </span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>La infraestructura de datos espaciales es cada vez mayor en tamaño y calidad, especialmente la asociada a la generación de datos que provienen de sensores ya sea remotos o proximales. Los volúmenes de datos espaciales no sólo son vastos y variados, sino que también, en la mayoría de los escenarios, son accesibles. Estos datos generan nuevas oportunidades para la investigación en agricultura.</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>La variabilidad en los procesos aleatorios que generan datos espaciales se modela con diversas herramientas de la Estadística Espacial y se representa gráficamente en mapas de variabilidad espacial donde puede observarse cómo cambian los valores de una o más variables aleatorias según su posición en el espacio.</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>Aún cuando se estudian dominios espaciales continuos con alta densidad de datos, usualmente no existen observaciones de la variable de interés para todos las localizaciones o sitios del espacio analizado; así se hace necesario obtener predicciones espaciales, *i.e.* predecir el valor de la variable en sitios sin datos. Con grillas de predicción densa, es posible obtener mapas de contorno casi continuos espacialmente.</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>Con varias variables para cada sitio, una de ellas interpretada como resultante de un proceso y otras como explicativas o potenciales predictores, es posible obtener predicciones espaciales a partir de modelos que consideran la correlación espacial de los datos. Los modelos pueden estimarse tanto en un marco teórico frecuentista <span class="co">[</span><span class="ot">@Cressie_Wikle_2015; @Schabenberger_Gotway_2005</span><span class="co">]</span> como desde el marco teórico bayesiano <span class="co">[</span><span class="ot">@Correa_Morales_Causil_Javier_2018</span><span class="co">]</span>. También, desde la Ciencia de Datos con base computacional, se encuentran disponibles algoritmos de aprendizaje automático que incorporan la espacialidad en el análisis de datos <span class="co">[</span><span class="ot">@Li_Heap_Potter_Daniell_2011</span><span class="co">]</span>.</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>En esta guía se ilustra el manejo y procesamiento de datos espaciales con distintos métodos estadísticos y su aplicación en agricultura. El texto está organizado en tres partes; la primera contiene bases conceptuales para el análisis de datos georreferenciados provenientes de procesos espaciales continuos. La segunda, la implementación de protocolos de análisis completos sobre datos distribuidos a escala fina en el espacio, con códigos de programa listos para ejecutar en el software estadístico R <span class="co">[</span><span class="ot">@R_Core_Team_2019</span><span class="co">]</span> y en el software *InfoStat* <span class="co">[</span><span class="ot">@Di_Rienzo_Casanoves_Balzarini_Gonzalez_Tablada_Robledo_2019</span><span class="co">]</span>. La tercera parte del texto ilustra la implementación del manejo y análisis de datos distribuidos a escala regional con códigos en R. La versión digital de este libro puede obtenerse desde www.agro.unc.edu.ar/~estadisticaaplicada donde también se encuentran los códigos de programación y los datos usados en este texto.</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>::: {.content-visible when-format="html"}</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;a</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="ot">  rel=</span><span class="st">"license"</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="ot">  href=</span><span class="st">"http://creativecommons.org/licenses/by-nc-nd/4.0/"</span><span class="kw">&gt;</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&lt;img</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="ot">    alt=</span><span class="st">"Creative Commons License"</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="ot">    style=</span><span class="st">"border-width: 0"</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="ot">    src=</span><span class="st">"https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png"</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="kw">/&gt;&lt;/a&gt;</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;br</span> <span class="kw">/&gt;</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>Esta obra está bajo una Licencia</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;a</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="ot">  rel=</span><span class="st">"license"</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="ot">  href=</span><span class="st">"http://creativecommons.org/licenses/by-nc-nd/4.0/"</span><span class="kw">&gt;</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>  Creative Commons Atribución – No Comercial – Sin Obra Derivada 4.0</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>  Internacional.<span class="kw">&lt;/a&gt;</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>\mainmatter</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="in">```{r include=FALSE, echo=FALSE}</span></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="co"># automatically create a bib database for R packages</span></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">write_bib</span>(<span class="fu">c</span>(</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>  <span class="fu">.packages</span>(), <span class="st">'bookdown'</span>, <span class="st">'knitr'</span>, <span class="st">'rmarkdown'</span>, <span class="st">'sf'</span>, <span class="st">'e1071'</span></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>), <span class="st">'packages.bib'</span>, <span class="at">width =</span> <span class="dv">60</span>)</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+</code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+<footer class="footer"><div class="nav-footer">
+    <div class="nav-footer-left">Guía para el análisis de datos espaciales. Aplicaciones en agricultura</div>   
+    <div class="nav-footer-right">Este libro se construyo con <a href="https://quarto.org/">Quarto</a>.</div>
+  </div>
+</footer>
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

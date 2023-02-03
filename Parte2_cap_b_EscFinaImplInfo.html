@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.313">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta name="author" content="<p>“Mariano Córdoba, Pablo Paccioretti, Franca Giannini Kurina, Cecilia Bruno, Mónica Balzarini”</p>">
+<meta name="description" content="DISEMINACIÓN CIENTÍFICA Y TRASNFERENCIA DE RESULTADOS DE INVESTIGACIÓN, PROMOVIDAS POR EL MINISTERIO DE CIENCIA Y TECNOLOGÍA DE LA PROVINCIA DE CÓRDOBA.">
+<title>Guía para el análisis de datos espaciales. Aplicaciones en agricultura - 6&nbsp; Implementación con InfoStat</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./Parte3_cap_a_EscRegionImplR.html" rel="next">
+<link href="./Parte2_cap_a_EscFinaImplR.html" rel="prev">
+<link href="./figuras/cover.jpg" rel="icon" type="image/jpeg">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "Sin resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar"
+  }
+}</script><style>html{ scroll-behavior: smooth; }</style>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-154490537-1', 'auto');
+  ga('send', 'pageview');
+
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+</head>
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }"><div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">
+<span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Implementación con InfoStat</span>
+</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Guía para el análisis de datos espaciales. Aplicaciones en agricultura</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/PPaccioretti/GuiaAnalisisDatosEspaciales" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+    <a href="./GuiaAnalisisDatosEspaciales.pdf" title="Download PDF" class="sidebar-tool px-1"><i class="bi bi-file-pdf"></i></a>
+  <a href="" class="quarto-reader-toggle sidebar-tool" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Prólogo</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Aproximaciones metodológicas</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Parte1_cap_a_MjoDtosEsp.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Manejo de datos espaciales</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Parte1_cap_b_CarcVarEsp.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Caracterización de variabilidad espacial</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Parte1_cap_c_CarcVarEspMultiCapa.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Caracterización de variabilidad espacial con múltiples capas de datos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Parte1_cap_d_PredMultipleCapa.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Predicción con múltiples capas de datos</span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Análisis de datos a escala fina</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Parte2_cap_a_EscFinaImplR.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Implementación con R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Parte2_cap_b_EscFinaImplInfo.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Implementación con InfoStat</span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">Análisis de datos a escala regional</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Parte3_cap_a_EscRegionImplR.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Bases de datos regionales</span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./referencias.html" class="sidebar-item-text sidebar-link">Referencias</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">Apéndices</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./anexoR.html" class="sidebar-item-text sidebar-link">Introducción a R</a>
+  </div>
+</li>
+      </ul>
+</li>
+    </ul>
+</div>
+</nav><!-- margin-sidebar --><div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+<li><a href="#conversi%C3%B3n-de-coordenadas-espaciales" id="toc-conversión-de-coordenadas-espaciales" class="nav-link active" data-scroll-target="#conversi%C3%B3n-de-coordenadas-espaciales"><span class="toc-section-number">6.1</span>  Conversión de coordenadas espaciales</a></li>
+  <li><a href="#eliminaci%C3%B3n-de-outliers-e-inliers" id="toc-eliminación-de-outliers-e-inliers" class="nav-link" data-scroll-target="#eliminaci%C3%B3n-de-outliers-e-inliers"><span class="toc-section-number">6.2</span>  Eliminación de <em>outliers</em> e <em>inliers</em></a></li>
+  <li><a href="#detecci%C3%B3n-de-tendencias-espaciales" id="toc-detección-de-tendencias-espaciales" class="nav-link" data-scroll-target="#detecci%C3%B3n-de-tendencias-espaciales"><span class="toc-section-number">6.3</span>  Detección de tendencias espaciales</a></li>
+  <li><a href="#c%C3%A1lculo-del-%C3%ADndice-de-moran" id="toc-cálculo-del-índice-de-moran" class="nav-link" data-scroll-target="#c%C3%A1lculo-del-%C3%ADndice-de-moran"><span class="toc-section-number">6.4</span>  Cálculo del índice de Moran</a></li>
+  <li>
+<a href="#an%C3%A1lisis-basado-en-semivariogramas" id="toc-análisis-basado-en-semivariogramas" class="nav-link" data-scroll-target="#an%C3%A1lisis-basado-en-semivariogramas"><span class="toc-section-number">6.5</span>  Análisis basado en semivariogramas</a>
+  <ul class="collapse">
+<li><a href="#mapeo-de-variabilidad-espacial" id="toc-mapeo-de-variabilidad-espacial" class="nav-link" data-scroll-target="#mapeo-de-variabilidad-espacial"><span class="toc-section-number">6.5.1</span>  Mapeo de variabilidad espacial</a></li>
+  <li><a href="#validaci%C3%B3n-cruzada" id="toc-validación-cruzada" class="nav-link" data-scroll-target="#validaci%C3%B3n-cruzada"><span class="toc-section-number">6.5.2</span>  Validación cruzada</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#caracterizaci%C3%B3n-de-variabilidad-espacial-con-m%C3%BAltiples-capas-de-datos" id="toc-caracterización-de-variabilidad-espacial-con-múltiples-capas-de-datos" class="nav-link" data-scroll-target="#caracterizaci%C3%B3n-de-variabilidad-espacial-con-m%C3%BAltiples-capas-de-datos"><span class="toc-section-number">6.6</span>  Caracterización de variabilidad espacial con múltiples capas de datos</a>
+  <ul class="collapse">
+<li><a href="#an%C3%A1lisis-de-componentes-principales" id="toc-análisis-de-componentes-principales" class="nav-link" data-scroll-target="#an%C3%A1lisis-de-componentes-principales"><span class="toc-section-number">6.6.1</span>  Análisis de componentes principales</a></li>
+  <li><a href="#an%C3%A1lisis-de-conglomerados" id="toc-análisis-de-conglomerados" class="nav-link" data-scroll-target="#an%C3%A1lisis-de-conglomerados"><span class="toc-section-number">6.6.2</span>  Análisis de conglomerados</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#predicci%C3%B3n-con-m%C3%BAltiples-capas-de-datos" id="toc-predicción-con-múltiples-capas-de-datos" class="nav-link" data-scroll-target="#predicci%C3%B3n-con-m%C3%BAltiples-capas-de-datos"><span class="toc-section-number">6.7</span>  Predicción con múltiples capas de datos</a>
+  <ul class="collapse">
+<li><a href="#kriging-con-deriva-externa" id="toc-kriging-con-deriva-externa" class="nav-link" data-scroll-target="#kriging-con-deriva-externa"><span class="toc-section-number">6.7.1</span>  Kriging con deriva externa</a></li>
+  <li><a href="#kriging-desde-modelo-de-regresi%C3%B3n" id="toc-kriging-desde-modelo-de-regresión" class="nav-link" data-scroll-target="#kriging-desde-modelo-de-regresi%C3%B3n"><span class="toc-section-number">6.7.2</span>  Kriging desde modelo de regresión</a></li>
+  <li><a href="#%C3%A1rboles-aleatorios" id="toc-árboles-aleatorios" class="nav-link" data-scroll-target="#%C3%A1rboles-aleatorios"><span class="toc-section-number">6.7.3</span>  Árboles aleatorios</a></li>
+  </ul>
+</li>
+  </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/PPaccioretti/GuiaAnalisisDatosEspaciales/edit/main/Parte2_cap_b_EscFinaImplInfo.qmd" class="toc-action">Editar esta página</a></p><p><a href="https://github.com/PPaccioretti/GuiaAnalisisDatosEspaciales/issues/new" class="toc-action">Informar de un problema</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title d-none d-lg-block">
+<span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Implementación con InfoStat</span>
+</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Código</button></div></div>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header><p>El módulo “Estadística Espacial” de InfoStat permite realizar, a través de su conexión con el software R, la implementación de algoritmos univariados y multivariados para el análisis de datos georreferenciados. En esta sección se ilustrará el uso de este módulo para la transformación de coordenadas, la depuración de datos georreferenciados, el cálculo de índices de autocorrelación espacial, ajuste de semivariogramas, y la obtención de un mapa de variabilidad espacial mediante interpolación kriging. Complementariamente, se ilustra su aplicación con bases de datos de naturaleza multivariada para el cálculo de correlación bivariada, la implementación del análisis de componentes principales espaciales (MULTISPATI-PCA), la clasificación KM-sPC y el uso de métodos de regresión basados en árboles (<em>Random Forest</em>).</p>
+<section id="conversión-de-coordenadas-espaciales" class="level2" data-number="6.1"><h2 data-number="6.1" class="anchored" data-anchor-id="conversión-de-coordenadas-espaciales">
+<span class="header-section-number">6.1</span> Conversión de coordenadas espaciales</h2>
+<p>Este menú permite la conversión entre distintos sistemas de coordenadas de referencias basándose en el uso de los códigos EPSG (http://www.epsg.org/). El archivo de datos que se abre desde el menú Aplicaciones <span class="math inline">\(\to\)</span> Estadística Espacial <span class="math inline">\(\to\)</span> Transformación de Coordenadas <span class="math inline">\(\to\)</span> Datos de prueba. El archivo se denomina <strong>datosRinde.idb2</strong> y contiene 9810 observaciones (registros o filas del archivo) sobre datos de rendimiento de trigo (Rinde, <span class="math inline">\(t\ ha^{-1}\)</span>) de un lote agrícola que fueron recolectados con un monitor de rendimiento. Cada valor registrado posee su ubicación geográfica (x e y) en unidades grado decimal que son expresadas en longitud (x) y latitud (y).</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="figuras/Parte2/1.jpg" class="img-fluid" width="1570"></p>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="figuras/Parte2/2.jpg" class="img-fluid" width="498"></p>
+</div>
+</div>
+<p>En el menú Aplicaciones <span class="math inline">\(\to\)</span> Estadística Espacial <span class="math inline">\(\to\)</span> Transformación de Coordenadas <span class="math inline">\(\to\)</span> Run, se abrirá una ventana de selector de variables donde debe indicarse la columna del archivo de datos que contiene la información correspondiente a la Coordenada X y la columna del archivo que contiene la información de la Coordenada Y. Luego, aparecerá una ventana para seleccionar el código EPSG original de los datos y código asignado. En este ejemplo el código original para las coordenadas geográficas WGS84 es 4326 y el asignado para el sistema UTM zona 21 es 32721. En caso de ser necesario previo a esta transformación permite también el pasaje de datos que estén expresados en grados, minutos y segundos a grados decimales. Para ello sólo se debe tildar esta opción en el cuadro de dialogo. Los valores de las coordenadas deben presentarse con un espacio entre subunidades. Por ejemplo “33 1 1” expresan los grados minutos y segundos respectivamente.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="figuras/Parte2/3.jpg" class="img-fluid" style="width:70.0%"></p>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="figuras/Parte2/4.jpg" class="img-fluid" width="1028"></p>
+</div>
+</div>
+<p>Como resultado, en la tabla de datos original se agregarán dos nuevas columnas, al final del archivo, correspondiente a las coordenadas x e y transformadas, las cuales se denominarán Xt e Yt, haciendo referencia a la variable x transformada (Xt) y a la variable y transformada (Yt). Estas nuevas variables (coordenadas transformadas) permiten interpretar la distancia entre puntos de Rinde en metros.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="figuras/Parte2/5.jpg" class="img-fluid" width="1293"></p>
+</div>
+</div>
+</section><section id="eliminación-de-outliers-e-inliers" class="level2" data-number="6.2"><h2 data-number="6.2" class="anchored" data-anchor-id="eliminación-de-outliers-e-inliers">
+<span class="header-section-number">6.2</span> Eliminación de <em>outliers</em> e <em>inliers</em>
+</h2>
+<p>En el menú Aplicaciones <span class="math inline">\(\to\)</span> Estadística Espacial <span class="math inline">\(\to\)</span> Depuración <span class="math inline">\(\to\)</span> Datos de prueba se abrirá un archivo denominado <strong>datosRinde_t.idb2</strong> con 9810 registros y tres columnas correspondientes a las coordenadas planas UTM (x e y) de cada observación y los valores de la variable rendimiento de trigo (<span class="math inline">\(t\ ha^{-1}\)</span>). Luego, en el menú Aplicaciones <span class="math inline">\(\to\)</span> Estadística Espacial <span class="math inline">\(\to\)</span> Depuración <span class="math inline">\(\to\)</span> Run, se selecciona la variable respuesta, en este ejemplo Rinde y las columnas que indican la ubicación espacial de cada observación en el cuadro de Coordenadas.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="figuras/Parte2/6.jpg" class="img-fluid" style="width:70.0%"></p>
+</div>
+</div>
+<p>Al accionar el botón <em>Aceptar</em>, una nueva ventana permitirá seleccionar si desea visualizar los gráficos <em>Histograma</em>, <em>Box-Plot</em>, <em>Red de Vecindarios</em>, <em>Visualización espacial</em> y <em>Moran Plot</em>. También existe la opción de tildar que se genere una tabla nueva con los datos depurados, otra tabla con los estadísticos del Índice de Moran y una opción que permite que en la definición de los vecindarios existan algunos puntos que no presenten vecinos. Los valores <em>inliers</em> serán identificados a través del Índice de Moran local (<em>IM local</em>), <em>Moran Plot</em> o ambos (<em>IM local+Moran Plot</em>). En la misma ventana hay una opción de seleccionar el valor de desviación estándar (DE) de acuerdo al criterio del usuario. Considerando como valores <em>outliers</em> a los que se encuentren fuera del rango estimado como el valor medio ± el valor de DE seleccionado. Por defecto presenta un valor de 3 DE. También el usuario previamente puede limitar los valores de los datos por un valor mínimo y/o máximo. Por defecto este filtro no se aplica.</p>
+<p>En este ejemplo se seleccionaron las Opciones <em>Histograma</em>, <em>Box-Plot</em>, <em>Visualización espacial</em>, <em>Moran plot</em> y <em>Tabla datos depurados</em>. Además, se seleccionó que la eliminación de <em>inliers</em> se haga mediante el cálculo del índice de local de Moran y el Moran Plot (<em>IM local+Moran Plot</em>). Se utilizó una distancia de 15 para definir los vecindarios y un criterio de 3 DE para la eliminación de <em>outliers</em>. Por defecto el código EPSG es 32721 que correspondiente a la base de datos de prueba. En esta rutina el sistema de referencia es importante sólo para realizar la visualización espacial.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="figuras/Parte2/7.jpg" class="img-fluid" width="1024"></p>
+</div>
+</div>
+<p>Como resultado se obtendrá el Box-Plot de la variable respuesta (Rinde) previo a la eliminación de los <em>outliers</em> e <em>inliers</em> (datos sin depurar), y luego de su eliminación (datos depurados). El gráfico de dispersión de Moran (Moran Plot) muestra en el eje horizontal los valores de la variable rendimiento mientras que en el vertical se representa el retardo espacial de la variable. Los puntos negros con forma romboidal son identificados como influyentes y se los considera como <em>inliers</em>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="figuras/Parte2/8.jpg" class="img-fluid" width="1762"></p>
+</div>
+</div>
+<p>Como resultado de la depuración de datos en la base de datos original se crearán nuevas columnas al final del archivo con la clasificación de <em>outliers</em> y/o <em>inliers</em> para cada observación. Así, se adicionarán tres columnas denominadas <em>Outliers</em>, <em>Inliers_ML</em> e <em>Inliers_MP</em> según el método seleccionado. Estas variables son de tipo categóricas y contendrán la clasificación <em>Outliers</em> o <em>Normal</em> indicando si es considerado un valor extremo o no. En la columna de <em>Inliers_ML</em>, las categorías serán <em>Inliers</em> o <em>Normal</em> para indicar que no es un valor atípico respecto a sus vecinos cercanos y de la misma manera se indicarán los valores clasificados por el método de Moran Plot. En este ejemplo, 120 observaciones fueron clasificadas como <em>outliers</em>, 43 observaciones como <em>inliers</em> y 681 clasificadas como <em>inliers</em> según Moran Plot (en los que se encuentran incluidos los 43 casos considerados Inliers por el Índice de Moran Local). El procedimiento primero elimina los <em>outliers</em> por lo cual no serán considerados para su identificación como posibles <em>inliers</em>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="figuras/Parte2/8b.jpg" class="img-fluid" width="1290"></p>
+</div>
+</div>
+<p>También se generará una nueva tabla de datos que contendrá las observaciones seleccionadas después de la depuración por <em>outliers</em> e <em>inliers</em>, que para este ejemplo contiene 9009 registros. Los valores seleccionados se muestran en la tabla denominada <strong>Datos Depurados.idb2</strong>. En caso que el usuario seleccione <em>Tabla estadísticos IM</em> se genera otra tabla <strong>Estadísticos IM.idb2</strong>, en la cual sus columnas tendrán los valores de índice local observado (li), el valor esperado (E.li), la varianza (Var.li), el estadístico (Z.li) y la significancia estadística a través del valor-p (Pr.z…0). La información del Moran Plot de los puntos influyentes de la regresión proviene de diferentes estadísticos de diagnóstico como DFBETAS (dfb.1_ para la ordenada al origen y dfb.x para la pendiente), DFFITS (dffit), Covratio (cov.r), distancia de Cook (cook.d) y leverage (hat). Para cada uno de los estadísticos aparecerá una nueva columna del archivo con valores TRUE o FALSE según como ha sido clasificada la observación. En la ventana de Resultados de InfoStat se indica las tablas donde se encuentran estos resultados descriptos. Las nuevas tablas generadas son archivos temporarios, es decir, si desea guardar esta información, deberá ir al menú Archivo <span class="math inline">\(\to\)</span> Guardar tabla y seleccionar el directorio donde desea guardarlo. La opción de visualización espacial muestra un gráfico el cual se ejecuta como un archivo html en el navegador web. En este se podrá visualizar los datos detectados como <em>outliers</em> e <em>inliers.</em> Así mismo es posible cargar un mapa base como <em>esri.WorldImagery</em>, <em>OpenStreetMap</em>, <em>OpenTopoMap</em>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="figuras/Parte2/9.jpg" class="img-fluid" width="1920"></p>
+</div>
+</div>
+</section><section id="detección-de-tendencias-espaciales" class="level2" data-number="6.3"><h2 data-number="6.3" class="anchored" data-anchor-id="detección-de-tendencias-espaciales">
+<span class="header-section-number">6.3</span> Detección de tendencias espaciales</h2>
+<p>Un análisis gráfico para identificar de la presencia de tendencias se puede hacer con un gráfico de dispersión. Para ello ir al menú Gráficos <span class="math inline">\(\to\)</span> Diagrama de dispersión. En el casiller <em>Eje Y</em> colocar la variable <em>Rinde</em> y en <em>Eje X</em> la coordenada <em>x</em>. Al accionar Aceptar se generará el gráfico que muestra que no existe una tendencia entre ambas variables. El mismo procedimiento deber realizarse con la coordenada <em>y</em>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="figuras/Parte2/10.jpg" class="img-fluid" style="width:70.0%"></p>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="figuras/Parte2/11.jpg" class="img-fluid" style="width:100.0%"></p>
+</div>
+</div>
+<p>También es posible ajustar de un modelo de regresión lineal entre la variable Rendimiento y las coordenadas x e y, se puede realizar yendo al menú Estadísticas <span class="math inline">\(\to\)</span> Regresión Lineal. En el selector de variables se coloca al rendimiento en el casillero de <em>Variable Dependiente</em> y las coordenadas x e y en el casillero <em>Regresoras</em>.</p>
+</section><section id="cálculo-del-índice-de-moran" class="level2" data-number="6.4"><h2 data-number="6.4" class="anchored" data-anchor-id="cálculo-del-índice-de-moran">
+<span class="header-section-number">6.4</span> Cálculo del índice de Moran</h2>
+<p>Con la base de datos ya depurada en el punto 2.2 se procederá a calcular índices de autocorrelación espacial. El archivo de ejemplo <strong>datosRinde_dep.idb2</strong> también se encuentra disponible en el menú Aplicaciones <span class="math inline">\(\to\)</span> Estadística Espacial <span class="math inline">\(\to\)</span> Geoestadísticas <span class="math inline">\(\to\)</span> Semivariograma <span class="math inline">\(\to\)</span> WLS <span class="math inline">\(\to\)</span> Datos de prueba. Para cuantificar la magnitud de la estructuración espacial se estiman en este menú el índice de Moran y el índice de Geary. Para ello ir al menú Aplicaciones <span class="math inline">\(\to\)</span> Estadística Espacial <span class="math inline">\(\to\)</span> Geoestadísticas <span class="math inline">\(\to\)</span> Índices de Autocorrelación <span class="math inline">\(\to\)</span> Run. En el selector de variables colocar <em>Rinde</em> en el casillero <em>Variables</em> (aquí es posible colocar más de una) y en el casillero <em>Coordenadas</em> las columnas x e y.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="figuras/Parte2/15.jpg" class="img-fluid" style="width:70.0%"></p>
+</div>
+</div>
+<p>Al accionar <em>Aceptar</em> en el siguiente cuadro se puede modificar el número de permutaciones que son utilizadas para evaluar la significancia estadística de los índices a partir de simulación por Monte Carlo. Las ubicaciones son permutadas para obtener la distribución de los índices bajo hipótesis nula de distribución aleatoria. El cálculo también requiere la definición de una matriz de ponderación espacial, para este paso la red de vecindarios es definida usando la distancia Euclídea indicando el rango de distancia dentro de la cual dos observaciones serán consideradas colindantes o vecinas. El rango es estimado a partir de un valor de distancia máximo y uno mínimo. En este ejemplo se utiliza como distancia máxima 15 m. Además, se seleccionó la opción <em>Datos con vecindario nulo</em> la cual permite generar la matriz de pesos espaciales sin la restricción de que todos los puntos tengan al menos un dato vecino.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="figuras/Parte2/14.jpg" class="img-fluid" width="856"></p>
+</div>
+</div>
+<p>Para este ejemplo, tanto el índice de Moran como el índice de Geary indican una autocorrelación estadísticamente significativa (valor p &lt;0.05), es decir, no hay una distribución aleatoria de las observaciones en el espacio. La variable Rinde presentó una autocorrelación espacial positiva y alta (valor más cercano a 1 en el caso del índice de Moran y mas cercano a 0 en el de Geary sugieren autocorrelaciones positivas más fuerte).</p>
+</section><section id="análisis-basado-en-semivariogramas" class="level2" data-number="6.5"><h2 data-number="6.5" class="anchored" data-anchor-id="análisis-basado-en-semivariogramas">
+<span class="header-section-number">6.5</span> Análisis basado en semivariogramas</h2>
+<p>Para acceder al archivo de ejemplo <strong>datosRinde_dep.idb2</strong> se debe ir al menú Aplicaciones <span class="math inline">\(\to\)</span> Estadística Espacial <span class="math inline">\(\to\)</span> Geoestadísticas <span class="math inline">\(\to\)</span> Semivariograma <span class="math inline">\(\to\)</span> WLS <span class="math inline">\(\to\)</span> Datos de prueba. Luego se acciona la opción <em>Run</em> siguiendo la misma ruta de acceso. Esta opción realizará el ajuste de un semivariograma empírico y teórico usando el método de mínimos cuadrados ponderados (WLS). En el selector de variables se debe colocar la variable <em>Rinde</em> en el casillero <em>Variables</em> y en el casillero <em>Coordenadas</em> las columnas x e y.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="figuras/Parte2/16.jpg" class="img-fluid" width="1033"></p>
+</div>
+</div>
+<p>Al accionar el botón <em>Aceptar</em>, aparecerá una nueva ventana donde se podrá seleccionar la función de semivariograma: Exp (exponencial), Sph (esférico), Gau (gaussiano), Mat (Matern), Ste (parametrización de Matern Stein), Cir (circular), Lin (lineal), Pow (potencia o power), Wav (ondulado o wave), Pen (pentaesférico), Hol (holístico o hole), Log (logarítmico) y Spl (spline). Como opciones se puede seleccionar ajustar un semivariograma sin tendencia (<em>Constante</em>), con tendencia de primer orden, de segundo orden y con covariable. También es posible indicar los valores iniciales para los parámetros del semivariograma a ajustar (SillParcial, Rango y Nugget). En este ejemplo no se colocaron estos por lo cual la función estima valores iniciales razonable para realizar el ajuste. El parámetro <em>kappa</em> es opcional para los modelos Matern y Ste (parametrización de Matern Stein). También, puede ser fijado ingresando un valor en la opción <em>Kappa</em>. Si en lugar de colocar un valor numérico se coloca un carácter, se ajustará un <em>kappa</em> óptimo en un rango entre 0.05 y 5. La opción de parámetro <em>width</em> refiere a la amplitud del intervalo de distancia sobre la cual los pares de puntos agrupados para la estimación de la semivarianza. Por ejemplo, si la distancia máxima entre los pares de puntos es de 1000 y se selecciona un valor de <em>width</em>=100, se conformarán 10 grupos de una amplitud de 100 m. Para cada uno de esos 10 grupos se estimará la semivarianza. El <em>cutoff</em> es la máxima distancia de separación espacial hasta la cual los pares de puntos son tenidos en cuenta para la estimación de la semivarianza. Si la opción queda vacía, es decir no se coloca ningún valor, por defecto estima el <em>cutoff</em> como el tercio de la línea diagonal de una caja que contiene los datos. La función por defecto ajusta un semivariograma isotrópico. Para evaluar si el proceso es anisotrópico es posible el ajuste de semivariogramas direccionales. Esto puede hacer desde el menú Aplicaciones <span class="math inline">\(\to\)</span> Estadística Espacial <span class="math inline">\(\to\)</span> Geoestadísticas <span class="math inline">\(\to\)</span> Semivariograma <span class="math inline">\(\to\)</span> Direccionales. Para incorporar la anisotropía al modelo, en la opción <em>anis</em>, se debe colocar la dirección de mayor correlación espacial i.e mayor rango (valor entre 0° y 360°, medidos en el sentido de las agujas del reloj, donde el Norte es 0°.) y el cociente de anisotropía (cociente entre el mayor y el menor rango que se producen en las direcciones evaluadas, valor entre 0 y 1). La dirección y el cociente de anisotropía deben ir separados por coma. El separador de decimales es el punto. Por ejemplo anis=c(90, 0.2) indica que el mayor rango se produce a las 3 en punto (dirección este) con una diferencia de 5 veces en el rango.</p>
+<p>La opción <em>cressie</em> permite el ajuste del semivariograma teórico mediante el estimador robusto de Cressie- Hawkins. Para seleccionar este estimador debe colocarse un <em>si</em> a esta opción, caso contrario utilizara el estimador de los momentos de Matheron. Esta función permite realizar una validación cruzada el tipo k-fold. Para ello se debe colocar <em>si</em> en la opción <em>Validación</em>. El número de grupos <em>k</em> se coloca en la opción <em>n-fold</em>. Además, es posible fijar la semilla para que la asignación de cada dato a los grupos <em>k</em> no cambie en caso de repetir el proceso. Las opciones <em>nmin</em>, <em>nmax</em> y <em>Max.dist</em> se utilizan para que la función kriging, usada en el proceso de validación, se realice en un contexto local. Por defecto se definen vecindarios con un número mínimo y máximo de vecinos de cada punto a predecir siendo estos de 7 y 25, respectivamente. En caso de omitir estos últimos argumentos la interpolación se realiza en un contexto global.</p>
+<p>En este ejemplo, se ajustó un semivariograma experimental a partir de los datos observados y se probaron los modelos exponencial, esférico y gaussiano como modelos de semivariograma teóricos. Sus parámetros iniciales fueron estimados por defecto por la función. El valor del <em>cutoff</em> se fijó en 400 m. Además, se realizó una validación cruzada con k=10. Todas las otras opciones se dejaron por defecto. Al accionar <em>Aceptar</em> se generan los gráficos con los tres modelos ajustados. La ventana resultados muestra también la información del semivariograma empírico y cada uno de los modelos teóricos ajustados. Además, se proporcionan los valores de los parámetros estimados, criterios de bondad de ajuste (SCE y AIC), y error de predicción de los modelos ajustados. En este ejemplo siguiendo los criterios de SCE y AIC el modelo de mejor ajuste (valores más bajos de estos indicadores) fue el exponencial. Los valores de los parámetros fueron: Sill Parcial=0,86, rango=64,88, efecto Nugget=0,21. Los resultados de la validación cruzada muestran pequeñas diferencias entre los errores de predicción de los modelos ajustados. Para el caso del modelo exponencial la RMSE relativa a la media de los valores observados (nRMSE) fue del 11,82% mientras cociente de la desviación cuadrática media (MSDR) fue de 0,60 (más cercano a 1 mejor modelo).</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="figuras/Parte2/17.jpg" class="img-fluid" width="1769"></p>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="figuras/Parte2/18.jpg" class="img-fluid" width="918"></p>
+</div>
+</div>
+<section id="mapeo-de-variabilidad-espacial" class="level3" data-number="6.5.1"><h3 data-number="6.5.1" class="anchored" data-anchor-id="mapeo-de-variabilidad-espacial">
+<span class="header-section-number">6.5.1</span> Mapeo de variabilidad espacial</h3>
+<p>Para realizar la interpolación espacial mediante kriging se utilizará la base de datos <strong>datosRinde_limites.idb2</strong> que se encuentra en el menú Aplicaciones <span class="math inline">\(\to\)</span> Estadística Espacial <span class="math inline">\(\to\)</span> Geoestadísticas <span class="math inline">\(\to\)</span> Interpolación <span class="math inline">\(\to\)</span> Kriging <span class="math inline">\(\to\)</span> Datos de prueba. El archivo de datos contiene además de las coordenadas (x e y), la variable respuesta (Rinde) y dos nuevas columnas (x1 e y1) que contienen los vértices del polígono donde se desea realizar la interpolación. Estas últimas no son obligatorias para realizar la interpolación. En caso de omitirse la función tomara los puntos más externos de la base de datos y a partir de este formara un polígono que definirán los límites del área a interpolar.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="figuras/Parte2/19.jpg" class="img-fluid" width="1298"></p>
+</div>
+</div>
+<p>Si se vuelve a la misma ruta de accesos y se acciona <em>Run</em> se abrirá el selector de variables donde se colocará la variable <em>Rinde</em> en el casillero <em>Variable Respuesta</em>, x e y en <em>Coordenadas</em> y las columnas x1 e y1 en los casilleros <em>Coord. Vértices X</em> y <em>Coord. Vértices Y</em>, respectivamente.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="figuras/Parte2/20.jpg" class="img-fluid" style="width:70.0%"></p>
+</div>
+</div>
+<p>Luego de accionar <em>Aceptar</em>, se genera una ventana con diferentes opciones para seleccionar el tipo de modelo ajustado (Exp, Sph, Gau, Ste, Cir, Lin, Pow, Wav, Pen, Hol, Log, y Spl), el tipo de kriging, ordinario sin tendencia o universal (incorporando la tendencia en primer o segundo orden) y los valores para realizar la predicción espacial. En este caso se utilizará el modelo seleccionado en el punto anterior. Así, se selecciona el modelo exponencial y se fijan los valores de los parámetros Sill Parcial=0.86, rango=64,88, efecto Nugget=0.21. En este caso la predicción se realiza en un contexto local (opción por defecto). Para ello se fija un número mínimo (<em>nmin</em>) y máximo (<em>nmax</em>) de puntos que son utilizados para realizar la predicción en cada uno de los sitios de la grilla de predicción. Otra opción para determinar cuáles son los puntos que aportan información para la predicción de un sitio determinado es usando una medida de distancia (<em>Max.dist</em>). Puntos que se ubican más allá de la distancia máxima determinada por el usuario respecto a la posición sobre la que se quiere predecir el valor de la respuesta, no serán utilizados para la predicción. En caso de requerir que la predicción se realice utilizando toda la información disponible (kriging global), las opciones <em>nmin</em>, <em>nmax</em> y <em>Max.dist</em> se dejan vacías. La predicción también puede realizarse de manera puntual o en bloque. En este ejemplo donde bloque (Block) es cero, la predicción será local.</p>
+<p>Para realizar la predicción se requiere definir los puntos donde se realiza la interpolación en <em>Opciones de Predicción</em>. Con <em>Dim. Grilla Predicción</em> se fija la dimensión de la grilla de predicción, en este caso, 10 indica que tiene una dimensión de 10×10 m. También puede fijarse el sistema de coordenadas que tendrán los mapas generados usando el código EPSG. Para estos datos el código es 32721 que corresponde al sistema de coordenadas UTM, zona 21, hemisferio sur. Esto es importante para proyectar correctamente los mapas generados. Es posible visualizar estos mapas en el navegador web colocando <em>si</em> en la opción <em>Generar HTML</em> o exportarlos como geotiff (opción <em>Generar GeoTIF</em>). En caso de colocar <em>si</em> en esta última opción el software abrirá una ventana para elegir el directorio en el cual se guardará el archivo generado. Los valores de la predicción también pueden ser colocados en forma de tabla mediante la opción <em>Guardar Predicción</em>. Finalmente, también es posible cambiar los valores mínimos y máximos de las escalas de valores de los mapas que se generan (Predicción y Varianza de Predicción).</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="figuras/Parte2/21.jpg" class="img-fluid" width="1023"></p>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="figuras/Parte2/22.jpg" class="img-fluid" width="1074"></p>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="figuras/Parte2/23.jpg" class="img-fluid" width="1906"></p>
+</div>
+</div>
+</section><section id="validación-cruzada" class="level3" data-number="6.5.2"><h3 data-number="6.5.2" class="anchored" data-anchor-id="validación-cruzada">
+<span class="header-section-number">6.5.2</span> Validación cruzada</h3>
+<p>La evaluación de la capacidad predictiva de los modelos ajustados que se realizó en el punto 2.5, también puede realizarse desde el menú Aplicaciones <span class="math inline">\(\to\)</span> Estadística Espacial <span class="math inline">\(\to\)</span> Geoestadísticas <span class="math inline">\(\to\)</span> Interpolación <span class="math inline">\(\to\)</span> Validación Cruzada. En el selector de variables se coloca la variable <em>Rinde</em> en el casillero <em>Variable Respuesta</em> y las coordenadas en el cuadro <em>Coordenadas</em>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="figuras/Parte2/24.jpg" class="img-fluid" style="width:70.0%"></p>
+</div>
+</div>
+<p>En la siguiente ventana se coloca la información del modelo a evaluar, en este caso exponencial con parámetros Sill Parcial= 0.86, rango=64.88 y efecto Nugget=0.21. La predicción kriging se realiza en un contexto local (opción por defecto) con <em>nmin</em>=7 y <em>nmax</em>=25. El número de grupos de la validación cruzada es de k=10. La función permite también calcular el error de predicción para kriging universal (tendencias de primer y segundo orden) y kriging con deriva externa.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="figuras/Parte2/25.jpg" class="img-fluid" width="1034"></p>
+</div>
+</div>
+<p>Para este ejemplo la RMSE relativa a la media de los valores observados (nRMSE) fue del 10,27% mientras cociente de la desviación cuadrática media (MSDR) fue de 0.66 (más cercano a 1 mejor modelo).</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="figuras/Parte2/26.jpg" class="img-fluid" width="760"></p>
+</div>
+</div>
+</section></section><section id="caracterización-de-variabilidad-espacial-con-múltiples-capas-de-datos" class="level2" data-number="6.6"><h2 data-number="6.6" class="anchored" data-anchor-id="caracterización-de-variabilidad-espacial-con-múltiples-capas-de-datos">
+<span class="header-section-number">6.6</span> Caracterización de variabilidad espacial con múltiples capas de datos</h2>
+<section id="análisis-de-componentes-principales" class="level3" data-number="6.6.1"><h3 data-number="6.6.1" class="anchored" data-anchor-id="análisis-de-componentes-principales">
+<span class="header-section-number">6.6.1</span> Análisis de componentes principales</h3>
+<p>La base de datos <strong>Pred2.idb2</strong> se encuentra disponible en el menú Aplicaciones <span class="math inline">\(\to\)</span> Estadística Espacial <span class="math inline">\(\to\)</span> Geoestadísticas <span class="math inline">\(\to\)</span> Multivariado <span class="math inline">\(\to\)</span> a. MULTISPATI-PCA <span class="math inline">\(\to\)</span> Datos de prueba. En el selector de variables se colocan las variables Pe, Elev, CE30, CE90 y Tg en el cuadro <em>Variables</em> y las coordenadas x e y en <em>Coordenadas</em>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="figuras/Parte2/27.jpg" class="img-fluid" style="width:70.0%"></p>
+</div>
+</div>
+<p>En la siguiente ventana se presentan las opciones del MULTISPATI-PCA. Aquí se puede seleccionar estandarizar las variables (opción por defecto), generara gráficos (biplot del PCA, gráfico de la red de vecindarios, gráficos del MULTISPATI-PCA y gráfico de los autovalores) y solicitar que la conformación de la matriz de pesos espaciales admita datos con vecindarios nulo. Las otras opciones del análisis implican fijar el número de ejes retenidos por el PCA y por el MULTISPATI-PCA. Para este último caso pueden ser aquellos que presenten una autocorrelación positiva (<em>MULTISPATI-PCA (+)</em>) o negativa (<em>MULTISPATI-PCA (-)</em>). La parametrización para este ejemplo se muestra en la siguiente figura:</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="figuras/Parte2/28.jpg" class="img-fluid" width="1032"></p>
+</div>
+</div>
+<p>El gráfico obtenido del MULTISPATI-PCA muestra que las variables Elev y Pe son las más importantes en la explicación de la variabilidad espacial a nivel del primer eje (sPC1, eje horizontal). Mientras que la CE30 y Tg presentan mayor importancia en la SPC2. Además, se observa una correlación positiva entre CE30 y CE90, y negativa entre estas dos y la Pe. También la Elev y Tg se correlacionan en forma negativa.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="figuras/Parte2/29.jpg" class="img-fluid" width="1412"></p>
+</div>
+</div>
+<p>Los resultados muestran que con MULTISPATIPCA se explica una menor proporción de la varianza acumulada en el primer eje, respecto de PCA (1,81 vs.&nbsp;1,94). Las tres primeras CP del PCA explican 78% de la variabilidad total mientras que la CS1, CS2 CS3 del MULTISPATI el 73%. No obstante, los valores del índice de Moran calculados para las tres primeras CPs sugieren que la estimación de autocorrelación aumentó cuando se usó MULTISPATIPCA respecto de la contenida en las CPs del PCA (0,79 vs.&nbsp;0,68 para el eje 1, 0,43 vs.&nbsp;0,40 para el eje 2, 0,50 vs.&nbsp;0,25 para el eje 3).</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="figuras/Parte2/30.jpg" class="img-fluid" width="1097"></p>
+</div>
+</div>
+</section><section id="análisis-de-conglomerados" class="level3" data-number="6.6.2"><h3 data-number="6.6.2" class="anchored" data-anchor-id="análisis-de-conglomerados">
+<span class="header-section-number">6.6.2</span> Análisis de conglomerados</h3>
+<p>Para realizar la ilustración se utilizará la base de datos <strong>Pred.idb2</strong> que se encuentra en el menú Aplicaciones <span class="math inline">\(\to\)</span> Estadística Espacial <span class="math inline">\(\to\)</span> Geoestadísticas <span class="math inline">\(\to\)</span> Multivariado <span class="math inline">\(\to\)</span> c.&nbsp;Clasificación KMsPC <span class="math inline">\(\to\)</span> Datos de prueba. El archivo de datos contiene además de las coordenadas (x e y), valores de mediciones de conductividad eléctrica aparente en dos profundidades 0-30 cm (CE30) y 0-90 cm (CE90), elevación (Elev), profundidad de suelo (Pe) y rendimiento de trigo (Tg). Las variables CE30, CE90, Elev Pe y Tg se colocan en el casillero <em>Variables</em> y las coordenadas x e y en el cuadro <em>Coordenadas</em>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="figuras/Parte2/31.jpg" class="img-fluid" style="width:70.0%"></p>
+</div>
+</div>
+<p>Al accionar <em>Aceptar</em>, aparecerá la ventana para seleccionar opciones del método de análisis. El método KM-sPC primero realiza un análisis de componentes principales espaciales (MULTISPATI-PCA) sobre las variables originales. Luego las variables sintéticas (componentes principales espaciales, sPC) son utilizadas como input del análisis de clúster fuzzy k-means. Por ello, es posible estandarizar las variables para realizar el MULTISPATI-PCA y elegir la opción que permite conformar una matriz de pesos espaciales en presencia de datos con vecindarios nulo. Otras opciones del análisis incluyen la distancia (euclídea o manhattan) utilizada en el método de cluster, el número mínimo y máximo de clúster a generar, el número de iteraciones y el exponente difuso. En este ejemplo se usaron las siguientes opciones: 2 hasta 6 cluster, 100 iteraciones y un valor de 1.3 para el exponente difuso. Para el cálculo de la red de vecindarios, necesario para realizar el MULTISPATI-PCA, la distancia mínima y máxima fue de 0 y 10 m, respectivamente. La opción de varianza explicada (%) fue del 70, lo que indica que seleccione la cantidad de ejes (componentes principales espaciales) necesarios tal que la varianza total explicada sea mayor o igual a 70%.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="figuras/Parte2/32.jpg" class="img-fluid" width="1032"></p>
+</div>
+</div>
+<p>En la ventana resultados se muestra la suma de cuadrados de distancias dentro (SCDD) la cual puede usarse para determinar el número de clúster óptimo. Para esto otros índices son calculados como Xie-Beni, Fukuyama Sugeno, Coeficiente de Partición, Entropía de Partición. Para todos ellos un menor valor del índice implica mejor clasificación. Dado que muchas veces los índices no coinciden se adiciona el cálculo de un índice resumen. Los resultados muestran que, para la mayoría de los índices, incluyendo el resumen, el número de clúster optimo es 2. Cuando se ejecuta el análisis los índices también son graficados en forma conjunta usando una escala normalizada. En este caso también un menor valor del índice en la escala normalizada implica una mejor clasificación.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="figuras/Parte2/33.jpg" class="img-fluid" width="1298"></p>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="figuras/Parte2/34.jpg" class="img-fluid" width="1772"></p>
+</div>
+</div>
+</section></section><section id="predicción-con-múltiples-capas-de-datos" class="level2" data-number="6.7"><h2 data-number="6.7" class="anchored" data-anchor-id="predicción-con-múltiples-capas-de-datos">
+<span class="header-section-number">6.7</span> Predicción con múltiples capas de datos</h2>
+<p>Los datos de ilustración <strong>Pred2.idb2</strong> serán utilizados para cada de las alternativas de predicción disponibles en el menú. El archivo de datos contiene además de las coordenadas (x e y), valores de mediciones de conductividad eléctrica aparente en dos profundidades 0-30 cm (CE30) y 0-90 cm (CE90), elevación (Elev), profundidad de suelo (Pe) y rendimiento de trigo (Tg).</p>
+<section id="kriging-con-deriva-externa" class="level3" data-number="6.7.1"><h3 data-number="6.7.1" class="anchored" data-anchor-id="kriging-con-deriva-externa">
+<span class="header-section-number">6.7.1</span> Kriging con deriva externa</h3>
+<p>El acceso al menú es a partir de las opciones: Aplicaciones <span class="math inline">\(\to\)</span> Estadística Espacial <span class="math inline">\(\to\)</span> Geoestadísticas <span class="math inline">\(\to\)</span> Interpolación <span class="math inline">\(\to\)</span> c.&nbsp;Kriging (KED) <span class="math inline">\(\to\)</span> Datos de prueba. Para realizar la interpolación se necesita de una grilla de predicción previamente generada en formato de archivo .txt que cuente con la información de las coordenadas (x e y) en las dos primeras columnas y de cada una de las covariables que se usaron en el ajuste del modelo. Se requiere que los nombres de las covariables sean los mismos tanto en la grilla de predicción como en la tabla de observaciones. El archivo <strong>grilla_am.txt</strong> contiene esta información.</p>
+<p>En primer lugar se procede al ajuste de los semivariograma experimental teórico. Para ello se accede al menú Aplicaciones <span class="math inline">\(\to\)</span> Estadística Espacial <span class="math inline">\(\to\)</span> Geoestadísticas <span class="math inline">\(\to\)</span> b. Semivariograma <span class="math inline">\(\to\)</span> WLS <span class="math inline">\(\to\)</span> Run. Las variables CE30, CE90, Elev Pe y Tg se colocan en el casillero <em>Variables</em>, las coordenadas x e y en el cuadro <em>Coordenadas</em> y Pe, Elev, CE30 y CE90 en el cuadro <em>Covariables</em>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="figuras/Parte2/35.jpg" class="img-fluid" style="width:70.0%"></p>
+</div>
+</div>
+<p>En la siguiente ventana se seleccionan los modelos teóricos a ajustar, en este ejemplo exponencial esférico y gaussiano. En la opción <em>Tendencia</em> se selecciona <em>Covariables</em>. Las otras opciones de ajuste de los semivariogramas se dejan por defecto. Los resultados muestran que el modelo de mejor ajuste según los valores de SCE y AIC es el exponencial. Los semivariogramas teóricos ajustados se despliegan en forma automática.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="figuras/Parte2/36.jpg" class="img-fluid" width="1039"></p>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="figuras/Parte2/37.jpg" class="img-fluid" width="815"></p>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="figuras/Parte2/38.jpg" class="img-fluid" width="1772"></p>
+</div>
+</div>
+<p>Con los valores de los parámetros estimados del semivariograma exponencial se procede a realizar la interpolación espacial. Para ello se accede al menú Aplicaciones <span class="math inline">\(\to\)</span> Estadística Espacial <span class="math inline">\(\to\)</span> Geoestadísticas <span class="math inline">\(\to\)</span> Interpolación <span class="math inline">\(\to\)</span> c.&nbsp;Kriging (KED) <span class="math inline">\(\to\)</span> Run. Las variables CE30, CE90, Elev Pe y Tg se colocan en el casillero <em>Variables</em>, las coordenadas x e y en el cuadro <em>Coordenadas</em> y Pe, Elev, CE30 y CE90 en el cuadro <em>Covariables</em>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="figuras/Parte2/39.jpg" class="img-fluid" style="width:70.0%"></p>
+</div>
+</div>
+<p>En la ventana siguiente se selecciona el modelo de semivariograma exponencial y se colocan los valores de los parámetros estimados en el paso anterior. En este ejemplo se selecciona la opción para mostrar el mapa de predicción en una ventana del navegador web (opción <em>Generar HTML</em>). Para ello es importante fijar el sistema de coordenada mediante el código EPSG.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="figuras/Parte2/40.jpg" class="img-fluid" width="1034"></p>
+</div>
+</div>
+<p>Al <em>Aceptar</em> se abrirá una ventana que permite seleccionar la grilla de predicción que en este ejemplo se denomina <strong>grilla_am.txt</strong>. Posteriormente se generarán los mapas de predicción y varianza de predicción.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="figuras/Parte2/41.jpg" class="img-fluid" width="914"></p>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="figuras/Parte2/42.jpg" class="img-fluid" width="1662"></p>
+</div>
+</div>
+</section><section id="kriging-desde-modelo-de-regresión" class="level3" data-number="6.7.2"><h3 data-number="6.7.2" class="anchored" data-anchor-id="kriging-desde-modelo-de-regresión">
+<span class="header-section-number">6.7.2</span> Kriging desde modelo de regresión</h3>
+<p>El acceso al menu es a partir de las opciones: Aplicaciones <span class="math inline">\(\to\)</span> Estadística Espacial <span class="math inline">\(\to\)</span> Geoestadísticas <span class="math inline">\(\to\)</span> Interpolación <span class="math inline">\(\to\)</span> c.&nbsp;Regression Kriging <span class="math inline">\(\to\)</span> Datos de prueba. Las variables CE30, CE90, Elev Pe y Tg se colocan en el casillero <em>Variables</em> y las coordenadas x e y en el cuadro <em>Coordenadas</em>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="figuras/Parte2/43.jpg" class="img-fluid" style="width:70.0%"></p>
+</div>
+</div>
+<p>En la ventana siguiente se puede seleccionar que el método sólo realice la predicción en base al ajuste de un modelo de regresión lineal o sumando a la predicción los valores interpolados usando kriging ordinario de los residuos del modelo de regresión (<em>Regresión Lineal + kriging Ordinario</em>). La función ajusta en forma automática el semivariograma experimental y los modelos teóricos exponencial, esférico y gaussiano. Luego, selecciona el de mejor ajuste según el valor de SCE, y los parámetros de este son usados en la interpolación de los residuos. El método también permite realizar una selección de variables paso a paso (<em>stepwise</em>) en ambas direcciones usando el criterio de información de Akaike para evaluar el ajuste de los modelos. Otras opciones incluyen la posibilidad de realizar una validación cruzada k-fold, donde se debe especificar el valor de k y un valor para la semilla. Para ello es necesario colocar <em>si</em> en la opción <em>Evaluar</em>. También es posible guardar los valores predichos (opción <em>Predichos</em>) y obtener la predicción (opción <em>Predecir</em>) sobre una nueva base de datos. Para esto se necesita tener un archivo .txt con la información de las coordenadas (x e y) en las dos primeras columnas y de cada una de las covariables que se usaron en el ajuste del modelo. Se requiere que los nombres de las covariables sean los mismos tanto en la grilla como en la tabla de datos. La opción <em>Importancia</em> permite elaborar un ranking de la importancia relativa de cada covariable en el modelo ajustado. Esta se calcula en función a la influencia que tiene cada predictor en Error Cuadrático Medio (MSE) del modelo mediante un proceso de permutación de los valores de cada covariable.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="figuras/Parte2/44.jpg" class="img-fluid" style="width:70.0%"></p>
+</div>
+</div>
+<p>Al ejecutar el análisis, dado que se solicitó realizar la predicción, el software mostrará una ventana para seleccionar el archivo .txt que corresponde a la grilla de predicción. En este ejemplo se denomina <strong>grilla_am.txt</strong>. Al accionar <em>Abrir</em> se procederá con el análisis. En la ventana <em>Resultados</em> se menciona que los valores <em>Predichos</em> se adicionan a la tabla de datos <strong>Pred2.idb2</strong>. Además, los valores de la predicción se adicionan a la grilla y se despliegan en una nueva tabla de datos denominada <em>Predicción</em>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="figuras/Parte2/45.jpg" class="img-fluid" width="906"></p>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="figuras/Parte2/46.jpg" class="img-fluid" width="870"></p>
+</div>
+</div>
+<p>Los resultados muestran las medidas para cuantificar el error de predicción, entre estas el error medio absoluto (MAE), la raíz del error cuadrático medio (RMSE), la RMSE relativa a la media de los observados (nRMSE) y un valor de <span class="math inline">\(R^2\)</span>. Los valores muestran un mejor desempeño del kriging regresión vs.&nbsp;el modelo de regresión lineal múltiple. En el ranking de importancia de las variables explicativas se observa que la elevación fue la variable que contribuyo en mayor medida a explicar la variabilidad del rendimiento de trigo. El semivariograma ajustado sobre los residuos del modelo de regresión lineal muestra la existencia de una estructura de correlación espacial (bajo valor del cociente nugget/sill).</p>
+<!-- ```{r, echo = FALSE, purl=FALSE} -->
+<!-- knitr::include_graphics("figuras/Parte2/47.jpg") -->
+<!-- ``` -->
+</section><section id="árboles-aleatorios" class="level3" data-number="6.7.3"><h3 data-number="6.7.3" class="anchored" data-anchor-id="árboles-aleatorios">
+<span class="header-section-number">6.7.3</span> Árboles aleatorios</h3>
+<p>Para realizar el análisis las variables CE30, CE90, Elev Pe y Tg se colocan en el casillero <em>Variables</em> y las coordenadas x e y en el cuadro <em>Coordenadas</em>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="figuras/Parte2/48.jpg" class="img-fluid" style="width:70.0%"></p>
+</div>
+</div>
+<p>En la ventana siguiente se puede seleccionar que el método sólo realice la predicción en base al algoritmo <em>Random Forest</em> o sumando a la predicción de este los valores interpolados usando kriging ordinario de los residuos del Random Forest (<em>Random Forest + kriging Ordinario</em>). Luego, selecciona el de mejor ajuste según el valor de SCE, y los parámetros de este son usados en la interpolación de los residuos. La función ajusta en forma automática el semivariograma experimental y los modelos teóricos exponencial, esférico y gaussiano. El método también permite fijar un valor del hiperparámetro <em>mtry</em> del random forest o también realizar una selección del <em>mtry</em> optimo mediante un proceso de validación cruzada del tipo k-fold. Para la validación se puede especificar el valor de k y un valor de semilla. En caso de no fijar el valor de <em>mtry</em> utiliza el recomendado de <span class="math inline">\(p/3\)</span> para modelos de regresión o <span class="math inline">\(\sqrt{p}\)</span> para modelos de clasificación. Si se quiere probar más de un valor se puede especificar un vector de valores que inician con el valor colocado en la opción <em>Desde</em> hasta el valor especificado en <em>Hasta</em> con un salto dado por la opción <em>Paso</em>. La opción <em>Evaluar</em> permite realizar una validación cruzada de la misma forma que la especificada inicialmente. Para ello es necesario colocar <em>si</em> en dicha opción.</p>
+<p>También, es posible guardar los valores predichos (opción <em>Predichos</em>) y obtener la predicción (opción <em>Predecir</em>) sobre una nueva base de datos. Para tal fin se necesita tener un archivo .txt de la grilla de predicción con la información de las coordenadas (x e y) en las dos primeras columnas y de cada una de las covariables que se usaron en el ajuste del modelo. Se requiere que los nombres de las covariables sean los mismos tanto en la grilla como en la tabla de datos. La opción <em>Importancia</em> devuelve un ranking de la importancia relativa de cada covariable en el modelo ajustado, que se calcula en función a la influencia que tiene cada predictor en Error Cuadrático Medio (MSE) del modelo mediante un proceso de permutación de los valores de cada covariable. La opción <em>Relaciones Parciales</em> generar un gráfico que muestra el efecto marginal de cada una de las covariables sobre la variable respuesta. Para obtener este gráfico debe colocarse <em>si</em>. Esto genera un panel con los gráficos de cada una de las covaraiables del modelo. Si en lugar de <em>si</em> se coloca el carácter <em>m</em> el método genera un gráfico independiente para cada una de las regresoras. También, es posible editar los valores mínimos y máximos de la variable respuesta (eje y) en todos los gráficos mediante las opciones <em>ymin</em> e <em>ymax</em>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="figuras/Parte2/49.jpg" class="img-fluid" style="width:70.0%"></p>
+</div>
+</div>
+<p>Al ejecutar el análisis, dado que se solicitó realizar la predicción, el software mostrará una ventana para seleccionar el archivo .txt que corresponde a la grilla de predicción. En este ejemplo se denomina <strong>grilla_am.txt</strong>. Al accionar <em>Abrir</em> se procederá con el análisis. En la ventana <em>Resultados</em> se menciona que los valores <em>Predichos</em> se adicionan a la tabla de datos <strong>Pred2.idb2</strong>. Además, los valores de la predicción se adicionan a la grilla y se despliegan en una nueva tabla de datos denominada <em>Predicción</em>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="figuras/Parte2/50.jpg" class="img-fluid" width="912"></p>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="figuras/Parte2/51.jpg" class="img-fluid" width="644"></p>
+</div>
+</div>
+<p>Los resultados muestran las medidas para cuantificar el error de predicción, entre estas el error medio absoluto (MAE), la raíz del error cuadrático medio (RMSE), la RMSE relativa a la media de los observados (nRMSE) y un valor de <span class="math inline">\(R^2\)</span>. Los valores muestran un mejor desempeño del kriging regresión vs.&nbsp;el modelo de regresión lineal múltiple. En el ranking de importancia de las variables explicativas se observa que la elevación fue la mayor contribución en la determinación del rendimiento de trigo. El gráfico de las relaciones parciales muestra que cuando aumenta la elevación disminuye el rendimiento de trigo. Con la variable Pe la correlación es negativa mientras que con la conductividad eléctrica presenta una relación no lineal. El semivariograma ajustado sobre los residuos del modelo de regresión lineal muestran la existencia de una estructura de correlación espacial (bajo valor del cociente nugget/sill).</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="figuras/Parte2/52.jpg" class="img-fluid" width="1744"></p>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="figuras/Parte2/53.jpg" class="img-fluid" width="302"></p>
+</div>
+</div>
+
+
+<!-- -->
+
+</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiado");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiado");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+      <a href="./Parte2_cap_a_EscFinaImplR.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Implementación con R</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./Parte3_cap_a_EscRegionImplR.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Bases de datos regionales</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Ejecutar el código</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Implementación con InfoStat</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">#| results: "asis"</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"_common.R"</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>El módulo "Estadística Espacial" de InfoStat permite realizar, a través de su conexión con el software R, la implementación de algoritmos univariados y multivariados para el análisis de datos georreferenciados. En esta sección se ilustrará el uso de este módulo para la transformación de coordenadas, la depuración de datos georreferenciados, el cálculo de índices de autocorrelación espacial, ajuste de semivariogramas, y la obtención de un mapa de variabilidad espacial mediante interpolación kriging. Complementariamente, se ilustra su aplicación con bases de datos de naturaleza multivariada para el cálculo de correlación bivariada, la implementación del análisis de componentes principales espaciales (MULTISPATI-PCA), la clasificación KM-sPC y el uso de métodos de regresión basados en árboles (*Random Forest*). </span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="fu">## Conversión de coordenadas espaciales</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>Este menú permite la conversión entre distintos sistemas de coordenadas de referencias basándose en el uso de los códigos EPSG (http://www.epsg.org/). El archivo de datos que se abre desde el menú Aplicaciones $\to$ Estadística Espacial $\to$ Transformación de Coordenadas $\to$ Datos de prueba. El archivo se denomina  **datosRinde.idb2** y contiene 9810 observaciones (registros o filas del archivo) sobre datos de rendimiento de trigo (Rinde, $t\ ha^{-1}$) de un lote agrícola que fueron recolectados con un monitor de rendimiento. Cada valor registrado posee su ubicación geográfica (x e y) en unidades grado decimal que son expresadas en longitud (x) y latitud (y).</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = FALSE, purl=FALSE}</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"figuras/Parte2/1.jpg"</span>)</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = FALSE, purl=FALSE}</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"figuras/Parte2/2.jpg"</span>)</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>En el menú Aplicaciones $\to$ Estadística Espacial $\to$ Transformación de Coordenadas $\to$ Run, se abrirá una ventana de selector de variables donde debe indicarse la columna del archivo de datos que contiene la información correspondiente a la Coordenada X y la columna del archivo que contiene la información de la Coordenada Y. Luego, aparecerá una ventana para seleccionar el código EPSG original de los datos y código asignado. En este ejemplo el código original para las coordenadas geográficas WGS84 es 4326 y el asignado para el sistema UTM zona 21 es 32721. En caso de ser necesario previo a esta transformación permite también el pasaje de datos que estén expresados en grados, minutos y segundos a grados decimales. Para ello sólo se debe tildar esta opción en el cuadro de dialogo. Los valores de las coordenadas deben presentarse con un espacio entre subunidades. Por ejemplo "33 1 1" expresan los grados minutos y segundos respectivamente.</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="in">```{r VentInfoTransfCoord, echo = FALSE, purl=FALSE, out.width = '0.7\\linewidth'}</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"figuras/Parte2/3.jpg"</span>)</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="in">```{r QecoTransfCoord, echo = FALSE, purl=FALSE}</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"figuras/Parte2/4.jpg"</span>)</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>Como resultado, en la tabla de datos original se agregarán dos nuevas columnas, al final del archivo, correspondiente a las coordenadas x e y transformadas, las cuales se denominarán Xt e Yt, haciendo referencia a la variable x transformada (Xt) y a la variable y transformada (Yt). Estas nuevas variables (coordenadas transformadas) permiten interpretar la distancia entre puntos de Rinde en metros. </span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = FALSE, purl=FALSE}</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"figuras/Parte2/5.jpg"</span>)</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="fu">## Eliminación de *outliers* e *inliers*</span></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>En el menú Aplicaciones $\to$ Estadística Espacial $\to$ Depuración $\to$ Datos de prueba se abrirá un archivo denominado **datosRinde_t.idb2** con 9810 registros y tres columnas correspondientes a las coordenadas planas UTM (x e y) de cada observación y los valores de la variable rendimiento de trigo ($t\ ha^{-1}$). Luego, en el menú Aplicaciones $\to$ Estadística Espacial $\to$ Depuración $\to$ Run, se selecciona la variable respuesta, en este ejemplo Rinde y las columnas que indican la ubicación espacial de cada observación en el cuadro de Coordenadas. </span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = FALSE, purl=FALSE, out.width = '0.7\\linewidth'}</span></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"figuras/Parte2/6.jpg"</span>)</span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>Al accionar el botón *Aceptar*, una nueva ventana permitirá seleccionar si desea visualizar los gráficos *Histograma*, *Box-Plot*, *Red de Vecindarios*, *Visualización espacial* y *Moran Plot*. También existe la opción de tildar que se genere una tabla nueva con los datos depurados, otra tabla con los estadísticos del Índice de Moran y una opción que permite que en la definición de los vecindarios existan algunos puntos que no presenten vecinos. Los valores *inliers* serán identificados a través del Índice de Moran local (*IM local*), *Moran Plot* o ambos (*IM local+Moran Plot*). En la misma ventana hay una opción de seleccionar el valor de desviación estándar (DE) de acuerdo al criterio del usuario. Considerando como valores *outliers* a los que se encuentren fuera del rango estimado como el valor medio ± el valor de DE seleccionado. Por defecto presenta un valor de 3 DE. También el usuario previamente puede limitar los valores de los datos por un valor mínimo y/o máximo. Por defecto este filtro no se aplica.</span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>En este ejemplo se seleccionaron las Opciones *Histograma*, *Box-Plot*, *Visualización espacial*, *Moran plot* y *Tabla datos depurados*. Además, se seleccionó que la eliminación de *inliers* se haga mediante el cálculo del índice de local de Moran y el Moran Plot (*IM local+Moran Plot*). Se utilizó una distancia de 15 para definir los vecindarios y un criterio de 3 DE para la eliminación de *outliers*. Por defecto el código EPSG es 32721 que correspondiente a la base de datos de prueba. En esta rutina el sistema de referencia es importante sólo para realizar la visualización espacial. </span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = FALSE, purl=FALSE}</span></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"figuras/Parte2/7.jpg"</span>)</span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>Como resultado se obtendrá el Box-Plot de la variable respuesta (Rinde) previo a la eliminación de los *outliers* e *inliers* (datos sin depurar), y luego de su eliminación (datos depurados). El gráfico de dispersión de Moran (Moran Plot) muestra en el eje horizontal los valores de la variable rendimiento mientras que en el vertical se representa el retardo espacial de la variable. Los puntos negros con forma romboidal son identificados como influyentes y se los considera como *inliers*.</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = FALSE, purl=FALSE}</span></span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"figuras/Parte2/8.jpg"</span>)</span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>Como resultado de la depuración de datos en la base de datos original se crearán nuevas columnas al final del archivo con la clasificación de *outliers* y/o *inliers* para cada observación. Así, se adicionarán tres columnas denominadas *Outliers*, *Inliers_ML* e *Inliers_MP* según el método seleccionado. Estas variables son de tipo categóricas y contendrán la clasificación *Outliers* o *Normal* indicando si es considerado un valor extremo o no. En la columna de *Inliers_ML*, las categorías serán *Inliers* o *Normal* para indicar que no es un valor atípico respecto a sus vecinos cercanos y de la misma manera se indicarán los valores clasificados por el método de Moran Plot. En este ejemplo, 120 observaciones fueron clasificadas como *outliers*, 43 observaciones como *inliers* y 681 clasificadas como *inliers* según Moran Plot (en los que se encuentran incluidos los 43 casos considerados Inliers por el Índice de Moran Local). El procedimiento primero elimina los *outliers* por lo cual no serán considerados para su identificación como posibles *inliers*. </span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = FALSE, purl=FALSE}</span></span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"figuras/Parte2/8b.jpg"</span>)</span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a>También se generará una nueva tabla de datos que contendrá las observaciones seleccionadas después de la depuración por *outliers* e *inliers*, que para este ejemplo contiene 9009 registros. Los valores seleccionados se muestran en la tabla denominada **Datos Depurados.idb2**. En caso que el usuario seleccione *Tabla estadísticos IM* se genera otra tabla **Estadísticos IM.idb2**, en la cual sus columnas tendrán los valores de índice local observado (li), el valor esperado (E.li), la varianza (Var.li), el estadístico (Z.li) y la significancia estadística a través del valor-p (Pr.z...0). La información del Moran Plot de los puntos influyentes de la regresión proviene de diferentes estadísticos de diagnóstico como DFBETAS (dfb.1_ para la ordenada al origen y dfb.x para la pendiente), DFFITS (dffit), Covratio (cov.r), distancia de Cook (cook.d) y leverage (hat). Para cada uno de los estadísticos aparecerá una nueva columna del archivo con valores TRUE o FALSE según como ha sido clasificada la observación. En la ventana de Resultados de InfoStat se indica las tablas donde se encuentran estos resultados descriptos. Las nuevas tablas generadas son archivos temporarios, es decir, si desea guardar esta información, deberá ir al menú Archivo $\to$ Guardar tabla y seleccionar el directorio donde desea guardarlo. </span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>La opción de visualización espacial muestra un gráfico el cual se ejecuta como un archivo html en el navegador web. En este se podrá visualizar los datos detectados como *outliers* e *inliers.* Así mismo es posible cargar un mapa base como *esri.WorldImagery*, *OpenStreetMap*, *OpenTopoMap*.</span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = FALSE, purl=FALSE}</span></span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"figuras/Parte2/9.jpg"</span>)</span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a><span class="fu">## Detección de tendencias espaciales</span></span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>Un análisis gráfico para identificar de la presencia de tendencias se puede hacer con un gráfico de dispersión. Para ello ir al menú Gráficos $\to$ Diagrama de dispersión. En el casiller *Eje Y* colocar la variable *Rinde* y en *Eje X* la coordenada *x*. Al accionar Aceptar se generará el gráfico que muestra que no existe una tendencia entre ambas variables. El mismo procedimiento deber realizarse con la coordenada *y*. </span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = FALSE, purl=FALSE, out.width = '0.7\\linewidth'}</span></span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"figuras/Parte2/10.jpg"</span>)</span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = FALSE, purl=FALSE, out.width = '100%'}</span></span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"figuras/Parte2/11.jpg"</span>)</span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a>También es posible ajustar de un modelo de regresión lineal entre la variable Rendimiento y las coordenadas x e y, se puede realizar yendo al menú Estadísticas $\to$ Regresión Lineal. En el selector de variables se coloca al rendimiento en el casillero de *Variable Dependiente* y las coordenadas x e y en el casillero *Regresoras*.</span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a><span class="fu">## Cálculo del índice de Moran</span></span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a>Con la base de datos ya depurada en el punto 2.2 se procederá a calcular índices de autocorrelación espacial. El archivo de ejemplo **datosRinde_dep.idb2** también se encuentra disponible en el menú Aplicaciones $\to$ Estadística Espacial $\to$ Geoestadísticas $\to$ Semivariograma $\to$ WLS $\to$ Datos de prueba. Para cuantificar la magnitud de la estructuración espacial se estiman en este menú el índice de Moran y el índice de Geary. Para ello ir al menú Aplicaciones $\to$ Estadística Espacial $\to$ Geoestadísticas $\to$ Índices de Autocorrelación $\to$ Run. En el selector de variables colocar *Rinde* en el casillero *Variables* (aquí es posible colocar más de una) y en el casillero *Coordenadas* las columnas x e y.</span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = FALSE, purl=FALSE, out.width = '0.7\\linewidth'}</span></span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"figuras/Parte2/15.jpg"</span>)</span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a>Al accionar *Aceptar* en el siguiente cuadro se puede modificar el número de permutaciones que son utilizadas para evaluar la significancia estadística de los índices a partir de simulación por Monte Carlo. Las ubicaciones son permutadas para obtener la distribución de los índices bajo hipótesis nula de distribución aleatoria. El cálculo también requiere la definición de una matriz de ponderación espacial, para este paso la red de vecindarios es definida usando la distancia Euclídea indicando el rango de distancia dentro de la cual dos observaciones serán consideradas colindantes o vecinas. El rango es estimado a partir de un valor de distancia máximo y uno mínimo. En este ejemplo se utiliza como distancia máxima 15 m. Además, se seleccionó la opción *Datos con vecindario nulo* la cual permite generar la matriz de pesos espaciales sin la restricción de que todos los puntos tengan al menos un dato vecino. </span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = FALSE, purl=FALSE}</span></span>
+<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"figuras/Parte2/14.jpg"</span>)</span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a>Para este ejemplo, tanto el índice de Moran como el índice de Geary indican una autocorrelación estadísticamente significativa (valor p &lt;0.05), es decir, no hay una distribución aleatoria de las observaciones en el espacio. La variable Rinde presentó una autocorrelación espacial positiva y alta (valor más cercano a 1 en el caso del índice de Moran y mas cercano a 0 en el de Geary sugieren autocorrelaciones positivas más fuerte).</span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a><span class="fu">## Análisis basado en semivariogramas</span></span>
+<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a>Para acceder al archivo de ejemplo **datosRinde_dep.idb2** se debe ir al menú Aplicaciones $\to$ Estadística Espacial $\to$ Geoestadísticas $\to$ Semivariograma $\to$ WLS $\to$ Datos de prueba. Luego se acciona la opción *Run* siguiendo la misma ruta de acceso. Esta opción realizará el ajuste de un semivariograma empírico y teórico usando el método de mínimos cuadrados ponderados (WLS). En el selector de variables se debe colocar la variable *Rinde* en el casillero *Variables* y en el casillero *Coordenadas* las columnas x e y.</span>
+<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = FALSE, purl=FALSE}</span></span>
+<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"figuras/Parte2/16.jpg"</span>)</span>
+<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a>Al accionar el botón *Aceptar*, aparecerá una nueva ventana donde se podrá seleccionar la función de semivariograma: Exp (exponencial), Sph (esférico), Gau (gaussiano), Mat (Matern), Ste (parametrización de Matern Stein), Cir (circular), Lin (lineal), Pow (potencia o power), Wav (ondulado o wave), Pen (pentaesférico), Hol (holístico o hole), Log (logarítmico) y Spl (spline). Como opciones se puede seleccionar ajustar un semivariograma sin tendencia (*Constante*), con tendencia de primer orden, de segundo orden y con covariable. También es posible indicar los valores iniciales para los parámetros del semivariograma a ajustar (SillParcial, Rango y Nugget). En este ejemplo no se colocaron estos por lo cual la función estima valores iniciales razonable para realizar el ajuste. El parámetro *kappa* es opcional para los modelos Matern y Ste (parametrización de Matern Stein). También, puede ser fijado ingresando un valor en la opción *Kappa*. Si en lugar de colocar un valor numérico se coloca un carácter, se ajustará un *kappa* óptimo en un rango entre 0.05 y 5. La opción de parámetro *width* refiere a la amplitud del intervalo de distancia sobre la cual los pares de puntos agrupados para la estimación de la semivarianza. Por ejemplo, si la distancia máxima entre los pares de puntos es de 1000 y se selecciona un valor de *width*=100, se conformarán 10 grupos de una amplitud de 100 m. Para cada uno de esos 10 grupos se estimará la semivarianza. El *cutoff* es la máxima distancia de separación espacial hasta la cual los pares de puntos son tenidos en cuenta para la estimación de la semivarianza. Si la opción queda vacía, es decir no se coloca ningún valor, por defecto estima el *cutoff* como el tercio de la línea diagonal de una caja que contiene los datos. La función por defecto ajusta un semivariograma isotrópico. Para evaluar si el proceso es anisotrópico es posible el ajuste de semivariogramas direccionales. Esto puede hacer desde el menú Aplicaciones $\to$ Estadística Espacial $\to$ Geoestadísticas $\to$ Semivariograma $\to$ Direccionales. Para incorporar la anisotropía al modelo, en la opción *anis*, se debe colocar la dirección de mayor correlación espacial i.e mayor rango (valor entre 0° y 360°, medidos en el sentido de las agujas del reloj, donde el Norte es 0°.) y el cociente de anisotropía (cociente entre el mayor y el menor rango que se producen en las direcciones evaluadas, valor entre 0 y 1). La dirección y el cociente de anisotropía deben ir separados por coma. El separador de decimales es el punto. Por ejemplo anis=c(90, 0.2) indica que el mayor rango se produce a las 3 en punto (dirección este) con una diferencia de 5 veces en el rango. </span>
+<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a>La opción *cressie* permite el ajuste del semivariograma teórico mediante el estimador robusto de Cressie- Hawkins. Para seleccionar este estimador debe colocarse un *si* a esta opción, caso contrario utilizara el estimador de los momentos de Matheron. Esta función permite realizar una validación cruzada el tipo k-fold. Para ello se debe colocar *si* en la opción *Validación*. El número de grupos *k* se coloca en la opción *n-fold*. Además, es posible fijar la semilla para que la asignación de cada dato a los grupos *k* no cambie en caso de repetir el proceso. Las opciones *nmin*, *nmax* y *Max.dist* se utilizan para que la función kriging, usada en el proceso de validación, se realice en un contexto local. Por defecto se definen vecindarios con un número mínimo y máximo de vecinos de cada punto a predecir siendo estos de 7 y 25, respectivamente. En caso de omitir estos últimos argumentos la interpolación se realiza en un contexto global.</span>
+<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a>En este ejemplo, se ajustó un semivariograma experimental a partir de los datos observados y se probaron los modelos exponencial, esférico y gaussiano como modelos de semivariograma teóricos. Sus parámetros iniciales fueron estimados por defecto por la función. El valor del *cutoff* se fijó en 400 m. Además, se realizó una validación cruzada con k=10. Todas las otras opciones se dejaron por defecto. </span>
+<span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a>Al accionar *Aceptar* se generan los gráficos con los tres modelos ajustados. La ventana resultados muestra también la información del semivariograma empírico y cada uno de los modelos teóricos ajustados. Además, se proporcionan los valores de los parámetros estimados, criterios de bondad de ajuste (SCE y AIC), y error de predicción de los modelos ajustados. En este ejemplo siguiendo los criterios de SCE y AIC el modelo de mejor ajuste (valores más bajos de estos indicadores) fue el exponencial. Los valores de los parámetros fueron: Sill Parcial=0,86, rango=64,88, efecto Nugget=0,21. Los resultados de la validación cruzada muestran pequeñas diferencias entre los errores de predicción de los modelos ajustados. Para el caso del modelo exponencial la RMSE relativa a la media de los valores observados (nRMSE) fue del 11,82\% mientras cociente de la desviación cuadrática media (MSDR) fue de 0,60 (más cercano a 1 mejor modelo). </span>
+<span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = FALSE, purl=FALSE}</span></span>
+<span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"figuras/Parte2/17.jpg"</span>)</span>
+<span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-140"><a href="#cb1-140" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = FALSE, purl=FALSE}</span></span>
+<span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"figuras/Parte2/18.jpg"</span>)</span>
+<span id="cb1-142"><a href="#cb1-142" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-143"><a href="#cb1-143" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-145"><a href="#cb1-145" aria-hidden="true" tabindex="-1"></a><span class="fu">### Mapeo de variabilidad espacial</span></span>
+<span id="cb1-146"><a href="#cb1-146" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-147"><a href="#cb1-147" aria-hidden="true" tabindex="-1"></a>Para realizar la interpolación espacial mediante kriging se utilizará la base de datos **datosRinde_limites.idb2** que se encuentra en el menú Aplicaciones $\to$ Estadística Espacial $\to$ Geoestadísticas $\to$ Interpolación $\to$ Kriging $\to$ Datos de prueba. El archivo de datos contiene además de las coordenadas (x e y), la variable respuesta (Rinde) y dos nuevas columnas (x1 e y1) que contienen los vértices del polígono donde se desea realizar la interpolación. Estas últimas no son obligatorias para realizar la interpolación. En caso de omitirse la función tomara los puntos más externos de la base de datos y a partir de este formara un polígono que definirán los límites del área a interpolar. </span>
+<span id="cb1-148"><a href="#cb1-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-149"><a href="#cb1-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-150"><a href="#cb1-150" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = FALSE, purl=FALSE}</span></span>
+<span id="cb1-151"><a href="#cb1-151" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"figuras/Parte2/19.jpg"</span>)</span>
+<span id="cb1-152"><a href="#cb1-152" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-153"><a href="#cb1-153" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-154"><a href="#cb1-154" aria-hidden="true" tabindex="-1"></a>Si se vuelve a la misma ruta de accesos y se acciona *Run* se abrirá el selector de variables donde se colocará la variable *Rinde* en el casillero *Variable Respuesta*, x e y en *Coordenadas* y las columnas x1 e y1 en los casilleros *Coord. Vértices X* y *Coord. Vértices Y*, respectivamente.</span>
+<span id="cb1-155"><a href="#cb1-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-156"><a href="#cb1-156" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = FALSE, purl=FALSE, out.width = '0.7\\linewidth'}</span></span>
+<span id="cb1-157"><a href="#cb1-157" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"figuras/Parte2/20.jpg"</span>)</span>
+<span id="cb1-158"><a href="#cb1-158" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-159"><a href="#cb1-159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-160"><a href="#cb1-160" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-161"><a href="#cb1-161" aria-hidden="true" tabindex="-1"></a>Luego de accionar *Aceptar*, se genera una ventana con diferentes opciones para seleccionar el tipo de modelo ajustado (Exp, Sph, Gau, Ste, Cir, Lin, Pow, Wav, Pen, Hol, Log, y Spl), el tipo de kriging, ordinario sin tendencia o universal (incorporando la tendencia en primer o segundo orden) y los valores para realizar la predicción espacial. En este caso se utilizará el modelo seleccionado en el punto anterior. Así, se selecciona el modelo exponencial y se fijan los valores de los parámetros Sill Parcial=0.86, rango=64,88, efecto Nugget=0.21. En este caso la predicción se realiza en un contexto local (opción por defecto). Para ello se fija un número mínimo (*nmin*) y máximo (*nmax*) de puntos que son utilizados para realizar la predicción en cada uno de los sitios de la grilla de predicción. Otra opción para determinar cuáles son los puntos que aportan información para la predicción de un sitio determinado es usando una medida de distancia (*Max.dist*). Puntos que se ubican más allá de la distancia máxima determinada por el usuario respecto a la posición sobre la que se quiere predecir el valor de la respuesta, no serán utilizados para la predicción. En caso de requerir que la predicción se realice utilizando toda la información disponible (kriging global), las opciones *nmin*, *nmax* y *Max.dist* se dejan vacías. La predicción también puede realizarse de manera puntual o en bloque. En este ejemplo donde bloque (Block) es cero, la predicción será local.</span>
+<span id="cb1-162"><a href="#cb1-162" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-163"><a href="#cb1-163" aria-hidden="true" tabindex="-1"></a>Para realizar la predicción se requiere definir los puntos donde se realiza la interpolación en *Opciones de Predicción*. Con *Dim. Grilla Predicción* se fija la dimensión de la grilla de predicción, en este caso, 10 indica que tiene una dimensión de 10×10 m. También puede fijarse el sistema de coordenadas que tendrán los mapas generados usando el código EPSG. Para estos datos el código es 32721 que corresponde al sistema de coordenadas UTM, zona 21, hemisferio sur. Esto es importante para proyectar correctamente los mapas generados. Es posible visualizar estos mapas en el navegador web colocando *si* en la opción *Generar HTML* o exportarlos como geotiff (opción *Generar GeoTIF*). En caso de colocar *si* en esta última opción el software abrirá una ventana para elegir el directorio en el cual se guardará el archivo generado. Los valores de la predicción también pueden ser colocados en forma de tabla mediante la opción *Guardar Predicción*. Finalmente, también es posible cambiar los valores mínimos y máximos de las escalas de valores de los mapas que se generan (Predicción y Varianza de Predicción).</span>
+<span id="cb1-164"><a href="#cb1-164" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-165"><a href="#cb1-165" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = FALSE, purl=FALSE}</span></span>
+<span id="cb1-166"><a href="#cb1-166" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"figuras/Parte2/21.jpg"</span>)</span>
+<span id="cb1-167"><a href="#cb1-167" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-168"><a href="#cb1-168" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-169"><a href="#cb1-169" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = FALSE, purl=FALSE}</span></span>
+<span id="cb1-170"><a href="#cb1-170" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"figuras/Parte2/22.jpg"</span>)</span>
+<span id="cb1-171"><a href="#cb1-171" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-172"><a href="#cb1-172" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-173"><a href="#cb1-173" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = FALSE, purl=FALSE}</span></span>
+<span id="cb1-174"><a href="#cb1-174" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"figuras/Parte2/23.jpg"</span>)</span>
+<span id="cb1-175"><a href="#cb1-175" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-176"><a href="#cb1-176" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-177"><a href="#cb1-177" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-178"><a href="#cb1-178" aria-hidden="true" tabindex="-1"></a><span class="fu">### Validación cruzada</span></span>
+<span id="cb1-179"><a href="#cb1-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-180"><a href="#cb1-180" aria-hidden="true" tabindex="-1"></a>La evaluación de la capacidad predictiva de los modelos ajustados que se realizó en el punto 2.5, también puede realizarse desde el menú Aplicaciones $\to$ Estadística Espacial $\to$ Geoestadísticas $\to$ Interpolación $\to$ Validación Cruzada. En el selector de variables se coloca la variable *Rinde* en el casillero *Variable Respuesta* y las coordenadas en el cuadro *Coordenadas*. </span>
+<span id="cb1-181"><a href="#cb1-181" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-182"><a href="#cb1-182" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = FALSE, purl=FALSE, out.width = '0.7\\linewidth'}</span></span>
+<span id="cb1-183"><a href="#cb1-183" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"figuras/Parte2/24.jpg"</span>)</span>
+<span id="cb1-184"><a href="#cb1-184" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-185"><a href="#cb1-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-186"><a href="#cb1-186" aria-hidden="true" tabindex="-1"></a>En la siguiente ventana se coloca la información del modelo a evaluar, en este caso exponencial con parámetros Sill Parcial= 0.86, rango=64.88 y efecto Nugget=0.21. La predicción kriging se realiza en un contexto local (opción por defecto) con *nmin*=7 y *nmax*=25. El número de grupos de la validación cruzada es de k=10. La función permite también calcular el error de predicción para kriging universal (tendencias de primer y segundo orden) y kriging con deriva externa. </span>
+<span id="cb1-187"><a href="#cb1-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-188"><a href="#cb1-188" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = FALSE, purl=FALSE}</span></span>
+<span id="cb1-189"><a href="#cb1-189" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"figuras/Parte2/25.jpg"</span>)</span>
+<span id="cb1-190"><a href="#cb1-190" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-191"><a href="#cb1-191" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-192"><a href="#cb1-192" aria-hidden="true" tabindex="-1"></a>Para este ejemplo la RMSE relativa a la media de los valores observados (nRMSE) fue del 10,27\% mientras cociente de la desviación cuadrática media (MSDR) fue de 0.66 (más cercano a 1 mejor modelo). </span>
+<span id="cb1-193"><a href="#cb1-193" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-194"><a href="#cb1-194" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = FALSE, purl=FALSE}</span></span>
+<span id="cb1-195"><a href="#cb1-195" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"figuras/Parte2/26.jpg"</span>)</span>
+<span id="cb1-196"><a href="#cb1-196" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-197"><a href="#cb1-197" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-198"><a href="#cb1-198" aria-hidden="true" tabindex="-1"></a><span class="fu">## Caracterización de variabilidad espacial con múltiples capas de datos</span></span>
+<span id="cb1-199"><a href="#cb1-199" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-200"><a href="#cb1-200" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-201"><a href="#cb1-201" aria-hidden="true" tabindex="-1"></a><span class="fu">### Análisis de componentes principales</span></span>
+<span id="cb1-202"><a href="#cb1-202" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-203"><a href="#cb1-203" aria-hidden="true" tabindex="-1"></a>La base de datos **Pred2.idb2** se encuentra disponible en el menú Aplicaciones $\to$ Estadística Espacial $\to$ Geoestadísticas $\to$ Multivariado $\to$ a. MULTISPATI-PCA $\to$ Datos de prueba. En el selector de variables se colocan las variables Pe, Elev, CE30, CE90 y Tg en el cuadro *Variables* y las coordenadas x e y en *Coordenadas*.</span>
+<span id="cb1-204"><a href="#cb1-204" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-205"><a href="#cb1-205" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = FALSE, purl=FALSE, out.width = '0.7\\linewidth'}</span></span>
+<span id="cb1-206"><a href="#cb1-206" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"figuras/Parte2/27.jpg"</span>)</span>
+<span id="cb1-207"><a href="#cb1-207" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-208"><a href="#cb1-208" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-209"><a href="#cb1-209" aria-hidden="true" tabindex="-1"></a>En la siguiente ventana se presentan las opciones del MULTISPATI-PCA. Aquí se puede seleccionar estandarizar las variables (opción por defecto), generara gráficos (biplot del PCA, gráfico de la red de vecindarios, gráficos del MULTISPATI-PCA y gráfico de los autovalores) y solicitar que la conformación de la matriz de pesos espaciales admita datos con vecindarios nulo. Las otras opciones del análisis implican fijar el número de ejes retenidos por el PCA y por el MULTISPATI-PCA. Para este último caso pueden ser aquellos que presenten una autocorrelación positiva (*MULTISPATI-PCA (+)*) o negativa (*MULTISPATI-PCA (-)*). La parametrización para este ejemplo se muestra en la siguiente figura:</span>
+<span id="cb1-210"><a href="#cb1-210" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-211"><a href="#cb1-211" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = FALSE, purl=FALSE}</span></span>
+<span id="cb1-212"><a href="#cb1-212" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"figuras/Parte2/28.jpg"</span>)</span>
+<span id="cb1-213"><a href="#cb1-213" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-214"><a href="#cb1-214" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-215"><a href="#cb1-215" aria-hidden="true" tabindex="-1"></a>El gráfico obtenido del MULTISPATI-PCA muestra que las variables Elev y Pe son las más importantes en la explicación de la variabilidad espacial a nivel del primer eje (sPC1, eje horizontal). Mientras que la CE30 y Tg presentan mayor importancia en la SPC2. Además, se observa una correlación positiva entre CE30 y CE90, y negativa entre estas dos y la Pe. También la Elev y Tg se correlacionan en forma negativa. </span>
+<span id="cb1-216"><a href="#cb1-216" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-217"><a href="#cb1-217" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = FALSE, purl=FALSE}</span></span>
+<span id="cb1-218"><a href="#cb1-218" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"figuras/Parte2/29.jpg"</span>)</span>
+<span id="cb1-219"><a href="#cb1-219" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-220"><a href="#cb1-220" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-221"><a href="#cb1-221" aria-hidden="true" tabindex="-1"></a>Los resultados muestran que con MULTISPATIPCA se explica una menor proporción de la varianza acumulada en el primer eje, respecto de PCA (1,81 vs. 1,94). Las tres primeras CP del PCA explican 78\% de la variabilidad total mientras que la CS1, CS2 CS3 del MULTISPATI el 73\%. No obstante, los valores del índice de Moran calculados para las tres primeras CPs sugieren que la estimación de autocorrelación aumentó cuando se usó MULTISPATIPCA respecto de la contenida en las CPs del PCA (0,79 vs. 0,68 para el eje 1, 0,43 vs. 0,40 para el eje 2, 0,50 vs. 0,25 para el eje 3). </span>
+<span id="cb1-222"><a href="#cb1-222" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-223"><a href="#cb1-223" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = FALSE, purl=FALSE}</span></span>
+<span id="cb1-224"><a href="#cb1-224" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"figuras/Parte2/30.jpg"</span>)</span>
+<span id="cb1-225"><a href="#cb1-225" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-226"><a href="#cb1-226" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-227"><a href="#cb1-227" aria-hidden="true" tabindex="-1"></a><span class="fu">### Análisis de conglomerados </span></span>
+<span id="cb1-228"><a href="#cb1-228" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-229"><a href="#cb1-229" aria-hidden="true" tabindex="-1"></a>Para realizar la ilustración se utilizará la base de datos **Pred.idb2** que se encuentra en el menú Aplicaciones $\to$ Estadística Espacial $\to$ Geoestadísticas $\to$ Multivariado $\to$ c. Clasificación KMsPC $\to$ Datos de prueba. El archivo de datos contiene además de las coordenadas (x e y), valores de mediciones de conductividad eléctrica aparente en dos profundidades 0-30 cm (CE30) y 0-90 cm (CE90), elevación (Elev), profundidad de suelo (Pe) y rendimiento de trigo (Tg). Las variables CE30, CE90, Elev Pe y Tg se colocan en el casillero *Variables* y las coordenadas x e y en el cuadro *Coordenadas*.</span>
+<span id="cb1-230"><a href="#cb1-230" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-231"><a href="#cb1-231" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-232"><a href="#cb1-232" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = FALSE, purl=FALSE, out.width = '0.7\\linewidth'}</span></span>
+<span id="cb1-233"><a href="#cb1-233" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"figuras/Parte2/31.jpg"</span>)</span>
+<span id="cb1-234"><a href="#cb1-234" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-235"><a href="#cb1-235" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-236"><a href="#cb1-236" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-237"><a href="#cb1-237" aria-hidden="true" tabindex="-1"></a>Al accionar *Aceptar*, aparecerá la ventana para seleccionar opciones del método de análisis. El método KM-sPC primero realiza un análisis de componentes principales espaciales (MULTISPATI-PCA) sobre las variables originales. Luego las variables sintéticas (componentes principales espaciales, sPC) son utilizadas como input del análisis de clúster fuzzy k-means. Por ello, es posible estandarizar las variables para realizar el MULTISPATI-PCA y elegir la opción que permite conformar una matriz de pesos espaciales en presencia de datos con vecindarios nulo. Otras opciones del análisis incluyen la distancia (euclídea o manhattan) utilizada en el método de cluster, el número mínimo y máximo de clúster a generar, el número de iteraciones y el exponente difuso. En este ejemplo se usaron las siguientes opciones: 2 hasta 6 cluster, 100 iteraciones y un valor de 1.3 para el exponente difuso. Para el cálculo de la red de vecindarios, necesario para realizar el MULTISPATI-PCA, la distancia mínima y máxima fue de 0 y 10 m, respectivamente. La opción de varianza explicada (\%) fue del 70, lo que indica que seleccione la cantidad de ejes (componentes principales espaciales) necesarios tal que la varianza total explicada sea mayor o igual a 70\%.</span>
+<span id="cb1-238"><a href="#cb1-238" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-239"><a href="#cb1-239" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-240"><a href="#cb1-240" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = FALSE, purl=FALSE}</span></span>
+<span id="cb1-241"><a href="#cb1-241" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"figuras/Parte2/32.jpg"</span>)</span>
+<span id="cb1-242"><a href="#cb1-242" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-243"><a href="#cb1-243" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-244"><a href="#cb1-244" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-245"><a href="#cb1-245" aria-hidden="true" tabindex="-1"></a>En la ventana resultados se muestra la suma de cuadrados de distancias dentro (SCDD) la cual puede usarse para determinar el número de clúster óptimo. Para esto otros índices son calculados como Xie-Beni, Fukuyama Sugeno, Coeficiente de Partición, Entropía de Partición. Para todos ellos un menor valor del índice implica mejor clasificación. Dado que muchas veces los índices no coinciden se adiciona el cálculo de un índice resumen. Los resultados muestran que, para la mayoría de los índices, incluyendo el resumen, el número de clúster optimo es 2. Cuando se ejecuta el análisis los índices también son graficados en forma conjunta usando una escala normalizada. En este caso también un menor valor del índice en la escala normalizada implica una mejor clasificación.</span>
+<span id="cb1-246"><a href="#cb1-246" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-247"><a href="#cb1-247" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = FALSE, purl=FALSE}</span></span>
+<span id="cb1-248"><a href="#cb1-248" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"figuras/Parte2/33.jpg"</span>)</span>
+<span id="cb1-249"><a href="#cb1-249" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-250"><a href="#cb1-250" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-251"><a href="#cb1-251" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = FALSE, purl=FALSE}</span></span>
+<span id="cb1-252"><a href="#cb1-252" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"figuras/Parte2/34.jpg"</span>)</span>
+<span id="cb1-253"><a href="#cb1-253" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-254"><a href="#cb1-254" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-255"><a href="#cb1-255" aria-hidden="true" tabindex="-1"></a><span class="fu">## Predicción con múltiples capas de datos</span></span>
+<span id="cb1-256"><a href="#cb1-256" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-257"><a href="#cb1-257" aria-hidden="true" tabindex="-1"></a>Los datos de ilustración **Pred2.idb2** serán utilizados para cada de las alternativas de predicción disponibles en el menú. El archivo de datos contiene además de las coordenadas (x e y), valores de mediciones de conductividad eléctrica aparente en dos profundidades 0-30 cm (CE30) y 0-90 cm (CE90), elevación (Elev), profundidad de suelo (Pe) y rendimiento de trigo (Tg).</span>
+<span id="cb1-258"><a href="#cb1-258" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-259"><a href="#cb1-259" aria-hidden="true" tabindex="-1"></a><span class="fu">### Kriging con deriva externa</span></span>
+<span id="cb1-260"><a href="#cb1-260" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-261"><a href="#cb1-261" aria-hidden="true" tabindex="-1"></a>El acceso al menú es a partir de las opciones: Aplicaciones $\to$ Estadística Espacial $\to$ Geoestadísticas $\to$ Interpolación $\to$ c. Kriging (KED) $\to$ Datos de prueba.  Para realizar la interpolación se necesita de una grilla de predicción previamente generada en formato de archivo .txt que cuente con la información de las coordenadas (x e y) en las dos primeras columnas y de cada una de las covariables que se usaron en el ajuste del modelo. Se requiere que los nombres de las covariables sean los mismos tanto en la grilla de predicción como en la tabla de observaciones. El archivo **grilla_am.txt** contiene esta información.</span>
+<span id="cb1-262"><a href="#cb1-262" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-263"><a href="#cb1-263" aria-hidden="true" tabindex="-1"></a>En primer lugar se procede al ajuste de los semivariograma experimental teórico. Para ello se accede al menú Aplicaciones $\to$ Estadística Espacial $\to$ Geoestadísticas $\to$ b. Semivariograma $\to$ WLS $\to$ Run. Las variables CE30, CE90, Elev Pe y Tg se colocan en el casillero *Variables*, las coordenadas x e y en el cuadro *Coordenadas* y Pe, Elev, CE30 y CE90 en el cuadro *Covariables*.</span>
+<span id="cb1-264"><a href="#cb1-264" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-265"><a href="#cb1-265" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = FALSE, purl=FALSE, out.width = '0.7\\linewidth'}</span></span>
+<span id="cb1-266"><a href="#cb1-266" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"figuras/Parte2/35.jpg"</span>)</span>
+<span id="cb1-267"><a href="#cb1-267" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-268"><a href="#cb1-268" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-269"><a href="#cb1-269" aria-hidden="true" tabindex="-1"></a>En la siguiente ventana se seleccionan los modelos teóricos a ajustar, en este ejemplo exponencial esférico y gaussiano. En la opción *Tendencia* se selecciona *Covariables*. Las otras opciones de ajuste de los semivariogramas se dejan por defecto. Los resultados muestran que el modelo de mejor ajuste según los valores de SCE y AIC es el exponencial. Los semivariogramas teóricos ajustados se despliegan en forma automática.</span>
+<span id="cb1-270"><a href="#cb1-270" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-271"><a href="#cb1-271" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = FALSE, purl=FALSE}</span></span>
+<span id="cb1-272"><a href="#cb1-272" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"figuras/Parte2/36.jpg"</span>)</span>
+<span id="cb1-273"><a href="#cb1-273" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-274"><a href="#cb1-274" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-275"><a href="#cb1-275" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-276"><a href="#cb1-276" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = FALSE, purl=FALSE}</span></span>
+<span id="cb1-277"><a href="#cb1-277" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"figuras/Parte2/37.jpg"</span>)</span>
+<span id="cb1-278"><a href="#cb1-278" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-279"><a href="#cb1-279" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-280"><a href="#cb1-280" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-281"><a href="#cb1-281" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = FALSE, purl=FALSE}</span></span>
+<span id="cb1-282"><a href="#cb1-282" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"figuras/Parte2/38.jpg"</span>)</span>
+<span id="cb1-283"><a href="#cb1-283" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-284"><a href="#cb1-284" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-285"><a href="#cb1-285" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-286"><a href="#cb1-286" aria-hidden="true" tabindex="-1"></a>Con los valores de los parámetros estimados del semivariograma exponencial se procede a realizar la interpolación espacial. Para ello se accede al menú Aplicaciones $\to$ Estadística Espacial $\to$ Geoestadísticas $\to$ Interpolación $\to$ c. Kriging (KED) $\to$ Run. Las variables CE30, CE90, Elev Pe y Tg se colocan en el casillero *Variables*, las coordenadas x e y en el cuadro *Coordenadas* y Pe, Elev, CE30 y CE90 en el cuadro *Covariables*.</span>
+<span id="cb1-287"><a href="#cb1-287" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-288"><a href="#cb1-288" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = FALSE, purl=FALSE, out.width = '0.7\\linewidth'}</span></span>
+<span id="cb1-289"><a href="#cb1-289" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"figuras/Parte2/39.jpg"</span>)</span>
+<span id="cb1-290"><a href="#cb1-290" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-291"><a href="#cb1-291" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-292"><a href="#cb1-292" aria-hidden="true" tabindex="-1"></a>En la ventana siguiente se selecciona el modelo de semivariograma exponencial y se colocan los valores de los parámetros estimados en el paso anterior. En este ejemplo se selecciona la opción para mostrar el mapa de predicción en una ventana del navegador web (opción *Generar HTML*). Para ello es importante fijar el sistema de coordenada mediante el código EPSG. </span>
+<span id="cb1-293"><a href="#cb1-293" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-294"><a href="#cb1-294" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = FALSE, purl=FALSE}</span></span>
+<span id="cb1-295"><a href="#cb1-295" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"figuras/Parte2/40.jpg"</span>)</span>
+<span id="cb1-296"><a href="#cb1-296" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-297"><a href="#cb1-297" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-298"><a href="#cb1-298" aria-hidden="true" tabindex="-1"></a>Al *Aceptar* se abrirá una ventana que permite seleccionar la grilla de predicción que en este ejemplo se denomina **grilla_am.txt**. Posteriormente se generarán los mapas de predicción y varianza de predicción.</span>
+<span id="cb1-299"><a href="#cb1-299" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-300"><a href="#cb1-300" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = FALSE, purl=FALSE}</span></span>
+<span id="cb1-301"><a href="#cb1-301" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"figuras/Parte2/41.jpg"</span>)</span>
+<span id="cb1-302"><a href="#cb1-302" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-303"><a href="#cb1-303" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-304"><a href="#cb1-304" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = FALSE, purl=FALSE}</span></span>
+<span id="cb1-305"><a href="#cb1-305" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"figuras/Parte2/42.jpg"</span>)</span>
+<span id="cb1-306"><a href="#cb1-306" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-307"><a href="#cb1-307" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-308"><a href="#cb1-308" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-309"><a href="#cb1-309" aria-hidden="true" tabindex="-1"></a><span class="fu">### Kriging desde modelo de regresión</span></span>
+<span id="cb1-310"><a href="#cb1-310" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-311"><a href="#cb1-311" aria-hidden="true" tabindex="-1"></a>El acceso al menu es a partir de las opciones: Aplicaciones $\to$ Estadística Espacial $\to$ Geoestadísticas $\to$ Interpolación $\to$ c. Regression Kriging $\to$ Datos de prueba. Las variables CE30, CE90, Elev Pe y Tg se colocan en el casillero *Variables* y las coordenadas x e y en el cuadro *Coordenadas*.</span>
+<span id="cb1-312"><a href="#cb1-312" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-313"><a href="#cb1-313" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = FALSE, purl=FALSE, out.width = '0.7\\linewidth'}</span></span>
+<span id="cb1-314"><a href="#cb1-314" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"figuras/Parte2/43.jpg"</span>)</span>
+<span id="cb1-315"><a href="#cb1-315" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-316"><a href="#cb1-316" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-317"><a href="#cb1-317" aria-hidden="true" tabindex="-1"></a>En la ventana siguiente se puede seleccionar que el método sólo realice la predicción en base al ajuste de un modelo de regresión lineal o sumando a la predicción los valores interpolados usando kriging ordinario de los residuos del modelo de regresión (*Regresión Lineal + kriging Ordinario*). La función ajusta en forma automática el semivariograma experimental y los modelos teóricos exponencial, esférico y gaussiano. Luego, selecciona el de mejor ajuste según el valor de SCE, y los parámetros de este son usados en la interpolación de los residuos. El método también permite realizar una selección de variables paso a paso (*stepwise*) en ambas direcciones usando el criterio de información de Akaike para evaluar el ajuste de los modelos. Otras opciones incluyen la posibilidad de realizar una validación cruzada k-fold, donde se debe especificar el valor de k y un valor para la semilla. Para ello es necesario colocar *si* en la opción *Evaluar*. También es posible guardar los valores predichos (opción *Predichos*) y obtener la predicción (opción *Predecir*) sobre una nueva base de datos. Para esto se necesita tener un archivo .txt con la información de las coordenadas (x e y) en las dos primeras columnas y de cada una de las covariables que se usaron en el ajuste del modelo. Se requiere que los nombres de las covariables sean los mismos tanto en la grilla como en la tabla de datos. La opción *Importancia* permite elaborar un ranking de la importancia relativa de cada covariable en el modelo ajustado. Esta se calcula en función a la influencia que tiene cada predictor en Error Cuadrático Medio (MSE) del modelo mediante un proceso de permutación de los valores de cada covariable.</span>
+<span id="cb1-318"><a href="#cb1-318" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-319"><a href="#cb1-319" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = FALSE, purl=FALSE, out.width = '0.7\\linewidth'}</span></span>
+<span id="cb1-320"><a href="#cb1-320" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"figuras/Parte2/44.jpg"</span>)</span>
+<span id="cb1-321"><a href="#cb1-321" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-322"><a href="#cb1-322" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-323"><a href="#cb1-323" aria-hidden="true" tabindex="-1"></a>Al ejecutar el análisis, dado que se solicitó realizar la predicción, el software mostrará una ventana para seleccionar el archivo .txt que corresponde a la grilla de predicción. En este ejemplo se denomina **grilla_am.txt**. Al accionar *Abrir* se procederá con el análisis. En la ventana *Resultados* se menciona que los valores *Predichos* se adicionan a la tabla de datos **Pred2.idb2**. Además, los valores de la predicción se adicionan a la grilla y se despliegan en una nueva tabla de datos denominada *Predicción*.</span>
+<span id="cb1-324"><a href="#cb1-324" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-325"><a href="#cb1-325" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = FALSE, purl=FALSE}</span></span>
+<span id="cb1-326"><a href="#cb1-326" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"figuras/Parte2/45.jpg"</span>)</span>
+<span id="cb1-327"><a href="#cb1-327" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-328"><a href="#cb1-328" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-329"><a href="#cb1-329" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = FALSE, purl=FALSE}</span></span>
+<span id="cb1-330"><a href="#cb1-330" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"figuras/Parte2/46.jpg"</span>)</span>
+<span id="cb1-331"><a href="#cb1-331" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-332"><a href="#cb1-332" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-333"><a href="#cb1-333" aria-hidden="true" tabindex="-1"></a>Los resultados muestran las medidas para cuantificar el error de predicción, entre estas el error medio absoluto (MAE), la raíz del error cuadrático medio (RMSE), la RMSE relativa a la media de los observados (nRMSE) y un valor de $R^2$. Los valores muestran un mejor desempeño del kriging regresión vs. el modelo de regresión lineal múltiple. En el ranking de importancia de las variables explicativas se observa que la elevación fue la variable que contribuyo en mayor medida a explicar la variabilidad del rendimiento de trigo. El semivariograma ajustado sobre los residuos del modelo de regresión lineal muestra la existencia de una estructura de correlación espacial (bajo valor del cociente nugget\/sill). </span>
+<span id="cb1-334"><a href="#cb1-334" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-335"><a href="#cb1-335" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- ```{r, echo = FALSE, purl=FALSE} --&gt;</span></span>
+<span id="cb1-336"><a href="#cb1-336" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- knitr::include_graphics("figuras/Parte2/47.jpg") --&gt;</span></span>
+<span id="cb1-337"><a href="#cb1-337" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- ``` --&gt;</span></span>
+<span id="cb1-338"><a href="#cb1-338" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-339"><a href="#cb1-339" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-340"><a href="#cb1-340" aria-hidden="true" tabindex="-1"></a><span class="fu">### Árboles aleatorios</span></span>
+<span id="cb1-341"><a href="#cb1-341" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-342"><a href="#cb1-342" aria-hidden="true" tabindex="-1"></a>Para realizar el análisis las variables CE30, CE90, Elev Pe y Tg se colocan en el casillero *Variables* y las coordenadas x e y en el cuadro *Coordenadas*.</span>
+<span id="cb1-343"><a href="#cb1-343" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-344"><a href="#cb1-344" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = FALSE, purl=FALSE, out.width = '0.7\\linewidth'}</span></span>
+<span id="cb1-345"><a href="#cb1-345" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"figuras/Parte2/48.jpg"</span>)</span>
+<span id="cb1-346"><a href="#cb1-346" aria-hidden="true" tabindex="-1"></a><span class="in">```</span> </span>
+<span id="cb1-347"><a href="#cb1-347" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-348"><a href="#cb1-348" aria-hidden="true" tabindex="-1"></a>En la ventana siguiente se puede seleccionar que el método sólo realice la predicción en base al algoritmo *Random Forest* o sumando a la predicción de este los valores interpolados usando kriging ordinario de los residuos del Random Forest (*Random Forest + kriging Ordinario*).  Luego, selecciona el de mejor ajuste según el valor de SCE, y los parámetros de este son usados en la interpolación de los residuos. La función ajusta en forma automática el semivariograma experimental y los modelos teóricos exponencial, esférico y gaussiano. El método también permite fijar un valor del hiperparámetro *mtry* del random forest o también realizar una selección del *mtry* optimo mediante un proceso de validación cruzada del tipo k-fold. Para la validación se puede especificar el valor de k y un valor de semilla. En caso de no fijar el valor de *mtry* utiliza el recomendado de $p/3$ para modelos de regresión o $\sqrt{p}$ para modelos de clasificación. Si se quiere probar más de un valor se puede especificar un vector de valores que inician con el valor colocado en la opción *Desde* hasta el valor especificado en *Hasta* con un salto dado por la opción *Paso*. La opción *Evaluar* permite realizar una validación cruzada de la misma forma que la especificada inicialmente. Para ello es necesario colocar *si* en dicha opción. </span>
+<span id="cb1-349"><a href="#cb1-349" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-350"><a href="#cb1-350" aria-hidden="true" tabindex="-1"></a>También, es posible guardar los valores predichos (opción *Predichos*) y obtener la predicción (opción *Predecir*) sobre una nueva base de datos. Para tal fin se necesita tener un archivo .txt de la grilla de predicción con la información de las coordenadas (x e y) en las dos primeras columnas y de cada una de las covariables que se usaron en el ajuste del modelo. Se requiere que los nombres de las covariables sean los mismos tanto en la grilla como en la tabla de datos. La opción *Importancia* devuelve un ranking de la importancia relativa de cada covariable en el modelo ajustado, que se calcula en función a la influencia que tiene cada predictor en Error Cuadrático Medio (MSE) del modelo mediante un proceso de permutación de los valores de cada covariable. La opción *Relaciones Parciales* generar un gráfico que muestra el efecto marginal de cada una de las covariables sobre la variable respuesta. Para obtener este gráfico debe colocarse *si*. Esto genera un  panel con los gráficos de cada una de las covaraiables del modelo. Si en lugar de *si* se coloca el carácter *m* el método genera un gráfico independiente para cada una de las regresoras. También, es posible editar los valores mínimos y máximos de la variable respuesta (eje y) en todos los gráficos mediante las opciones *ymin* e *ymax*.</span>
+<span id="cb1-351"><a href="#cb1-351" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-352"><a href="#cb1-352" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = FALSE, purl=FALSE, out.width = '0.7\\linewidth'}</span></span>
+<span id="cb1-353"><a href="#cb1-353" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"figuras/Parte2/49.jpg"</span>)</span>
+<span id="cb1-354"><a href="#cb1-354" aria-hidden="true" tabindex="-1"></a><span class="in">```</span> </span>
+<span id="cb1-355"><a href="#cb1-355" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-356"><a href="#cb1-356" aria-hidden="true" tabindex="-1"></a>Al ejecutar el análisis, dado que se solicitó realizar la predicción, el software mostrará una ventana para seleccionar el archivo .txt que corresponde a la grilla de predicción. En este ejemplo se denomina **grilla_am.txt**. Al accionar *Abrir* se procederá con el análisis. En la ventana *Resultados* se menciona que los valores *Predichos* se adicionan a la tabla de datos **Pred2.idb2**. Además, los valores de la predicción se adicionan a la grilla y se despliegan en una nueva tabla de datos denominada *Predicción*.</span>
+<span id="cb1-357"><a href="#cb1-357" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-358"><a href="#cb1-358" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = FALSE, purl=FALSE}</span></span>
+<span id="cb1-359"><a href="#cb1-359" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"figuras/Parte2/50.jpg"</span>)</span>
+<span id="cb1-360"><a href="#cb1-360" aria-hidden="true" tabindex="-1"></a><span class="in">```</span> </span>
+<span id="cb1-361"><a href="#cb1-361" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-362"><a href="#cb1-362" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-363"><a href="#cb1-363" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = FALSE, purl=FALSE}</span></span>
+<span id="cb1-364"><a href="#cb1-364" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"figuras/Parte2/51.jpg"</span>)</span>
+<span id="cb1-365"><a href="#cb1-365" aria-hidden="true" tabindex="-1"></a><span class="in">```</span> </span>
+<span id="cb1-366"><a href="#cb1-366" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-367"><a href="#cb1-367" aria-hidden="true" tabindex="-1"></a>Los resultados muestran las medidas para cuantificar el error de predicción, entre estas el error medio absoluto (MAE), la raíz del error cuadrático medio (RMSE), la RMSE relativa a la media de los observados (nRMSE) y un valor de $R^2$. Los valores muestran un mejor desempeño del kriging regresión vs. el modelo de regresión lineal múltiple. En el ranking de importancia de las variables explicativas se observa que la elevación fue la mayor contribución en la determinación del rendimiento de trigo. El gráfico de las relaciones parciales muestra que cuando aumenta la elevación disminuye el rendimiento de trigo. Con la variable Pe la correlación es negativa mientras que con la conductividad eléctrica presenta una relación no lineal. El semivariograma ajustado sobre los residuos del modelo de regresión lineal muestran la existencia de una estructura de correlación espacial (bajo valor del cociente nugget\/sill). </span>
+<span id="cb1-368"><a href="#cb1-368" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-369"><a href="#cb1-369" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-370"><a href="#cb1-370" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = FALSE, purl=FALSE}</span></span>
+<span id="cb1-371"><a href="#cb1-371" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"figuras/Parte2/52.jpg"</span>)</span>
+<span id="cb1-372"><a href="#cb1-372" aria-hidden="true" tabindex="-1"></a><span class="in">```</span> </span>
+<span id="cb1-373"><a href="#cb1-373" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-374"><a href="#cb1-374" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = FALSE, purl=FALSE}</span></span>
+<span id="cb1-375"><a href="#cb1-375" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"figuras/Parte2/53.jpg"</span>)</span>
+<span id="cb1-376"><a href="#cb1-376" aria-hidden="true" tabindex="-1"></a><span class="in">```</span> </span>
+</code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+<footer class="footer"><div class="nav-footer">
+    <div class="nav-footer-left">Guía para el análisis de datos espaciales. Aplicaciones en agricultura</div>   
+    <div class="nav-footer-right">Este libro se construyo con <a href="https://quarto.org/">Quarto</a>.</div>
+  </div>
+</footer>
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
